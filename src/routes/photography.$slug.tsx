@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { stories } from "@/data/site";
+import { stories, type Story } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { WhatsAppButton } from "@/components/site/CTA";
 
@@ -42,7 +42,7 @@ function StoryNotFound() {
 }
 
 function StoryDetail() {
-  const { story } = Route.useLoaderData();
+  const { story } = Route.useLoaderData() as { story: Story };
   const index = stories.findIndex((s) => s.slug === story.slug);
   const next = stories[(index + 1) % stories.length]!;
 
@@ -68,7 +68,7 @@ function StoryDetail() {
           <p className="font-display text-3xl leading-tight md:text-4xl">{story.intro}</p>
         </Reveal>
         <Reveal delay={0.1} className="space-y-6 text-sm leading-relaxed text-muted-foreground md:text-base">
-          {story.narrative.map((p) => (
+          {story.narrative.map((p: string) => (
             <p key={p}>{p}</p>
           ))}
         </Reveal>
@@ -76,7 +76,7 @@ function StoryDetail() {
 
       <section className="shell pb-20 md:pb-28">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
-          {story.gallery.map((src, i) => (
+          {story.gallery.map((src: string, i: number) => (
             <RevealImage
               key={src + i}
               src={src}
