@@ -23,27 +23,24 @@ export function Header() {
           : "border-b border-transparent text-background"
       }`}
     >
-      <div className="shell grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-5 md:grid-cols-[1fr_auto_1fr] md:py-6">
-        <nav className="hidden items-center gap-9 md:flex">
-          {nav.slice(0, 2).map((item) => (
+      <div className="shell flex items-center justify-between gap-8 py-5 md:py-6">
+        <div className="min-w-0">
+          <Wordmark />
+        </div>
+
+        <nav className="hidden flex-1 items-center gap-9 md:flex">
+          {nav.map((item) => (
             <NavLink key={item.to} {...item} />
           ))}
         </nav>
 
-        <div className="min-w-0 md:text-center">
-          <Wordmark />
-        </div>
-
-        <div className="hidden items-center justify-end gap-9 md:flex">
-          {nav.slice(2).map((item) => (
-            <NavLink key={item.to} {...item} />
-          ))}
+        <div className="hidden md:block">
           <WhatsAppButton variant={scrolled || open ? "outline" : "light"}>Enquire</WhatsAppButton>
         </div>
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="label-xs justify-self-end md:hidden"
+          className="label-xs md:hidden"
           aria-expanded={open}
           aria-label="Toggle menu"
         >
