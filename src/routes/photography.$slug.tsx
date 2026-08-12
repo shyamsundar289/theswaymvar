@@ -51,7 +51,7 @@ function StoryDetail() {
       <section className="shell page-top pb-12 md:pb-16">
         <Reveal>
           <Link to="/photography" className="label-xs story-link text-muted-foreground">
-            Work
+            Photography
           </Link>
           <h1 className="font-display mt-6 text-5xl leading-[0.98] md:text-8xl">{story.couple}</h1>
           <div className="mt-8 flex flex-wrap gap-x-10 gap-y-2 border-t border-border/70 pt-6">

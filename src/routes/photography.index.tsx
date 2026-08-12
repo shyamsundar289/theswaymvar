@@ -6,13 +6,13 @@ import { WhatsAppButton } from "@/components/site/CTA";
 export const Route = createFileRoute("/photography/")({
   head: () => ({
     meta: [
-      { title: "Work — Wedding Stories | theswaymvar" },
+      { title: "Photography — Wedding Stories | theswaymvar" },
       {
         name: "description",
         content:
           "Selected wedding stories photographed and filmed by theswaymvar — Udaipur, Alibaug, Jaipur, Coonoor, Lake Como and Goa.",
       },
-      { property: "og:title", content: "Work — Wedding Stories | theswaymvar" },
+      { property: "og:title", content: "Photography — Wedding Stories | theswaymvar" },
       { property: "og:description", content: "Selected wedding stories, told whole." },
     ],
   }),
@@ -24,7 +24,7 @@ function WorkIndex() {
     <>
       <section className="shell page-top pb-14 md:pb-20">
         <Reveal>
-          <p className="label-xs text-bronze">Work</p>
+          <p className="label-xs text-bronze">Photography</p>
           <h1 className="font-display mt-6 max-w-4xl text-5xl leading-[0.98] md:text-8xl">
             Weddings, told whole.
           </h1>

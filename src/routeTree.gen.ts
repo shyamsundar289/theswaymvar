@@ -11,10 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as StoryRouteImport } from './routes/story'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
-import { Route as WorkIndexRouteImport } from './routes/work.index'
-import { Route as WorkSlugRouteImport } from './routes/work.$slug'
+import { Route as PhotographyIndexRouteImport } from './routes/photography.index'
+import { Route as PhotographySlugRouteImport } from './routes/photography.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -26,75 +24,49 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const StoryRoute = StoryRouteImport.update({
-  id: '/story',
-  path: '/story',
+const PhotographyIndexRoute = PhotographyIndexRouteImport.update({
+  id: '/photography/',
+  path: '/photography/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WorkIndexRoute = WorkIndexRouteImport.update({
-  id: '/work/',
-  path: '/work/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WorkSlugRoute = WorkSlugRouteImport.update({
-  id: '/work/$slug',
-  path: '/work/$slug',
+const PhotographySlugRoute = PhotographySlugRouteImport.update({
+  id: '/photography/$slug',
+  path: '/photography/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/services': typeof ServicesRoute
-  '/story': typeof StoryRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work/': typeof WorkIndexRoute
+  '/photography/$slug': typeof PhotographySlugRoute
+  '/photography/': typeof PhotographyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/services': typeof ServicesRoute
-  '/story': typeof StoryRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work': typeof WorkIndexRoute
+  '/photography/$slug': typeof PhotographySlugRoute
+  '/photography': typeof PhotographyIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/services': typeof ServicesRoute
-  '/story': typeof StoryRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work/': typeof WorkIndexRoute
+  '/photography/$slug': typeof PhotographySlugRoute
+  '/photography/': typeof PhotographyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/services' | '/story' | '/testimonials' | '/work/$slug' | '/work/'
+  fullPaths: '/' | '/services' | '/photography/$slug' | '/photography/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/services' | '/story' | '/testimonials' | '/work/$slug' | '/work'
-  id:
-    | '__root__'
-    | '/'
-    | '/services'
-    | '/story'
-    | '/testimonials'
-    | '/work/$slug'
-    | '/work/'
+  to: '/' | '/services' | '/photography/$slug' | '/photography'
+  id: '__root__' | '/' | '/services' | '/photography/$slug' | '/photography/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ServicesRoute: typeof ServicesRoute
-  StoryRoute: typeof StoryRoute
-  TestimonialsRoute: typeof TestimonialsRoute
-  WorkSlugRoute: typeof WorkSlugRoute
-  WorkIndexRoute: typeof WorkIndexRoute
+  PhotographySlugRoute: typeof PhotographySlugRoute
+  PhotographyIndexRoute: typeof PhotographyIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -113,32 +85,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/story': {
-      id: '/story'
-      path: '/story'
-      fullPath: '/story'
-      preLoaderRoute: typeof StoryRouteImport
+    '/photography/': {
+      id: '/photography/'
+      path: '/photography'
+      fullPath: '/photography/'
+      preLoaderRoute: typeof PhotographyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/work/': {
-      id: '/work/'
-      path: '/work'
-      fullPath: '/work/'
-      preLoaderRoute: typeof WorkIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/work/$slug': {
-      id: '/work/$slug'
-      path: '/work/$slug'
-      fullPath: '/work/$slug'
-      preLoaderRoute: typeof WorkSlugRouteImport
+    '/photography/$slug': {
+      id: '/photography/$slug'
+      path: '/photography/$slug'
+      fullPath: '/photography/$slug'
+      preLoaderRoute: typeof PhotographySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -147,11 +105,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ServicesRoute: ServicesRoute,
-  StoryRoute: StoryRoute,
-  TestimonialsRoute: TestimonialsRoute,
-  WorkSlugRoute: WorkSlugRoute,
-  WorkIndexRoute: WorkIndexRoute,
+  PhotographySlugRoute: PhotographySlugRoute,
+  PhotographyIndexRoute: PhotographyIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
