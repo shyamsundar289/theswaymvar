@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { premium, services } from "@/data/site";
-import { Reveal, RevealImage } from "@/components/site/Reveal";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { premium, services, waLink } from "@/data/site";
+import { Reveal } from "@/components/site/Reveal";
 import { WhatsAppButton } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/services")({
@@ -38,33 +38,45 @@ function ServicesPage() {
         </Reveal>
       </section>
 
-      {services.map((s, i) => (
-        <section key={s.id} className="shell section-y border-t border-border/60">
-          <div
-            className={`grid gap-10 md:grid-cols-2 md:items-center md:gap-20 ${
-              i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-            }`}
-          >
-            <RevealImage src={s.image} alt={s.name} className="aspect-[4/5] hover-lift" />
-            <Reveal delay={0.05}>
-              <p className="label-xs text-bronze">{s.numeral}</p>
-              <h2 className="font-display mt-5 text-4xl leading-[1.05] md:text-6xl">{s.name}</h2>
-              <p className="mt-5 font-display text-xl text-foreground/80 md:text-2xl">{s.line}</p>
-              <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
-                {s.body}
-              </p>
-              <div className="mt-9">
-                <WhatsAppButton
-                  variant="outline"
-                  message={`Hello theswaymvar — we'd like to enquire about ${s.name}.`}
+      <section className="shell pb-8">
+        <ul className="divide-y divide-border/70 border-y border-border/70">
+          {services.map((s) => (
+            <li key={s.id}>
+              {s.id === "wedding-films" ? (
+                <Link
+                  to="/film"
+                  className="group grid grid-cols-[auto_minmax(0,1fr)] items-baseline gap-5 py-8 md:grid-cols-[auto_minmax(0,1fr)_auto] md:gap-10"
                 >
-                  Enquire about this
-                </WhatsAppButton>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-      ))}
+                  <span className="label-xs text-bronze">{s.numeral}</span>
+                  <div className="min-w-0">
+                    <h2 className="font-display text-2xl md:text-4xl">{s.name}</h2>
+                    <p className="mt-2 text-sm text-muted-foreground">{s.line}</p>
+                  </div>
+                  <span className="label-xs hidden text-muted-foreground transition-colors group-hover:text-foreground md:block">
+                    View
+                  </span>
+                </Link>
+              ) : (
+                <a
+                  href={waLink(`Hello theswaymvar — we'd like to enquire about ${s.name}.`)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group grid grid-cols-[auto_minmax(0,1fr)] items-baseline gap-5 py-8 md:grid-cols-[auto_minmax(0,1fr)_auto] md:gap-10"
+                >
+                  <span className="label-xs text-bronze">{s.numeral}</span>
+                  <div className="min-w-0">
+                    <h2 className="font-display text-2xl md:text-4xl">{s.name}</h2>
+                    <p className="mt-2 text-sm text-muted-foreground">{s.line}</p>
+                  </div>
+                  <span className="label-xs hidden text-muted-foreground transition-colors group-hover:text-foreground md:block">
+                    Enquire
+                  </span>
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section className="relative isolate overflow-hidden bg-charcoal text-background">
         <img src={premium.image} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-30" />

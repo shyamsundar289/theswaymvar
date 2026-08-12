@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { images } from "@/data/images";
 import { premium, recognition, services, stories } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
-import { PressStrip } from "@/components/site/PressStrip";
 import { MasonryGrid } from "@/components/site/Masonry";
 import { DiagonalBreak } from "@/components/site/DiagonalBreak";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -93,10 +92,6 @@ function Home() {
     <>
       <Hero />
 
-      <section className="shell py-12 md:py-16">
-        <PressStrip />
-      </section>
-
       {/* Brand split */}
       <section className="shell section-y grid gap-12 md:grid-cols-2 md:items-center md:gap-20">
         <Reveal>
@@ -112,8 +107,8 @@ function Home() {
           <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
             The result is a body of work that looks like your family rather than a catalogue.
           </p>
-          <Link to="/story" className="label-xs story-link mt-9 inline-block text-foreground">
-            Read our story
+          <Link to="/photography" className="label-xs story-link mt-9 inline-block text-foreground">
+            See the work
           </Link>
         </Reveal>
         <div className="relative">
@@ -129,6 +124,13 @@ function Home() {
           />
         </div>
       </section>
+
+      <DiagonalBreak
+        image={images.break.cinematic}
+        eyebrow="Our only rule"
+        quote="Photograph what is happening, never what should be happening."
+        attribution="theswaymvar — studio note, 2019"
+      />
 
       {/* Masonry with text tiles */}
       <section className="shell section-y">
@@ -154,28 +156,6 @@ function Home() {
               { type: "image", src: images.moments[9], alt: "Bridal shoes and roses", span: "aspect-square" },
             ]}
           />
-        </div>
-      </section>
-
-      <DiagonalBreak
-        image={images.break.cinematic}
-        eyebrow="Our only rule"
-        quote="Photograph what is happening, never what should be happening."
-        attribution="theswaymvar — studio note, 2019"
-      />
-
-      {/* Films */}
-      <section className="shell section-y">
-        <div className="grid gap-12 md:grid-cols-[1fr_1.15fr] md:items-end md:gap-20">
-          <SectionHeading
-            eyebrow="Films"
-            title="Cut for feeling, not for the reel."
-            body="Every wedding is filmed with live sound and edited to the rhythm the day actually had. Short film, long documentary cut, and a same-day edit if you'd like the room to go quiet before dessert."
-          />
-          <div className="grid grid-cols-2 gap-4 md:gap-6">
-            <RevealImage src={images.films.reelA} alt="Still from a wedding film at dusk" className="aspect-[3/4] hover-lift" />
-            <RevealImage src={images.films.reelB} alt="Still from a coastal wedding film" className="mt-10 aspect-[3/4] hover-lift" />
-          </div>
         </div>
       </section>
 
@@ -211,7 +191,7 @@ function Home() {
         <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
           {stories.slice(0, 3).map((story, i) => (
             <Reveal key={story.slug} delay={i * 0.08}>
-              <Link to="/work/$slug" params={{ slug: story.slug }} className="hover-lift block">
+              <Link to="/photography/$slug" params={{ slug: story.slug }} className="hover-lift block">
                 <div className="overflow-hidden">
                   <img
                     src={story.cover}
@@ -227,7 +207,7 @@ function Home() {
           ))}
         </div>
         <Reveal className="mt-14">
-          <Link to="/work" className="label-xs story-link">
+          <Link to="/photography" className="label-xs story-link">
             All stories
           </Link>
         </Reveal>

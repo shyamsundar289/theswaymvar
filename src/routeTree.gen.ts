@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FilmRouteImport } from './routes/film'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PhotographyIndexRouteImport } from './routes/photography.index'
 import { Route as PhotographySlugRouteImport } from './routes/photography.$slug'
@@ -17,6 +18,11 @@ import { Route as PhotographySlugRouteImport } from './routes/photography.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmRoute = FilmRouteImport.update({
+  id: '/film',
+  path: '/film',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -37,12 +43,14 @@ const PhotographySlugRoute = PhotographySlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/film': typeof FilmRoute
   '/services': typeof ServicesRoute
   '/photography/$slug': typeof PhotographySlugRoute
   '/photography/': typeof PhotographyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/film': typeof FilmRoute
   '/services': typeof ServicesRoute
   '/photography/$slug': typeof PhotographySlugRoute
   '/photography': typeof PhotographyIndexRoute
@@ -50,20 +58,29 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/film': typeof FilmRoute
   '/services': typeof ServicesRoute
   '/photography/$slug': typeof PhotographySlugRoute
   '/photography/': typeof PhotographyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/services' | '/photography/$slug' | '/photography/'
+  fullPaths:
+    '/' | '/film' | '/services' | '/photography/$slug' | '/photography/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/services' | '/photography/$slug' | '/photography'
-  id: '__root__' | '/' | '/services' | '/photography/$slug' | '/photography/'
+  to: '/' | '/film' | '/services' | '/photography/$slug' | '/photography'
+  id:
+    | '__root__'
+    | '/'
+    | '/film'
+    | '/services'
+    | '/photography/$slug'
+    | '/photography/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FilmRoute: typeof FilmRoute
   ServicesRoute: typeof ServicesRoute
   PhotographySlugRoute: typeof PhotographySlugRoute
   PhotographyIndexRoute: typeof PhotographyIndexRoute
@@ -76,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/film': {
+      id: '/film'
+      path: '/film'
+      fullPath: '/film'
+      preLoaderRoute: typeof FilmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -104,6 +128,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FilmRoute: FilmRoute,
   ServicesRoute: ServicesRoute,
   PhotographySlugRoute: PhotographySlugRoute,
   PhotographyIndexRoute: PhotographyIndexRoute,
