@@ -45,7 +45,8 @@ function Hero() {
         style={{ y }}
         className="absolute inset-0 h-[118%] w-full object-cover grayscale"
       />
-      <div className="absolute inset-0 bg-charcoal/45" />
+      <div className="absolute inset-0 bg-charcoal/35" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/25 to-charcoal/55" />
       <div className="grain absolute inset-0" />
 
       <motion.div

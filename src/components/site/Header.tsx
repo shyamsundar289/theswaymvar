@@ -19,8 +19,8 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${
         scrolled || open
-          ? "border-b border-border/70 bg-background/92 backdrop-blur-sm"
-          : "border-b border-transparent"
+          ? "border-b border-border/70 bg-background/92 text-foreground backdrop-blur-sm"
+          : "border-b border-transparent text-background"
       }`}
     >
       <div className="shell grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-5 md:grid-cols-[1fr_auto_1fr] md:py-6">
@@ -38,7 +38,7 @@ export function Header() {
           {nav.slice(2).map((item) => (
             <NavLink key={item.to} {...item} />
           ))}
-          <WhatsAppButton variant="outline">Enquire</WhatsAppButton>
+          <WhatsAppButton variant={scrolled || open ? "outline" : "light"}>Enquire</WhatsAppButton>
         </div>
 
         <button
@@ -78,8 +78,8 @@ function NavLink({ label, to }: { label: string; to: string }) {
   return (
     <Link
       to={to}
-      className="label-xs text-foreground/70 transition-colors duration-300 hover:text-foreground"
-      activeProps={{ className: "label-xs text-foreground" }}
+      className="label-xs opacity-70 transition-opacity duration-300 hover:opacity-100"
+      activeProps={{ className: "label-xs opacity-100" }}
     >
       {label}
     </Link>
