@@ -10,15 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FilmRouteImport } from './routes/film'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as StoryRouteImport } from './routes/story'
-import { Route as TestimonialsRouteImport } from './routes/testimonials'
-import { Route as WorkIndexRouteImport } from './routes/work.index'
-import { Route as WorkSlugRouteImport } from './routes/work.$slug'
+import { Route as PhotographyIndexRouteImport } from './routes/photography.index'
+import { Route as PhotographySlugRouteImport } from './routes/photography.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FilmRoute = FilmRouteImport.update({
+  id: '/film',
+  path: '/film',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -26,75 +30,60 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const StoryRoute = StoryRouteImport.update({
-  id: '/story',
-  path: '/story',
+const PhotographyIndexRoute = PhotographyIndexRouteImport.update({
+  id: '/photography/',
+  path: '/photography/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TestimonialsRoute = TestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WorkIndexRoute = WorkIndexRouteImport.update({
-  id: '/work/',
-  path: '/work/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WorkSlugRoute = WorkSlugRouteImport.update({
-  id: '/work/$slug',
-  path: '/work/$slug',
+const PhotographySlugRoute = PhotographySlugRouteImport.update({
+  id: '/photography/$slug',
+  path: '/photography/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/film': typeof FilmRoute
   '/services': typeof ServicesRoute
-  '/story': typeof StoryRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work/': typeof WorkIndexRoute
+  '/photography/$slug': typeof PhotographySlugRoute
+  '/photography/': typeof PhotographyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/film': typeof FilmRoute
   '/services': typeof ServicesRoute
-  '/story': typeof StoryRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work': typeof WorkIndexRoute
+  '/photography/$slug': typeof PhotographySlugRoute
+  '/photography': typeof PhotographyIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/film': typeof FilmRoute
   '/services': typeof ServicesRoute
-  '/story': typeof StoryRoute
-  '/testimonials': typeof TestimonialsRoute
-  '/work/$slug': typeof WorkSlugRoute
-  '/work/': typeof WorkIndexRoute
+  '/photography/$slug': typeof PhotographySlugRoute
+  '/photography/': typeof PhotographyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/services' | '/story' | '/testimonials' | '/work/$slug' | '/work/'
+    '/' | '/film' | '/services' | '/photography/$slug' | '/photography/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/services' | '/story' | '/testimonials' | '/work/$slug' | '/work'
+  to: '/' | '/film' | '/services' | '/photography/$slug' | '/photography'
   id:
     | '__root__'
     | '/'
+    | '/film'
     | '/services'
-    | '/story'
-    | '/testimonials'
-    | '/work/$slug'
-    | '/work/'
+    | '/photography/$slug'
+    | '/photography/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FilmRoute: typeof FilmRoute
   ServicesRoute: typeof ServicesRoute
-  StoryRoute: typeof StoryRoute
-  TestimonialsRoute: typeof TestimonialsRoute
-  WorkSlugRoute: typeof WorkSlugRoute
-  WorkIndexRoute: typeof WorkIndexRoute
+  PhotographySlugRoute: typeof PhotographySlugRoute
+  PhotographyIndexRoute: typeof PhotographyIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -106,6 +95,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/film': {
+      id: '/film'
+      path: '/film'
+      fullPath: '/film'
+      preLoaderRoute: typeof FilmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -113,32 +109,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/story': {
-      id: '/story'
-      path: '/story'
-      fullPath: '/story'
-      preLoaderRoute: typeof StoryRouteImport
+    '/photography/': {
+      id: '/photography/'
+      path: '/photography'
+      fullPath: '/photography/'
+      preLoaderRoute: typeof PhotographyIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/testimonials': {
-      id: '/testimonials'
-      path: '/testimonials'
-      fullPath: '/testimonials'
-      preLoaderRoute: typeof TestimonialsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/work/': {
-      id: '/work/'
-      path: '/work'
-      fullPath: '/work/'
-      preLoaderRoute: typeof WorkIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/work/$slug': {
-      id: '/work/$slug'
-      path: '/work/$slug'
-      fullPath: '/work/$slug'
-      preLoaderRoute: typeof WorkSlugRouteImport
+    '/photography/$slug': {
+      id: '/photography/$slug'
+      path: '/photography/$slug'
+      fullPath: '/photography/$slug'
+      preLoaderRoute: typeof PhotographySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -146,11 +128,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FilmRoute: FilmRoute,
   ServicesRoute: ServicesRoute,
-  StoryRoute: StoryRoute,
-  TestimonialsRoute: TestimonialsRoute,
-  WorkSlugRoute: WorkSlugRoute,
-  WorkIndexRoute: WorkIndexRoute,
+  PhotographySlugRoute: PhotographySlugRoute,
+  PhotographyIndexRoute: PhotographyIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

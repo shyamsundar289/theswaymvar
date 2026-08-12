@@ -1,9 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { stories } from "@/data/site";
+import { stories, type Story } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { WhatsAppButton } from "@/components/site/CTA";
 
-export const Route = createFileRoute("/work/$slug")({
+export const Route = createFileRoute("/photography/$slug")({
   loader: ({ params }) => {
     const story = stories.find((s) => s.slug === params.slug);
     if (!story) throw notFound();
@@ -34,7 +34,7 @@ function StoryNotFound() {
   return (
     <div className="shell page-top pb-32 text-center">
       <h1 className="font-display text-5xl md:text-7xl">We can't find that story.</h1>
-      <Link to="/work" className="label-xs story-link mt-8 inline-block">
+      <Link to="/photography" className="label-xs story-link mt-8 inline-block">
         Back to all work
       </Link>
     </div>
@@ -42,7 +42,7 @@ function StoryNotFound() {
 }
 
 function StoryDetail() {
-  const { story } = Route.useLoaderData();
+  const { story } = Route.useLoaderData() as { story: Story };
   const index = stories.findIndex((s) => s.slug === story.slug);
   const next = stories[(index + 1) % stories.length]!;
 
@@ -50,8 +50,8 @@ function StoryDetail() {
     <>
       <section className="shell page-top pb-12 md:pb-16">
         <Reveal>
-          <Link to="/work" className="label-xs story-link text-muted-foreground">
-            Work
+          <Link to="/photography" className="label-xs story-link text-muted-foreground">
+            Photography
           </Link>
           <h1 className="font-display mt-6 text-5xl leading-[0.98] md:text-8xl">{story.couple}</h1>
           <div className="mt-8 flex flex-wrap gap-x-10 gap-y-2 border-t border-border/70 pt-6">
@@ -68,7 +68,7 @@ function StoryDetail() {
           <p className="font-display text-3xl leading-tight md:text-4xl">{story.intro}</p>
         </Reveal>
         <Reveal delay={0.1} className="space-y-6 text-sm leading-relaxed text-muted-foreground md:text-base">
-          {story.narrative.map((p) => (
+          {story.narrative.map((p: string) => (
             <p key={p}>{p}</p>
           ))}
         </Reveal>
@@ -76,7 +76,7 @@ function StoryDetail() {
 
       <section className="shell pb-20 md:pb-28">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
-          {story.gallery.map((src, i) => (
+          {story.gallery.map((src: string, i: number) => (
             <RevealImage
               key={src + i}
               src={src}
@@ -97,7 +97,7 @@ function StoryDetail() {
         <div className="shell section-y grid gap-8 md:grid-cols-2 md:items-center">
           <div>
             <p className="label-xs text-bronze">Next story</p>
-            <Link to="/work/$slug" params={{ slug: next.slug }} className="font-display mt-4 block text-4xl md:text-6xl">
+            <Link to="/photography/$slug" params={{ slug: next.slug }} className="font-display mt-4 block text-4xl md:text-6xl">
               {next.couple}
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">{next.location}</p>

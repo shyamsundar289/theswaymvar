@@ -1,75 +1,76 @@
-const px = (id: number, w = 1600) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+import hero from "@/assets/hero.jpg";
+import approachLarge from "@/assets/approach-large.jpg";
+import approachInset from "@/assets/approach-inset.jpg";
+import breakCinematic from "@/assets/break-cinematic.jpg";
+import filmA from "@/assets/film-a.jpg";
+import filmB from "@/assets/film-b.jpg";
+import filmHighlight from "@/assets/film-highlight.jpg";
+import premiumCover from "@/assets/premium.jpg";
+import m1 from "@/assets/m1.jpg";
+import m2 from "@/assets/m2.jpg";
+import m3 from "@/assets/m3.jpg";
+import m4 from "@/assets/m4.jpg";
+import m5 from "@/assets/m5.jpg";
+import m6 from "@/assets/m6.jpg";
+import m7 from "@/assets/m7.jpg";
+import m8 from "@/assets/m8.jpg";
 
 /**
  * Central image map — every image in the site resolves through here so client
  * photography can be swapped one-to-one later without touching layout code.
  */
 export const images = {
-  hero: { primary: px(3014856, 1800) },
+  hero: { primary: hero },
   approach: {
-    large: px(3014851, 1200),
-    inset: px(1456613, 900),
+    large: approachLarge,
+    inset: approachInset,
   },
-  moments: [
-    px(2253870, 1000),
-    px(1444442, 1000),
-    px(2959192, 1000),
-    px(1043902, 1000),
-    px(1729797, 1000),
-    px(265722, 1000),
-    px(1444443, 1000),
-    px(3585811, 1000),
-    px(2959190, 1000),
-    px(313707, 1000),
-    px(1128782, 1000),
-    px(2306277, 1000),
-  ],
-  break: { cinematic: px(2253842, 1800) },
+  moments: [m1, m2, m3, m4, m5, m6, m7, m8, filmA, m3, m5, m8],
+  break: { cinematic: breakCinematic },
   films: {
-    reelA: px(1024993, 1400),
-    reelB: px(1024968, 1400),
-    highlightA: px(1024960, 1200),
-    highlightB: px(169198, 1200),
+    reelA: filmA,
+    reelB: filmB,
+    highlightA: filmHighlight,
+    highlightB: breakCinematic,
   },
-  premium: { cover: px(1024990, 1600) },
+  premium: { cover: premiumCover },
   story: {
-    opener: px(2253870, 1800),
-    one: px(1456613, 1200),
-    two: px(1444442, 1200),
-    three: px(3014856, 1200),
+    opener: hero,
+    one: approachInset,
+    two: m1,
+    three: m5,
   },
   services: {
-    wedding: px(169198, 1400),
-    films: px(3014851, 1400),
-    destination: px(1024968, 1400),
-    sameday: px(1729797, 1400),
-    finearts: px(1024990, 1400),
+    wedding: m5,
+    films: filmA,
+    destination: m8,
+    sameday: filmHighlight,
+    finearts: premiumCover,
   },
   work: {
     "meher-and-arjun": {
-      cover: px(2253870, 1400),
-      gallery: [px(2959192, 1200), px(1456613, 1000), px(1043902, 1400), px(313707, 1000), px(2306277, 1200)],
+      cover: hero,
+      gallery: [m1, m2, m5, m7, approachLarge],
     },
     "ira-and-vikram": {
-      cover: px(1024993, 1400),
-      gallery: [px(1024960, 1200), px(1024968, 1400), px(4245826, 1200), px(1974521, 1000), px(1128782, 1200)],
+      cover: filmB,
+      gallery: [filmA, m4, m6, m3, filmHighlight],
     },
     "naina-and-rohan": {
-      cover: px(1444443, 1400),
-      gallery: [px(1444442, 1000), px(1729797, 1200), px(587741, 1400), px(2306281, 1200), px(265856, 1000)],
+      cover: m8,
+      gallery: [breakCinematic, m5, m3, m2, m7],
     },
     "saira-and-dev": {
-      cover: px(3014851, 1400),
-      gallery: [px(3585811, 1200), px(2253842, 1400), px(2959190, 1000), px(1035665, 1200), px(226735, 1000)],
+      cover: approachLarge,
+      gallery: [m7, m1, m4, m6, filmB],
     },
     "tara-and-kabir": {
-      cover: px(265722, 1400),
-      gallery: [px(1128783, 1200), px(2253870, 1400), px(1456613, 1000), px(169198, 1200), px(313707, 1000)],
+      cover: premiumCover,
+      gallery: [m6, m2, approachInset, filmB, m8],
     },
     "anya-and-jai": {
-      cover: px(3014856, 1400),
-      gallery: [px(1024993, 1200), px(2959192, 1000), px(1043902, 1400), px(1444442, 1000), px(2306277, 1200)],
+      cover: filmHighlight,
+      gallery: [m3, m5, breakCinematic, m4, m1],
     },
   },
 } as const;

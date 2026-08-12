@@ -6,10 +6,10 @@ export const waLink = (message = "Hello theswaymvar — we'd love to know about 
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
 export const nav = [
-  { label: "Story", to: "/story" },
+  { label: "Home", to: "/" },
+  { label: "Film", to: "/film" },
+  { label: "Photography", to: "/photography" },
   { label: "Services", to: "/services" },
-  { label: "Work", to: "/work" },
-  { label: "Testimonials", to: "/testimonials" },
 ] as const;
 
 export const pressNames = [

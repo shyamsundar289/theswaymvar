@@ -3,16 +3,16 @@ import { stories } from "@/data/site";
 import { Reveal } from "@/components/site/Reveal";
 import { WhatsAppButton } from "@/components/site/CTA";
 
-export const Route = createFileRoute("/work/")({
+export const Route = createFileRoute("/photography/")({
   head: () => ({
     meta: [
-      { title: "Work — Wedding Stories | theswaymvar" },
+      { title: "Photography — Wedding Stories | theswaymvar" },
       {
         name: "description",
         content:
           "Selected wedding stories photographed and filmed by theswaymvar — Udaipur, Alibaug, Jaipur, Coonoor, Lake Como and Goa.",
       },
-      { property: "og:title", content: "Work — Wedding Stories | theswaymvar" },
+      { property: "og:title", content: "Photography — Wedding Stories | theswaymvar" },
       { property: "og:description", content: "Selected wedding stories, told whole." },
     ],
   }),
@@ -24,7 +24,7 @@ function WorkIndex() {
     <>
       <section className="shell page-top pb-14 md:pb-20">
         <Reveal>
-          <p className="label-xs text-bronze">Work</p>
+          <p className="label-xs text-bronze">Photography</p>
           <h1 className="font-display mt-6 max-w-4xl text-5xl leading-[0.98] md:text-8xl">
             Weddings, told whole.
           </h1>
@@ -35,7 +35,7 @@ function WorkIndex() {
         <div className="grid gap-12 md:grid-cols-2 md:gap-x-8 md:gap-y-24">
           {stories.map((story, i) => (
             <Reveal key={story.slug} delay={(i % 2) * 0.08} className={i % 2 === 1 ? "md:mt-24" : ""}>
-              <Link to="/work/$slug" params={{ slug: story.slug }} className="hover-lift group block">
+              <Link to="/photography/$slug" params={{ slug: story.slug }} className="hover-lift group block">
                 <div className="overflow-hidden">
                   <img
                     src={story.cover}
