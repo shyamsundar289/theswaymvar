@@ -3,7 +3,7 @@ import { stories } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { WhatsAppButton } from "@/components/site/CTA";
 
-export const Route = createFileRoute("/work/$slug")({
+export const Route = createFileRoute("/photography/$slug")({
   loader: ({ params }) => {
     const story = stories.find((s) => s.slug === params.slug);
     if (!story) throw notFound();
@@ -34,7 +34,7 @@ function StoryNotFound() {
   return (
     <div className="shell page-top pb-32 text-center">
       <h1 className="font-display text-5xl md:text-7xl">We can't find that story.</h1>
-      <Link to="/work" className="label-xs story-link mt-8 inline-block">
+      <Link to="/photography" className="label-xs story-link mt-8 inline-block">
         Back to all work
       </Link>
     </div>
@@ -50,7 +50,7 @@ function StoryDetail() {
     <>
       <section className="shell page-top pb-12 md:pb-16">
         <Reveal>
-          <Link to="/work" className="label-xs story-link text-muted-foreground">
+          <Link to="/photography" className="label-xs story-link text-muted-foreground">
             Work
           </Link>
           <h1 className="font-display mt-6 text-5xl leading-[0.98] md:text-8xl">{story.couple}</h1>
@@ -97,7 +97,7 @@ function StoryDetail() {
         <div className="shell section-y grid gap-8 md:grid-cols-2 md:items-center">
           <div>
             <p className="label-xs text-bronze">Next story</p>
-            <Link to="/work/$slug" params={{ slug: next.slug }} className="font-display mt-4 block text-4xl md:text-6xl">
+            <Link to="/photography/$slug" params={{ slug: next.slug }} className="font-display mt-4 block text-4xl md:text-6xl">
               {next.couple}
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">{next.location}</p>

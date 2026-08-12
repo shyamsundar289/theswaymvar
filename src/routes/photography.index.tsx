@@ -3,7 +3,7 @@ import { stories } from "@/data/site";
 import { Reveal } from "@/components/site/Reveal";
 import { WhatsAppButton } from "@/components/site/CTA";
 
-export const Route = createFileRoute("/work/")({
+export const Route = createFileRoute("/photography/")({
   head: () => ({
     meta: [
       { title: "Work — Wedding Stories | theswaymvar" },
@@ -35,7 +35,7 @@ function WorkIndex() {
         <div className="grid gap-12 md:grid-cols-2 md:gap-x-8 md:gap-y-24">
           {stories.map((story, i) => (
             <Reveal key={story.slug} delay={(i % 2) * 0.08} className={i % 2 === 1 ? "md:mt-24" : ""}>
-              <Link to="/work/$slug" params={{ slug: story.slug }} className="hover-lift group block">
+              <Link to="/photography/$slug" params={{ slug: story.slug }} className="hover-lift group block">
                 <div className="overflow-hidden">
                   <img
                     src={story.cover}
