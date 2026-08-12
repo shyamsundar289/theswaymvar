@@ -44,7 +44,7 @@ function StoryNotFound() {
 function StoryDetail() {
   const { story } = Route.useLoaderData();
   const index = stories.findIndex((s) => s.slug === story.slug);
-  const next = stories[(index + 1) % stories.length];
+  const next = stories[(index + 1) % stories.length]!;
 
   return (
     <>

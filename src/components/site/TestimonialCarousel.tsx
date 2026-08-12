@@ -4,7 +4,7 @@ import { testimonials } from "@/data/site";
 
 export function TestimonialCarousel() {
   const [i, setI] = useState(0);
-  const t = testimonials[i];
+  const t = testimonials[i]!;
 
   return (
     <div className="mx-auto max-w-3xl text-center">
