@@ -30,12 +30,13 @@
   --color-taupe: var(--taupe);
   --color-charcoal: var(--charcoal);
   --color-bronze: var(--bronze);
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Bodoni Moda", Georgia, serif;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
   --radius: 2px;
+  --header-height: 100px;
   --ivory: oklch(0.968 0.011 84.5);
   --taupe: oklch(0.916 0.017 79.8);
   --charcoal: oklch(0.235 0.006 60);
@@ -76,6 +77,9 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     overflow-x: hidden;
+    /* Safe area padding for notched devices */
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
   }
 
   h1,
@@ -87,15 +91,27 @@
     font-weight: 300;
     letter-spacing: -0.01em;
   }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.3s !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 /* --- editorial utilities --- */
 
 @utility wordmark {
   font-family: var(--font-display);
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: lowercase;
+  font-weight: 400;
+  letter-spacing: 0.15em; 
+  text-transform: uppercase;
 }
 
 @utility label-xs {
@@ -148,9 +164,12 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.22;
+    opacity: 0.25;
     mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 150px;
+    /* Reduced octaves from 3 to 1 and added stitchTiles for a massive GPU performance boost while keeping the grain effect */
   }
 }
 

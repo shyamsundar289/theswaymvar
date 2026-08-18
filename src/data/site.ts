@@ -1,4 +1,6 @@
 import { images } from "./images";
+import { galleryImages } from "./photography-images";
+import type { CoupleMedia } from "@/components/site/CouplePhotoGrid";
 
 export const WHATSAPP_NUMBER = "919999999999"; // swap for the studio's real number
 
@@ -10,6 +12,8 @@ export const nav = [
   { label: "Film", to: "/film" },
   { label: "Photography", to: "/photography" },
   { label: "Services", to: "/services" },
+  { label: "Crew", to: "/crew" },
+  { label: "About", to: "/about" },
 ] as const;
 
 export const pressNames = [
@@ -36,7 +40,7 @@ export type Story = {
   intro: string;
   narrative: string[];
   cover: string;
-  gallery: readonly string[];
+  gallery: readonly CoupleMedia[];
 };
 
 export const stories: Story[] = [
@@ -50,8 +54,20 @@ export const stories: Story[] = [
       "They asked for one thing only: that nobody be asked to pose. So we spent the first morning listening — to grandmothers arguing about marigolds, to cousins rehearsing a song nobody would finish, to the water knocking against the ghat steps below the haveli.",
       "By the time the pheras began, the light had gone the colour of weak tea. Meher laughed through the last round. Arjun did not stop looking at her, and we did not stop looking at them.",
     ],
-    cover: images.work["meher-and-arjun"].cover,
-    gallery: images.work["meher-and-arjun"].gallery,
+    cover: "/images/Recent01.webp",
+    gallery: [
+      { ...galleryImages[0], type: "image" },
+      { ...galleryImages[1], type: "image" },
+      {
+        id: "video-1",
+        src: "/videos/wedding.mp4",
+        type: "video",
+        orientation: "landscape",
+        poster: "/images/Recent01.webp"
+      },
+      { ...galleryImages[3], type: "image" },
+      { ...galleryImages[4], type: "image" },
+    ] as CoupleMedia[],
   },
   {
     slug: "ira-and-vikram",
@@ -63,60 +79,21 @@ export const stories: Story[] = [
       "The ceremony time was decided by the sea. We shot the morning in near silence — a house full of half-packed suitcases, a father ironing his own kurta, the smell of salt through every open window.",
       "When they walked out at dusk the whole thing lasted eleven minutes. It is still the longest eleven minutes we have ever filmed.",
     ],
-    cover: images.work["ira-and-vikram"].cover,
-    gallery: images.work["ira-and-vikram"].gallery,
+    cover: "/special-image-05.png",
+    gallery: galleryImages.slice(6, 12),
   },
   {
-    slug: "naina-and-rohan",
-    couple: "Naina & Rohan",
+    slug: "bhawana-and-abhishek",
+    couple: "Bhawana & Abhishek",
     location: "Jaipur, Rajasthan",
     date: "December 2024",
     intro: "Old city colour, a brass band that refused to stop, and one very composed bride.",
     narrative: [
-      "Rohan's baraat took forty minutes to cover two hundred metres. Naina watched the whole thing from a first-floor jharokha with her sisters, eating something she was not supposed to be eating.",
+      "Bhawana's baraat took forty minutes to cover two hundred metres. She watched the whole thing from a first-floor jharokha with her sisters, eating something she was not supposed to be eating.",
       "We photographed the day in colour because the day insisted on it — every wall, every safa, every plate of it.",
     ],
-    cover: images.work["naina-and-rohan"].cover,
-    gallery: images.work["naina-and-rohan"].gallery,
-  },
-  {
-    slug: "saira-and-dev",
-    couple: "Saira & Dev",
-    location: "Coonoor, Tamil Nadu",
-    date: "September 2024",
-    intro: "Twenty-two guests, one hill, and weather that changed its mind hourly.",
-    narrative: [
-      "Fog arrived an hour before the vows and stayed for the rest of the evening. Nobody minded. The photographs from that hour look like they were made on borrowed film stock.",
-      "This was an intimate wedding in the truest sense — every person present had a reason to cry, and most of them did.",
-    ],
-    cover: images.work["saira-and-dev"].cover,
-    gallery: images.work["saira-and-dev"].gallery,
-  },
-  {
-    slug: "tara-and-kabir",
-    couple: "Tara & Kabir",
-    location: "Lake Como, Italy",
-    date: "June 2024",
-    intro: "A garden ceremony held together by cypress shade and an aunt with excellent taste.",
-    narrative: [
-      "They flew forty-one people across two continents for a wedding that lasted a single afternoon. We treated it like a short film with no second take.",
-      "The last frame of the day was made at 9:40pm, on the terrace, with the lake gone completely black behind them.",
-    ],
-    cover: images.work["tara-and-kabir"].cover,
-    gallery: images.work["tara-and-kabir"].gallery,
-  },
-  {
-    slug: "anya-and-jai",
-    couple: "Anya & Jai",
-    location: "Goa",
-    date: "January 2024",
-    intro: "A monochrome wedding weekend that ran on rum, rain and old records.",
-    narrative: [
-      "It rained for eleven straight hours. The mandap moved indoors, the band moved onto the veranda, and the wedding got better for it.",
-      "We photographed most of the night in black and white — partly for the mood, mostly because the string lights left us no choice.",
-    ],
-    cover: images.work["anya-and-jai"].cover,
-    gallery: images.work["anya-and-jai"].gallery,
+    cover: "/images/Recent03.webp",
+    gallery: galleryImages.slice(12, 18),
   },
 ];
 
@@ -195,3 +172,10 @@ export const premium = {
   ],
   image: images.premium.cover,
 };
+
+export const featuredFilms = [
+  { id: '1', couple: 'Meher & Arjun', location: 'Jaipur, India', category: 'Wedding Film', videoUrl: '/videos/wedding.mp4', posterImg: images.work["meher-and-arjun"].cover },
+  { id: '2', couple: 'Tara & Rohan', location: 'Udaipur, Rajasthan', category: 'Cinematic Highlights', videoUrl: '/videos/celebration.mp4', posterImg: images.work["ira-and-vikram"].cover },
+  { id: '3', couple: 'Alia & Kabir', location: 'Lake Como, Italy', category: 'Destination Film', videoUrl: '/videos/prewedding.mp4', posterImg: images.work["naina-and-rohan"].cover },
+  { id: '4', couple: 'Simran & Veer', location: 'Goa, India', category: 'The Celebration', videoUrl: '/videos/portraits.mp4', posterImg: images.moments[0] }
+];

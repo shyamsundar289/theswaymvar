@@ -1,0 +1,76 @@
+/* 
+  Film Section Design Tokens & Fallbacks
+  Import this in your root layout (e.g. __root.tsx) or globals.css
+*/
+
+:root {
+  --charcoal: #1C1C1C;
+  --bronze: #B79A7A;
+  --background: #F9F7F1;
+  --foreground: #2A2A2A;
+  --muted: #A3A3A3;
+}
+
+/* Fallback classes if Tailwind config doesn't have them yet */
+@layer utilities {
+  .bg-charcoal { background-color: var(--charcoal); }
+  .text-charcoal { color: var(--charcoal); }
+  .text-bronze { color: var(--bronze); }
+  .bg-background { background-color: var(--background); }
+  
+  .shell {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .shell {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .label-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .font-display {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+
+
+  .story-link {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  .section-y-lg {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  @media (min-width: 768px) {
+    .section-y-lg {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+  }
+  
+  .section-y {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @media (min-width: 768px) {
+    .section-y {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+}

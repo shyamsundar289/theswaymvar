@@ -1,4 +1,5 @@
 import hero from "@/assets/hero.jpg";
+import DSC09937copy from "@/assets/DSC09937copy.jpg";
 import approachLarge from "@/assets/approach-large.jpg";
 import approachInset from "@/assets/approach-inset.jpg";
 import breakCinematic from "@/assets/break-cinematic.jpg";
@@ -14,16 +15,16 @@ import m5 from "@/assets/m5.jpg";
 import m6 from "@/assets/m6.jpg";
 import m7 from "@/assets/m7.jpg";
 import m8 from "@/assets/m8.jpg";
-
+import filmHero from "@/assets/film-hero.jpg";
 /**
  * Central image map — every image in the site resolves through here so client
  * photography can be swapped one-to-one later without touching layout code.
  */
 export const images = {
-  hero: { primary: hero },
+  hero: { primary: DSC09937copy },
   approach: {
-    large: approachLarge,
-    inset: approachInset,
+    large: "/images/DSCF0463 copy.webp",
+    inset: "/images/4.webp",
   },
   moments: [m1, m2, m3, m4, m5, m6, m7, m8, filmA, m3, m5, m8],
   break: { cinematic: breakCinematic },
@@ -49,28 +50,67 @@ export const images = {
   },
   work: {
     "meher-and-arjun": {
-      cover: hero,
-      gallery: [m1, m2, m5, m7, approachLarge],
+      cover: "/images/Recent01.webp",
+      gallery: [],
     },
     "ira-and-vikram": {
-      cover: filmB,
-      gallery: [filmA, m4, m6, m3, filmHighlight],
+      cover: "/images/Recent02.webp",
+      gallery: [],
     },
     "naina-and-rohan": {
-      cover: m8,
-      gallery: [breakCinematic, m5, m3, m2, m7],
+      cover: "/images/Recent03.webp",
+      gallery: [],
     },
     "saira-and-dev": {
-      cover: approachLarge,
-      gallery: [m7, m1, m4, m6, filmB],
+      cover: "/images/4.webp",
+      gallery: [],
     },
     "tara-and-kabir": {
-      cover: premiumCover,
-      gallery: [m6, m2, approachInset, filmB, m8],
+      cover: "/images/5.webp",
+      gallery: [],
     },
     "anya-and-jai": {
-      cover: filmHighlight,
-      gallery: [m3, m5, breakCinematic, m4, m1],
+      cover: "/images/6.webp",
+      gallery: [],
     },
+  },
+
+  /* =========================================================
+     PAGE-SPECIFIC IMAGE MAPS
+     Intentional allocation to avoid repetition across pages
+  ========================================================= */
+
+  /** Film page images */
+  /** Film page images */
+  film: {
+    hero: filmHero,  // ← yeh change kiya
+    approach: approachLarge,
+    featured: filmHighlight,
+    featuredPoster: filmHighlight,
+    moments: [hero, m2, m6] as readonly string[],
+    storyPortrait: approachInset,
+    storyLandscape: filmA,
+    moreMoments: [m7, filmB, m4] as readonly string[],
+    ctaBg: m8,
+  },
+
+  /** Photography page images */
+  photo: {
+    hero: m5,
+    approach: m1,
+    featuredHero: approachLarge,
+    featuredLeft: m3,
+    featuredRight: m7,
+    gallery: [hero, filmB, m8] as readonly string[],
+    experience: m2,
+  },
+
+  /** Services page images */
+  svc: {
+    hero: premiumCover,
+    photography: m6,
+    filmService: filmA,
+    combined: [m5, breakCinematic] as readonly string[],
+    howItWorks: approachInset,
   },
 } as const;

@@ -1,31 +1,50 @@
 import { RevealImage, Reveal } from "./Reveal";
 
-type Tile = { type: "image"; src: string; alt: string; span?: string } | { type: "text"; eyebrow: string; body: string; span?: string };
+type ImageTile = {
+  type: "image";
+  src: string;
+  alt: string;
+  span?: string;
+};
+
+type TextTile = {
+  type: "text";
+  eyebrow: string;
+  body: string;
+  span?: string;
+};
+
+type Tile = ImageTile | TextTile;
 
 export function MasonryGrid({ tiles }: { tiles: Tile[] }) {
   return (
-    <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
-      {tiles.map((tile, i) =>
-        tile.type === "image" ? (
-          <RevealImage
-            key={i}
-            src={tile.src}
-            alt={tile.alt}
-            className={`hover-lift ${tile.span ?? ""}`}
-            imgClassName="h-full w-full object-cover"
-          />
-        ) : (
+    <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
+      {tiles.map((tile, i) => {
+        if (tile.type === "image") {
+          return (
+            <RevealImage
+              key={i}
+              src={tile.src}
+              alt={tile.alt}
+              className="group aspect-square overflow-hidden"
+              imgClassName="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.025]"
+            />
+          );
+        }
+
+        return (
           <Reveal
             key={i}
-            className={`flex items-center bg-card px-5 py-8 md:px-8 ${tile.span ?? ""}`}
+            className="flex aspect-square items-center justify-center bg-card px-6 py-8 text-center md:px-8"
           >
-            <div>
-              <p className="label-xs text-bronze">{tile.eyebrow}</p>
-              <p className="font-display mt-4 text-xl leading-snug md:text-2xl">{tile.body}</p>
+            <div className="max-w-xs">
+              <p className="font-display text-xl leading-[1.15] md:text-2xl">
+                {tile.body}
+              </p>
             </div>
           </Reveal>
-        ),
-      )}
+        );
+      })}
     </div>
   );
 }

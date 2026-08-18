@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { stories, type Story } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
+import { CouplePhotoGrid } from "@/components/site/CouplePhotoGrid";
 import { WhatsAppButton } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/photography/$slug")({
@@ -48,20 +49,19 @@ function StoryDetail() {
 
   return (
     <>
-      <section className="shell page-top pb-12 md:pb-16">
+      <section className="shell pt-[10px] pb-6 md:pt-[10px] md:pb-8">
         <Reveal>
-          <Link to="/photography" className="label-xs story-link text-muted-foreground">
-            Photography
-          </Link>
-          <h1 className="font-display mt-6 text-5xl leading-[0.98] md:text-8xl">{story.couple}</h1>
-          <div className="mt-8 flex flex-wrap gap-x-10 gap-y-2 border-t border-border/70 pt-6">
-            <p className="label-xs text-muted-foreground">{story.location}</p>
-            <p className="label-xs text-muted-foreground">{story.date}</p>
-          </div>
+          <h1 className="font-display text-3xl leading-[0.98] md:text-6xl text-right italic">
+            {story.couple}
+          </h1>
         </Reveal>
       </section>
 
-      <RevealImage src={story.cover} alt={`${story.couple} in ${story.location}`} className="aspect-[16/10] w-full md:aspect-[16/7]" />
+      <RevealImage
+        src={story.cover}
+        alt={`${story.couple} in ${story.location}`}
+        className="aspect-[16/10] w-full md:aspect-[16/7] border-[8px] border-t-0 border-white"
+      />
 
       <section className="shell section-y grid gap-10 md:grid-cols-[1fr_1.1fr] md:gap-24">
         <Reveal>
@@ -74,24 +74,11 @@ function StoryDetail() {
         </Reveal>
       </section>
 
-      <section className="shell pb-20 md:pb-28">
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
-          {story.gallery.map((src: string, i: number) => (
-            <RevealImage
-              key={src + i}
-              src={src}
-              alt={`${story.couple} wedding frame ${i + 1}`}
-              className={`hover-lift ${
-                i === 0
-                  ? "col-span-2 aspect-[4/5] md:col-span-2 md:aspect-[16/11]"
-                  : i === 2
-                    ? "col-span-2 aspect-[16/10] md:col-span-2"
-                    : "aspect-[4/5]"
-              }`}
-            />
-          ))}
-        </div>
-      </section>
+      {story.gallery && story.gallery.length > 0 && (
+        <section className="shell pb-20 md:pb-28">
+          <CouplePhotoGrid media={story.gallery} />
+        </section>
+      )}
 
       <section className="border-t border-border/60">
         <div className="shell section-y grid gap-8 md:grid-cols-2 md:items-center">
