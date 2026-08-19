@@ -27,7 +27,7 @@ export function EditorialCollage() {
   return (
     <section className="w-full bg-background overflow-hidden">
       <Reveal className="w-full">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[3px] w-full">
+        <div className="grid grid-cols-3 lg:grid-cols-5 gap-[3px] px-[3px] w-full">
           
           {/* 1 */}
           <div className="aspect-square relative w-full bg-muted">

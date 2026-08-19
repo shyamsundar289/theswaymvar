@@ -8,9 +8,10 @@ import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { AnimatedHero } from "@/components/site/AnimatedHero";
 import { DiagonalBreak } from "@/components/site/DiagonalBreak";
 import { SectionHeading } from "@/components/site/SectionHeading";
-
+import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { Laurel } from "@/components/site/Laurel";
 import { WhatsAppButton } from "@/components/site/CTA";
+import { MarshallSpeaker } from "@/components/site/MarshallSpeaker";
 import { VideoShowcaseSection } from "@/components/site/VideoShowcaseSection";
 import { StoryTimeline } from "@/components/site/StoryTimeline";
 import { EditorialCollage } from "@/components/site/EditorialCollage";
@@ -200,8 +201,14 @@ function Home() {
                <RevealImage src="/images/crew/index-studio-section03.jpg" alt="Studio work 3" className="w-full h-full object-cover transition-transform duration-500" />
             </div>
           </div>
-
         </div>
+      </section>
+
+      {/* MARSHALL SPEAKER (After Studio) */}
+      <section className="w-full flex justify-center pb-16 md:pb-24 bg-background overflow-hidden">
+        <Reveal>
+          <MarshallSpeaker className="scale-90 md:scale-100" />
+        </Reveal>
       </section>
 
       {/* EDITORIAL COLLAGE (Moved under Studio section) */}

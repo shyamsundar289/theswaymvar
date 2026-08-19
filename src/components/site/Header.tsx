@@ -32,12 +32,32 @@ export function Header() {
 
   const isHeroTransparent = false;
 
-  const isTransparent = isIndex && !scrolled;
+  const isTransparent = isIndex && !scrolled && !open;
   const positionClass = isIndex ? "fixed" : "sticky";
   const bgClass = isTransparent ? "bg-transparent text-background" : "bg-background text-foreground";
-  const logoColor = "#D0A17C";
+
+  useEffect(() => {
+    if (!open) return;
+    
+    const handleInteraction = (e: Event) => {
+      // For clicks, check if outside header
+      if (e.type === 'click' && (e.target as HTMLElement).closest('header')) {
+        return;
+      }
+      setOpen(false);
+    };
+
+    window.addEventListener('scroll', handleInteraction, { passive: true });
+    document.addEventListener('click', handleInteraction);
+    
+    return () => {
+      window.removeEventListener('scroll', handleInteraction);
+      document.removeEventListener('click', handleInteraction);
+    };
+  }, [open]);
 
   const handleLogoClick = (e: React.MouseEvent) => {
+    setOpen(false);
     if (isIndex) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
