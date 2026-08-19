@@ -60,16 +60,18 @@ export function EditorialCollage() {
           </div>
           
           {/* 8 - CENTER TEXT CARD */}
-          <div className="aspect-square relative w-full bg-[#fdfbf6] flex flex-col items-center justify-center text-center p-3 sm:p-5 md:p-6">
-            <p className="text-[8px] sm:text-[10px] lg:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] uppercase text-[#8b867c] mb-2 sm:mb-3 w-full">
-              Some of our most
-            </p>
-            <h2 className="font-serif text-[clamp(1.25rem,3vw,2.5rem)] text-[#2d2c2a] leading-none mb-2 sm:mb-3 w-full uppercase tracking-widest font-normal drop-shadow-sm">
-              "Iconic"
-            </h2>
-            <p className="text-[8px] sm:text-[10px] lg:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] uppercase text-[#8b867c] w-full">
-              Wedding Moments
-            </p>
+          <div className="aspect-square relative w-full bg-[#fdfbf6] flex flex-col items-center justify-center text-center p-1 sm:p-4 md:p-6 overflow-hidden">
+            <div className="flex flex-col items-center justify-center w-full max-w-full">
+              <p className="text-[7px] sm:text-[10px] lg:text-[11px] tracking-[0.15em] sm:tracking-[0.3em] uppercase text-[#8b867c] mb-1 sm:mb-2 w-full pl-[0.15em] sm:pl-[0.3em] leading-tight">
+                Some of our most
+              </p>
+              <h2 className="font-serif text-[1rem] sm:text-[clamp(1.25rem,3vw,2.5rem)] text-[#2d2c2a] leading-none mb-1 sm:mb-2 w-full uppercase tracking-[0.15em] sm:tracking-widest font-normal drop-shadow-sm pl-[0.15em] sm:pl-[0.1em]">
+                "Iconic"
+              </h2>
+              <p className="text-[7px] sm:text-[10px] lg:text-[11px] tracking-[0.15em] sm:tracking-[0.3em] uppercase text-[#8b867c] w-full pl-[0.15em] sm:pl-[0.3em] leading-tight">
+                Wedding Moments
+              </p>
+            </div>
           </div>
           
           {/* 9 */}

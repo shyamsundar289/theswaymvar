@@ -2,7 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { nav } from "@/data/site";
 import { Wordmark } from "./Wordmark";
-
+import swaymwarLogo from "@/components/swaymwar-logo.svg";
 export function Header() {
   const location = useLocation();
   const isIndex = location.pathname === "/";
@@ -66,22 +66,22 @@ export function Header() {
 
   return (
     <header
-      className={`${positionClass} top-0 z-50 w-full transition-all duration-700 ${bgClass} ${
+      className={`${positionClass} top-0 z-50 w-full transition-colors duration-200 ${bgClass} ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="shell flex h-[120px] md:h-[160px] items-center justify-between gap-8">
+      <div className="shell flex h-[120px] items-center justify-between gap-8">
         {/* Logo */}
         <Link
           to="/"
           onClick={handleLogoClick}
           aria-label="theswaymvar home"
-          className="flex shrink-0 items-center justify-start h-full"
+          className="relative flex shrink-0 items-center justify-start h-full"
         >
           <img 
-            src="/images/logo.png"
+            src={swaymwarLogo}
             alt="The Swaymvar Logo"
-            className="h-[110px] md:h-[140px] w-auto transition-all duration-500 mix-blend-multiply drop-shadow-sm object-contain scale-125 md:scale-150 origin-left"
+            className="h-[75px] md:h-[85px] lg:h-[95px] w-auto transition-all duration-500 drop-shadow-sm object-contain origin-left"
           />
         </Link>
 

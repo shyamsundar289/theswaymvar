@@ -11,11 +11,12 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { Laurel } from "@/components/site/Laurel";
 import { WhatsAppButton } from "@/components/site/CTA";
-import { MarshallSpeaker } from "@/components/site/MarshallSpeaker";
+
 import { VideoShowcaseSection } from "@/components/site/VideoShowcaseSection";
 import { StoryTimeline } from "@/components/site/StoryTimeline";
 import { EditorialCollage } from "@/components/site/EditorialCollage";
 import { InstagramGallery } from "@/components/site/InstagramGallery";
+import swaymwarLogo from "@/components/swaymwar-logo.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -204,10 +205,16 @@ function Home() {
         </div>
       </section>
 
-      {/* MARSHALL SPEAKER (After Studio) */}
-      <section className="w-full flex justify-center pb-16 md:pb-24 bg-background overflow-hidden">
+      {/* SWAYMVAR LOGO */}
+      <section className="w-full flex justify-center py-16 md:py-24 bg-background overflow-hidden relative">
         <Reveal>
-          <MarshallSpeaker className="scale-90 md:scale-100" />
+          <div className="w-full max-w-[800px] mx-auto flex justify-center relative px-4">
+            <img 
+              src={swaymwarLogo} 
+              alt="The Swayamvar Logo" 
+              className="w-full h-auto max-w-[200px] md:max-w-[300px] object-contain drop-shadow-sm"
+            />
+          </div>
         </Reveal>
       </section>
 
