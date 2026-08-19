@@ -16,7 +16,7 @@ import { VideoShowcaseSection } from "@/components/site/VideoShowcaseSection";
 import { StoryTimeline } from "@/components/site/StoryTimeline";
 import { EditorialCollage } from "@/components/site/EditorialCollage";
 import { InstagramGallery } from "@/components/site/InstagramGallery";
-import swaymwarLogo from "@/components/swaymwar-logo.svg";
+const swaymwarLogo = "/images/swamyvar_logo.svg";
 
 export const Route = createFileRoute("/")({
   head: () => ({

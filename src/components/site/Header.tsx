@@ -2,7 +2,9 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { nav } from "@/data/site";
 import { Wordmark } from "./Wordmark";
-import swaymwarLogo from "@/components/swaymwar-logo.svg";
+
+const swaymwarLogo = "/images/swamyvar_logo.svg";
+
 export function Header() {
   const location = useLocation();
   const isIndex = location.pathname === "/";
