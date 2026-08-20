@@ -35,7 +35,7 @@ export function DiagonalBreak({
       </div>
       
       <div className="relative z-10 text-center w-full px-4">
-        <h2 className="text-[12vw] md:text-[8rem] font-serif text-white tracking-wider opacity-90 drop-shadow-xl" style={{ textShadow: '0 10px 30px rgba(0,0,0,0.5)', fontFamily: "'Pinyon Script', cursive" }}>
+        <h2 className="text-[12vw] md:text-[8rem] font-script text-white tracking-wider opacity-90 drop-shadow-xl" style={{ textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
           Photography
         </h2>
       </div>

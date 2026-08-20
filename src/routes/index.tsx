@@ -86,10 +86,10 @@ function Home() {
       <AnimatedHero />
 
       {/* BRAND / STUDIO */}
-      <section className="shell py-16 md:py-24 grid gap-10 md:grid-cols-2 md:items-center md:gap-16 overflow-hidden">
+      <section className="shell section-y grid gap-10 md:grid-cols-2 md:items-center md:gap-16 overflow-hidden">
         <Reveal className="flex flex-col items-center text-center">
           <p className="label-xs text-bronze tracking-[2px] uppercase text-[12px]">The Studio</p>
-          <h4 className="font-serif font-normal mt-6 text-[clamp(2rem,3.5vw,3rem)] leading-[1.1] tracking-tight text-[#2d2c2a] mx-auto max-w-[500px]">
+          <h4 className="font-display font-normal mt-6 text-[clamp(2rem,3.5vw,3rem)] leading-[1.1] tracking-tight text-[#2d2c2a] mx-auto max-w-[500px]">
             An intimate studio dedicated to the <span className="italic text-[#8b867c] font-light">art of noticing.</span>
           </h4>
           <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base mx-auto">
@@ -206,7 +206,7 @@ function Home() {
       </section>
 
       {/* SWAYMVAR LOGO */}
-      <section className="w-full flex justify-center py-16 md:py-24 bg-background overflow-hidden relative">
+      <section className="w-full flex justify-center section-y bg-background overflow-hidden relative">
         <Reveal>
           <div className="w-full max-w-[800px] mx-auto flex justify-center relative px-4">
             <img 
@@ -248,7 +248,7 @@ function Home() {
             </div>
             
             {/* MAIN HEADING */}
-            <h2 className="font-serif text-[clamp(1.75rem,3vw,2.75rem)] font-normal leading-[1.05] tracking-tight text-[#2d2c2a] text-center mt-[35px] max-w-[900px] mx-auto">
+            <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-normal leading-[1.05] tracking-tight text-[#2d2c2a] text-center mt-[35px] max-w-[900px] mx-auto">
               Your Story, <span className="italic font-light text-[#8b867c]">Our Lens</span>
             </h2>
             
@@ -295,7 +295,7 @@ function Home() {
                     <span>A Story of Us</span>
                     <span className="font-light">←</span>
                   </div>
-                  <h3 className="font-serif text-[20px] md:text-[22px] font-normal text-[#2d2c2a] mt-[12px]">
+                  <h3 className="font-display text-[20px] md:text-[22px] font-normal text-[#2d2c2a] mt-[12px]">
                     {stories[0].couple}
                   </h3>
                   <div className="flex justify-center mt-[20px] text-[#d1cbbd]">
@@ -364,7 +364,7 @@ function Home() {
                 {/* Music Metadata */}
                 <div className="text-center w-full mt-auto mb-[20px]">
                   <p className="text-[12px] text-[#788591] font-mono tracking-[2px] mb-[6px]">{formatTime(currentTime)}</p>
-                  <h4 className="font-serif italic text-[#3e3a35] text-[20px] leading-tight">Cinematic Anthem</h4>
+                  <h4 className="font-display italic text-[#3e3a35] text-[20px] leading-tight">Cinematic Anthem</h4>
                   <p className="text-[14px] text-[#8c8881] mt-[4px]">Timeless Celebrations</p>
                 </div>
 
@@ -430,7 +430,7 @@ function Home() {
                     <span>Forever Begins Here</span>
                     <span className="font-light">←</span>
                   </div>
-                  <h3 className="font-serif text-[20px] md:text-[22px] font-normal text-[#2d2c2a] mt-[12px]">
+                  <h3 className="font-display text-[20px] md:text-[22px] font-normal text-[#2d2c2a] mt-[12px]">
                     {stories[2].couple}
                   </h3>
                   <div className="flex justify-center mt-[20px] text-[#d1cbbd]">
@@ -456,7 +456,7 @@ function Home() {
 
       {/* RECOGNITION */}
       <section className="border-t border-border/60">
-        <div className="shell py-16 md:py-24">
+        <div className="shell section-y">
           <p className="label-xs text-center text-muted-foreground">Recognition</p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-8">
             {recognition.map((r, i) => (

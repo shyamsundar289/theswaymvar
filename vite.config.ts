@@ -5,9 +5,11 @@ import tsConfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import path from "node:path";
+import { autoWebpPlugin } from "./vite-plugin-auto-webp";
 
 export default defineConfig({
   plugins: [
+    autoWebpPlugin(),
     tanstackStart({
       server: { entry: "server" },
       importProtection: {

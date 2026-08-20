@@ -6,10 +6,23 @@ import { Hero } from "@/components/site/Hero";
 import { FilmCollection } from "@/components/film/FilmCollection";
 import { stories } from "@/data/site";
 
+import { SharedHero } from "@/components/site/SharedHero";
+import { Video } from "lucide-react";
+import { images } from "@/data/images";
+
 function FilmPage() {
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
+      <SharedHero 
+        icon={<Video className="w-8 h-8 text-neutral-400" strokeWidth={1.5} />}
+        eyebrow="EVERY FRAME. EVERY FEELING."
+        title="Film"
+        description={<>Cinematic stories. Real moments.<br/>Crafted with heart, told for a lifetime.</>}
+        videoSrc="/videos/wedding.mp4"
+        fontOverride="serif"
+        fullWidthMedia={true}
+      />
       <FilmCollection />
       <CinematicChapters />
       <HowWeCaptureScroller />
@@ -23,7 +36,7 @@ export const Route = createFileRoute("/film")({
 
 function CinematicChapters() {
   return (
-    <section className="shell py-16 md:py-24">
+    <section className="shell section-y">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <h3 className="font-display text-4xl text-charcoal">The Chapters</h3>

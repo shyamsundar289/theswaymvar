@@ -43,7 +43,7 @@ function AboutPage() {
       </section>
 
       {/* SECTION 2 — Our Story */}
-      <section className="shell py-16 md:py-24">
+      <section className="shell section-y">
         <div className="grid gap-12 md:grid-cols-[1fr_2fr] lg:grid-cols-[1fr_2.5fr] items-stretch">
           <RevealImage
             src={images.approach.inset}
@@ -68,7 +68,7 @@ function AboutPage() {
       </section>
 
       {/* SECTION 3 — Philosophy / Approach */}
-      <section className="shell py-16 md:py-24 border-t border-border/60">
+      <section className="shell section-y border-t border-border/60">
         <Reveal>
           <p className="label-xs text-muted-foreground mb-12">Philosophy</p>
         </Reveal>
@@ -95,7 +95,7 @@ function AboutPage() {
       </section>
 
       {/* SECTION 4 — Experience & Highlights */}
-      <section className="shell py-16 md:py-24 border-t border-border/60">
+      <section className="shell section-y border-t border-border/60">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <Reveal delay={0.1}>
             <p className="font-display text-[clamp(2.25rem,4vw,3rem)] mb-2 text-bronze">150+</p>
@@ -136,6 +136,36 @@ function AboutPage() {
               <span className="label-xs block text-bronze mb-2">Studio</span>
               New Delhi, India
             </p>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SECTION 6 — Contact Us */}
+      <section className="shell section-y border-t border-border/60">
+        <Reveal>
+          <p className="label-xs text-muted-foreground mb-12 text-center">Contact Us</p>
+          <div className="max-w-2xl mx-auto">
+            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="name" className="text-sm text-muted-foreground">Name</label>
+                  <input type="text" id="name" className="bg-transparent border-b border-border/60 px-0 py-2 focus:outline-none focus:border-bronze transition-colors text-foreground" placeholder="Your name" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="text-sm text-muted-foreground">Email</label>
+                  <input type="email" id="email" className="bg-transparent border-b border-border/60 px-0 py-2 focus:outline-none focus:border-bronze transition-colors text-foreground" placeholder="Your email address" />
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="message" className="text-sm text-muted-foreground">Message</label>
+                <textarea id="message" rows={4} className="bg-transparent border-b border-border/60 px-0 py-2 focus:outline-none focus:border-bronze transition-colors resize-none text-foreground" placeholder="Tell us about your celebration..."></textarea>
+              </div>
+              <div className="pt-4 text-center md:text-left">
+                <button type="submit" className="inline-flex items-center justify-center border border-border/60 px-8 py-3 text-sm tracking-[0.2em] uppercase hover:bg-foreground hover:text-background transition-colors duration-300">
+                  Send Message
+                </button>
+              </div>
+            </form>
           </div>
         </Reveal>
       </section>

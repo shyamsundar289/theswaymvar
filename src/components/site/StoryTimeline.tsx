@@ -189,7 +189,7 @@ function StoryTextContent({ hideSignature = false }: { hideSignature?: boolean }
         <span className="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] font-medium tracking-[0.3em] uppercase text-[#D0A17C] mb-2 md:mb-3">
           Where Our
         </span>
-        <span className="text-[36px] sm:text-[40px] md:text-[44px] lg:text-[48px] leading-[1.1] text-[#2d2c2a] opacity-90" style={{ fontFamily: "'Pinyon Script', cursive" }}>
+        <span className="text-[36px] sm:text-[40px] md:text-[44px] lg:text-[48px] leading-[1.1] text-[#2d2c2a] opacity-90 font-script">
           Forever Began
         </span>
       </h3>
@@ -209,7 +209,7 @@ function StoryTextContent({ hideSignature = false }: { hideSignature?: boolean }
       {/* Couple Name Signature */}
       {!hideSignature && (
         <div className="flex mt-8 md:mt-10 justify-center lg:justify-start w-full">
-          <span className="text-[40px] sm:text-[44px] md:text-[48px] text-[#D0A17C]" style={{ fontFamily: "'Pinyon Script', cursive" }}>
+          <span className="text-[40px] sm:text-[44px] md:text-[48px] text-[#D0A17C] font-script">
             Ritesh & Genelia
           </span>
         </div>
@@ -243,7 +243,7 @@ export function StoryTimeline() {
         
         {/* MOBILE ONLY: Sticky Signature */}
         <div className="lg:hidden w-full flex justify-center pt-2 pb-0 shrink-0 z-30 bg-background/90 backdrop-blur-sm relative">
-           <span className="text-[36px] sm:text-[40px] text-[#D0A17C] pb-2" style={{ fontFamily: "'Pinyon Script', cursive" }}>
+           <span className="text-[36px] sm:text-[40px] text-[#D0A17C] pb-2 font-script">
              Ritesh & Genelia
            </span>
         </div>

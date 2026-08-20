@@ -36,7 +36,9 @@ export function Header() {
 
   const isTransparent = isIndex && !scrolled && !open;
   const positionClass = isIndex ? "fixed" : "sticky";
-  const bgClass = isTransparent ? "bg-transparent text-background" : "bg-background text-foreground";
+  const bgClass = isTransparent 
+    ? "bg-transparent text-background border-b border-transparent shadow-none" 
+    : "bg-background text-foreground border-b border-[rgba(40,35,30,0.06)] shadow-[0_4px_18px_rgba(40,35,30,0.035)]";
 
   useEffect(() => {
     if (!open) return;
@@ -68,11 +70,11 @@ export function Header() {
 
   return (
     <header
-      className={`${positionClass} top-0 z-50 w-full transition-colors duration-200 ${bgClass} ${
+      className={`${positionClass} top-0 z-50 w-full transition-all duration-300 ${bgClass} ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="shell flex h-[120px] items-center justify-between gap-8">
+      <div className="shell flex h-[95px] items-center justify-between gap-8">
         {/* Logo */}
         <Link
           to="/"
@@ -83,7 +85,7 @@ export function Header() {
           <img 
             src={swaymwarLogo}
             alt="The Swaymvar Logo"
-            className="h-[75px] md:h-[85px] lg:h-[95px] w-auto transition-all duration-500 drop-shadow-sm object-contain origin-left"
+            className="h-[60px] md:h-[70px] lg:h-[80px] w-auto transition-all duration-500 drop-shadow-sm object-contain origin-left"
           />
         </Link>
 

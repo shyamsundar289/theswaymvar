@@ -13,7 +13,9 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CrewRouteImport } from './routes/crew'
 import { Route as FilmRouteImport } from './routes/film'
+import { Route as LittleSnapRouteImport } from './routes/little-snap'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as VideographyRouteImport } from './routes/videography'
 import { Route as FilmsSlugRouteImport } from './routes/films.$slug'
 import { Route as PhotographyIndexRouteImport } from './routes/photography.index'
 import { Route as PhotographySlugRouteImport } from './routes/photography.$slug'
@@ -38,9 +40,19 @@ const FilmRoute = FilmRouteImport.update({
   path: '/film',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LittleSnapRoute = LittleSnapRouteImport.update({
+  id: '/little-snap',
+  path: '/little-snap',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideographyRoute = VideographyRouteImport.update({
+  id: '/videography',
+  path: '/videography',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FilmsSlugRoute = FilmsSlugRouteImport.update({
@@ -64,7 +76,9 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/crew': typeof CrewRoute
   '/film': typeof FilmRoute
+  '/little-snap': typeof LittleSnapRoute
   '/services': typeof ServicesRoute
+  '/videography': typeof VideographyRoute
   '/films/$slug': typeof FilmsSlugRoute
   '/photography/$slug': typeof PhotographySlugRoute
   '/photography/': typeof PhotographyIndexRoute
@@ -74,7 +88,9 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/crew': typeof CrewRoute
   '/film': typeof FilmRoute
+  '/little-snap': typeof LittleSnapRoute
   '/services': typeof ServicesRoute
+  '/videography': typeof VideographyRoute
   '/films/$slug': typeof FilmsSlugRoute
   '/photography/$slug': typeof PhotographySlugRoute
   '/photography': typeof PhotographyIndexRoute
@@ -85,7 +101,9 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/crew': typeof CrewRoute
   '/film': typeof FilmRoute
+  '/little-snap': typeof LittleSnapRoute
   '/services': typeof ServicesRoute
+  '/videography': typeof VideographyRoute
   '/films/$slug': typeof FilmsSlugRoute
   '/photography/$slug': typeof PhotographySlugRoute
   '/photography/': typeof PhotographyIndexRoute
@@ -97,7 +115,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/crew'
     | '/film'
+    | '/little-snap'
     | '/services'
+    | '/videography'
     | '/films/$slug'
     | '/photography/$slug'
     | '/photography/'
@@ -107,7 +127,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/crew'
     | '/film'
+    | '/little-snap'
     | '/services'
+    | '/videography'
     | '/films/$slug'
     | '/photography/$slug'
     | '/photography'
@@ -117,7 +139,9 @@ export interface FileRouteTypes {
     | '/about'
     | '/crew'
     | '/film'
+    | '/little-snap'
     | '/services'
+    | '/videography'
     | '/films/$slug'
     | '/photography/$slug'
     | '/photography/'
@@ -128,7 +152,9 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CrewRoute: typeof CrewRoute
   FilmRoute: typeof FilmRoute
+  LittleSnapRoute: typeof LittleSnapRoute
   ServicesRoute: typeof ServicesRoute
+  VideographyRoute: typeof VideographyRoute
   FilmsSlugRoute: typeof FilmsSlugRoute
   PhotographySlugRoute: typeof PhotographySlugRoute
   PhotographyIndexRoute: typeof PhotographyIndexRoute
@@ -164,11 +190,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FilmRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/little-snap': {
+      id: '/little-snap'
+      path: '/little-snap'
+      fullPath: '/little-snap'
+      preLoaderRoute: typeof LittleSnapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videography': {
+      id: '/videography'
+      path: '/videography'
+      fullPath: '/videography'
+      preLoaderRoute: typeof VideographyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/films/$slug': {
@@ -200,7 +240,9 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CrewRoute: CrewRoute,
   FilmRoute: FilmRoute,
+  LittleSnapRoute: LittleSnapRoute,
   ServicesRoute: ServicesRoute,
+  VideographyRoute: VideographyRoute,
   FilmsSlugRoute: FilmsSlugRoute,
   PhotographySlugRoute: PhotographySlugRoute,
   PhotographyIndexRoute: PhotographyIndexRoute,

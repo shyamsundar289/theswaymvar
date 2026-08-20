@@ -12,19 +12,20 @@
 // or, if it's a Tailwind className on the header wrapper:
 //   className="h-[100px] ..."
 
-import { Reveal } from "@/components/site/Reveal";
+import { Camera } from "lucide-react";
+import { images } from "@/data/images";
+import { SharedHero } from "./SharedHero";
 
 export function PhotographyHero() {
   return (
-    <section
-      className="flex items-center justify-center bg-background"
-      style={{ minHeight: "calc(60vh - 100px)" }}
-    >
-      <Reveal>
-        <h1 className="font-display text-center text-[clamp(3rem,8vw,6rem)] font-normal leading-[0.95] tracking-tighter text-foreground">
-          PHOTOGRAPHY
-        </h1>
-      </Reveal>
-    </section>
+    <SharedHero 
+      icon={<Camera className="w-8 h-8 text-neutral-400" strokeWidth={1.5} />}
+      eyebrow="STORIES IN EVERY FRAME."
+      title="Photography"
+      description={<>Raw emotions. Timeless moments.<br/>Captured beautifully, just as they unfold.</>}
+      imageSrc={images.photo.featuredHero}
+      fontOverride="serif"
+      fullWidthMedia={true}
+    />
   );
 }

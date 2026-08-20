@@ -26,11 +26,11 @@ export function PhotographyGallery() {
           FILTER BAR — inline, pipe-separated, single row
       ===================================================== */}
       <div className="bg-taupe/40">
-        <div className="shell flex flex-wrap items-center justify-center gap-x-3 gap-y-2 py-8 text-sm md:gap-x-4 md:py-10 md:text-base">
+        <div className="shell flex flex-wrap items-center justify-center gap-x-3 gap-y-2 py-4 md:py-6 text-sm md:text-base">
           {CATEGORY_ORDER.map((cat, i) => (
             <span key={cat} className="flex items-center gap-x-3 md:gap-x-4">
               {i > 0 && (
-                <span className="text-muted-foreground/50" aria-hidden="true">
+                <span className="text-muted-foreground/40 font-light" aria-hidden="true">
                   |
                 </span>
               )}
@@ -38,9 +38,9 @@ export function PhotographyGallery() {
                 type="button"
                 onClick={() => setActive(cat)}
                 aria-current={active === cat}
-                className={`font-display pb-1 transition-colors duration-200 ${
+                className={`font-display pb-0.5 transition-colors duration-200 tracking-wide ${
                   active === cat
-                    ? "border-b border-foreground font-bold text-foreground"
+                    ? "border-b border-foreground/60 text-foreground"
                     : "text-foreground/70 hover:text-foreground"
                 }`}
               >
@@ -54,7 +54,7 @@ export function PhotographyGallery() {
       {/* =====================================================
           GALLERY — fixed 4-column grid, tall images span rows
       ===================================================== */}
-      <div className="shell py-10 md:py-14">
+      <div className="shell py-8 md:py-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={active}

@@ -24,6 +24,8 @@ const HoverVideoPreview = ({ src, poster, isActive }: { src: string; poster: str
       <img
         src={poster}
         alt="Film Poster"
+        fetchPriority={isActive ? "high" : "auto"}
+        loading="eager"
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
           isActive ? "opacity-0" : "opacity-100"
         }`}
@@ -35,6 +37,7 @@ const HoverVideoPreview = ({ src, poster, isActive }: { src: string; poster: str
           muted
           loop
           playsInline
+          preload={isActive ? "auto" : "none"}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
             isActive ? "opacity-100" : "opacity-0"
           }`}
@@ -130,8 +133,9 @@ export function FilmCollection() {
                   const isActive = idx === activeIndex;
                   const isPrev = idx === activeIndex - 1;
                   const isNext = idx === activeIndex + 1;
+                  const isNextNext = idx === activeIndex + 2;
 
-                  if (!isActive && !isPrev && !isNext) return null;
+                  if (!isActive && !isPrev && !isNext && !isNextNext) return null;
 
                   let initial = { opacity: 0, scale: 0.85, y: "15vh", x: "15vw", rotateZ: 5 };
                   let animate = { opacity: 1, scale: 1, y: "0vh", x: "0vw", rotateZ: 0, zIndex: 10 };
@@ -141,6 +145,10 @@ export function FilmCollection() {
                     animate = { opacity: 0, scale: 1.05, y: "-20vh", x: "-20vw", rotateZ: -5, zIndex: 0 };
                   }
                   if (isNext) {
+                    animate = { opacity: 0, scale: 0.85, y: "20vh", x: "20vw", rotateZ: 5, zIndex: 0 };
+                  }
+                  if (isNextNext) {
+                    // Preload state: Keep it offscreen and transparent
                     animate = { opacity: 0, scale: 0.85, y: "20vh", x: "20vw", rotateZ: 5, zIndex: 0 };
                   }
 

@@ -32,6 +32,7 @@
   --color-bronze: var(--bronze);
   --font-display: "Bodoni Moda", Georgia, serif;
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Pinyon Script", cursive;
 }
 
 :root {
@@ -124,7 +125,20 @@
 
 @utility shell {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  @media (width >= 768px) {
+    padding-inline: 3rem;
+  }
+  @media (width >= 1280px) {
+    padding-inline: 4.5rem;
+  }
+}
+
+@utility shell-wide {
+  width: 100%;
+  max-width: 1600px;
   margin-inline: auto;
   padding-inline: 1.5rem;
   @media (width >= 768px) {
@@ -137,9 +151,9 @@
 
 /* four-tier vertical rhythm */
 @utility section-y {
-  padding-block: 3.5rem;
+  padding-block: 4rem; /* py-16 */
   @media (width >= 768px) {
-    padding-block: 7rem;
+    padding-block: 6rem; /* py-24 */
   }
 }
 

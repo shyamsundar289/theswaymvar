@@ -27,7 +27,7 @@ export function CouplePhotoGrid({ media }: EditorialMediaGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-2 auto-rows-[140px] gap-[2px] md:grid-cols-4 md:auto-rows-[180px]">
+    <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 auto-rows-[220px] md:auto-rows-[260px] gap-x-4 gap-y-6 md:gap-x-5 md:gap-y-8 lg:gap-x-6">
       {media.map((item, i) => (
         <motion.div
           key={item.id || item.src + i}
@@ -50,7 +50,7 @@ export function CouplePhotoGrid({ media }: EditorialMediaGridProps) {
               loop
               playsInline
               preload="metadata"
-              className="hover-lift h-full w-full object-cover border-[8px] border-white"
+              className="h-full w-full object-cover rounded-[2px]"
             />
           ) : (
             <img
@@ -58,7 +58,7 @@ export function CouplePhotoGrid({ media }: EditorialMediaGridProps) {
               alt={item.alt || "Editorial wedding photograph"}
               loading="lazy"
               decoding="async"
-              className="hover-lift h-full w-full object-cover border-[8px] border-white"
+              className="h-full w-full object-cover rounded-[2px] transition-transform duration-700 hover:scale-105"
             />
           )}
         </motion.div>
