@@ -1,11 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import tsConfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import path from "node:path";
-import { autoWebpPlugin } from "./vite-plugin-auto-webp";
+import { autoWebpPlugin } from "./vite-plugin-auto-webp.ts";
 
 export default defineConfig({
   plugins: [
@@ -22,12 +21,11 @@ export default defineConfig({
     }),
     nitro({}),
     react(),
-    tailwindcss(),
-    tsConfigPaths({ projects: ["./tsconfig.json"] }),
+    tailwindcss()
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src")
+      "@": path.resolve(import.meta.dirname, "./src")
     },
     dedupe: [
       "react",
