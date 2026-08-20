@@ -1,4 +1,3 @@
-import { images } from "./images";
 import { galleryImages } from "./photography-images";
 import type { CoupleMedia } from "@/components/site/CouplePhotoGrid";
 
@@ -97,7 +96,6 @@ export const stories: Story[] = [
     gallery: galleryImages.slice(12, 18),
   },
 ];
-
 export const testimonials = [
   {
     quote:
@@ -125,58 +123,11 @@ export const testimonials = [
   },
 ];
 
-export const services = [
-  {
-    id: "wedding-coverage",
-    numeral: "01",
-    name: "Full Wedding Coverage",
-    line: "Every function, documented end to end by a small, quiet team.",
-    body:
-      "A lead photographer and a second shooter for each function, working the way documentary crews do — close, unobtrusive, and always ahead of the moment. You receive a curated edit of the whole celebration, colour-graded in a single consistent hand, plus a hand-sequenced album designed rather than assembled.",
-    image: images.services.wedding,
-  },
-  {
-    id: "wedding-films",
-    numeral: "02",
-    name: "Wedding Films",
-    line: "Story-led films cut for feeling, not for the highlight reel.",
-    body:
-      "We record live sound, keep the voiceover honest, and cut to the rhythm the day actually had. Deliverables run from a four-minute short to a long-form documentary edit, mastered for both the living room screen and the phone it will really be watched on.",
-    image: images.services.films,
-  },
-  {
-    id: "destination",
-    numeral: "03",
-    name: "Destination Weddings",
-    line: "Recced in advance, shot with local light in mind.",
-    body:
-      "We travel ahead of the celebration to walk the venue at the exact hour you'll be married in it. Permissions, drone clearances and light plans are handled before the first guest lands, which is why destination weekends with us feel unusually calm.",
-    image: images.services.destination,
-  },
-  {
-    id: "same-day-edit",
-    numeral: "04",
-    name: "Same-Day Edit",
-    line: "A short film cut and screened before the night ends.",
-    body:
-      "A dedicated editor works on site from the first function. By the time the reception dinner clears, there is a three-minute film ready to play — the single most reliable way we know to make a room go completely silent.",
-    image: images.services.sameday,
-  },
-];
-
-export const premium = {
-  name: "The Ivory Series",
-  eyebrow: "By invitation",
-  body: [
-    "A small number of weddings each year are photographed personally by our founder, on a fine-art brief agreed months in advance.",
-    "It is slower work: fewer frames, hand-printed proofs, a bound archive volume rather than a gallery link. We take four of these a year, and we plan them together from the first conversation.",
-  ],
-  image: images.premium.cover,
-};
+import m1 from "@/assets/m1.jpg";
 
 export const featuredFilms = [
-  { id: '1', couple: 'Meher & Arjun', location: 'Jaipur, India', category: 'Wedding Film', videoUrl: '/videos/wedding.mp4', posterImg: images.work["meher-and-arjun"].cover },
-  { id: '2', couple: 'Tara & Rohan', location: 'Udaipur, Rajasthan', category: 'Cinematic Highlights', videoUrl: '/videos/celebration.mp4', posterImg: images.work["ira-and-vikram"].cover },
-  { id: '3', couple: 'Alia & Kabir', location: 'Lake Como, Italy', category: 'Destination Film', videoUrl: '/videos/prewedding.mp4', posterImg: images.work["naina-and-rohan"].cover },
-  { id: '4', couple: 'Simran & Veer', location: 'Goa, India', category: 'The Celebration', videoUrl: '/videos/portraits.mp4', posterImg: images.moments[0] }
+  { id: '1', couple: 'Meher & Arjun', location: 'Jaipur, India', category: 'Wedding Film', videoUrl: '/videos/wedding.mp4', posterImg: "/images/Recent01.webp" },
+  { id: '2', couple: 'Tara & Rohan', location: 'Udaipur, Rajasthan', category: 'Cinematic Highlights', videoUrl: '/videos/celebration.mp4', posterImg: "/images/Recent02.webp" },
+  { id: '3', couple: 'Alia & Kabir', location: 'Lake Como, Italy', category: 'Destination Film', videoUrl: '/videos/prewedding.mp4', posterImg: "/images/Recent03.webp" },
+  { id: '4', couple: 'Simran & Veer', location: 'Goa, India', category: 'The Celebration', videoUrl: '/videos/portraits.mp4', posterImg: m1 }
 ];

@@ -26,7 +26,7 @@ const HAIRLINE_LIGHT = '#DCD7C9';
 const HAIRLINE_DARK = 'rgba(255,255,255,0.12)';
 
 
-const HERO_SERVICES = [
+const getHeroServices = () => [
   { id: 's1', title: 'Wedding Photography', image: images.services.wedding },
   { id: 's2', title: 'Wedding Films', image: images.services.films },
   { id: 's3', title: 'Pre-Wedding', image: images.moments[0] },
@@ -125,8 +125,9 @@ const CinematicHero = () => {
   const ITEM_WIDTH = CARD_WIDTH + GAP;
   
   // Create duplicates for endless loop
-  const marqueeItems = [...HERO_SERVICES, ...HERO_SERVICES, ...HERO_SERVICES, ...HERO_SERVICES];
-  const SET_WIDTH = HERO_SERVICES.length * ITEM_WIDTH;
+  const heroServices = React.useMemo(() => getHeroServices(), []);
+  const marqueeItems = [...heroServices, ...heroServices, ...heroServices, ...heroServices];
+  const SET_WIDTH = heroServices.length * ITEM_WIDTH;
 
   useAnimationFrame((time, delta) => {
     if (isHovered) return; 
