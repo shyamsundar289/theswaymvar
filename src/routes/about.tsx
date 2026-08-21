@@ -32,7 +32,7 @@ function AboutPage() {
   const [fullImage, setFullImage] = useState<string | null>(null);
 
   const teamMembers = [
-    { id: "t1", name: "Ravi Maru", role: "Founder & Filmmaker", img: "/images/crew/pic1.jpg" },
+    { id: "t1", name: "Riya Maru", role: "Founder & Filmmaker", img: "/images/crew/pic1.jpg" },
     { id: "t2", name: "Megha Verma", role: "Lead Photographer", img: "/images/crew/pic2.jpg" },
     { id: "t3", name: "Arjun Nair", role: "Cinematographer", img: "/images/crew/pic4.jpg" },
     { id: "t4", name: "Karan Malhotra", role: "Editor", img: "/images/crew/pic7.jpg" },
@@ -136,7 +136,7 @@ function AboutPage() {
           {/* Image */}
           <RevealImage 
             src="/images/about/person.jpg"
-            alt="Ravi Maru — Founder"
+            alt="Riya Maru — Founder"
             className="w-full aspect-[4/5] overflow-hidden bg-muted"
           />
 
@@ -146,7 +146,7 @@ function AboutPage() {
               The person behind this
             </p>
             <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.5rem)] text-[#2d2c2a] leading-[1.1] mb-[clamp(0.75rem,2vw,1rem)]">
-              Ravi Maru
+              Riya Maru
             </h2>
             <div className="flex items-center gap-0 mb-[clamp(1.5rem,3vw,2rem)]">
               <div className="w-[50px] md:w-[70px] h-[1px] bg-[#c4a97d]" />
