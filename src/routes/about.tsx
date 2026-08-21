@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { images } from "@/data/images";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -15,117 +17,147 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
+/* ─── Decorative ornament component ─── */
+function Ornament({ className = "" }: { className?: string }) {
+  return (
+    <div className={`flex items-center justify-center gap-0 ${className}`}>
+      <div className="w-[50px] md:w-[70px] h-[1px] bg-[#c4a97d]" />
+      <span className="text-[#c4a97d] text-[8px] mx-[6px]">✦</span>
+      <div className="w-[50px] md:w-[70px] h-[1px] bg-[#c4a97d]" />
+    </div>
+  );
+}
+
 function AboutPage() {
+  const [fullImage, setFullImage] = useState<string | null>(null);
+
   const teamMembers = [
-    {
-      id: "member-1",
-      name: "Ritesh Sharma",
-      role: "Founder & Filmmaker",
-      img: "/images/crew/pic1.jpg",
-      description: "With a background in documentary filmmaking, Ritesh approaches weddings not as staged productions, but as living, breathing stories. He believes the most powerful moments happen when nobody realizes the camera is rolling."
-    },
-    {
-      id: "member-2",
-      name: "Ayesha Khanna",
-      role: "Lead Photographer",
-      img: "/images/crew/pic2.jpg",
-      description: "Ayesha looks for the quiet spaces between the celebrations. Her frames are defined by an obsession with natural light, delicate composition, and preserving the exact feeling of a fleeting second."
-    },
-    {
-      id: "member-3",
-      name: "Vikram Singh",
-      role: "Cinematographer",
-      img: "/images/crew/pic4.jpg",
-      description: "A master of light and atmosphere, Vikram captures the grand scale and the intimate details with equal reverence. His work ensures that every film feels atmospheric, cinematic, and timeless."
-    },
-    {
-      id: "member-4",
-      name: "Priya Desai",
-      role: "Editor & Colorist",
-      img: "/images/crew/pic7.jpg",
-      description: "Priya shapes the final narrative, bringing rhythm and emotion to every film and photograph. She cuts to the genuine heartbeat of the day, ensuring the final memory is as honest as the moment itself."
-    }
+    { id: "t1", name: "Ravi Maru", role: "Founder & Filmmaker", img: "/images/crew/pic1.jpg" },
+    { id: "t2", name: "Megha Verma", role: "Lead Photographer", img: "/images/crew/pic2.jpg" },
+    { id: "t3", name: "Arjun Nair", role: "Cinematographer", img: "/images/crew/pic4.jpg" },
+    { id: "t4", name: "Karan Malhotra", role: "Editor", img: "/images/crew/pic7.jpg" },
+    { id: "t5", name: "Sneha Iyer", role: "Creative Director", img: "/images/crew/pic3.jpg" },
+  ];
+
+  const behindFrames = [
+    { id: "b1", name: "Rahul Singh", img: "/images/crew/pic5.jpg" },
+    { id: "b2", name: "Vikram Das", img: "/images/crew/pic6.jpg" },
+    { id: "b3", name: "Ananya Kapoor", img: "/images/crew/pic8.jpg" },
+    { id: "b4", name: "Pooja Mehta", img: "/images/crew/pic9.jpg" },
   ];
 
   return (
-    <div className="bg-background text-foreground min-h-[100svh] selection:bg-[#d1cbbd]/30 overflow-hidden">
-      
-      {/* 1. HERO / INTRODUCTION */}
-      <section className="relative w-full pt-[160px] pb-24 md:pt-[220px] md:pb-32 px-[5vw]">
-        <Reveal className="max-w-4xl mx-auto flex flex-col items-center text-center">
-          <p className="font-sans text-[10px] md:text-[12px] uppercase tracking-[0.3em] text-[#8b867c] mb-6 md:mb-8">
-            The Swayamvar
-          </p>
-          <h1 className="font-display text-[clamp(2.8rem,6vw,5rem)] text-[#2d2c2a] leading-[1.05] tracking-tight mb-6">
+    <div className="bg-[#FAF8F4] text-foreground min-h-[100svh] selection:bg-[#d1cbbd]/30 overflow-x-hidden">
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 1 — HERO / THE SWAYAMVAR
+          ══════════════════════════════════════════════════════ */}
+      <section className="relative w-full pt-[clamp(6rem,10vw,8rem)] pb-[clamp(1rem,2vw,2rem)] px-[5vw]">
+        <Reveal className="max-w-3xl mx-auto flex flex-col items-center text-center">
+          <h1 className="font-display text-[clamp(3rem,7vw,5.5rem)] text-[#2d2c2a] leading-[1] tracking-tight mb-4">
             theswayamvar
           </h1>
-          <p className="font-sans text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-[#2d2c2a] mb-12 opacity-80">
+          <Ornament className="mb-4" />
+          <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#2d2c2a] mb-6 opacity-80">
             Cinematic Wedding Films & Photography
           </p>
-          <p className="font-sans text-[15px] md:text-[18px] text-[#5D5A55] leading-relaxed max-w-2xl mx-auto">
+          <p className="font-sans text-[clamp(0.875rem,1.4vw,1.0625rem)] text-[#5D5A55] leading-[1.8] max-w-[580px] mx-auto mb-0">
             We are a wedding photography and film studio making quiet, cinematic records of celebrations across India and worldwide. We focus on narrative, light, and the honest moments you were too busy to notice.
           </p>
         </Reveal>
       </section>
 
-      {/* 2. THE SWAYAMVAR LOGO / BRAND STORY */}
-      <section className="shell py-24 md:py-32 border-t border-border/40">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center max-w-6xl mx-auto px-[5vw]">
-          <Reveal className="flex justify-center md:justify-start order-1 md:order-1">
-            <img 
-              src="/images/swamyvar_logo.svg" 
-              alt="The Swayamvar Logo" 
-              className="w-[200px] md:w-[280px] lg:w-[320px] opacity-90"
-            />
-          </Reveal>
-          
-          <Reveal className="flex flex-col order-2 md:order-2">
-            <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#8b867c] mb-6">
-              The Name
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 2 — WHAT WE DO
+          ══════════════════════════════════════════════════════ */}
+      <section className="w-full pt-[clamp(2.5rem,5vw,4rem)] pb-[clamp(1.5rem,3vw,2rem)] px-[5vw] border-t border-[#e8e4dc]">
+        <div className="max-w-4xl mx-auto">
+          <Reveal className="flex flex-col items-center text-center mb-[clamp(2rem,4vw,3rem)]">
+            <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#8b867c] mb-3">
+              What we do
             </p>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] text-[#2d2c2a] leading-[1.15] mb-8">
-              More than a name.<br />
-              <span className="italic font-light">A way of remembering.</span>
-            </h2>
-            <div className="space-y-6 text-[15px] md:text-[17px] text-[#5D5A55] leading-relaxed">
-              <p>
-                In ancient traditions, a <em>Swayamvar</em> was the ultimate act of choosing one's own destiny. We chose this name because every celebration is, at its heart, a profound, personal choice to build a life together.
-              </p>
-              <p>
-                As a studio, we approach weddings as observers rather than directors. Our philosophy is rooted in the belief that the truth of a moment is always more beautiful than anything we could stage. We are here to preserve the quiet glances, the unscripted tears, and the genuine joy, creating a cinematic legacy that feels as honest tomorrow as it did today.
-              </p>
+            <Ornament />
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] gap-[clamp(1.5rem,3vw,2.5rem)] items-start">
+              {/* Wedding Films */}
+              <div className="flex flex-col items-center text-center">
+                <svg width="100" height="70" viewBox="0 0 100 70" fill="none" className="mb-4 text-[#2d2c2a]">
+                  <rect x="10" y="15" width="55" height="35" rx="3" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                  <circle cx="37" cy="32" r="10" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+                  <circle cx="37" cy="32" r="5" stroke="currentColor" strokeWidth="0.8" fill="none"/>
+                  <rect x="65" y="20" width="25" height="8" rx="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <line x1="70" y1="15" x2="70" y2="10" stroke="currentColor" strokeWidth="1"/>
+                  <rect x="66" y="6" width="12" height="9" rx="1" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <rect x="15" y="50" width="45" height="4" rx="1" stroke="currentColor" strokeWidth="0.8" fill="none"/>
+                </svg>
+                <h3 className="font-sans text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-[#2d2c2a] mb-3">
+                  Wedding Films
+                </h3>
+                <p className="font-sans text-[clamp(0.8125rem,1.3vw,0.9375rem)] text-[#5D5A55] leading-[1.7] max-w-[280px]">
+                  Cinematic storytelling that captures the emotion, movement and beauty of your day.
+                </p>
+              </div>
+
+              {/* Vertical divider */}
+              <div className="hidden md:block w-[1px] h-full bg-[#e4e0d7] self-stretch" />
+
+              {/* Wedding Photography */}
+              <div className="flex flex-col items-center text-center">
+                <svg width="90" height="70" viewBox="0 0 90 70" fill="none" className="mb-4 text-[#2d2c2a]">
+                  <rect x="10" y="18" width="70" height="42" rx="4" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                  <circle cx="45" cy="40" r="12" stroke="currentColor" strokeWidth="1.3" fill="none"/>
+                  <circle cx="45" cy="40" r="7" stroke="currentColor" strokeWidth="0.8" fill="none"/>
+                  <circle cx="45" cy="40" r="3" stroke="currentColor" strokeWidth="0.6" fill="none"/>
+                  <rect x="25" y="12" width="40" height="6" rx="2" stroke="currentColor" strokeWidth="1" fill="none"/>
+                  <circle cx="68" cy="26" r="3" stroke="currentColor" strokeWidth="0.8" fill="none"/>
+                  <rect x="15" y="22" width="8" height="4" rx="1" stroke="currentColor" strokeWidth="0.8" fill="none"/>
+                </svg>
+                <h3 className="font-sans text-[11px] md:text-[12px] uppercase tracking-[0.2em] text-[#2d2c2a] mb-3">
+                  Wedding Photography
+                </h3>
+                <p className="font-sans text-[clamp(0.8125rem,1.3vw,0.9375rem)] text-[#5D5A55] leading-[1.7] max-w-[280px]">
+                  Timeless images that preserve the real, raw and beautiful moments as they unfold.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* 3. FOUNDER / STUDIO PORTRAIT */}
-      <section className="w-full bg-[#F6F4EE] py-24 md:py-32">
-        <div className="shell grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center max-w-7xl mx-auto px-[5vw]">
-          <div className="w-full">
-            <RevealImage className="w-full aspect-[4/5] overflow-hidden bg-muted rounded-[2px] shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
-              <img 
-                src={images.approach.inset} 
-                alt="Studio Portrait" 
-                className="w-full h-full object-cover object-center grayscale-[20%]"
-              />
-            </RevealImage>
-          </div>
-          
-          <Reveal className="flex flex-col">
-            <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#8b867c] mb-6">
-              The person behind the frame
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 3 — THE PERSON BEHIND THIS
+          ══════════════════════════════════════════════════════ */}
+      <section className="w-full bg-[#EDE8DF] pt-[clamp(2rem,4vw,3rem)] pb-[clamp(4rem,8vw,6rem)]">
+        <div className="max-w-6xl mx-auto px-[5vw] grid grid-cols-1 lg:grid-cols-2 gap-[clamp(2.5rem,5vw,4rem)] items-start">
+          {/* Image */}
+          <RevealImage 
+            src="/images/about/person.jpg"
+            alt="Ravi Maru — Founder"
+            className="w-full aspect-[4/5] overflow-hidden bg-muted"
+          />
+
+          {/* Text */}
+          <Reveal className="flex flex-col pt-[clamp(0.5rem,2vw,1.5rem)]">
+            <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#c4a97d] mb-[clamp(0.75rem,2vw,1rem)]">
+              The person behind this
             </p>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] text-[#2d2c2a] leading-[1.15] mb-8">
-              Every story deserves to be<br />
-              <span className="italic font-light">remembered honestly.</span>
+            <h2 className="font-display text-[clamp(2.2rem,4.5vw,3.5rem)] text-[#2d2c2a] leading-[1.1] mb-[clamp(0.75rem,2vw,1rem)]">
+              Ravi Maru
             </h2>
-            <div className="space-y-6 text-[15px] md:text-[17px] text-[#5D5A55] leading-relaxed">
+            <div className="flex items-center gap-0 mb-[clamp(1.5rem,3vw,2rem)]">
+              <div className="w-[50px] md:w-[70px] h-[1px] bg-[#c4a97d]" />
+              <span className="text-[#c4a97d] text-[8px] mx-[6px]">✦</span>
+            </div>
+            <div className="space-y-[clamp(1rem,2.5vw,1.25rem)] text-[clamp(0.8125rem,1.3vw,0.9375rem)] text-[#5D5A55] leading-[1.8]">
               <p>
                 I started with a borrowed camera and a preference for sitting in the back row. What I learned quickly was that the most important moments of a wedding rarely happen on stage. They happen in the hallways, in the thirty seconds before walking down the aisle, and in the quiet glances exchanged when nobody else is looking.
               </p>
               <p>
-                We shifted our focus entirely toward documentary-style filmmaking because we realized that directing a couple to pose for a memory completely strips the truth out of it. We believe the smallest, most imperfect moments often become the most important memories you keep.
+                We shifted our focus entirely toward documentary-style filmmaking and photography because we realized that directing a couple to pose for a memory completely strips the truth out of it. We believe the smallest, most imperfect moments often become the most important memories you keep.
               </p>
               <p>
                 For us, the greatest privilege is not just being invited to your celebration, but being trusted enough to blend in, stay out of the way, and preserve the day exactly as it felt.
@@ -135,104 +167,60 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* 4. PHILOSOPHY / APPROACH */}
-      <section className="shell py-24 md:py-40 border-b border-border/40">
-        <Reveal className="max-w-5xl mx-auto px-[5vw]">
-          <h2 className="font-display text-[clamp(2.2rem,5vw,4rem)] text-[#2d2c2a] leading-[1.1] mb-20 text-center md:text-left">
-            We don't direct the memory.<br />
-            <span className="italic font-light text-[#8b867c]">We preserve it.</span>
-          </h2>
-          
-          <div className="flex flex-col gap-16 md:gap-20 border-l border-[#e4e0d7] pl-8 md:pl-16">
-            <Reveal delay={0.1}>
-              <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
-                <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-[#8b867c] w-[140px] shrink-0">
-                  01 — Observe
-                </span>
-                <p className="font-display text-2xl md:text-3xl text-[#2d2c2a] leading-relaxed max-w-2xl">
-                  We look for the moments that happen naturally. No awkward pausing, no staging—just life as it unfolds.
-                </p>
-              </div>
-            </Reveal>
-            
-            <Reveal delay={0.2}>
-              <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
-                <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-[#8b867c] w-[140px] shrink-0">
-                  02 — Feel
-                </span>
-                <p className="font-display text-2xl md:text-3xl text-[#2d2c2a] leading-relaxed max-w-2xl">
-                  We photograph emotion before perfection. A slightly blurred image full of tears and laughter is always worth more than a perfectly sharp, empty pose.
-                </p>
-              </div>
-            </Reveal>
 
-            <Reveal delay={0.3}>
-              <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
-                <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-[#8b867c] w-[140px] shrink-0">
-                  03 — Preserve
-                </span>
-                <p className="font-display text-2xl md:text-3xl text-[#2d2c2a] leading-relaxed max-w-2xl">
-                  We create photographs and films that still feel alive years later, allowing you to not just see what happened, but remember exactly how it felt.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </Reveal>
+      {/* ══════════════════════════════════════════════════════
+          SECTION 4 — GROUP PHOTO
+          ══════════════════════════════════════════════════════ */}
+      <section className="w-full py-[clamp(3.5rem,7vw,5rem)] px-[5vw] border-t border-[#e8e4dc]">
+        <div className="max-w-[1440px] mx-auto">
+          <Reveal className="w-full aspect-video md:aspect-[21/9] bg-muted relative overflow-hidden rounded-[2px]">
+            <img 
+              src="/images/about/Team_photo.jpg" 
+              alt="The Swayamvar Team" 
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+          </Reveal>
+        </div>
       </section>
 
-      {/* 5. TEAM SECTION */}
-      <section className="shell py-24 md:py-32">
-        <div className="max-w-[1440px] mx-auto px-[5vw] lg:px-[7vw]">
-          <Reveal className="flex flex-col items-center text-center mb-16 md:mb-24">
-            <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#8b867c] mb-6">
-              The Team
+      {/* ══════════════════════════════════════════════════════
+          SECTION 5 — MEET THE TEAM
+          ══════════════════════════════════════════════════════ */}
+      <section className="w-full py-[clamp(3.5rem,7vw,5rem)] px-[5vw] border-t border-[#e8e4dc]">
+        <div className="max-w-[1440px] mx-auto">
+          <Reveal className="flex flex-col items-center text-center mb-[clamp(2.5rem,5vw,3.5rem)]">
+            <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#8b867c] mb-[clamp(0.75rem,2vw,1rem)]">
+              Meet the team
             </p>
-            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] text-[#2d2c2a] leading-[1.15] mb-6">
-              The people behind the frame.
-            </h2>
-            <p className="font-sans text-[15px] md:text-[17px] text-[#5D5A55] max-w-xl mx-auto">
-              A small team, brought together by a shared obsession with stories, light and honest moments.
-            </p>
+            <Ornament />
           </Reveal>
 
-          {/* 4 Team Members Grid */}
-          <Reveal delay={0.2} className="w-full">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-              {teamMembers.map((member, idx) => (
-                <div key={member.id} className="w-full flex flex-col group cursor-pointer relative" tabIndex={0}>
-                  
-                  {/* EXACT Photography Page Frame Shape & Dual-Layer Hover */}
-                  <div 
-                    className="relative overflow-hidden rounded-[20px] bg-muted w-full aspect-[4/5]" 
-                    style={{ boxShadow: '0 15px 30px rgba(0,0,0,0.08)' }}
+          <Reveal delay={0.15} className="w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-[clamp(1rem,3vw,2rem)]">
+              {teamMembers.map((member) => (
+                <div
+                  key={member.id}
+                  className="flex flex-col items-center text-center group cursor-pointer"
+                  onClick={() => setFullImage(member.img)}
+                >
+                  <div
+                    className="relative overflow-hidden rounded-[20px] bg-muted w-full aspect-[4/5] mb-[clamp(0.75rem,2vw,1rem)]"
+                    style={{ boxShadow: '0 10px 25px rgba(0,0,0,0.06)' }}
                   >
-                    {/* Bottom Layer: Original Color */}
-                    <img 
-                      src={member.img} 
-                      alt={member.name} 
+                    <img
+                      src={member.img}
+                      alt={member.name}
                       loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105 group-focus:scale-105"
+                      className="absolute inset-0 w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                     />
-                    
-                    {/* Top Layer: Grayscale (fades out on hover) */}
-                    <img 
-                      src={member.img} 
-                      alt="" 
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover object-center grayscale opacity-100 group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-700 pointer-events-none"
-                    />
-                    
-                    {/* Overlay: Name inside image on hover */}
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center p-4 text-center pointer-events-none">
-                      <h4 className="font-display text-white text-[22px] md:text-[28px] tracking-wide mb-2">
-                        {member.name}
-                      </h4>
-                      <p className="font-sans text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-white/90">
-                        {member.role}
-                      </p>
-                    </div>
                   </div>
-                  
+                  <h4 className="font-display text-[clamp(0.875rem,2vw,1.125rem)] text-[#2d2c2a] tracking-wide mb-[2px]">
+                    {member.name}
+                  </h4>
+                  <p className="font-sans text-[clamp(0.5rem,0.9vw,0.625rem)] tracking-[0.15em] uppercase text-[#8b867c]">
+                    {member.role}
+                  </p>
                 </div>
               ))}
             </div>
@@ -240,90 +228,109 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* 6. INDIVIDUAL TEAM STORIES */}
-      <section className="shell py-16 md:py-24 bg-[#F8F6F2] border-y border-border/30">
-        <div className="max-w-5xl mx-auto px-[5vw] flex flex-col gap-24 md:gap-40">
-          {teamMembers.map((member, idx) => {
-            const isEven = idx % 2 === 1;
-            return (
-              <div key={`story-${member.id}`} className={`flex flex-col md:flex-row items-center gap-12 md:gap-20 ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                <div className="w-full md:w-[40%]">
-                  <RevealImage className="w-full aspect-[3/4] overflow-hidden bg-muted shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
-                    <img 
-                      src={member.img} 
-                      alt={member.name} 
-                      loading="lazy"
-                      className="w-full h-full object-cover object-center grayscale-[80%]"
-                    />
-                  </RevealImage>
-                </div>
-                
-                <div className="w-full md:w-[60%] flex flex-col">
-                  <Reveal>
-                    <span className="font-sans text-[10px] text-[#8b867c] tracking-[0.2em] mb-4 block">
-                      0{idx + 1}
-                    </span>
-                    <h3 className="font-display text-[2rem] md:text-[3rem] text-[#2d2c2a] leading-none mb-3">
-                      {member.name}
-                    </h3>
-                    <p className="font-sans text-[11px] uppercase tracking-[0.2em] text-[#8b867c] mb-8">
-                      {member.role}
-                    </p>
-                    <p className="text-[15px] md:text-[17px] text-[#5D5A55] leading-relaxed max-w-md">
-                      {member.description}
-                    </p>
-                  </Reveal>
+
+
+      {/* ══════════════════════════════════════════════════════
+          SECTION 7 — LET'S CONNECT
+          ══════════════════════════════════════════════════════ */}
+      <section className="w-full bg-[#EDE8DF] py-[clamp(2.5rem,5vw,4rem)] px-[5vw]">
+        <div className="max-w-5xl mx-auto">
+          <Reveal className="flex flex-col items-center text-center mb-[clamp(2rem,4vw,3rem)]">
+            <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#8b867c] mb-[clamp(0.75rem,2vw,1rem)]">
+              Let's connect
+            </p>
+            <h2 className="font-display text-[clamp(2rem,4vw,3rem)] text-[#2d2c2a] leading-[1.15] mb-[clamp(1rem,2vw,1.5rem)]">
+              We'd Love To Hear From You
+            </h2>
+            <Ornament />
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
+              {/* Instagram */}
+              <div className="flex flex-col items-center text-center py-[clamp(1.5rem,3vw,2rem)] px-[clamp(1rem,2vw,1.5rem)] border-b sm:border-b-0 sm:border-r border-[#d1cbbd] last:border-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d2c2a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-[clamp(0.75rem,2vw,1rem)]">
+                  <rect x="2" y="2" width="20" height="20" rx="5"/>
+                  <circle cx="12" cy="12" r="5"/>
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="#2d2c2a" stroke="none"/>
+                </svg>
+                <h4 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#2d2c2a] mb-[clamp(0.5rem,1vw,0.75rem)]">
+                  Instagram
+                </h4>
+                <a href="https://www.instagram.com/theswaymvar" target="_blank" rel="noopener" className="font-sans text-[clamp(0.6875rem,1vw,0.75rem)] text-[#5D5A55] hover:text-[#c4a97d] transition-colors">
+                  @theswaymvar
+                </a>
+              </div>
+
+              {/* Email */}
+              <div className="flex flex-col items-center text-center py-[clamp(1.5rem,3vw,2rem)] px-[clamp(1rem,2vw,1.5rem)] border-b sm:border-b-0 sm:border-r lg:border-r border-[#d1cbbd]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d2c2a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-[clamp(0.75rem,2vw,1rem)]">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <polyline points="2,4 12,13 22,4"/>
+                </svg>
+                <h4 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#2d2c2a] mb-[clamp(0.5rem,1vw,0.75rem)]">
+                  Email
+                </h4>
+                <a href="mailto:hello@theswayamvar.com" className="font-sans text-[clamp(0.6875rem,1vw,0.75rem)] text-[#5D5A55] hover:text-[#c4a97d] transition-colors">
+                  hello@theswayamvar.com
+                </a>
+              </div>
+
+              {/* Phone */}
+              <div className="flex flex-col items-center text-center py-[clamp(1.5rem,3vw,2rem)] px-[clamp(1rem,2vw,1.5rem)] border-b sm:border-b-0 sm:border-r border-[#d1cbbd]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d2c2a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-[clamp(0.75rem,2vw,1rem)]">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+                <h4 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#2d2c2a] mb-[clamp(0.5rem,1vw,0.75rem)]">
+                  Phone
+                </h4>
+                <a href="tel:+918949422388" className="font-sans text-[clamp(0.6875rem,1vw,0.75rem)] text-[#5D5A55] hover:text-[#c4a97d] transition-colors">
+                  +91 89494 22388
+                </a>
+              </div>
+
+              {/* Studio */}
+              <div className="flex flex-col items-center text-center py-[clamp(1.5rem,3vw,2rem)] px-[clamp(1rem,2vw,1.5rem)]">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2d2c2a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="mb-[clamp(0.75rem,2vw,1rem)]">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <h4 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-[#2d2c2a] mb-[clamp(0.5rem,1vw,0.75rem)]">
+                  Studio
+                </h4>
+                <div className="font-sans text-[clamp(0.6875rem,1vw,0.75rem)] text-[#5D5A55] leading-[1.6]">
+                  <p>The Swayamvar Studio</p>
+                  <p>Bikaner, Rajasthan</p>
+                  <p>India</p>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* 7. CONTACT / ENQUIRY CTA */}
-      <section className="w-full py-32 md:py-48 text-center bg-background px-[5vw]">
-        <Reveal className="max-w-3xl mx-auto flex flex-col items-center">
-          <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-[#8b867c] mb-8">
-            Let's make something worth remembering
-          </p>
-          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] text-[#2d2c2a] leading-[1.05] tracking-tight mb-12">
-            Your story starts here.
-          </h2>
-          <p className="font-sans text-[15px] md:text-[17px] text-[#5D5A55] max-w-lg mx-auto mb-16">
-            For wedding enquiries, films, photography or simply to tell us a little about your day, we'd love to hear from you.
-          </p>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 mb-16">
-            <div className="flex flex-col items-center">
-              <span className="font-display italic text-[#8b867c] text-xl mb-2">Email</span>
-              <a href="mailto:hello@theswayamvar.com" className="font-sans text-[13px] tracking-widest uppercase hover:text-[#8b867c] transition-colors">
-                hello@theswayamvar.com
-              </a>
-            </div>
-            
-            <div className="flex flex-col items-center">
-              <span className="font-display italic text-[#8b867c] text-xl mb-2">Phone</span>
-              <a href="tel:+919876543210" className="font-sans text-[13px] tracking-widest uppercase hover:text-[#8b867c] transition-colors">
-                +91 98765 43210
-              </a>
-            </div>
-            
-            <div className="flex flex-col items-center">
-              <span className="font-display italic text-[#8b867c] text-xl mb-2">Studio</span>
-              <span className="font-sans text-[13px] tracking-widest uppercase">
-                New Delhi, India
-              </span>
-            </div>
-          </div>
-          
-          <a 
-            href="mailto:hello@theswayamvar.com"
-            className="inline-flex items-center justify-center border border-[#d1cbbd] px-10 py-4 text-[11px] tracking-[0.25em] uppercase hover:bg-[#2d2c2a] hover:text-white hover:border-[#2d2c2a] transition-all duration-500"
+
+      {/* ── Lightbox ── */}
+      <AnimatePresence>
+        {fullImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setFullImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 cursor-pointer"
           >
-            Get In Touch
-          </a>
-        </Reveal>
-      </section>
+            <button className="absolute top-6 right-6 text-white/70 hover:text-white z-10 text-[10px] md:text-xs tracking-widest uppercase font-sans transition-colors">
+              Close
+            </button>
+            <img
+              src={fullImage}
+              className="max-w-full max-h-full object-contain shadow-2xl"
+              alt="Fullscreen preview"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

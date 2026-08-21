@@ -1,7 +1,7 @@
 import { galleryImages } from "./photography-images";
 import type { CoupleMedia } from "@/components/site/CouplePhotoGrid";
 
-export const WHATSAPP_NUMBER = "919999999999"; // swap for the studio's real number
+export const WHATSAPP_NUMBER = "918949422388";
 
 export const waLink = (message = "Hello theswaymvar — we'd love to know about your availability.") =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
