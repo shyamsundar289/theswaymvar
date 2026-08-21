@@ -7,7 +7,8 @@ const swaymwarLogo = "/images/swamyvar_logo.svg";
 
 export function Header() {
   const location = useLocation();
-  const isIndex = location.pathname === "/";
+  const pathname = location.pathname.replace(/\/$/, "") || "/";
+  const isHeroRoute = ["/", "/film", "/photography"].includes(pathname);
   
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -32,10 +33,8 @@ export function Header() {
     };
   }, []);
 
-  const isHeroTransparent = false;
-
-  const isTransparent = isIndex && !scrolled && !open;
-  const positionClass = isIndex ? "fixed" : "sticky";
+  const isTransparent = isHeroRoute && !scrolled && !open;
+  const positionClass = isHeroRoute ? "fixed" : "sticky";
   const bgClass = isTransparent 
     ? "bg-transparent text-background border-b border-transparent shadow-none" 
     : "bg-background text-foreground border-b border-[rgba(40,35,30,0.06)] shadow-[0_4px_18px_rgba(40,35,30,0.035)]";
@@ -62,7 +61,7 @@ export function Header() {
 
   const handleLogoClick = (e: React.MouseEvent) => {
     setOpen(false);
-    if (isIndex) {
+    if (isHeroRoute) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }

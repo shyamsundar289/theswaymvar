@@ -2,6 +2,16 @@
 @source "../src";
 @import "tw-animate-css";
 
+
+
+@font-face {
+  font-family: 'Orange Avenue';
+  src: url('/fonts/OrangeAvenueDEMO-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   --radius-sm: 2px;
   --radius-md: 3px;
@@ -30,9 +40,9 @@
   --color-taupe: var(--taupe);
   --color-charcoal: var(--charcoal);
   --color-bronze: var(--bronze);
-  --font-display: "Bodoni Moda", Georgia, serif;
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-script: "Pinyon Script", cursive;
+  --font-display: "Orange Avenue", Georgia, serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Allura", cursive;
 }
 
 :root {
@@ -89,7 +99,7 @@
   h4,
   blockquote {
     font-family: var(--font-display);
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: -0.01em;
   }
 
@@ -205,7 +215,7 @@
 
 @utility ligature {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: -0.06em;
   line-height: 0.9;
   text-transform: uppercase;
