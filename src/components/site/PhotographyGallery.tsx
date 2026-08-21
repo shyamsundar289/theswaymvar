@@ -25,7 +25,7 @@ export function PhotographyGallery() {
       {/* =====================================================
           FILTER BAR — inline, pipe-separated, single row
       ===================================================== */}
-      <div className="bg-taupe/40">
+      <div className="bg-transparent border-b border-border/20">
         <div className="shell flex flex-wrap items-center justify-center gap-x-3 gap-y-2 py-4 md:py-6 text-sm md:text-base">
           {CATEGORY_ORDER.map((cat, i) => (
             <span key={cat} className="flex items-center gap-x-3 md:gap-x-4">

@@ -4,7 +4,7 @@ import { stories, waLink } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { WhatsAppButton } from "@/components/site/CTA";
 import { PhotographyHero } from "@/components/site/PhotographyHero";
-import { PhotographyGallery } from "@/components/site/PhotographyGallery";
+import { PhotographyGridSection } from "@/components/photography/PhotographyGridSection";
 
 export const Route = createFileRoute("/photography/")({
   head: () => ({
@@ -34,14 +34,19 @@ function PhotographyPage() {
   return (
     <>
       {/* =======================================================
-          SECTION 1 — PHOTOGRAPHY HERO (image-free, 100px header)
+          SECTION 1 — FIXED PHOTOGRAPHY HERO
       ======================================================= */}
-      <PhotographyHero />
+      <div className="fixed top-0 left-0 w-full h-[50vh] md:h-[500px] lg:h-[580px] z-0 overflow-hidden bg-[#F6F4EE]">
+        <PhotographyHero />
+      </div>
+      <div className="w-full h-[50vh] md:h-[500px] lg:h-[580px] pointer-events-none bg-transparent" />
 
       {/* =======================================================
-          SECTION 2 — FILTER BAR + MASONRY GALLERY
+          SECTION 2 — CONTENT SLIDING OVER HERO
       ======================================================= */}
-      <PhotographyGallery />
+      <div className="relative z-10 w-full bg-white">
+        <PhotographyGridSection />
+      </div>
 
       {/* =======================================================
           SECTION 3 — OUR PHOTOGRAPHY APPROACH

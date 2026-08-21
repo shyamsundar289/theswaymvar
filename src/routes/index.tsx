@@ -82,10 +82,15 @@ function Home() {
   return (
     <>
       <audio ref={audioRef} src="/audio/cinematic-wedding.mp3" loop preload="auto" onTimeUpdate={handleTimeUpdate} />
-      {/* HERO */}
-      <AnimatedHero />
+      {/* HERO WITH PARALLAX SCROLL EFFECT */}
+      <div className="fixed top-0 left-0 w-full h-[100svh] z-0 overflow-hidden">
+        <AnimatedHero />
+      </div>
+      <div className="w-full h-[100svh] pointer-events-none bg-transparent" />
 
-      {/* BRAND / STUDIO */}
+      {/* MAIN CONTENT LAYER THAT SCROLLS OVER THE HERO */}
+      <div className="relative z-10 bg-background w-full">
+        {/* BRAND / STUDIO */}
       <section className="shell section-y grid gap-10 md:grid-cols-2 md:items-center md:gap-16 overflow-hidden">
         <Reveal className="flex flex-col items-center text-center">
           <p className="label-xs text-bronze tracking-[2px] uppercase text-[12px]">The Studio</p>
@@ -218,8 +223,6 @@ function Home() {
         </Reveal>
       </section>
 
-      {/* EDITORIAL COLLAGE (Moved under Studio section) */}
-      <EditorialCollage />
 
       {/* NEW: VIDEO SHOWCASE SECTION */}
       <VideoShowcaseSection />
@@ -363,7 +366,7 @@ function Home() {
 
                 {/* Music Metadata */}
                 <div className="text-center w-full mt-auto mb-[20px]">
-                  <p className="text-[12px] text-[#788591] font-mono tracking-[2px] mb-[6px]">{formatTime(currentTime)}</p>
+                  <p className="text-[12px] text-[#788591] font-sans tracking-[2px] mb-[6px]">{formatTime(currentTime)}</p>
                   <h4 className="font-display italic text-[#3e3a35] text-[20px] leading-tight">Cinematic Anthem</h4>
                   <p className="text-[14px] text-[#8c8881] mt-[4px]">Timeless Celebrations</p>
                 </div>
@@ -477,6 +480,10 @@ function Home() {
           </div>
         </Reveal>
       </section>
+
+      {/* EDITORIAL COLLAGE */}
+      <EditorialCollage />
+      </div>
     </>
   );
 }

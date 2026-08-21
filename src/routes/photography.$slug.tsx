@@ -49,7 +49,7 @@ function StoryDetail() {
 
   return (
     <>
-      <section className="shell pt-[10px] pb-6 md:pt-[10px] md:pb-8">
+      <section className="shell pt-[120px] pb-6 md:pt-[140px] md:pb-8">
         <Reveal>
           <h1 className="font-display text-3xl leading-[0.98] md:text-6xl text-right italic">
             {story.couple}

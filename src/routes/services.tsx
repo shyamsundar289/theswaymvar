@@ -1,204 +1,104 @@
-import React, { useEffect, useRef, useState, useLayoutEffect, createContext, useContext } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useAnimationFrame } from 'framer-motion';
-import { X, ArrowRight, ArrowUpRight, Camera, Film } from 'lucide-react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 import { createFileRoute } from '@tanstack/react-router';
+import { Reveal } from "@/components/site/Reveal";
 import { images } from "@/data/images";
-import { PhotographyGallery } from "@/components/site/PhotographyGallery";
-import { SharedHero } from "@/components/site/SharedHero";
 
 export const Route = createFileRoute('/services')({
-  component: ServicesPage,
+  head: () => ({
+    meta: [
+      { title: "Your Memories — theswayamvar" },
+      {
+        name: "description",
+        content: "A curated collection of our most cherished photographs.",
+      },
+    ],
+  }),
+  component: YourMemoriesPage,
 });
 
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-const EASE: [number, number, number, number] = [0.65, 0, 0.35, 1];
-
-const PAPER = '#F6F4EE';
-const INK = '#15130F';
-const INK_ALT = '#1C1912';
-const INK_TEXT = '#2A2721';
-const HAIRLINE_LIGHT = '#DCD7C9';
-const HAIRLINE_DARK = 'rgba(255,255,255,0.12)';
-
-
-const getHeroServices = () => [
-  { id: 's1', title: 'Wedding Photography', image: images.services.wedding },
-  { id: 's2', title: 'Wedding Films', image: images.services.films },
-  { id: 's3', title: 'Pre-Wedding', image: images.moments[0] },
-  { id: 's4', title: 'Destination Weddings', image: images.services.destination },
-  { id: 's5', title: 'Editorial Portraits', image: images.moments[2] },
-  { id: 's6', title: 'Engagements', image: images.moments[3] },
-  { id: 's7', title: 'Albums & Heirlooms', image: images.services.finearts },
-];
-
-function useIsomorphicLayoutEffect(effect: React.EffectCallback, deps?: React.DependencyList) {
-  const useLayoutEffectHook = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
-  useLayoutEffectHook(effect, deps);
-}
-
-// EXACT 3D Cinematic Marquee 
-const CinematicCard = ({ service, index, trackX, windowWidth, setHovered, CARD_WIDTH, GAP }: any) => {
-  const ITEM_WIDTH = CARD_WIDTH + GAP;
-  const localX = index * ITEM_WIDTH;
-
-  // Global absolute position mapping for precise 3D math
-  const globalX = useTransform(trackX, tx => tx + localX + CARD_WIDTH / 2);
-
-  // Math mappings to create the exact visual 3D ring/form
-  const rotateY = useTransform(globalX, gx => {
-    const center = windowWidth / 2;
-    const dist = gx - center;
-    const norm = dist / (windowWidth * 0.55);
-    return norm * 45; // Smooth rotation facing the center
-  });
-
-  const scale = useTransform(globalX, gx => {
-    const center = windowWidth / 2;
-    const dist = Math.abs(gx - center);
-    const norm = dist / (windowWidth * 0.55);
-    return Math.max(1 - norm * 0.2, 0.75); 
-  });
-
-  const z = useTransform(globalX, gx => {
-    const center = windowWidth / 2;
-    const dist = Math.abs(gx - center);
-    const norm = dist / (windowWidth * 0.55);
-    return -Math.abs(norm) * 350; // Push back significantly to create a real 3D cylinder depth
-  });
+function YourMemoriesPage() {
+  const photoGrid = [
+    { src: images.moments[0], couple: "Ananya & Kabir" },
+    { src: images.moments[1], couple: "Priya & Siddharth" },
+    { src: images.moments[2], couple: "Roshni & Rahul" },
+    { src: images.moments[3], couple: "Neha & Aryan" },
+    { src: images.moments[4], couple: "Diya & Vedant" },
+    
+    { src: images.moments[5], couple: "Sneha & Dhruv" },
+    { src: images.moments[6], couple: "Kritika & Rohan" },
+    { src: images.moments[7], couple: "Aisha & Vihaan" },
+    { src: "/images/Recent01.webp", couple: "Mira & Dev" },
+    { src: "/images/Recent02.webp", couple: "Tara & Ishaan" }
+  ];
 
   return (
-    <motion.div
-      style={{
-        width: CARD_WIDTH,
-        position: 'absolute',
-        left: 0,
-        top: '50%', 
-        y: '-50%',
-        x: useTransform(trackX, tx => tx + localX),
-        rotateY,
-        scale,
-        z,
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="group aspect-[3/4] md:aspect-[4/5] rounded-[24px] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] cursor-pointer will-change-transform z-10 hover:z-20"
-    >
-      <img
-        src={service.image}
-        alt={service.title}
-        loading="eager"
-        className="w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.05]"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#15130F] via-[#15130F]/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500" />
+    <div className="bg-background text-foreground min-h-[100svh] flex flex-col w-full">
       
-      <div className="absolute bottom-6 md:bottom-8 left-6 right-6 text-center">
-        <h3 className="text-white font-display text-lg md:text-xl opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-500 drop-shadow-sm">
-          {service.title}
-        </h3>
-      </div>
-    </motion.div>
-  );
-};
-
-const CinematicHero = () => {
-  // Always initialize to 1200 on first render to prevent hydration mismatches
-  const [windowWidth, setWindowWidth] = useState(1200);
-  const [isHovered, setHovered] = useState(false);
-  const trackX = useMotionValue(0);
-
-  useIsomorphicLayoutEffect(() => {
-    // Immediately set to the correct width after hydration on the client
-    setWindowWidth(window.innerWidth);
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const isMobile = windowWidth < 768;
-  const CARD_WIDTH = isMobile ? 180 : 250;
-  const GAP = isMobile ? 16 : 40;
-  const ITEM_WIDTH = CARD_WIDTH + GAP;
-  
-  // Create duplicates for endless loop
-  const heroServices = React.useMemo(() => getHeroServices(), []);
-  const marqueeItems = [...heroServices, ...heroServices, ...heroServices, ...heroServices];
-  const SET_WIDTH = heroServices.length * ITEM_WIDTH;
-
-  useAnimationFrame((time, delta) => {
-    if (isHovered) return; 
-    
-    // Slow cinematic speed
-    const speed = isMobile ? 40 : 65; 
-    const moveBy = (speed * delta) / 1000;
-    let nextX = trackX.get() - moveBy;
-    
-    if (nextX <= -SET_WIDTH) {
-      nextX += SET_WIDTH; 
-    }
-    trackX.set(nextX);
-  });
-
-  return (
-    <>
-      <section className="w-full bg-background py-6 md:py-12 xl:py-[4.5rem] shell">
-        <div 
-          className="relative overflow-hidden bg-background h-[339px] w-full"
-          style={{ 
-            perspective: '1200px', 
-            transformStyle: 'preserve-3d',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-          }}
-        >
-          <div className="absolute inset-0 bg-[#EAE6D7]" />
-
-        {marqueeItems.map((service, index) => (
-          <CinematicCard
-            key={`${service.id}-${index}`}
-            service={service}
-            index={index}
-            trackX={trackX}
-            windowWidth={windowWidth}
-            setHovered={setHovered}
-            CARD_WIDTH={CARD_WIDTH}
-            GAP={GAP}
-          />
-        ))}
-      </div>
-      </section>
-    </>
-  );
-};
-
-function ServicesPage() {
-  return (
-    <div className="min-h-screen font-sans overflow-x-hidden bg-background text-foreground">
-      <main>
-        {/* 
-          Existing Your Memories animation
-          Temporarily disabled.
-          DO NOT DELETE.
-          <CinematicHero /> 
-        */}
-        
-        <SharedHero 
-          icon={<Camera className="w-8 h-8 text-neutral-400" strokeWidth={1.5} />}
-          eyebrow="MEMORIES THAT LAST."
-          title="Your Memories"
-          description={<>Beautiful moments, perfectly preserved.<br/>A timeless reflection of your day.</>}
-          imageSrc={images.services.finearts}
-          fontOverride="serif"
-          fullWidthMedia={true}
+      {/* 1. HERO SECTION (Exact height as Photography/Film) */}
+      <section className="relative w-full h-[50vh] md:h-[500px] lg:h-[580px] p-0 m-0 overflow-hidden bg-[#1a1a1a]">
+        <img 
+          src={images.hero.primary} 
+          alt="Your Memories Hero" 
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-85" 
         />
-        
-        {/* PHOTOGRAPHY CATEGORY/FILTER NAVIGATION AND GALLERY */}
-        <PhotographyGallery />
-      </main>
+        <div className="absolute inset-0 bg-black/20" />
+      </section>
+
+      {/* 2. GRID SECTION (5 Columns) */}
+      <section className="bg-background pt-16 md:pt-24 pb-24 relative z-10 w-full">
+        {/* Editorial Header Section */}
+        <div className="shell flex flex-col items-center text-center mb-16">
+          <Reveal className="flex flex-col items-center w-full">
+            <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-normal leading-[1.15] tracking-tight text-[#2d2c2a] w-full max-w-4xl mb-8 pb-4">
+              Moments frozen in time, <span className="italic font-light text-[#8b867c]">felt<br/>forever.</span>
+            </h2>
+            <p className="text-[#5D5A55] text-[16px] md:text-[18px] font-normal leading-[1.6] tracking-[0.2px] max-w-[650px] mx-auto">
+              A curated collection of our most cherished photographs. Every frame tells a<br className="hidden md:block"/> story of love, family, and the quiet moments in between.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="w-full max-w-[1800px] mx-auto px-[5vw] lg:px-[7vw]">
+          {/* Photo Grid - 5 COLUMNS */}
+          <Reveal delay={0.2} className="w-full">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 sm:gap-x-6 gap-y-12 md:gap-y-16">
+              {photoGrid.map((item, idx) => (
+                <div key={idx} className="w-full flex flex-col group">
+                  
+                  {/* EXACT PICTURE FRAME (Matched to Photography Page) */}
+                  <div 
+                    className="overflow-hidden rounded-[20px] bg-muted w-full aspect-[4/5]" 
+                    style={{ boxShadow: '0 15px 30px rgba(0,0,0,0.08)' }}
+                  >
+                    <img 
+                      src={item.src} 
+                      alt={item.couple} 
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+
+                  {/* TEXT & MORE MOMENTS LINK */}
+                  <div className="mt-[16px] md:mt-[24px] text-center w-full flex flex-col justify-start flex-grow">
+                    <h3 className="font-display text-[17px] md:text-[20px] lg:text-[22px] font-normal text-[#2d2c2a] px-2 leading-tight flex items-center justify-center">
+                      {item.couple}
+                    </h3>
+                    <a 
+                      href="/photography"
+                      className="inline-flex items-center justify-center gap-[6px] md:gap-[8px] mt-[10px] text-[9px] md:text-[10px] tracking-[2px] uppercase text-[#8b867c] font-sans hover:text-[#2d2c2a] transition-colors"
+                    >
+                      <span className="font-light">→</span>
+                      <span className="border-b border-transparent hover:border-[#2d2c2a] pb-[1px] transition-all">More Moments</span>
+                      <span className="font-light">←</span>
+                    </a>
+                  </div>
+
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
     </div>
   );
 }

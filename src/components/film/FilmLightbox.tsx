@@ -191,7 +191,7 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
                   <button onClick={toggleMute} className="hover:text-[#d1cbbd] transition-colors" aria-label={isMuted ? "Unmute" : "Mute"}>
                     {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
                   </button>
-                  <span className="text-xs md:text-sm font-mono tracking-wider opacity-80 pt-0.5">
+                  <span className="text-xs md:text-sm font-sans tracking-wider opacity-80 pt-0.5">
                     {formatTime(currentTime)} / {formatTime(duration)}
                   </span>
                 </div>

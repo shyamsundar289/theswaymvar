@@ -41,7 +41,7 @@ export function CinematicChapters() {
                   <h3 className="font-display text-2xl md:text-3xl tracking-wide text-charcoal uppercase">
                     {chapter.title}
                   </h3>
-                  <p className="mt-3 text-muted-foreground text-sm md:text-base italic font-serif">
+                  <p className="mt-3 text-muted-foreground text-sm md:text-base italic font-display">
                     {chapter.description}
                   </p>
                 </div>

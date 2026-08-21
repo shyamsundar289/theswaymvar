@@ -25,7 +25,7 @@ export function RedTelephoneSection() {
         <div className="mt-8 md:mt-12 text-center relative z-10">
           <a 
             href="tel:+919000000000" 
-            className="font-serif text-[32px] sm:text-[40px] md:text-[56px] text-[#2d2c2a] hover:text-[#b31212] transition-colors tracking-wider block"
+            className="font-display text-[32px] sm:text-[40px] md:text-[56px] text-[#2d2c2a] hover:text-[#b31212] transition-colors tracking-wider block"
           >
             +91 90000 00000
           </a>

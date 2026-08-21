@@ -27,13 +27,6 @@ export function FilmGridSection() {
       {/* Editorial Header Section */}
       <div className="shell flex flex-col items-center text-center">
         <Reveal className="flex flex-col items-center w-full">
-          {/* Eyebrow Label & Ornaments */}
-          <div className="flex items-center justify-center gap-4 text-[11px] md:text-[12px] tracking-[3px] text-[#8b867c] uppercase font-sans mb-3 md:mb-4 -mt-2 md:-mt-4">
-            <span className="w-8 h-[1px] bg-[#d1cbbd]"></span>
-            <span>The Cinematic Archive</span>
-            <span className="w-8 h-[1px] bg-[#d1cbbd]"></span>
-          </div>
-          
           {/* Main Heading */}
           <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-normal leading-[1.05] tracking-tight text-[#2d2c2a] max-w-3xl mb-6">
             Stories in motion, <span className="italic font-light text-[#8b867c]">captured beautifully.</span>
@@ -84,7 +77,7 @@ export function FilmGridSection() {
         </Reveal>
 
         {/* Video Grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-10 md:gap-y-16">
+        <motion.div layout className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-16">
           <AnimatePresence mode="popLayout">
             {filteredFilms.map((film) => (
               <FilmGridCard

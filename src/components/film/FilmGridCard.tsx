@@ -85,24 +85,24 @@ export function FilmGridCard({ film, onClick }: FilmGridCardProps) {
       </div>
 
       {/* Text Content Below */}
-      <div className="mt-5 text-center px-2">
-        <div className="flex items-center justify-center gap-2 text-[10px] md:text-[11px] tracking-[2.5px] uppercase text-[#8b867c] font-sans">
+      <div className="mt-[16px] md:mt-5 text-center px-2 flex flex-col justify-start flex-grow">
+        <div className="flex items-center justify-center gap-2 text-[9px] md:text-[11px] tracking-[1.5px] md:tracking-[2.5px] uppercase text-[#8b867c] font-sans">
           <span className="font-light">→</span>
           <span>{film.category}</span>
           <span className="font-light">←</span>
         </div>
-        <h3 className="font-display text-[22px] md:text-[26px] font-normal text-[#2d2c2a] mt-3">
+        <h3 className="font-display text-[15px] md:text-[26px] font-normal text-[#2d2c2a] mt-[8px] md:mt-3 leading-tight min-h-[36px] md:min-h-[44px] flex items-center justify-center">
           {film.couple}
         </h3>
         {film.location && (
-          <div className="flex items-center justify-center mt-3 text-[#d1cbbd]">
+          <div className="flex items-center justify-center mt-[8px] md:mt-3 text-[#d1cbbd]">
              {/* Tiny Ornament */}
-             <svg width="40" height="10" viewBox="0 0 60 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-3">
+             <svg width="40" height="10" viewBox="0 0 60 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 md:mr-3 w-[30px] h-[8px] md:w-[40px] md:h-[10px]">
                 <path d="M30 2 L33 7.5 L30 13 L27 7.5 Z" fill="currentColor" opacity="0.8"/>
                 <path d="M25 7.5 Q15 2 5 7.5 Q15 13 25 7.5" fill="currentColor" opacity="0.5"/>
                 <path d="M35 7.5 Q45 2 55 7.5 Q45 13 35 7.5" fill="currentColor" opacity="0.5"/>
              </svg>
-             <span className="text-sm font-sans tracking-wide text-[#8b867c]">{film.location}</span>
+             <span className="text-[9px] md:text-[11px] tracking-[1px] md:tracking-[2px] font-sans uppercase text-[#8b867c]">{film.location}</span>
           </div>
         )}
       </div>

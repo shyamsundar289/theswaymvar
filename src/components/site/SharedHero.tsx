@@ -42,9 +42,9 @@ export function SharedHero({
     : `font-display italic text-5xl md:text-6xl ${textCol} font-light tracking-tight mt-[20px] md:mt-[28px] mb-[14px] md:mb-[20px] drop-shadow-none`;
 
   return (
-    <section className="w-full bg-background pt-[55px] md:pt-[70px] pb-[50px] md:pb-[65px] shell">
+    <section className="w-full pt-[120px] md:pt-[140px] pb-[50px] md:pb-[65px] shell">
       <div 
-        className={`relative flex items-center justify-between overflow-hidden bg-background w-full mx-auto rounded-[4px] ${fullWidthMedia ? "aspect-[4/3] sm:aspect-[16/9] md:aspect-[2.5/1] xl:aspect-[3/1]" : "min-h-[400px]"}`}
+        className={`relative flex items-center justify-between overflow-hidden w-full mx-auto rounded-[4px] ${fullWidthMedia ? "aspect-[4/3] sm:aspect-[16/9] md:aspect-[2.5/1] xl:aspect-[3/1]" : "min-h-[400px]"}`}
       >
         {fullWidthMedia && (
           <div className="absolute inset-0 z-0">

@@ -17,7 +17,7 @@ export function VideoShowcaseSection() {
         <p className="label-xs text-bronze tracking-[2px] uppercase text-[12px] mb-4">
           Featured Wedding Films
         </p>
-        <h2 className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] font-normal leading-[1.1] tracking-tight text-[#2d2c2a] max-w-2xl mb-8">
+        <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-normal leading-[1.1] tracking-tight text-[#2d2c2a] max-w-2xl mb-8">
           Stories captured in motion, <span className="italic font-light text-[#8b867c]">emotion and light.</span>
         </h2>
       </Reveal>
@@ -91,7 +91,7 @@ export function VideoShowcaseSection() {
           <p className="text-[12px] md:text-[13px] tracking-[3px] md:tracking-[4px] uppercase text-[#2d2c2a] font-sans font-medium mb-3">
             YOUR STORY. OUR FRAME. FOREVER.
           </p>
-          <p className="font-serif italic text-[#8b867c] text-[18px] md:text-[22px]">
+          <p className="font-display italic text-[#8b867c] text-[18px] md:text-[22px]">
             Moments made timeless.
           </p>
         </div>

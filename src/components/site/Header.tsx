@@ -1,5 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { nav } from "@/data/site";
 import { Wordmark } from "./Wordmark";
 
@@ -8,23 +8,50 @@ const swaymwarLogo = "/images/swamyvar_logo.svg";
 export function Header() {
   const location = useLocation();
   const pathname = location.pathname.replace(/\/$/, "") || "/";
-  const isHeroRoute = ["/", "/film", "/photography"].includes(pathname);
+  
+  // Apply transparent hero overlay logic ONLY to pages with a dark full-bleed image at the top
+  const isHeroRoute = pathname === "/" || pathname === "/film";
   
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
+  const [isScrollHidden, setIsScrollHidden] = useState(false);
+  const [isCrewHidden, setIsCrewHidden] = useState(false);
+  
+  const lastScrollY = useRef(0);
+
+  const isHidden = isScrollHidden || isCrewHidden;
 
   useEffect(() => {
     setScrolled(false);
     setOpen(false);
-    setIsHidden(false);
+    setIsScrollHidden(false);
+    setIsCrewHidden(false);
+    lastScrollY.current = window.scrollY;
   }, [location.pathname]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY <= 40) {
+        setIsScrollHidden(false);
+        setScrolled(false);
+        lastScrollY.current = currentScrollY;
+      } else {
+        const delta = currentScrollY - lastScrollY.current;
+        // 12px threshold to prevent trackpad micro-movement flicker
+        if (Math.abs(delta) > 12) {
+          setIsScrollHidden(delta > 0); // Hide on scroll down, show on scroll up
+          setScrolled(true);
+          lastScrollY.current = currentScrollY;
+        }
+      }
+    };
+
+    // Use passive listener for performance, works perfectly alongside Lenis
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const onCrewImmersive = (e: any) => setIsHidden(e.detail);
+    const onCrewImmersive = (e: any) => setIsCrewHidden(e.detail);
     window.addEventListener("crew-immersive-active", onCrewImmersive);
 
     return () => {
@@ -33,11 +60,15 @@ export function Header() {
     };
   }, []);
 
-  const isTransparent = isHeroRoute && !scrolled && !open;
-  const positionClass = isHeroRoute ? "fixed" : "sticky";
-  const bgClass = isTransparent 
-    ? "bg-transparent text-background border-b border-transparent shadow-none" 
-    : "bg-background text-foreground border-b border-[rgba(40,35,30,0.06)] shadow-[0_4px_18px_rgba(40,35,30,0.035)]";
+  // Determine if text should be dark or light.
+  // The user requested: First 5 pages = white text, About page = black text.
+  // Also force dark text when mobile menu is open so 'Close' is visible on white background.
+  const isDarkText = pathname === "/about" || open;
+  
+  const positionClass = "fixed";
+  const bgClass = `bg-transparent border-transparent shadow-none ${
+    isDarkText ? "text-foreground" : "text-background"
+  }`;
 
   useEffect(() => {
     if (!open) return;
@@ -69,9 +100,11 @@ export function Header() {
 
   return (
     <header
-      className={`${positionClass} top-0 z-50 w-full transition-all duration-300 ${bgClass} ${
-        isHidden ? "-translate-y-full" : "translate-y-0"
-      }`}
+      className={`${positionClass} top-0 z-50 w-full transition-all ${
+        isHidden 
+          ? "-translate-y-full duration-300 ease-in" 
+          : "translate-y-0 duration-[150ms] ease-out"
+      } ${bgClass}`}
     >
       <div className="shell flex h-[95px] items-center justify-between gap-8">
         {/* Logo */}
