@@ -4,10 +4,10 @@ import { FilmGridSection } from "@/components/film/FilmGridSection";
 
 function FilmPage() {
   return (
-    <>
+    <div className="relative w-full">
       <FilmStickyIntro />
       <FilmGridSection />
-    </>
+    </div>
   );
 }
 

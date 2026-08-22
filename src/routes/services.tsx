@@ -31,10 +31,10 @@ function YourMemoriesPage() {
   ];
 
   return (
-    <div className="bg-background text-foreground min-h-[100svh] flex flex-col w-full">
+    <div className="relative bg-background text-foreground min-h-[100svh] flex flex-col w-full">
       
       {/* 1. HERO SECTION (Exact structure as FilmStickyIntro but with an image) */}
-      <div className="fixed top-0 left-0 w-full h-[50vh] md:h-[500px] lg:h-[580px] overflow-hidden z-0">
+      <div className="sticky top-0 left-0 w-full h-[50vh] md:h-[500px] lg:h-[580px] overflow-hidden z-0">
         <img 
           src={images.hero.primary} 
           alt="Your Memories Hero" 
@@ -43,9 +43,6 @@ function YourMemoriesPage() {
         {/* Cinematic overlay just like Film page */}
         <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
-
-      {/* Invisible spacer so the grid section starts exactly beneath the fixed hero */}
-      <div className="w-full h-[50vh] md:h-[500px] lg:h-[580px] bg-transparent pointer-events-none" />
 
       {/* 2. MAIN SECTION (Matches FilmGridSection exactly) */}
       <section className="bg-background pt-10 md:pt-16 pb-24 relative z-10 w-full">

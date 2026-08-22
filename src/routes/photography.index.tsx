@@ -32,14 +32,13 @@ function PhotographyPage() {
   const featured = stories.slice(0, 3);
 
   return (
-    <>
+    <div className="relative w-full">
       {/* =======================================================
-          SECTION 1 — FIXED PHOTOGRAPHY HERO
+          SECTION 1 — STICKY PHOTOGRAPHY HERO
       ======================================================= */}
-      <div className="fixed top-0 left-0 w-full h-[50vh] md:h-[500px] lg:h-[580px] z-0 overflow-hidden bg-[#F6F4EE]">
+      <div className="sticky top-0 left-0 w-full h-[50vh] md:h-[500px] lg:h-[580px] z-0 overflow-hidden bg-[#F6F4EE]">
         <PhotographyHero />
       </div>
-      <div className="w-full h-[50vh] md:h-[500px] lg:h-[580px] pointer-events-none bg-transparent" />
 
       {/* =======================================================
           SECTION 2 — CONTENT SLIDING OVER HERO
@@ -53,6 +52,6 @@ function PhotographyPage() {
       ======================================================= */}
 
       
-    </>
+    </div>
   );
 }

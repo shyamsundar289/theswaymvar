@@ -131,7 +131,7 @@ const CrewMemberSlide = ({ member, direction }: { member: CrewMember; direction:
         <motion.div variants={textVariants} className="w-full md:w-5/12 flex flex-col justify-center z-10">
           <p className="font-display text-muted-foreground text-[clamp(4rem,10vw,8rem)] tracking-tighter mb-2 md:mb-4">{member.number}</p>
           <div className="overflow-hidden mb-2">
-            <h2 className="font-display font-light text-[clamp(2.5rem,5vw,4rem)] uppercase tracking-tighter leading-none">
+            <h2 className="font-display font-light text-[clamp(1.75rem,8vw,4rem)] uppercase tracking-tighter leading-none">
               <StaggeredText text={member.name} />
             </h2>
           </div>
@@ -159,7 +159,7 @@ const CrewMemberSlide = ({ member, direction }: { member: CrewMember; direction:
 
         <motion.div variants={textVariants} className="relative z-10 flex flex-col items-center text-center mt-auto pb-12 md:pb-24 w-full max-w-3xl px-4">
           <p className="font-display text-muted-foreground text-2xl md:text-3xl mb-4">{member.number} / 18</p>
-          <h2 className="font-display font-light text-[clamp(3rem,6vw,6rem)] mb-4 uppercase tracking-tighter w-full">
+          <h2 className="font-display font-light text-[clamp(1.75rem,8vw,6rem)] mb-4 uppercase tracking-tighter w-full">
             <StaggeredText text={member.name} />
           </h2>
           <div className="w-px h-12 md:h-16 bg-border my-4 md:my-6" />
@@ -180,7 +180,7 @@ const CrewMemberSlide = ({ member, direction }: { member: CrewMember; direction:
         </div>
 
         <motion.div variants={textVariants} className="w-full md:w-1/2 flex flex-col text-right md:pl-12 mt-8 md:mt-0 z-10">
-          <h2 className="font-display font-light text-[clamp(2.5rem,5vw,4.5rem)] mb-4 uppercase tracking-tighter ml-auto max-w-[12ch]">
+          <h2 className="font-display font-light text-[clamp(1.75rem,8vw,4.5rem)] mb-4 uppercase tracking-tighter ml-auto max-w-[12ch]">
             <StaggeredText text={member.name} />
           </h2>
           <p className="text-xs text-muted-foreground mb-6 uppercase tracking-[0.3em]">{member.role}</p>
@@ -224,7 +224,7 @@ const CrewMemberSlide = ({ member, direction }: { member: CrewMember; direction:
       <motion.div variants={textVariants} className="relative z-10 w-full px-6 md:px-24 flex flex-col justify-center">
         <div className="flex flex-col max-w-xl">
           <p className="font-display text-muted-foreground text-[clamp(2rem,4vw,4rem)] mb-4">{member.number} / 18</p>
-          <h2 className="font-display font-light text-[clamp(3rem,6vw,7rem)] leading-[0.85] mb-6 md:mb-8 uppercase tracking-tighter break-words">
+          <h2 className="font-display font-light text-[clamp(1.75rem,8vw,7rem)] leading-[0.85] mb-6 md:mb-8 uppercase tracking-tighter break-words">
             <StaggeredText text={member.name} />
           </h2>
           <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-8">
@@ -460,7 +460,7 @@ function CrewPage() {
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (state.isImmersive) e.preventDefault();
+      if (state.isImmersive && window.innerWidth >= 768) e.preventDefault();
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
@@ -521,7 +521,9 @@ function CrewPage() {
       {isImmersive && (
         <style>{`
           ::-webkit-scrollbar { display: none; }
-          body { -ms-overflow-style: none; scrollbar-width: none; overflow: hidden; }
+          @media (min-width: 768px) {
+            body { -ms-overflow-style: none; scrollbar-width: none; overflow: hidden; }
+          }
         `}</style>
       )}
 
@@ -718,7 +720,7 @@ function CrewPage() {
           <span className="text-[10px] md:text-xs tracking-[0.4em] text-white/70 uppercase mb-4">
             Fifteen Storytellers, One Vision
           </span>
-          <h1 className="font-display text-white text-[clamp(3rem,6vw,6rem)] tracking-tight leading-none">
+          <h1 className="font-display text-white text-[clamp(1.75rem,8vw,6rem)] tracking-tight leading-none">
             CREW COLLECTIVE
           </h1>
           <span className="mt-5 flex items-center gap-4">
@@ -799,7 +801,7 @@ function CrewPage() {
             {/* Static caption overlay — no interaction, no play control, sound stays off */}
             <div className="absolute inset-0 bg-black/25 flex flex-col items-center justify-center text-center z-10 p-6 pointer-events-none">
               <p className="text-xs text-white/80 mb-6 uppercase tracking-[0.4em]">On Location</p>
-              <h2 className="font-display text-white text-[clamp(3rem,8vw,9rem)] tracking-tighter leading-none">
+              <h2 className="font-display text-white text-[clamp(1.75rem,8vw,9rem)] tracking-tighter leading-none">
                 BEHIND THE SCENES
               </h2>
             </div>

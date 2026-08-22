@@ -20,28 +20,28 @@ export function Footer() {
                 href={waLink()}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-5 py-4 transition-all duration-500 hover:border-[#666] w-max max-w-full min-w-[260px]"
+                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-5 py-4 transition-all duration-500 hover:border-[#666] w-full md:w-max min-w-0 md:min-w-[260px]"
               >
                 <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#e0dcd0]">
                   Let's Create Your Story
                 </span>
-                <span className="ml-4 font-light text-[#c4a97d] transition-transform duration-500 group-hover:translate-x-1">
+                <span className="text-[#c4a97d] transition-transform duration-500 group-hover:translate-x-2">
                   →
                 </span>
               </a>
             </div>
 
             {/* COLUMN 2 — EXPLORE */}
-            <div className="flex flex-col lg:pl-10">
-              <h3 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-[#c4a97d] mb-6 md:mb-8">
+            <div className="flex flex-col">
+              <h3 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-[#8b867c] mb-6 md:mb-8">
                 Explore
               </h3>
-              <ul className="flex flex-col gap-4 md:gap-5">
+              <ul className="flex flex-col gap-4">
                 {nav.map((item) => (
                   <li key={item.to}>
                     <Link
                       to={item.to}
-                      className="font-sans text-[14px] text-[#e0dcd0] transition-colors duration-300 hover:text-[#c4a97d]"
+                      className="font-sans text-[13px] md:text-[14px] uppercase tracking-[0.1em] text-[#e0dcd0] transition-colors hover:text-[#c4a97d]"
                     >
                       {item.label}
                     </Link>
@@ -51,74 +51,68 @@ export function Footer() {
             </div>
 
             {/* COLUMN 3 — STUDIO */}
-            <div className="flex flex-col lg:-ml-[10px]">
-              <h3 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-[#c4a97d] mb-6 md:mb-8">
+            <div className="flex flex-col">
+              <h3 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-[#8b867c] mb-6 md:mb-8">
                 Studio
               </h3>
-              <ul className="flex flex-col gap-5 md:gap-6 text-[13px] text-[#8b867c]">
-                <li className="flex items-start gap-4">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c4a97d" strokeWidth="1.5" className="mt-1 shrink-0">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                    <circle cx="12" cy="9" r="2.5" />
-                  </svg>
-                  <div className="flex flex-col leading-[1.6]">
-                    <span className="text-[#e0dcd0] mb-0.5">The Swayamvar Studio</span>
-                    <span>Bikaner,</span>
-                    <span>Rajasthan, India</span>
-                  </div>
-                </li>
-                <li className="flex items-center gap-4">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c4a97d" strokeWidth="1.5" className="shrink-0">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                  </svg>
-                  <a href="tel:+918949422388" className="text-[#e0dcd0] transition-colors duration-300 hover:text-[#c4a97d]">+91 89494 22388</a>
-                </li>
-                <li className="flex items-center gap-4">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c4a97d" strokeWidth="1.5" className="shrink-0">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M22 4l-10 9L2 4" />
-                  </svg>
-                  <a href="mailto:hello@theswayamvar.com" className="text-[#e0dcd0] transition-colors duration-300 hover:text-[#c4a97d]">hello@theswayamvar.com</a>
-                </li>
-                <li className="flex items-center gap-4">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c4a97d" strokeWidth="1.5" className="shrink-0">
-                    <rect x="2" y="2" width="20" height="20" rx="5" />
-                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
-                  <a href="https://www.instagram.com/theswaymvar" target="_blank" rel="noopener noreferrer" className="text-[#e0dcd0] transition-colors duration-300 hover:text-[#c4a97d]">@theswaymvar</a>
-                </li>
-              </ul>
+              <div className="flex flex-col gap-6 font-sans text-[13px] md:text-[14px] uppercase tracking-[0.1em] text-[#e0dcd0]">
+                <div>
+                  <p className="mb-1 text-[#8b867c] text-[10px] tracking-[0.2em]">Address</p>
+                  <p className="leading-relaxed">
+                    The Swayamvar Studio<br />
+                    Bikaner, Rajasthan<br />
+                    India
+                  </p>
+                </div>
+                <div>
+                  <p className="mb-1 text-[#8b867c] text-[10px] tracking-[0.2em]">Phone</p>
+                  <a href="tel:+918949422388" className="transition-colors hover:text-[#c4a97d]">
+                    +91 89494 22388
+                  </a>
+                </div>
+                <div>
+                  <p className="mb-1 text-[#8b867c] text-[10px] tracking-[0.2em]">Email</p>
+                  <a href="mailto:hello@theswayamvar.com" className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[15px]">
+                    hello@theswayamvar.com
+                  </a>
+                </div>
+                <div>
+                  <p className="mb-1 text-[#8b867c] text-[10px] tracking-[0.2em]">Instagram</p>
+                  <a href="https://www.instagram.com/theswaymvar" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[15px]">
+                    @theswaymvar
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* COLUMN 4 — FIND US */}
             <div className="flex flex-col">
-              <h3 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-[#c4a97d] mb-6 md:mb-8">
+              <h3 className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-[#8b867c] mb-6 md:mb-8">
                 Find Us
               </h3>
-              <div className="relative w-full aspect-video md:aspect-auto md:h-[180px] mb-8 overflow-hidden bg-[#1a1a1a] border border-[#222]">
-                <iframe
-                  src="https://maps.google.com/maps?q=Bikaner,+Rajasthan,+India&t=m&z=13&output=embed&iwloc=near"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(85%)' }}
-                  allowFullScreen
-                  loading="lazy"
+              <div className="w-full aspect-[4/3] bg-[#222] mb-6 overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112708.20330685601!2d73.23886576882205!3d28.014264663044955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393fdd7ef7bf2a71%3A0x73295c527022138!2sBikaner%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1709400000000!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Bikaner Studio Location"
+                  className="grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-700"
+                  title="The Swayamvar Studio Location"
                 ></iframe>
               </div>
-
               <a
                 href="https://maps.google.com"
                 target="_blank"
                 rel="noreferrer"
-                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-5 py-4 transition-all duration-500 hover:border-[#666] w-max max-w-full min-w-[260px]"
+                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-5 py-4 transition-all duration-500 hover:border-[#666] w-full md:w-max min-w-0 md:min-w-[260px]"
               >
                 <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#e0dcd0]">
                   View In Google Maps
                 </span>
-                <span className="ml-4 font-light text-[#c4a97d] transition-transform duration-500 group-hover:translate-x-1">
+                <span className="text-[#c4a97d] transition-transform duration-500 group-hover:translate-x-2">
                   →
                 </span>
               </a>

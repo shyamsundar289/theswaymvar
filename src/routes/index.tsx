@@ -14,7 +14,7 @@ import { WhatsAppButton } from "@/components/site/CTA";
 
 import { VideoShowcaseSection } from "@/components/site/VideoShowcaseSection";
 import { StoryTimeline } from "@/components/site/StoryTimeline";
-import { EditorialCollage } from "@/components/site/EditorialCollage";
+
 import { InstagramGallery } from "@/components/site/InstagramGallery";
 const swaymwarLogo = "/images/swamyvar_logo.svg";
 
@@ -83,13 +83,13 @@ function Home() {
     <>
       <audio ref={audioRef} src="/audio/cinematic-wedding.mp3" loop preload="auto" onTimeUpdate={handleTimeUpdate} />
       {/* HERO WITH PARALLAX SCROLL EFFECT */}
-      <div className="fixed top-0 left-0 w-full h-[100svh] z-0 overflow-hidden">
-        <AnimatedHero />
-      </div>
-      <div className="w-full h-[100svh] pointer-events-none bg-transparent" />
-
-      {/* MAIN CONTENT LAYER THAT SCROLLS OVER THE HERO */}
-      <div className="relative z-10 bg-background w-full">
+      <div className="relative w-full">
+        <div className="sticky top-0 left-0 w-full h-[100svh] z-0 overflow-hidden">
+          <AnimatedHero />
+        </div>
+        
+        {/* MAIN CONTENT LAYER THAT SCROLLS OVER THE HERO */}
+        <div className="relative z-10 bg-background w-full">
         {/* BRAND / STUDIO */}
       <section className="shell section-y grid gap-10 md:grid-cols-2 md:items-center md:gap-16 overflow-hidden">
         <Reveal className="flex flex-col items-center text-center">
@@ -316,7 +316,7 @@ function Home() {
             {/* CENTER INTERACTIVE MUSIC CARD */}
             <Reveal delay={0.16} className="w-full z-10 mt-[8px]">
               <div 
-                className="relative w-full h-[500px] bg-[#fcfbfa] rounded-[28px] flex flex-col items-center justify-between select-none"
+                className="relative w-full min-h-[500px] md:h-[500px] bg-[#fcfbfa] rounded-[28px] flex flex-col items-center justify-between select-none"
                 style={{
                   border: '1px solid rgba(0,0,0,0.06)',
                   boxShadow: '0 20px 35px rgba(0,0,0,0.10)'
@@ -481,8 +481,8 @@ function Home() {
         </Reveal>
       </section>
 
-      {/* EDITORIAL COLLAGE */}
-      <EditorialCollage />
+
+      </div>
       </div>
     </>
   );
