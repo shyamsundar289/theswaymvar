@@ -15,7 +15,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   
   // Apply transparent hero overlay logic ONLY to pages with a dark full-bleed image at the top
-  const isDarkText = pathname === "/about" || open;
+  const isDarkText = pathname === "/about" || pathname === "/little-snap" || open;
   
   // Changed from "fixed" to "absolute" based on user request:
   // "header should go away with the hero section and not reappear on scroll up/down"

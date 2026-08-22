@@ -1,50 +1,211 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
+import React from 'react';
+import { motion } from 'motion/react';
+import { LittleSnapInstagramSection } from "../components/site/LittleSnapInstagramSection";
 
 export const Route = createFileRoute('/little-snap')({
-  head: () => ({
-    meta: [
-      { title: "Little Snap — theswayamvar" },
-      {
-        name: "description",
-        content: "This section is currently under construction.",
-      },
-    ],
-  }),
   component: LittleSnapPage,
 });
 
+const BalloonSVG = ({ className }: { className?: string }) => (
+  <div className={`relative aspect-[2/3] ${className || ''}`}>
+    <svg viewBox="0 0 200 300" className="w-full h-full drop-shadow-2xl">
+      <defs>
+        <clipPath id="balloon-clip">
+          <path d="M 100 10 
+                   C 170 10, 195 70, 195 120 
+                   C 195 170, 145 220, 120 240 
+                   L 80 240 
+                   C 55 220, 5 170, 5 120 
+                   C 5 70, 30 10, 100 10 Z" />
+        </clipPath>
+        
+        <linearGradient id="shading" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="black" stopOpacity="0.4" />
+          <stop offset="25%" stopColor="black" stopOpacity="0" />
+          <stop offset="75%" stopColor="black" stopOpacity="0" />
+          <stop offset="100%" stopColor="black" stopOpacity="0.4" />
+        </linearGradient>
+
+        <pattern id="basket-weave" width="8" height="8" patternUnits="userSpaceOnUse">
+          <rect width="8" height="8" fill="#a06c45" />
+          <path d="M 0 4 L 8 4 M 4 0 L 4 8" stroke="#754b2c" strokeWidth="1" />
+        </pattern>
+      </defs>
+
+      {/* Ropes */}
+      <line x1="85" y1="240" x2="78" y2="270" stroke="#756157" strokeWidth="1.5" />
+      <line x1="115" y1="240" x2="122" y2="270" stroke="#756157" strokeWidth="1.5" />
+      <line x1="95" y1="240" x2="92" y2="270" stroke="#756157" strokeWidth="1" />
+      <line x1="105" y1="240" x2="108" y2="270" stroke="#756157" strokeWidth="1" />
+
+      {/* Envelope */}
+      <g clipPath="url(#balloon-clip)">
+        {/* Base Red */}
+        <rect x="0" y="0" width="200" height="250" fill="#c44331" />
+        {/* Orange Stripe */}
+        <rect x="0" y="45" width="200" height="35" fill="#d67b36" />
+        {/* Cream Stripe */}
+        <rect x="0" y="80" width="200" height="40" fill="#ebd7bb" />
+        {/* Yellow Stripe */}
+        <rect x="0" y="120" width="200" height="35" fill="#d69b36" />
+        {/* Orange Stripe 2 */}
+        <rect x="0" y="155" width="200" height="35" fill="#c4642b" />
+        
+        {/* Vertical Gores (3D curves) */}
+        <line x1="100" y1="10" x2="100" y2="240" stroke="rgba(0,0,0,0.15)" strokeWidth="0.75" />
+        
+        {/* Inner arcs */}
+        <path d="M 100 10 A 25 115 0 0 1 100 240" stroke="rgba(0,0,0,0.15)" strokeWidth="1" fill="none" />
+        <path d="M 100 10 A 25 115 0 0 0 100 240" stroke="rgba(0,0,0,0.15)" strokeWidth="1" fill="none" />
+        
+        {/* Mid arcs */}
+        <path d="M 100 10 A 55 115 0 0 1 100 240" stroke="rgba(0,0,0,0.15)" strokeWidth="1" fill="none" />
+        <path d="M 100 10 A 55 115 0 0 0 100 240" stroke="rgba(0,0,0,0.15)" strokeWidth="1" fill="none" />
+
+        {/* Outer arcs */}
+        <path d="M 100 10 A 80 115 0 0 1 100 240" stroke="rgba(0,0,0,0.2)" strokeWidth="1.5" fill="none" />
+        <path d="M 100 10 A 80 115 0 0 0 100 240" stroke="rgba(0,0,0,0.2)" strokeWidth="1.5" fill="none" />
+
+        {/* 3D Shading Overlay */}
+        <rect x="0" y="0" width="200" height="250" fill="url(#shading)" />
+        
+        {/* Subtle Highlight */}
+        <path d="M 40 50 A 60 80 0 0 1 80 20 A 40 70 0 0 0 30 70 Z" fill="white" opacity="0.1" />
+      </g>
+      
+      {/* Envelope Bottom Rim */}
+      <ellipse cx="100" cy="240" rx="20" ry="3.5" fill="#802619" />
+      <path d="M 80 240 A 20 3.5 0 0 0 120 240" stroke="#52150c" strokeWidth="1.5" fill="none" />
+
+      {/* Basket */}
+      <rect x="75" y="270" width="50" height="25" rx="1.5" fill="url(#basket-weave)" />
+      <rect x="73" y="270" width="54" height="4" rx="1" fill="#4B2E15" />
+    </svg>
+  </div>
+);
+
+// High-performance Flex Masonry layout columns to prevent CSS reflow lag
+const FLEX_COLUMNS = [
+  [ // Col 1
+    { src: "/images/Home/iconic 14/1.svg", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/2.svg", aspect: "aspect-[1/1]" },
+    { src: "/images/Home/iconic 14/3.svg", aspect: "aspect-[5/4]" },
+    { src: "/images/Home/iconic 14/4.svg", aspect: "aspect-[4/5]" },
+  ],
+  [ // Col 2
+    { src: "/images/Home/iconic 14/5.svg", aspect: "aspect-[5/4]" },
+    { src: "/images/Home/iconic 14/6.svg", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/7.svg", aspect: "aspect-[1/1]" },
+    { src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
+  ],
+  [ // Col 3
+    { src: "/images/Home/iconic 14/8.svg", aspect: "aspect-[1/1]" },
+    { src: "/images/Home/iconic 14/9.svg", aspect: "aspect-[5/4]" },
+    { src: "/images/Home/iconic 14/10.svg", aspect: "aspect-[4/5]" },
+    { src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[1/1]" },
+  ],
+  [ // Col 4
+    { src: "/images/Home/iconic 14/11.svg", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/12.svg", aspect: "aspect-[1/1]" },
+    { src: "/images/Home/iconic 14/13.svg", aspect: "aspect-[4/5]" },
+    { src: "https://images.unsplash.com/photo-1530103043960-ef38714bbc15?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[5/4]" },
+  ],
+  [ // Col 5
+    { src: "/images/Home/iconic 14/14.svg", aspect: "aspect-[5/4]" },
+    { src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
+    { src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[1/1]" },
+    { src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
+  ],
+];
+
 function LittleSnapPage() {
   return (
-    // 'bg-black' provides the solid black background
-    // 'min-h-[100svh]' ensures it covers the full viewport height
-    <div className="bg-black text-white min-h-[100svh] w-full flex flex-col items-center justify-center px-6 text-center">
+    <div className="w-full bg-white selection:bg-[#4a1c14] selection:text-[#F7F3EB] relative">
       
-      {/* Title */}
-      <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6 tracking-wide text-white">
-        Little Snap
-      </h1>
-      
-      {/* Construction Message in English */}
-      <p className="text-white/70 font-sans text-sm md:text-base max-w-md mx-auto leading-relaxed mb-10 tracking-wide">
-        This section is currently being built. Please explore our other pages to see more of our work.
-      </p>
-      
-      {/* Navigation Options */}
-      <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <Link 
-          to="/photography" 
-          className="border border-white/30 px-8 py-3 uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto"
+      {/* ================= STICKY HERO SECTION ================= */}
+      <div className="sticky top-0 w-full h-[60vh] md:h-[500px] lg:h-[580px] bg-white overflow-hidden flex items-center justify-center font-sans pt-[60px] md:pt-[100px] z-0">
+        
+        {/* Large Left Balloon (Lower) - Increased Animation */}
+        <motion.div 
+          className="absolute left-[8%] md:left-[15%] top-[60%] md:top-[65%] -translate-y-1/2 w-[22vw] md:w-[13vw] max-w-[180px] min-w-[80px] z-10"
+          animate={{ 
+            y: [0, -25, 0], 
+            x: [0, 8, -5, 0], 
+            rotate: [0, -2, 2, 0] 
+          }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         >
-          Photography
-        </Link>
-        <Link 
-          to="/film" 
-          className="border border-white/30 px-8 py-3 uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-white hover:text-black transition-all duration-300 w-full sm:w-auto"
+          <BalloonSVG />
+        </motion.div>
+
+        {/* Small Right Balloon (Higher) - Increased Animation */}
+        <motion.div 
+          className="absolute right-[8%] md:right-[18%] top-[40%] md:top-[35%] -translate-y-1/2 w-[16vw] md:w-[9vw] max-w-[120px] min-w-[60px] z-10"
+          animate={{ 
+            y: [0, -20, 0], 
+            x: [0, -6, 4, 0], 
+            rotate: [0, 2, -1, 0] 
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         >
-          Films
-        </Link>
+          <BalloonSVG />
+        </motion.div>
+
+        {/* CENTER TYPOGRAPHY */}
+        <div className="relative z-20 flex flex-col items-center justify-center -mt-8 md:-mt-4 pointer-events-none">
+          <h1 className="font-display text-[#42221b] text-[13vw] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] text-center tracking-tight z-10 antialiased">
+            Little
+            <br />
+            <span className="relative left-[0.1em]">Snap</span>
+          </h1>
+          <span className="font-script text-[#42221b] text-5xl md:text-7xl lg:text-[5.5rem] mt-2 md:mt-4 block -rotate-2 opacity-90 drop-shadow-sm">
+            Gallery
+          </span>
+        </div>
       </div>
-      
+
+      {/* ================= CONTENT THAT SCROLLS OVER HERO ================= */}
+      <div className="relative z-10 w-full bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
+        
+        {/* STYLIZED INTRO SECTION */}
+        <section className="w-full px-6 py-16 md:py-24 bg-white flex flex-col items-center justify-center text-center">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.3] text-[#2d2c2a] max-w-5xl mx-auto italic tracking-wide">
+            Quiet corners. Stolen glances. <br className="hidden md:block"/>
+            <span className="font-sans text-[10px] sm:text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-[#7a6f65] font-semibold block mt-4 md:mt-8 not-italic">
+              The beautiful in-between moments.
+            </span>
+          </h2>
+        </section>
+
+        {/* HIGH-PERFORMANCE SEAMLESS COLLAGE GRID (20 Images) */}
+        <section className="w-full bg-white px-0">
+          <div className="flex w-full">
+            {FLEX_COLUMNS.map((column, colIdx) => (
+              <div 
+                key={`col-${colIdx}`} 
+                className={`flex flex-col flex-1 ${colIdx >= 3 ? 'hidden md:flex' : 'flex'}`}
+              >
+                {column.map((img, imgIdx) => (
+                  <div key={`img-${colIdx}-${imgIdx}`} className={`w-full relative overflow-hidden group ${img.aspect}`}>
+                    <img 
+                      src={img.src} 
+                      alt={`Little Snap ${colIdx}-${imgIdx}`} 
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 block will-change-transform" 
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </section>
+        
+        {/* INSTAGRAM SECTION */}
+        <LittleSnapInstagramSection />
+        
+      </div>
     </div>
   );
 }

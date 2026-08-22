@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
 
 import { images } from "@/data/images";
-import { recognition, stories } from "@/data/site";
+import { stories } from "@/data/site";
 
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { AnimatedHero } from "@/components/site/AnimatedHero";
@@ -366,17 +366,6 @@ function Home() {
       {/* INSTAGRAM GALLERY */}
       <InstagramGallery />
 
-      {/* RECOGNITION */}
-      <section className="border-t border-border/60">
-        <div className="shell section-y">
-          <p className="label-xs text-center text-muted-foreground">Recognition</p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-8">
-            {recognition.map((r, i) => (
-              <Laurel key={i} {...r} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CLOSING CTA */}
       <section className="shell py-20 md:py-32 text-center">
