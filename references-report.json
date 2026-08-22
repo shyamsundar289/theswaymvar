@@ -1,0 +1,736 @@
+{
+  "broken": [
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/celebration.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/celebration.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/portraits.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/portraits.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/prewedding.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/prewedding.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/rituals.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/rituals.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/videoseen.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\CrewSection.tsx",
+      "asset": "/images/crew/pic${i + 1}.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\EditorialCollage.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/${num}.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\EditorialCollage.tsx",
+      "asset": "/images/Home/iconic 14/${num}.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\EditorialCollage.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/${num}.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\EditorialCollage.tsx",
+      "asset": "/images/Home/iconic 14/${num}.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\MarshallSpeaker.tsx",
+      "asset": "/images/logo.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\RedTelephoneSection.tsx",
+      "asset": "/images/red-rotary-telephone.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\StoryTimeline.tsx",
+      "asset": "/images/crew/special-image-01.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\StoryTimeline.tsx",
+      "asset": "/images/crew/special-image-02.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\StoryTimeline.tsx",
+      "asset": "/images/crew/special-image-03.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\StoryTimeline.tsx",
+      "asset": "/images/crew/special-image-04.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "components\\site\\StoryTimeline.tsx",
+      "asset": "/images/crew/special-image-05.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/celebration.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/prewedding.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/portraits.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/rituals.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/videoseen.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/ivory-series..mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\films.ts",
+      "asset": "/videos/celebration.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\films.ts",
+      "asset": "/videos/rituals.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\films.ts",
+      "asset": "/videos/prewedding.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\films.ts",
+      "asset": "/videos/portraits.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\films.ts",
+      "asset": "/videos/videoseen.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\films.ts",
+      "asset": "/videos/prewedding.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic1.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic2.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic3.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic4.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic5.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic6.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic7.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic8.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic9.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic10.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic11.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic12.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic13.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic14.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic15.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic16.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic17.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\photography-images.ts",
+      "asset": "/images/crew/pic18.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/videos/celebration.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/videos/prewedding.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/videos/portraits.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\weddingArchive.ts",
+      "asset": "/videos/celebration.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\weddingArchive.ts",
+      "asset": "/videos/rituals.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\weddingArchive.ts",
+      "asset": "/videos/portraits.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\weddingArchive.ts",
+      "asset": "/videos/prewedding.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "data\\weddingArchive.ts",
+      "asset": "/videos/videoseen.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\about.tsx",
+      "asset": "/images/crew/pic1.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\about.tsx",
+      "asset": "/images/crew/pic2.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\about.tsx",
+      "asset": "/images/crew/pic4.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\about.tsx",
+      "asset": "/images/crew/pic7.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\about.tsx",
+      "asset": "/images/crew/pic3.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\crew.tsx",
+      "asset": "/images/crew/pic${num}.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\crew.tsx",
+      "asset": "/images/crew/pic${i + 1}.jpg",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\crew.tsx",
+      "asset": "/images/crew/group.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\crew.tsx",
+      "asset": "/videos/videoseen.mp4",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/1.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/2.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/3.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/4.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/5.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/6.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/7.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/8.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/9.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/10.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/11.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/12.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/13.png",
+      "reason": "File Missing or Moved"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/14.png",
+      "reason": "File Missing or Moved"
+    }
+  ],
+  "valid": [
+    {
+      "file": "components\\film\\FilmStickyIntro.tsx",
+      "asset": "/videos/Herovideo.mp4"
+    },
+    {
+      "file": "components\\film\\FilmStickyIntro.tsx",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/wedding.mp4"
+    },
+    {
+      "file": "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "asset": "/videos/wedding.mp4"
+    },
+    {
+      "file": "components\\photography\\PhotographyGridSection.tsx",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "components\\photography\\PhotographyGridSection.tsx",
+      "asset": "/images/Recent02.webp"
+    },
+    {
+      "file": "components\\photography\\PhotographyGridSection.tsx",
+      "asset": "/images/Recent03.webp"
+    },
+    {
+      "file": "components\\site\\AnimatedHero.tsx",
+      "asset": "/images/Home/home-hero-desktop-03.png"
+    },
+    {
+      "file": "components\\site\\AnimatedHero.tsx",
+      "asset": "/images/Home/home-hero-mobile-03.png"
+    },
+    {
+      "file": "components\\site\\Header.tsx",
+      "asset": "/images/swamyvar_logo.svg"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/DSCF0463 copy.webp"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/4.webp"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/Recent02.webp"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/5.webp"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/Recent03.webp"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/6.webp"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "components\\site\\Hero.tsx",
+      "asset": "/images/Recent02.webp"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/images/Recent02.webp"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/images/Recent03.webp"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/images/4.webp"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/images/5.webp"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/images/6.webp"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/images/DSCF0463 copy.webp"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/wedding.mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/Herovideo.mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/videos/The_Swayamvar (2).mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/film-section/video01.mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/film-section/video03.mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/film-section/video05.mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/film-section/video06.mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/film-section/video07.mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/film-section/video08.mp4"
+    },
+    {
+      "file": "data\\film-library.ts",
+      "asset": "/film-section/video09.mp4"
+    },
+    {
+      "file": "data\\films.ts",
+      "asset": "/videos/wedding.mp4"
+    },
+    {
+      "file": "data\\images.ts",
+      "asset": "/images/DSCF0463 copy.webp"
+    },
+    {
+      "file": "data\\images.ts",
+      "asset": "/images/4.webp"
+    },
+    {
+      "file": "data\\images.ts",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "data\\images.ts",
+      "asset": "/images/Recent02.webp"
+    },
+    {
+      "file": "data\\images.ts",
+      "asset": "/images/Recent03.webp"
+    },
+    {
+      "file": "data\\images.ts",
+      "asset": "/images/4.webp"
+    },
+    {
+      "file": "data\\images.ts",
+      "asset": "/images/5.webp"
+    },
+    {
+      "file": "data\\images.ts",
+      "asset": "/images/6.webp"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/videos/wedding.mp4"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/images/Recent03.webp"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/videos/wedding.mp4"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/images/Recent02.webp"
+    },
+    {
+      "file": "data\\site.ts",
+      "asset": "/images/Recent03.webp"
+    },
+    {
+      "file": "data\\weddingArchive.ts",
+      "asset": "/videos/wedding.mp4"
+    },
+    {
+      "file": "data\\weddingArchive.ts",
+      "asset": "/videos/wedding.mp4"
+    },
+    {
+      "file": "routes\\about.tsx",
+      "asset": "/images/swamyvar_logo.svg"
+    },
+    {
+      "file": "routes\\about.tsx",
+      "asset": "/images/about/person.jpg"
+    },
+    {
+      "file": "routes\\about.tsx",
+      "asset": "/images/about/Team_photo.jpg"
+    },
+    {
+      "file": "routes\\index.tsx",
+      "asset": "/images/swamyvar_logo.svg"
+    },
+    {
+      "file": "routes\\index.tsx",
+      "asset": "/audio/cinematic-wedding.mp3"
+    },
+    {
+      "file": "routes\\index.tsx",
+      "asset": "/images/parallax-bg.jpg"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/1.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/2.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/3.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/4.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/5.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/6.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/7.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/8.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/9.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/10.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/11.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/12.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/13.png"
+    },
+    {
+      "file": "routes\\little-snap.tsx",
+      "asset": "/images/Home/iconic 14/Desktop/14.png"
+    },
+    {
+      "file": "routes\\services.tsx",
+      "asset": "/images/Recent01.webp"
+    },
+    {
+      "file": "routes\\services.tsx",
+      "asset": "/images/Recent02.webp"
+    },
+    {
+      "file": "routes\\videography.tsx",
+      "asset": "/videos/Herovideo.mp4"
+    },
+    {
+      "file": "routes\\__root.tsx",
+      "asset": "/images/Favicon_icon.png"
+    },
+    {
+      "file": "styles.css",
+      "asset": "/fonts/OrangeAvenueDEMO-Regular.otf"
+    }
+  ]
+}

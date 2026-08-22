@@ -1,0 +1,302 @@
+[
+  {
+    "path": "audio/cinematic-wedding.mp3",
+    "size": 3704615,
+    "ext": ".mp3"
+  },
+  {
+    "path": "film-section/video01.mp4",
+    "size": 2715260,
+    "ext": ".mp4"
+  },
+  {
+    "path": "film-section/video03.mp4",
+    "size": 8931216,
+    "ext": ".mp4"
+  },
+  {
+    "path": "film-section/video05.mp4",
+    "size": 9815625,
+    "ext": ".mp4"
+  },
+  {
+    "path": "film-section/video06.mp4",
+    "size": 8081162,
+    "ext": ".mp4"
+  },
+  {
+    "path": "film-section/video07.mp4",
+    "size": 7405639,
+    "ext": ".mp4"
+  },
+  {
+    "path": "film-section/video08.mp4",
+    "size": 17102767,
+    "ext": ".mp4"
+  },
+  {
+    "path": "film-section/video09.mp4",
+    "size": 6849694,
+    "ext": ".mp4"
+  },
+  {
+    "path": "fonts/OrangeAvenueDEMO-Regular.otf",
+    "size": 42152,
+    "ext": ".otf"
+  },
+  {
+    "path": "images/4.png",
+    "size": 20103266,
+    "ext": ".png"
+  },
+  {
+    "path": "images/4.webp",
+    "size": 604014,
+    "ext": ".webp"
+  },
+  {
+    "path": "images/5.png",
+    "size": 13899362,
+    "ext": ".png"
+  },
+  {
+    "path": "images/5.webp",
+    "size": 341696,
+    "ext": ".webp"
+  },
+  {
+    "path": "images/6.png",
+    "size": 20212756,
+    "ext": ".png"
+  },
+  {
+    "path": "images/6.webp",
+    "size": 595258,
+    "ext": ".webp"
+  },
+  {
+    "path": "images/about/person.jpg",
+    "size": 1738699,
+    "ext": ".jpg"
+  },
+  {
+    "path": "images/about/Team_photo.jpg",
+    "size": 3587189,
+    "ext": ".jpg"
+  },
+  {
+    "path": "images/DSCF0463 copy.webp",
+    "size": 370718,
+    "ext": ".webp"
+  },
+  {
+    "path": "images/Favicon_icon.png",
+    "size": 34405,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/home-hero-desktop-03.png",
+    "size": 4041209,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/home-hero-mobile-03.png",
+    "size": 1842326,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/1.png",
+    "size": 126105,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/10.png",
+    "size": 147647,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/11.png",
+    "size": 154661,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/12.png",
+    "size": 137353,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/13.png",
+    "size": 163484,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/14.png",
+    "size": 142571,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/2.png",
+    "size": 89556,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/3.png",
+    "size": 140678,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/4.png",
+    "size": 163595,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/5.png",
+    "size": 171094,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/6.png",
+    "size": 26813,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/7.png",
+    "size": 153601,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/8.png",
+    "size": 159958,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Desktop/9.png",
+    "size": 182999,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/1.png",
+    "size": 832456,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/10.png",
+    "size": 871767,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/11.png",
+    "size": 918898,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/12.png",
+    "size": 833956,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/13.png",
+    "size": 1092115,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/14.png",
+    "size": 899663,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/2.png",
+    "size": 654299,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/3.png",
+    "size": 854569,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/4.png",
+    "size": 978916,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/5.png",
+    "size": 1126582,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/6.png",
+    "size": 137272,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/7.png",
+    "size": 1025001,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/8.png",
+    "size": 947852,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Home/iconic 14/Mobile/9.png",
+    "size": 1153971,
+    "ext": ".png"
+  },
+  {
+    "path": "images/parallax-bg.jpg",
+    "size": 230039,
+    "ext": ".jpg"
+  },
+  {
+    "path": "images/Recent01.jpg",
+    "size": 19623810,
+    "ext": ".jpg"
+  },
+  {
+    "path": "images/Recent01.webp",
+    "size": 587414,
+    "ext": ".webp"
+  },
+  {
+    "path": "images/Recent02.png",
+    "size": 10862314,
+    "ext": ".png"
+  },
+  {
+    "path": "images/Recent02.webp",
+    "size": 439522,
+    "ext": ".webp"
+  },
+  {
+    "path": "images/Recent03.jpg",
+    "size": 11421475,
+    "ext": ".jpg"
+  },
+  {
+    "path": "images/Recent03.webp",
+    "size": 348724,
+    "ext": ".webp"
+  },
+  {
+    "path": "images/swamyvar_logo.svg",
+    "size": 53636,
+    "ext": ".svg"
+  },
+  {
+    "path": "videos/Herovideo.mp4",
+    "size": 2675910,
+    "ext": ".mp4"
+  },
+  {
+    "path": "videos/The_Swayamvar (2).mp4",
+    "size": 2687387,
+    "ext": ".mp4"
+  },
+  {
+    "path": "videos/wedding.mp4",
+    "size": 6003192,
+    "ext": ".mp4"
+  }
+]
