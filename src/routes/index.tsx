@@ -7,6 +7,7 @@ import { recognition, stories } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { AnimatedHero } from "@/components/site/AnimatedHero";
 import { DiagonalBreak } from "@/components/site/DiagonalBreak";
+import { EditorialCollage } from "@/components/site/EditorialCollage";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { Laurel } from "@/components/site/Laurel";
@@ -91,123 +92,29 @@ function Home() {
         {/* MAIN CONTENT LAYER THAT SCROLLS OVER THE HERO */}
         <div className="relative z-10 bg-background w-full">
         {/* BRAND / STUDIO */}
-      <section className="shell section-y grid gap-10 md:grid-cols-2 md:items-center md:gap-16 overflow-hidden">
-        <Reveal className="flex flex-col items-center text-center">
+      <section className="shell section-y flex flex-col items-center justify-center overflow-hidden">
+        <Reveal className="flex flex-col items-center text-center max-w-2xl mx-auto px-4">
           <p className="label-xs text-bronze tracking-[2px] uppercase text-[12px]">The Studio</p>
-          <h4 className="font-display font-normal mt-6 text-[clamp(2rem,3.5vw,3rem)] leading-[1.1] tracking-tight text-[#2d2c2a] mx-auto max-w-[500px]">
+          <h4 className="font-display font-normal mt-6 text-[clamp(2.5rem,4vw,3.5rem)] leading-[1.1] tracking-tight text-[#2d2c2a] mx-auto max-w-[700px]">
             An intimate studio dedicated to the <span className="italic text-[#8b867c] font-light">art of noticing.</span>
           </h4>
-          <p className="mt-8 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base mx-auto">
+          <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-[17px] mx-auto">
             theswaymvar was built around a simple preference: that a wedding
             should be recorded, not directed. We arrive early, learn the names,
             and then spend the day out of the way — waiting for the things that
             only happen once.
           </p>
-          <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base mx-auto">
+          <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-[17px] mx-auto">
             The result is a body of work that looks like your family rather than
             a catalogue.
           </p>
           <Link
             to="/photography"
-            className="label-xs story-link mt-9 inline-block text-foreground mx-auto"
+            className="label-xs story-link mt-10 inline-block text-foreground mx-auto"
           >
             See the work
           </Link>
         </Reveal>
-
-        {/* 3-FRAME PEACH POLAROID & VINYL LAYOUT */}
-        <div className="relative w-full aspect-[4/5] max-w-lg mx-auto bg-[#e4ddd4] overflow-hidden shadow-[inset_0_0_30px_rgba(0,0,0,0.15)] rounded-md">
-          
-          {/* BLACK VINYL RECORD */}
-          <div className="absolute top-1/2 -left-[70%] -translate-y-1/2 w-[140%] aspect-square rounded-full shadow-[20px_0_50px_rgba(0,0,0,0.4)]">
-            <div className="w-full h-full rounded-full bg-[#111] flex items-center justify-center relative overflow-hidden animate-spin"
-                 style={{
-                   animationDuration: '20s',
-                   animationTimingFunction: 'linear',
-                   background: 'radial-gradient(circle, #111 0%, #222 40%, #0a0a0a 100%)',
-                   boxShadow: 'inset 0 0 25px rgba(255,255,255,0.05)'
-                 }}>
-              
-              {/* Vinyl grooves */}
-              <div className="absolute inset-[5%] rounded-full border border-white/10 pointer-events-none"></div>
-              <div className="absolute inset-[15%] rounded-full border border-white/10 pointer-events-none"></div>
-              <div className="absolute inset-[25%] rounded-full border border-white/10 pointer-events-none"></div>
-              <div className="absolute inset-[35%] rounded-full border border-white/10 pointer-events-none"></div>
-
-              {/* Circular Text on Black Vinyl */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 200">
-                 <path id="curve-black" d="M 100 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="transparent" />
-                 <path id="curve-black-inner" d="M 100 100 m -50, 0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" fill="transparent" />
-                 <text className="fill-white/30 font-sans text-[4px] tracking-[0.4em] uppercase">
-                    <textPath href="#curve-black" startOffset="10%">theswaymvar — cinematic films</textPath>
-                    <textPath href="#curve-black" startOffset="60%">quiet records of celebrations</textPath>
-                 </text>
-                 <text className="fill-white/20 font-sans text-[3.5px] tracking-[0.3em] uppercase">
-                    <textPath href="#curve-black-inner" startOffset="25%">timeless</textPath>
-                    <textPath href="#curve-black-inner" startOffset="75%">authentic</textPath>
-                 </text>
-              </svg>
-
-              {/* Record Label (Blue Part) */}
-              <div className="w-[36%] aspect-square rounded-full bg-[#38bdf8] flex items-center justify-center shadow-inner relative border-[4px] border-white/20 overflow-hidden">
-                
-                {/* Art lines on the blue label */}
-                <svg className="absolute inset-0 w-full h-full opacity-60 pointer-events-none" viewBox="0 0 100 100">
-                  <path d="M 0 35 L 100 35 M 0 65 L 100 65" stroke="white" strokeWidth="0.5" fill="none" opacity="0.6" />
-                  <circle cx="50" cy="50" r="42" stroke="white" strokeWidth="0.5" fill="none" opacity="0.8" />
-                  <circle cx="50" cy="50" r="35" stroke="white" strokeWidth="0.5" fill="none" strokeDasharray="1 3" />
-                  {/* Decorative wavy line crossing through */}
-                  <path d="M -10 50 Q 25 10 50 50 T 110 50" stroke="white" strokeWidth="1.5" fill="none" opacity="0.4" />
-                </svg>
-
-                {/* Text on the Blue Label */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
-                   <path id="curve-blue" d="M 50 50 m -28, 0 a 28,28 0 1,1 56,0 a 28,28 0 1,1 -56,0" fill="transparent" />
-                   <text className="fill-white font-sans text-[4.5px] font-bold tracking-[0.2em] uppercase opacity-90">
-                      <textPath href="#curve-blue" startOffset="10%">theswaymvar</textPath>
-                      <textPath href="#curve-blue" startOffset="60%">studio sessions</textPath>
-                   </text>
-                </svg>
-
-                {/* Spindle Hole */}
-                <div className="absolute w-[12%] aspect-square rounded-full bg-[#f0f0f2] border border-black/20 z-10 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]"></div>
-              </div>
-            </div>
-          </div>
-
-          {/* 3 CREAM POLAROID FRAMES WITH BLACK CENTERS */}
-          
-          {/* Frame 1 (Top Right) */}
-          <div className="absolute top-[2%] right-[10%] w-[42%] rotate-[18deg] z-20 bg-[#fdfbf6] p-2 sm:p-2.5 pb-8 sm:pb-10 shadow-[0_15px_35px_rgba(0,0,0,0.4)] transition-transform duration-300 border border-white/50">
-            {/* Texture overlay on cream frame to simulate the marbled look */}
-            <div className="absolute inset-0 bg-white opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-            
-            {/* Image Frame */}
-            <div className="aspect-square w-full relative shadow-[inset_0_0_10px_rgba(0,0,0,0.1)] z-10 overflow-hidden bg-[#fdfbf6]">
-               <RevealImage src="/images/crew/index-studio-section01.jpg" alt="Studio work 1" className="w-full h-full object-cover transition-transform duration-500" />
-            </div>
-          </div>
-
-          {/* Frame 2 (Middle Right) */}
-          <div className="absolute top-[33%] right-[2%] w-[44%] rotate-[-12deg] z-30 bg-[#fdfbf6] p-2 sm:p-2.5 pb-8 sm:pb-10 shadow-[0_15px_35px_rgba(0,0,0,0.4)] transition-transform duration-300 border border-white/50">
-            <div className="absolute inset-0 bg-white opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-            
-            {/* Image Frame */}
-            <div className="aspect-square w-full relative shadow-[inset_0_0_10px_rgba(0,0,0,0.1)] z-10 overflow-hidden bg-[#fdfbf6]">
-               <RevealImage src="/images/crew/index-studio-section02.jpg" alt="Studio work 2" className="w-full h-full object-cover transition-transform duration-500" />
-            </div>
-          </div>
-
-          {/* Frame 3 (Bottom Right) */}
-          <div className="absolute bottom-[-2%] right-[15%] w-[42%] rotate-[15deg] z-40 bg-[#fdfbf6] p-2 sm:p-2.5 pb-8 sm:pb-10 shadow-[0_15px_35px_rgba(0,0,0,0.4)] transition-transform duration-300 border border-white/50">
-            <div className="absolute inset-0 bg-white opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
-            
-            {/* Image Frame */}
-            <div className="aspect-square w-full relative shadow-[inset_0_0_10px_rgba(0,0,0,0.1)] z-10 overflow-hidden bg-[#fdfbf6]">
-               <RevealImage src="/images/crew/index-studio-section03.jpg" alt="Studio work 3" className="w-full h-full object-cover transition-transform duration-500" />
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* SWAYMVAR LOGO */}
@@ -223,6 +130,8 @@ function Home() {
         </Reveal>
       </section>
 
+      {/* EDITORIAL COLLAGE */}
+      <EditorialCollage />
 
       {/* NEW: VIDEO SHOWCASE SECTION */}
       <VideoShowcaseSection />

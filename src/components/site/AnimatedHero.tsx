@@ -1,127 +1,32 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import React from "react";
+import { motion } from "motion/react";
 
 // =========================================================
-// HERO SLIDES DATA
-// Edit this array to add, remove, or reorder hero images.
+// HERO STATIC IMAGE
 // =========================================================
-const heroSlides = [
-  {
-    id: "slide-1",
-    desktopImage: "/images/Home/home-hero-desktop-03.png",
-    mobileImage: "/images/Home/home-hero-mobile-03.png",
-    alt: "Quiet portrait of the bride and groom",
-  },
-  {
-    id: "slide-2",
-    desktopImage: "/images/Home/home-hero-desktop-02.png",
-    mobileImage: "/images/Home/home-hero-mobile-02.png",
-    alt: "Intimate wedding ceremony moments",
-  },
-  {
-    id: "slide-3",
-    desktopImage: "/images/Home/home-hero-desktop-01.png",
-    mobileImage: "/images/Home/home-hero-mobile-01.png",
-    alt: "Couple embracing in cinematic golden hour light",
-  },
-];
-
-const AUTOPLAY_INTERVAL = 5000; // 5 seconds per slide
-const TRANSITION_DURATION = 1.5; // 1.5 seconds for the cinematic fade/scale
+const heroSlide = {
+  desktopImage: "/images/Home/home-hero-desktop-03.png",
+  mobileImage: "/images/Home/home-hero-mobile-03.png",
+  alt: "Quiet portrait of the bride and groom",
+};
 
 export function AnimatedHero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const prefersReducedMotion = useReducedMotion();
-
-  // =========================================================
-  // AUTOPLAY LOGIC
-  // =========================================================
-  const startTimer = useCallback(() => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroSlides.length);
-    }, AUTOPLAY_INTERVAL);
-  }, []);
-
-  const resetTimer = useCallback(() => {
-    startTimer();
-  }, [startTimer]);
-
-  useEffect(() => {
-    // Start timer on mount. We removed the hover-pause to ensure
-    // the visual progress lines always remain perfectly in sync.
-    startTimer();
-
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [startTimer]);
-
-  useEffect(() => {
-    const nextIndex = (currentIndex + 1) % heroSlides.length;
-    // Preload next desktop image
-    const desktopImg = new Image();
-    desktopImg.src = heroSlides[nextIndex].desktopImage;
-    // Preload next mobile image
-    const mobileImg = new Image();
-    mobileImg.src = heroSlides[nextIndex].mobileImage;
-  }, [currentIndex]);
-
-  // =========================================================
-  // ANIMATION VARIANTS
-  // =========================================================
-  const slideVariants = {
-    initial: {
-      opacity: 0,
-      scale: 1.05,
-    },
-    animate: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        opacity: { duration: TRANSITION_DURATION, ease: "easeOut" },
-        scale: { duration: TRANSITION_DURATION + 4, ease: "easeOut" },
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 1,
-      transition: { duration: TRANSITION_DURATION, ease: "easeIn" },
-    },
-  };
-
-  const handleManualNavigation = (index: number) => {
-    setCurrentIndex(index);
-    resetTimer(); // Crucial: restart the 5s clock so it doesn't instantly double-skip
-  };
-
   return (
     <section className="relative h-[100svh] w-full overflow-hidden bg-charcoal">
-      {/* 1. BACKGROUND SLIDER LAYER */}
-      <AnimatePresence mode="popLayout" initial={false}>
-        <motion.div
-          key={heroSlides[currentIndex].id}
-          variants={slideVariants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          className="absolute inset-0 h-full w-full"
-        >
-          <picture className="block h-full w-full">
-            <source media="(max-width: 767px)" srcSet={heroSlides[currentIndex].mobileImage} />
-            <source media="(min-width: 768px)" srcSet={heroSlides[currentIndex].desktopImage} />
-            <img
-              src={heroSlides[currentIndex].desktopImage}
-              alt={heroSlides[currentIndex].alt}
-              loading={currentIndex === 0 ? "eager" : "lazy"}
-              fetchPriority={currentIndex === 0 ? "high" : "auto"}
-              className="h-full w-full object-cover"
-            />
-          </picture>
-        </motion.div>
-      </AnimatePresence>
+      {/* 1. BACKGROUND STATIC IMAGE LAYER */}
+      <div className="absolute inset-0 h-full w-full">
+        <picture className="block h-full w-full">
+          <source media="(max-width: 767px)" srcSet={heroSlide.mobileImage} />
+          <source media="(min-width: 768px)" srcSet={heroSlide.desktopImage} />
+          <img
+            src={heroSlide.desktopImage}
+            alt={heroSlide.alt}
+            loading="eager"
+            fetchPriority="high"
+            className="h-full w-full object-cover"
+          />
+        </picture>
+      </div>
 
       {/* 2. CINEMATIC OVERLAY */}
       <div 
