@@ -88,31 +88,31 @@ const BalloonSVG = ({ className }: { className?: string }) => (
 // High-performance Flex Masonry layout columns to prevent CSS reflow lag
 const FLEX_COLUMNS = [
   [ // Col 1
-    { src: "/images/Home/iconic 14/1.svg", aspect: "aspect-[4/5]" },
-    { src: "/images/Home/iconic 14/2.svg", aspect: "aspect-[1/1]" },
-    { src: "/images/Home/iconic 14/3.svg", aspect: "aspect-[5/4]" },
-    { src: "/images/Home/iconic 14/4.svg", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/1.png", desktopSrc: "/images/Home/iconic 14/Desktop/1.png", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/2.png", desktopSrc: "/images/Home/iconic 14/Desktop/2.png", aspect: "aspect-[1/1]" },
+    { src: "/images/Home/iconic 14/3.png", desktopSrc: "/images/Home/iconic 14/Desktop/3.png", aspect: "aspect-[5/4]" },
+    { src: "/images/Home/iconic 14/4.png", desktopSrc: "/images/Home/iconic 14/Desktop/4.png", aspect: "aspect-[4/5]" },
   ],
   [ // Col 2
-    { src: "/images/Home/iconic 14/5.svg", aspect: "aspect-[5/4]" },
-    { src: "/images/Home/iconic 14/6.svg", aspect: "aspect-[4/5]" },
-    { src: "/images/Home/iconic 14/7.svg", aspect: "aspect-[1/1]" },
+    { src: "/images/Home/iconic 14/5.png", desktopSrc: "/images/Home/iconic 14/Desktop/5.png", aspect: "aspect-[5/4]" },
+    { src: "/images/Home/iconic 14/6.png", desktopSrc: "/images/Home/iconic 14/Desktop/6.png", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/7.png", desktopSrc: "/images/Home/iconic 14/Desktop/7.png", aspect: "aspect-[1/1]" },
     { src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
   ],
   [ // Col 3
-    { src: "/images/Home/iconic 14/8.svg", aspect: "aspect-[1/1]" },
-    { src: "/images/Home/iconic 14/9.svg", aspect: "aspect-[5/4]" },
-    { src: "/images/Home/iconic 14/10.svg", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/8.png", desktopSrc: "/images/Home/iconic 14/Desktop/8.png", aspect: "aspect-[1/1]" },
+    { src: "/images/Home/iconic 14/9.png", desktopSrc: "/images/Home/iconic 14/Desktop/9.png", aspect: "aspect-[5/4]" },
+    { src: "/images/Home/iconic 14/10.png", desktopSrc: "/images/Home/iconic 14/Desktop/10.png", aspect: "aspect-[4/5]" },
     { src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[1/1]" },
   ],
   [ // Col 4
-    { src: "/images/Home/iconic 14/11.svg", aspect: "aspect-[4/5]" },
-    { src: "/images/Home/iconic 14/12.svg", aspect: "aspect-[1/1]" },
-    { src: "/images/Home/iconic 14/13.svg", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/11.png", desktopSrc: "/images/Home/iconic 14/Desktop/11.png", aspect: "aspect-[4/5]" },
+    { src: "/images/Home/iconic 14/12.png", desktopSrc: "/images/Home/iconic 14/Desktop/12.png", aspect: "aspect-[1/1]" },
+    { src: "/images/Home/iconic 14/13.png", desktopSrc: "/images/Home/iconic 14/Desktop/13.png", aspect: "aspect-[4/5]" },
     { src: "https://images.unsplash.com/photo-1530103043960-ef38714bbc15?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[5/4]" },
   ],
   [ // Col 5
-    { src: "/images/Home/iconic 14/14.svg", aspect: "aspect-[5/4]" },
+    { src: "/images/Home/iconic 14/14.png", desktopSrc: "/images/Home/iconic 14/Desktop/14.png", aspect: "aspect-[5/4]" },
     { src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
     { src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[1/1]" },
     { src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
@@ -188,13 +188,18 @@ function LittleSnapPage() {
               >
                 {column.map((img, imgIdx) => (
                   <div key={`img-${colIdx}-${imgIdx}`} className={`w-full relative overflow-hidden group ${img.aspect}`}>
-                    <img 
-                      src={img.src} 
-                      alt={`Little Snap ${colIdx}-${imgIdx}`} 
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 block will-change-transform" 
-                    />
+                    <picture>
+                      {img.desktopSrc && (
+                        <source media="(min-width: 768px)" srcSet={img.desktopSrc} />
+                      )}
+                      <img 
+                        src={img.src} 
+                        alt={`Little Snap ${colIdx}-${imgIdx}`} 
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 block will-change-transform" 
+                      />
+                    </picture>
                   </div>
                 ))}
               </div>

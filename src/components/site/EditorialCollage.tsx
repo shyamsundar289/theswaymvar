@@ -21,7 +21,10 @@ export function EditorialCollage() {
             transition={{ duration: 0.6, delay: idx * 0.05 }}
             className="aspect-square relative overflow-hidden bg-[#f0ede6]"
           >
-            <img src={`/images/Home/iconic 14/${num}.svg`} alt="Editorial moment" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+            <picture>
+              <source media="(min-width: 768px)" srcSet={`/images/Home/iconic 14/Desktop/${num}.png`} />
+              <img src={`/images/Home/iconic 14/${num}.png`} alt="Editorial moment" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+            </picture>
           </motion.div>
         ))}
 
@@ -54,7 +57,10 @@ export function EditorialCollage() {
             transition={{ duration: 0.6, delay: (idx + 7) * 0.05 }}
             className="aspect-square relative overflow-hidden bg-[#f0ede6]"
           >
-            <img src={`/images/Home/iconic 14/${num}.svg`} alt="Editorial moment" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+            <picture>
+              <source media="(min-width: 768px)" srcSet={`/images/Home/iconic 14/Desktop/${num}.png`} />
+              <img src={`/images/Home/iconic 14/${num}.png`} alt="Editorial moment" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+            </picture>
           </motion.div>
         ))}
       </div>
