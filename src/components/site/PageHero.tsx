@@ -8,6 +8,8 @@ import { waLink } from "@/data/site";
  *
  * Does NOT affect the Home hero, which remains its own component.
  */
+import { Header } from "./Header";
+
 export function PageHero({
   eyebrow,
   headline,
@@ -38,10 +40,8 @@ export function PageHero({
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section
-      ref={ref}
-      className="relative isolate h-[100svh] min-h-[600px] overflow-hidden"
-    >
+    <section ref={ref} className="relative isolate h-[100svh] min-h-[600px] overflow-hidden">
+      <Header />
       {/* Background image with parallax */}
       <motion.img
         src={backgroundImage}
@@ -52,8 +52,12 @@ export function PageHero({
       />
 
       {/* Scrim overlays for text legibility */}
-      <div className={`absolute inset-0 ${overlayVariant === "film" ? "bg-charcoal/15" : "bg-charcoal/40"}`} />
-      <div className={`absolute inset-0 ${overlayVariant === "film" ? "bg-gradient-to-t from-charcoal/55 via-charcoal/10 to-charcoal/10" : "bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-charcoal/40"}`} />
+      <div
+        className={`absolute inset-0 ${overlayVariant === "film" ? "bg-charcoal/15" : "bg-charcoal/40"}`}
+      />
+      <div
+        className={`absolute inset-0 ${overlayVariant === "film" ? "bg-gradient-to-t from-charcoal/55 via-charcoal/10 to-charcoal/10" : "bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-charcoal/40"}`}
+      />
       <div className="grain absolute inset-0" />
 
       {/* Content — left-aligned block at consistent vertical position */}
@@ -85,7 +89,9 @@ export function PageHero({
               className="label-xs inline-flex items-center gap-3 border border-background/50 px-7 py-3.5 text-background transition-colors duration-500 hover:bg-background hover:text-charcoal"
             >
               {ctaLabel}
-              <span aria-hidden="true" className="text-sm">→</span>
+              <span aria-hidden="true" className="text-sm">
+                →
+              </span>
             </a>
           </div>
         </motion.div>

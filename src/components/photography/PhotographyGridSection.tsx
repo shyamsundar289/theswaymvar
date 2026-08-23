@@ -1,3 +1,4 @@
+import { assets } from "../../assets/asset-manifest";
 import { Reveal } from "@/components/site/Reveal";
 import { images } from "@/data/images";
 
@@ -11,10 +12,10 @@ export function PhotographyGridSection() {
     { src: images.moments[5], couple: "Anya & Jai" },
     { src: images.moments[6], couple: "Zara & Ahaan" },
     { src: images.moments[7], couple: "Rhea & Sameer" },
-    { src: "/images/Recent01.webp", couple: "Ananya & Kunal" },
-    { src: "/images/Recent02.webp", couple: "Riya & Aryan" },
-    { src: "/images/Recent03.webp", couple: "Myra & Ishaan" },
-    { src: images.premium.cover, couple: "Kiara & Advik" }
+    { src: assets.recentWork.recent01, couple: "Ananya & Kunal" },
+    { src: assets.recentWork.recent02, couple: "Riya & Aryan" },
+    { src: assets.recentWork.recent03, couple: "Myra & Ishaan" },
+    { src: images.premium.cover, couple: "Kiara & Advik" },
   ];
 
   return (
@@ -24,12 +25,14 @@ export function PhotographyGridSection() {
         <Reveal className="flex flex-col items-center w-full">
           {/* Main Heading */}
           <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-normal leading-[1.05] tracking-tight text-[#2d2c2a] max-w-3xl mb-6">
-            Moments frozen in time, <span className="italic font-light text-[#8b867c]">felt forever.</span>
+            Moments frozen in time,{" "}
+            <span className="italic font-light text-[#8b867c]">felt forever.</span>
           </h2>
 
           {/* Supporting text */}
           <p className="text-[#5D5A55] text-[16px] md:text-[18px] font-normal tracking-[0.2px] max-w-2xl mx-auto mb-10 md:mb-14">
-            A curated collection of our most cherished photographs. Every frame tells a story of love, family, and the quiet moments in between.
+            A curated collection of our most cherished photographs. Every frame tells a story of
+            love, family, and the quiet moments in between.
           </p>
         </Reveal>
       </div>
@@ -46,15 +49,14 @@ export function PhotographyGridSection() {
           <div className="grid grid-cols-3 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-12 md:gap-y-16">
             {photoGrid.map((item, idx) => (
               <div key={idx} className="w-full flex flex-col group">
-                
                 {/* PICTURE FRAME (Matched to Home Page) */}
-                <div 
-                  className="overflow-hidden rounded-[20px] bg-muted w-full aspect-[4/5]" 
-                  style={{ boxShadow: '0 15px 30px rgba(0,0,0,0.08)' }}
+                <div
+                  className="overflow-hidden rounded-[20px] bg-muted w-full aspect-[4/5]"
+                  style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
                 >
-                  <img 
-                    src={item.src} 
-                    alt={item.couple} 
+                  <img
+                    src={item.src}
+                    alt={item.couple}
                     loading="lazy"
                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
@@ -71,15 +73,29 @@ export function PhotographyGridSection() {
                     {item.couple}
                   </h3>
                   <div className="flex justify-center mt-[8px] md:mt-[20px] text-[#d1cbbd]">
-                     {/* Tiny Ornament */}
-                     <svg width="40" height="10" viewBox="0 0 60 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="md:w-[50px] md:h-[12px]">
-                        <path d="M30 2 L33 7.5 L30 13 L27 7.5 Z" fill="currentColor" opacity="0.8"/>
-                        <path d="M25 7.5 Q15 2 5 7.5 Q15 13 25 7.5" fill="currentColor" opacity="0.5"/>
-                        <path d="M35 7.5 Q45 2 55 7.5 Q45 13 35 7.5" fill="currentColor" opacity="0.5"/>
-                     </svg>
+                    {/* Tiny Ornament */}
+                    <svg
+                      width="40"
+                      height="10"
+                      viewBox="0 0 60 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="md:w-[50px] md:h-[12px]"
+                    >
+                      <path d="M30 2 L33 7.5 L30 13 L27 7.5 Z" fill="currentColor" opacity="0.8" />
+                      <path
+                        d="M25 7.5 Q15 2 5 7.5 Q15 13 25 7.5"
+                        fill="currentColor"
+                        opacity="0.5"
+                      />
+                      <path
+                        d="M35 7.5 Q45 2 55 7.5 Q45 13 35 7.5"
+                        fill="currentColor"
+                        opacity="0.5"
+                      />
+                    </svg>
                   </div>
                 </div>
-
               </div>
             ))}
           </div>

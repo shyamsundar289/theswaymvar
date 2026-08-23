@@ -27,7 +27,7 @@ export function SmoothScroll() {
         if (lenisRef.current) return; // Prevent double init
         const lenis = new Lenis({ duration: 1.25, smoothWheel: true });
         lenisRef.current = lenis;
-        
+
         lenis.scrollTo(0, { immediate: true });
         const loop = (time: number) => {
           lenis.raf(time);

@@ -6,18 +6,14 @@ import { films } from "@/data/films";
 import { LazyVideo } from "./LazyVideo";
 
 export function FeaturedFilm() {
-  const featured = films.find(f => f.featured) || films[0];
+  const featured = films.find((f) => f.featured) || films[0];
 
   if (!featured) return null;
 
   return (
     <section className="shell section-y-lg">
       <div className="flex items-end justify-between gap-6">
-        <SectionHeading
-          eyebrow="Featured film"
-          title="Watch the day unfold."
-          size="lg"
-        />
+        <SectionHeading eyebrow="Featured film" title="Watch the day unfold." size="lg" />
 
         {featured.duration && (
           <span className="label-xs hidden text-muted-foreground md:block">
@@ -55,9 +51,7 @@ export function FeaturedFilm() {
                 {featured.couple} — {featured.location}
               </p>
 
-              <p className="font-display mt-2 text-3xl md:text-5xl">
-                {featured.title}
-              </p>
+              <p className="font-display mt-2 text-3xl md:text-5xl">{featured.title}</p>
             </div>
 
             <ArrowUpRight className="hidden h-7 w-7 md:block" />

@@ -32,7 +32,7 @@ export function FilmStories({ chapters }: FilmStoriesProps) {
             end: "bottom center",
             scrub: true,
           },
-        }
+        },
       );
     }, containerRef);
 
@@ -43,15 +43,12 @@ export function FilmStories({ chapters }: FilmStoriesProps) {
 
   return (
     <section ref={containerRef} className="shell section-y-lg relative">
-      <SectionHeading 
-        eyebrow="The Chapters"
-        title="Stories within the story."
-      />
+      <SectionHeading eyebrow="The Chapters" title="Stories within the story." />
 
       <div className="relative mt-20 md:mt-32">
         {/* GSAP Scroll Line */}
         <div className="absolute left-[24px] top-0 bottom-0 w-[1px] bg-border/40 hidden md:block" />
-        <div 
+        <div
           ref={lineRef}
           className="absolute left-[24px] top-0 bottom-0 w-[1px] bg-bronze origin-top hidden md:block"
         />

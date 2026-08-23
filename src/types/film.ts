@@ -1,9 +1,4 @@
-export const FILM_CATEGORIES = [
-  "All",
-  "Short film",
-  "Documentary",
-  "Same-day edit",
-] as const;
+export const FILM_CATEGORIES = ["All", "Short film", "Documentary", "Same-day edit"] as const;
 
 export type FilmCategory = (typeof FILM_CATEGORIES)[number];
 
@@ -26,15 +21,15 @@ export interface Film {
   category: FilmCategory;
   duration?: string; // e.g. "04:32"
   description?: string;
-  
+
   // Media
   poster: string;
   video: string; // Empty string if coming soon
-  
+
   // Flags
   featured?: boolean;
   destination?: boolean;
-  
+
   // Advanced playback
   chapters?: FilmChapter[];
 }

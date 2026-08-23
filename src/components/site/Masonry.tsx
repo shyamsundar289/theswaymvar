@@ -38,9 +38,7 @@ export function MasonryGrid({ tiles }: { tiles: Tile[] }) {
             className="flex aspect-square items-center justify-center bg-card px-6 py-8 text-center md:px-8"
           >
             <div className="max-w-xs">
-              <p className="font-display text-xl leading-[1.15] md:text-2xl">
-                {tile.body}
-              </p>
+              <p className="font-display text-xl leading-[1.15] md:text-2xl">{tile.body}</p>
             </div>
           </Reveal>
         );

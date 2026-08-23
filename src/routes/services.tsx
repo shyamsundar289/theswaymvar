@@ -15,6 +15,8 @@ export const Route = createFileRoute('/services')({
   component: YourMemoriesPage,
 });
 
+import { Header } from "@/components/site/Header";
+
 function YourMemoriesPage() {
   const photoGrid = [
     { src: images.moments[0], couple: "Ananya & Kabir" },
@@ -35,6 +37,7 @@ function YourMemoriesPage() {
       
       {/* 1. HERO SECTION (Exact structure as FilmStickyIntro but with an image) */}
       <div className="sticky top-0 left-0 w-full h-[50vh] md:h-[500px] lg:h-[580px] overflow-hidden z-0">
+        <Header />
         <img 
           src={images.hero.primary} 
           alt="Your Memories Hero" 

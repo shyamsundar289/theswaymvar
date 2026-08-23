@@ -12,15 +12,15 @@ export function Footer() {
             Approximates the desktop widths: 
             Promise (1.25fr), Explore (0.75fr), Studio (1.25fr), Find Us (1fr)
           */}
-          <div 
+          <div
             className="grid mb-[clamp(2rem,5vw,4rem)] w-full"
-            style={{ 
-              gridTemplateColumns: "minmax(0, 1.35fr) minmax(0, 0.75fr) minmax(0, 1.2fr) minmax(0, 1.1fr)",
+            style={{
+              gridTemplateColumns:
+                "minmax(0, 1.35fr) minmax(0, 0.75fr) minmax(0, 1.2fr) minmax(0, 1.1fr)",
               columnGap: "clamp(8px, 2vw, 40px)",
-              rowGap: "clamp(2rem, 5vw, 4rem)"
+              rowGap: "clamp(2rem, 5vw, 4rem)",
             }}
           >
-            
             {/* COLUMN 1 — OUR PROMISE */}
             <div className="flex flex-col w-full min-w-0">
               <h3 className="font-sans text-[clamp(7px,1vw,11px)] uppercase tracking-[0.2em] text-[#c4a97d] mb-[clamp(0.75rem,1.5vw,2rem)] whitespace-nowrap">
@@ -70,28 +70,50 @@ export function Footer() {
               </h3>
               <div className="flex flex-col gap-[clamp(0.5rem,1.5vw,1.5rem)] font-sans text-[clamp(7px,1.2vw,14px)] uppercase tracking-[0.1em] text-[#e0dcd0]">
                 <div>
-                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">Address</p>
+                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">
+                    Address
+                  </p>
                   <p className="leading-[1.4] md:leading-[1.6] whitespace-nowrap">
-                    The Swayamvar Studio<br />
-                    Bikaner, Rajasthan<br />
+                    The Swayamvar Studio
+                    <br />
+                    Bikaner, Rajasthan
+                    <br />
                     India
                   </p>
                 </div>
                 <div>
-                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">Phone</p>
-                  <a href="tel:+918949422388" className="transition-colors hover:text-[#c4a97d] whitespace-nowrap block">
+                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+918949422388"
+                    className="transition-colors hover:text-[#c4a97d] whitespace-nowrap block"
+                  >
                     +91 89494 22388
                   </a>
                 </div>
                 <div>
-                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">Email</p>
-                  <a href="mailto:hello@theswayamvar.com" className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] block" style={{ overflowWrap: "anywhere" }}>
+                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:hello@theswayamvar.com"
+                    className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] block"
+                    style={{ overflowWrap: "anywhere" }}
+                  >
                     hello@theswayamvar.com
                   </a>
                 </div>
                 <div>
-                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">Instagram</p>
-                  <a href="https://www.instagram.com/theswaymvar" target="_blank" rel="noreferrer" className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] whitespace-nowrap block">
+                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">
+                    Instagram
+                  </p>
+                  <a
+                    href="https://www.instagram.com/theswaymvar"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] whitespace-nowrap block"
+                  >
                     @theswaymvar
                   </a>
                 </div>
@@ -104,13 +126,13 @@ export function Footer() {
                 Find Us
               </h3>
               <div className="w-full aspect-[4/3] bg-[#222] mb-[clamp(0.75rem,1.5vw,1.5rem)] rounded-[2px] overflow-hidden">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112708.20330685601!2d73.23886576882205!3d28.014264663044955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393fdd7ef7bf2a71%3A0x73295c527022138!2sBikaner%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1709400000000!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
-                  loading="lazy" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112708.20330685601!2d73.23886576882205!3d28.014264663044955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393fdd7ef7bf2a71%3A0x73295c527022138!2sBikaner%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1709400000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="grayscale opacity-80 hover:opacity-100 hover:grayscale-0 transition-all duration-700 w-full h-full object-cover block"
                   title="The Swayamvar Studio Location"

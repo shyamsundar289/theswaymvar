@@ -44,7 +44,9 @@ export function FilmViewerModal({
       {/* Header Controls */}
       <div className="absolute inset-x-0 top-0 z-20 flex items-start justify-between p-6 md:p-10 pointer-events-none">
         <div>
-          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] text-background">{activeFilm.couple}</h2>
+          <h2 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] text-background">
+            {activeFilm.couple}
+          </h2>
           <p className="mt-2 label-xs text-background/60">
             {activeFilm.category} &middot; {activeFilm.location}
           </p>

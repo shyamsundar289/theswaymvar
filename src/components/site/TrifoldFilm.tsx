@@ -55,13 +55,7 @@ type TrifoldFilmProps = {
   storyLabel?: string;
 };
 
-function FilmPaneVideo({
-  pane,
-  clipPath,
-}: {
-  pane: FilmPane;
-  clipPath: string;
-}) {
+function FilmPaneVideo({ pane, clipPath }: { pane: FilmPane; clipPath: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -72,10 +66,7 @@ function FilmPaneVideo({
   }, []);
 
   return (
-    <div
-      className="absolute inset-0"
-      style={{ clipPath, WebkitClipPath: clipPath }}
-    >
+    <div className="absolute inset-0" style={{ clipPath, WebkitClipPath: clipPath }}>
       <video
         ref={videoRef}
         autoPlay
@@ -107,9 +98,7 @@ export function TrifoldFilm({
         <div className="max-w-2xl">
           <p className="label-xs text-bronze">{eyebrow}</p>
 
-          <h2 className="font-display mt-6 text-4xl leading-[1.05] md:text-6xl">
-            {title}
-          </h2>
+          <h2 className="font-display mt-6 text-4xl leading-[1.05] md:text-6xl">{title}</h2>
 
           <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
             {body}
@@ -156,10 +145,7 @@ export function TrifoldFilm({
             three-way wedge split reads as noise under ~640px */}
         <div className="mt-12 grid grid-cols-1 gap-3 sm:hidden">
           {[panes.upper, panes.lowerLeft, panes.rightWrap].map((pane) => (
-            <div
-              key={pane.videoSrc}
-              className="relative aspect-[4/5] w-full overflow-hidden"
-            >
+            <div key={pane.videoSrc} className="relative aspect-[4/5] w-full overflow-hidden">
               <video
                 autoPlay
                 muted
@@ -174,10 +160,7 @@ export function TrifoldFilm({
             </div>
           ))}
 
-          <Link
-            to={storyHref}
-            className="label-xs story-link mt-2 inline-block text-foreground"
-          >
+          <Link to={storyHref} className="label-xs story-link mt-2 inline-block text-foreground">
             {storyLabel}
           </Link>
         </div>

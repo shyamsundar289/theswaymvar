@@ -23,7 +23,6 @@ export function InstagramGallery() {
   return (
     <section className="w-full bg-background pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
       <div className="w-full flex flex-col items-center">
-        
         {/* Heading Section */}
         <Reveal className="flex flex-col items-center">
           <h2 className="block text-center font-display font-semibold uppercase text-[#d1cbbd] text-[32px] md:text-[40px] tracking-[1px]">
@@ -59,7 +58,6 @@ export function InstagramGallery() {
             </div>
           </div>
         </Reveal>
-
       </div>
     </section>
   );

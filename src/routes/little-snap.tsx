@@ -1,25 +1,29 @@
-import { createFileRoute } from '@tanstack/react-router';
-import React from 'react';
-import { motion } from 'motion/react';
+import { Header } from "@/components/site/Header";
+import { assets } from "../assets/asset-manifest";
+import { createFileRoute } from "@tanstack/react-router";
+import React from "react";
+import { motion } from "motion/react";
 import { LittleSnapInstagramSection } from "../components/site/LittleSnapInstagramSection";
 
-export const Route = createFileRoute('/little-snap')({
+export const Route = createFileRoute("/little-snap")({
   component: LittleSnapPage,
 });
 
 const BalloonSVG = ({ className }: { className?: string }) => (
-  <div className={`relative aspect-[2/3] ${className || ''}`}>
+  <div className={`relative aspect-[2/3] ${className || ""}`}>
     <svg viewBox="0 0 200 300" className="w-full h-full drop-shadow-2xl">
       <defs>
         <clipPath id="balloon-clip">
-          <path d="M 100 10 
+          <path
+            d="M 100 10 
                    C 170 10, 195 70, 195 120 
                    C 195 170, 145 220, 120 240 
                    L 80 240 
                    C 55 220, 5 170, 5 120 
-                   C 5 70, 30 10, 100 10 Z" />
+                   C 5 70, 30 10, 100 10 Z"
+          />
         </clipPath>
-        
+
         <linearGradient id="shading" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="black" stopOpacity="0.4" />
           <stop offset="25%" stopColor="black" stopOpacity="0" />
@@ -51,29 +55,59 @@ const BalloonSVG = ({ className }: { className?: string }) => (
         <rect x="0" y="120" width="200" height="35" fill="#d69b36" />
         {/* Orange Stripe 2 */}
         <rect x="0" y="155" width="200" height="35" fill="#c4642b" />
-        
+
         {/* Vertical Gores (3D curves) */}
         <line x1="100" y1="10" x2="100" y2="240" stroke="rgba(0,0,0,0.15)" strokeWidth="0.75" />
-        
+
         {/* Inner arcs */}
-        <path d="M 100 10 A 25 115 0 0 1 100 240" stroke="rgba(0,0,0,0.15)" strokeWidth="1" fill="none" />
-        <path d="M 100 10 A 25 115 0 0 0 100 240" stroke="rgba(0,0,0,0.15)" strokeWidth="1" fill="none" />
-        
+        <path
+          d="M 100 10 A 25 115 0 0 1 100 240"
+          stroke="rgba(0,0,0,0.15)"
+          strokeWidth="1"
+          fill="none"
+        />
+        <path
+          d="M 100 10 A 25 115 0 0 0 100 240"
+          stroke="rgba(0,0,0,0.15)"
+          strokeWidth="1"
+          fill="none"
+        />
+
         {/* Mid arcs */}
-        <path d="M 100 10 A 55 115 0 0 1 100 240" stroke="rgba(0,0,0,0.15)" strokeWidth="1" fill="none" />
-        <path d="M 100 10 A 55 115 0 0 0 100 240" stroke="rgba(0,0,0,0.15)" strokeWidth="1" fill="none" />
+        <path
+          d="M 100 10 A 55 115 0 0 1 100 240"
+          stroke="rgba(0,0,0,0.15)"
+          strokeWidth="1"
+          fill="none"
+        />
+        <path
+          d="M 100 10 A 55 115 0 0 0 100 240"
+          stroke="rgba(0,0,0,0.15)"
+          strokeWidth="1"
+          fill="none"
+        />
 
         {/* Outer arcs */}
-        <path d="M 100 10 A 80 115 0 0 1 100 240" stroke="rgba(0,0,0,0.2)" strokeWidth="1.5" fill="none" />
-        <path d="M 100 10 A 80 115 0 0 0 100 240" stroke="rgba(0,0,0,0.2)" strokeWidth="1.5" fill="none" />
+        <path
+          d="M 100 10 A 80 115 0 0 1 100 240"
+          stroke="rgba(0,0,0,0.2)"
+          strokeWidth="1.5"
+          fill="none"
+        />
+        <path
+          d="M 100 10 A 80 115 0 0 0 100 240"
+          stroke="rgba(0,0,0,0.2)"
+          strokeWidth="1.5"
+          fill="none"
+        />
 
         {/* 3D Shading Overlay */}
         <rect x="0" y="0" width="200" height="250" fill="url(#shading)" />
-        
+
         {/* Subtle Highlight */}
         <path d="M 40 50 A 60 80 0 0 1 80 20 A 40 70 0 0 0 30 70 Z" fill="white" opacity="0.1" />
       </g>
-      
+
       {/* Envelope Bottom Rim */}
       <ellipse cx="100" cy="240" rx="20" ry="3.5" fill="#802619" />
       <path d="M 80 240 A 20 3.5 0 0 0 120 240" stroke="#52150c" strokeWidth="1.5" fill="none" />
@@ -85,93 +119,147 @@ const BalloonSVG = ({ className }: { className?: string }) => (
   </div>
 );
 
-// High-performance Flex Masonry layout columns to prevent CSS reflow lag
 const FLEX_COLUMNS = [
-  [ // Col 1
-    { src: "/images/Home/iconic 14/1.png", desktopSrc: "/images/Home/iconic 14/Desktop/1.png", aspect: "aspect-[4/5]" },
-    { src: "/images/Home/iconic 14/2.png", desktopSrc: "/images/Home/iconic 14/Desktop/2.png", aspect: "aspect-[1/1]" },
-    { src: "/images/Home/iconic 14/3.png", desktopSrc: "/images/Home/iconic 14/Desktop/3.png", aspect: "aspect-[5/4]" },
-    { src: "/images/Home/iconic 14/4.png", desktopSrc: "/images/Home/iconic 14/Desktop/4.png", aspect: "aspect-[4/5]" },
+  [
+    // Col 1
+    {
+      src: assets.home.editorial[0].mobile,
+      desktopSrc: assets.home.editorial[0].desktop,
+      aspect: "aspect-[4/5]",
+    },
+    {
+      src: assets.home.editorial[1].mobile,
+      desktopSrc: assets.home.editorial[1].desktop,
+      aspect: "aspect-[1/1]",
+    },
+    {
+      src: assets.home.editorial[2].mobile,
+      desktopSrc: assets.home.editorial[2].desktop,
+      aspect: "aspect-[5/4]",
+    },
   ],
-  [ // Col 2
-    { src: "/images/Home/iconic 14/5.png", desktopSrc: "/images/Home/iconic 14/Desktop/5.png", aspect: "aspect-[5/4]" },
-    { src: "/images/Home/iconic 14/6.png", desktopSrc: "/images/Home/iconic 14/Desktop/6.png", aspect: "aspect-[4/5]" },
-    { src: "/images/Home/iconic 14/7.png", desktopSrc: "/images/Home/iconic 14/Desktop/7.png", aspect: "aspect-[1/1]" },
-    { src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
+  [
+    // Col 2
+    {
+      src: assets.home.editorial[3].mobile,
+      desktopSrc: assets.home.editorial[3].desktop,
+      aspect: "aspect-[4/5]",
+    },
+    {
+      src: assets.home.editorial[4].mobile,
+      desktopSrc: assets.home.editorial[4].desktop,
+      aspect: "aspect-[5/4]",
+    },
+    {
+      src: assets.home.editorial[5].mobile,
+      desktopSrc: assets.home.editorial[5].desktop,
+      aspect: "aspect-[4/5]",
+    },
   ],
-  [ // Col 3
-    { src: "/images/Home/iconic 14/8.png", desktopSrc: "/images/Home/iconic 14/Desktop/8.png", aspect: "aspect-[1/1]" },
-    { src: "/images/Home/iconic 14/9.png", desktopSrc: "/images/Home/iconic 14/Desktop/9.png", aspect: "aspect-[5/4]" },
-    { src: "/images/Home/iconic 14/10.png", desktopSrc: "/images/Home/iconic 14/Desktop/10.png", aspect: "aspect-[4/5]" },
-    { src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[1/1]" },
+  [
+    // Col 3
+    {
+      src: assets.home.editorial[6].mobile,
+      desktopSrc: assets.home.editorial[6].desktop,
+      aspect: "aspect-[1/1]",
+    },
+    {
+      src: assets.home.editorial[7].mobile,
+      desktopSrc: assets.home.editorial[7].desktop,
+      aspect: "aspect-[1/1]",
+    },
+    {
+      src: assets.home.editorial[8].mobile,
+      desktopSrc: assets.home.editorial[8].desktop,
+      aspect: "aspect-[5/4]",
+    },
   ],
-  [ // Col 4
-    { src: "/images/Home/iconic 14/11.png", desktopSrc: "/images/Home/iconic 14/Desktop/11.png", aspect: "aspect-[4/5]" },
-    { src: "/images/Home/iconic 14/12.png", desktopSrc: "/images/Home/iconic 14/Desktop/12.png", aspect: "aspect-[1/1]" },
-    { src: "/images/Home/iconic 14/13.png", desktopSrc: "/images/Home/iconic 14/Desktop/13.png", aspect: "aspect-[4/5]" },
-    { src: "https://images.unsplash.com/photo-1530103043960-ef38714bbc15?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[5/4]" },
+  [
+    // Col 4
+    {
+      src: assets.home.editorial[9].mobile,
+      desktopSrc: assets.home.editorial[9].desktop,
+      aspect: "aspect-[4/5]",
+    },
+    {
+      src: assets.home.editorial[10].mobile,
+      desktopSrc: assets.home.editorial[10].desktop,
+      aspect: "aspect-[4/5]",
+    },
+    {
+      src: assets.home.editorial[11].mobile,
+      desktopSrc: assets.home.editorial[11].desktop,
+      aspect: "aspect-[1/1]",
+    },
   ],
-  [ // Col 5
-    { src: "/images/Home/iconic 14/14.png", desktopSrc: "/images/Home/iconic 14/Desktop/14.png", aspect: "aspect-[5/4]" },
-    { src: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
-    { src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[1/1]" },
-    { src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=60&w=500", aspect: "aspect-[4/5]" },
+  [
+    // Col 5
+    {
+      src: assets.home.editorial[12].mobile,
+      desktopSrc: assets.home.editorial[12].desktop,
+      aspect: "aspect-[4/5]",
+    },
+    {
+      src: assets.home.editorial[13].mobile,
+      desktopSrc: assets.home.editorial[13].desktop,
+      aspect: "aspect-[5/4]",
+    },
   ],
 ];
 
 function LittleSnapPage() {
   return (
     <div className="w-full bg-white selection:bg-[#4a1c14] selection:text-[#F7F3EB] relative">
-      
       {/* ================= STICKY HERO SECTION ================= */}
-      <div className="sticky top-0 w-full h-[60vh] md:h-[500px] lg:h-[580px] bg-white overflow-hidden flex items-center justify-center font-sans pt-[60px] md:pt-[100px] z-0">
-        
-        {/* Large Left Balloon (Lower) - Increased Animation */}
-        <motion.div 
-          className="absolute left-[8%] md:left-[15%] top-[60%] md:top-[65%] -translate-y-1/2 w-[22vw] md:w-[13vw] max-w-[180px] min-w-[80px] z-10"
-          animate={{ 
-            y: [0, -25, 0], 
-            x: [0, 8, -5, 0], 
-            rotate: [0, -2, 2, 0] 
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <BalloonSVG />
-        </motion.div>
+      <div className="sticky top-0 w-full h-[60vh] md:h-[500px] lg:h-[580px] bg-white z-0">
+        <Header />
+        <div className="absolute inset-0 overflow-hidden flex items-center justify-center font-sans pt-[60px] md:pt-[100px] z-0">
+          {/* Large Left Balloon (Lower) - Increased Animation */}
+          <motion.div
+            className="absolute left-[8%] md:left-[15%] top-[60%] md:top-[65%] -translate-y-1/2 w-[22vw] md:w-[13vw] max-w-[180px] min-w-[80px] z-10"
+            animate={{
+              y: [0, -25, 0],
+              x: [0, 8, -5, 0],
+              rotate: [0, -2, 2, 0],
+            }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <BalloonSVG />
+          </motion.div>
 
-        {/* Small Right Balloon (Higher) - Increased Animation */}
-        <motion.div 
-          className="absolute right-[8%] md:right-[18%] top-[40%] md:top-[35%] -translate-y-1/2 w-[16vw] md:w-[9vw] max-w-[120px] min-w-[60px] z-10"
-          animate={{ 
-            y: [0, -20, 0], 
-            x: [0, -6, 4, 0], 
-            rotate: [0, 2, -1, 0] 
-          }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        >
-          <BalloonSVG />
-        </motion.div>
+          {/* Small Right Balloon (Higher) - Increased Animation */}
+          <motion.div
+            className="absolute right-[8%] md:right-[18%] top-[40%] md:top-[35%] -translate-y-1/2 w-[16vw] md:w-[9vw] max-w-[120px] min-w-[60px] z-10"
+            animate={{
+              y: [0, -20, 0],
+              x: [0, -6, 4, 0],
+              rotate: [0, 2, -1, 0],
+            }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          >
+            <BalloonSVG />
+          </motion.div>
 
-        {/* CENTER TYPOGRAPHY */}
-        <div className="relative z-20 flex flex-col items-center justify-center -mt-8 md:-mt-4 pointer-events-none">
-          <h1 className="font-display text-[#42221b] text-[13vw] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] text-center tracking-tight z-10 antialiased">
-            Little
-            <br />
-            <span className="relative left-[0.1em]">Snap</span>
-          </h1>
-          <span className="font-script text-[#42221b] text-5xl md:text-7xl lg:text-[5.5rem] mt-2 md:mt-4 block -rotate-2 opacity-90 drop-shadow-sm">
-            Gallery
-          </span>
+          {/* CENTER TYPOGRAPHY */}
+          <div className="relative z-20 flex flex-col items-center justify-center -mt-8 md:-mt-4 pointer-events-none">
+            <h1 className="font-display text-[#42221b] text-[13vw] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] text-center tracking-tight z-10 antialiased">
+              Little
+              <br />
+              <span className="relative left-[0.1em]">Snap</span>
+            </h1>
+            <span className="font-script text-[#42221b] text-5xl md:text-7xl lg:text-[5.5rem] mt-2 md:mt-4 block -rotate-2 opacity-90 drop-shadow-sm">
+              Gallery
+            </span>
+          </div>
         </div>
       </div>
 
       {/* ================= CONTENT THAT SCROLLS OVER HERO ================= */}
       <div className="relative z-10 w-full bg-white shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
-        
         {/* STYLIZED INTRO SECTION */}
         <section className="w-full px-6 py-16 md:py-24 bg-white flex flex-col items-center justify-center text-center">
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.3] text-[#2d2c2a] max-w-5xl mx-auto italic tracking-wide">
-            Quiet corners. Stolen glances. <br className="hidden md:block"/>
+            Quiet corners. Stolen glances. <br className="hidden md:block" />
             <span className="font-sans text-[10px] sm:text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-[#7a6f65] font-semibold block mt-4 md:mt-8 not-italic">
               The beautiful in-between moments.
             </span>
@@ -182,22 +270,25 @@ function LittleSnapPage() {
         <section className="w-full bg-white px-0">
           <div className="flex w-full">
             {FLEX_COLUMNS.map((column, colIdx) => (
-              <div 
-                key={`col-${colIdx}`} 
-                className={`flex flex-col flex-1 ${colIdx >= 3 ? 'hidden md:flex' : 'flex'}`}
+              <div
+                key={`col-${colIdx}`}
+                className={`flex flex-col flex-1 ${colIdx >= 3 ? "hidden md:flex" : "flex"}`}
               >
                 {column.map((img, imgIdx) => (
-                  <div key={`img-${colIdx}-${imgIdx}`} className={`w-full relative overflow-hidden group ${img.aspect}`}>
+                  <div
+                    key={`img-${colIdx}-${imgIdx}`}
+                    className={`w-full relative overflow-hidden group ${img.aspect}`}
+                  >
                     <picture>
                       {img.desktopSrc && (
                         <source media="(min-width: 768px)" srcSet={img.desktopSrc} />
                       )}
-                      <img 
-                        src={img.src} 
-                        alt={`Little Snap ${colIdx}-${imgIdx}`} 
+                      <img
+                        src={img.src}
+                        alt={`Little Snap ${colIdx}-${imgIdx}`}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 block will-change-transform" 
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 block will-change-transform"
                       />
                     </picture>
                   </div>
@@ -206,11 +297,11 @@ function LittleSnapPage() {
             ))}
           </div>
         </section>
-        
+
         {/* INSTAGRAM SECTION */}
         <LittleSnapInstagramSection />
-        
       </div>
     </div>
   );
 }
+

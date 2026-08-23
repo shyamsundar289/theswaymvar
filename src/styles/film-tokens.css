@@ -4,20 +4,28 @@
 */
 
 :root {
-  --charcoal: #1C1C1C;
-  --bronze: #B79A7A;
-  --background: #F9F7F1;
-  --foreground: #2A2A2A;
-  --muted: #A3A3A3;
+  --charcoal: #1c1c1c;
+  --bronze: #b79a7a;
+  --background: #f9f7f1;
+  --foreground: #2a2a2a;
+  --muted: #a3a3a3;
 }
 
 /* Fallback classes if Tailwind config doesn't have them yet */
 @layer utilities {
-  .bg-charcoal { background-color: var(--charcoal); }
-  .text-charcoal { color: var(--charcoal); }
-  .text-bronze { color: var(--bronze); }
-  .bg-background { background-color: var(--background); }
-  
+  .bg-charcoal {
+    background-color: var(--charcoal);
+  }
+  .text-charcoal {
+    color: var(--charcoal);
+  }
+  .text-bronze {
+    color: var(--bronze);
+  }
+  .bg-background {
+    background-color: var(--background);
+  }
+
   .shell {
     width: 100%;
     max-width: 1440px;
@@ -40,10 +48,6 @@
     letter-spacing: 0.1em;
   }
 
-
-
-
-
   .story-link {
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -60,7 +64,7 @@
       padding-bottom: 10rem;
     }
   }
-  
+
   .section-y {
     padding-top: 4rem;
     padding-bottom: 4rem;

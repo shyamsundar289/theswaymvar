@@ -81,18 +81,18 @@ export function FilmPlayer({ src, poster, title, autoPlayMuted = false }: FilmPl
         className="h-full w-full object-cover"
         onClick={togglePlay}
       />
-      
+
       {/* Controls overlay */}
       <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         <div className="p-4 md:p-6">
           {/* Progress bar */}
           <div className="relative h-1 w-full overflow-hidden rounded bg-white/20">
-            <div 
+            <div
               className="absolute left-0 top-0 h-full bg-bronze transition-all duration-100 ease-linear"
               style={{ width: `${progress}%` }}
             />
           </div>
-          
+
           <div className="mt-4 flex items-center justify-between text-white">
             <div className="flex items-center gap-4">
               <button onClick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"}>

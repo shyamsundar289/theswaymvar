@@ -1,10 +1,12 @@
+import { assets } from "../assets/asset-manifest";
 import { galleryImages } from "./photography-images";
 import type { CoupleMedia } from "@/components/site/CouplePhotoGrid";
 
 export const WHATSAPP_NUMBER = "918949422388";
 
-export const waLink = (message = "Hello theswaymvar — we'd love to know about your availability.") =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+export const waLink = (
+  message = "Hello theswaymvar — we'd love to know about your availability.",
+) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
 export const nav = [
   { label: "Home", to: "/" },
@@ -53,16 +55,16 @@ export const stories: Story[] = [
       "They asked for one thing only: that nobody be asked to pose. So we spent the first morning listening — to grandmothers arguing about marigolds, to cousins rehearsing a song nobody would finish, to the water knocking against the ghat steps below the haveli.",
       "By the time the pheras began, the light had gone the colour of weak tea. Meher laughed through the last round. Arjun did not stop looking at her, and we did not stop looking at them.",
     ],
-    cover: "/images/Recent01.webp",
+    cover: assets.recentWork.recent01,
     gallery: [
       { ...galleryImages[0], type: "image" },
       { ...galleryImages[1], type: "image" },
       {
         id: "video-1",
-        src: "/videos/wedding.mp4",
+        src: assets.videos.background.wedding,
         type: "video",
         orientation: "landscape",
-        poster: "/images/Recent01.webp"
+        poster: assets.recentWork.recent01,
       },
       { ...galleryImages[3], type: "image" },
       { ...galleryImages[4], type: "image" },
@@ -91,7 +93,7 @@ export const stories: Story[] = [
       "Bhawana's baraat took forty minutes to cover two hundred metres. She watched the whole thing from a first-floor jharokha with her sisters, eating something she was not supposed to be eating.",
       "We photographed the day in colour because the day insisted on it — every wall, every safa, every plate of it.",
     ],
-    cover: "/images/Recent03.webp",
+    cover: assets.recentWork.recent03,
     gallery: galleryImages.slice(12, 18),
   },
 ];
@@ -125,8 +127,36 @@ export const testimonials = [
 import m1 from "@/assets/m1.jpg";
 
 export const featuredFilms = [
-  { id: '1', couple: 'Meher & Arjun', location: 'Jaipur, India', category: 'Wedding Film', videoUrl: '/videos/wedding.mp4', posterImg: "/images/Recent01.webp" },
-  { id: '2', couple: 'Tara & Rohan', location: 'Udaipur, Rajasthan', category: 'Cinematic Highlights', videoUrl: '/videos/celebration.mp4', posterImg: "/images/Recent02.webp" },
-  { id: '3', couple: 'Alia & Kabir', location: 'Lake Como, Italy', category: 'Destination Film', videoUrl: '/videos/prewedding.mp4', posterImg: "/images/Recent03.webp" },
-  { id: '4', couple: 'Simran & Veer', location: 'Goa, India', category: 'The Celebration', videoUrl: '/videos/portraits.mp4', posterImg: m1 }
+  {
+    id: "1",
+    couple: "Meher & Arjun",
+    location: "Jaipur, India",
+    category: "Wedding Film",
+    videoUrl: assets.videos.background.wedding,
+    posterImg: assets.recentWork.recent01,
+  },
+  {
+    id: "2",
+    couple: "Tara & Rohan",
+    location: "Udaipur, Rajasthan",
+    category: "Cinematic Highlights",
+    videoUrl: assets.videos.background.celebration,
+    posterImg: assets.recentWork.recent02,
+  },
+  {
+    id: "3",
+    couple: "Alia & Kabir",
+    location: "Lake Como, Italy",
+    category: "Destination Film",
+    videoUrl: assets.videos.background.prewedding,
+    posterImg: assets.recentWork.recent03,
+  },
+  {
+    id: "4",
+    couple: "Simran & Veer",
+    location: "Goa, India",
+    category: "The Celebration",
+    videoUrl: assets.videos.background.portraits,
+    posterImg: m1,
+  },
 ];

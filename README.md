@@ -228,27 +228,27 @@ Every CTA button that isn't internal navigation (e.g., "Get In Touch," "Inquire"
 
 12. QUALITY CHECKLIST BEFORE CALLING IT DONE
 
- Nothing on the site — copy, image, logo, or layout — is directly traceable to the reference site as "the same page with new words."
+Nothing on the site — copy, image, logo, or layout — is directly traceable to the reference site as "the same page with new words."
 
- Hero feels cinematic and matches the agreed Joy-style split composition.
+Hero feels cinematic and matches the agreed Joy-style split composition.
 
- Section spacing follows the four-tier scale in §6, not one repeated value.
+Section spacing follows the four-tier scale in §6, not one repeated value.
 
- Image sizes vary intentionally across every gallery/grid — no uniform 3-column card grid anywhere.
+Image sizes vary intentionally across every gallery/grid — no uniform 3-column card grid anywhere.
 
- Typography contrast comes from size/weight/italic mixing within the Cormorant Garamond + Manrope pairing, not from adding new fonts.
+Typography contrast comes from size/weight/italic mixing within the Cormorant Garamond + Manrope pairing, not from adding new fonts.
 
- Only the 6 routes in §4 exist — no stray Awards/Press/Blog/Pricing/FAQ pages.
+Only the 6 routes in §4 exist — no stray Awards/Press/Blog/Pricing/FAQ pages.
 
- All CTAs route to WhatsApp, not a contact form.
+All CTAs route to WhatsApp, not a contact form.
 
- Images pull from the centralized asset file (§7), one-to-one swappable later.
+Images pull from the centralized asset file (§7), one-to-one swappable later.
 
- Mobile layout is a deliberate redesign per section, not a shrunk desktop copy — no horizontal overflow.
+Mobile layout is a deliberate redesign per section, not a shrunk desktop copy — no horizontal overflow.
 
- Animations are slow, subtle, and never distract from photography/typography.
+Animations are slow, subtle, and never distract from photography/typography.
 
- Nothing looks like a generic template — if a section reads as generic, redesign it before finishing.THESWAYMVAR — Full Master Build Prompt (Gemini-ready)
+Nothing looks like a generic template — if a section reads as generic, redesign it before finishing.THESWAYMVAR — Full Master Build Prompt (Gemini-ready)
 
 Paste this entire document into Gemini as one build spec. It reproduces the same section order, same composition patterns, and same pacing as the reference luxury wedding site — with 100% original theswaymvar content, copy, and imagery, so it's a genuinely new site rather than a copy.
 
@@ -378,26 +378,25 @@ Mobile: stack all three columns centered, wordmark first.
 
 13. QUALITY CHECKLIST
 
- Section order on Home matches §2–§11 exactly, top to bottom.
+Section order on Home matches §2–§11 exactly, top to bottom.
 
- Hero is the full-bleed grainy B&W portrait treatment, not a split/Joy-style layout.
+Hero is the full-bleed grainy B&W portrait treatment, not a split/Joy-style layout.
 
- The diagonal clip-path break (§6) is implemented with CSS clip-path, stays responsive.
+The diagonal clip-path break (§6) is implemented with CSS clip-path, stays responsive.
 
- Masonry grid (§4) has exactly one quote-tile breaking the image pattern.
+Masonry grid (§4) has exactly one quote-tile breaking the image pattern.
 
- Press logos and award laurels are generic/placeholder, not real outlet or award-body names/marks.
+Press logos and award laurels are generic/placeholder, not real outlet or award-body names/marks.
 
- Every couple name, testimonial, and film write-up is original writing — nothing paraphrased from any reference.
+Every couple name, testimonial, and film write-up is original writing — nothing paraphrased from any reference.
 
- All images route through the central images.ts data file.
+All images route through the central images.ts data file.
 
- All external CTAs open WhatsApp, not a form.
+All external CTAs open WhatsApp, not a form.
 
- Mobile version re-composes each section intentionally (see per-section mobile notes) rather than just shrinking desktop widths.
+Mobile version re-composes each section intentionally (see per-section mobile notes) rather than just shrinking desktop widths.
 
- Motion stays slow and subtle throughout — no bounce, no constant idle animation.
-
+Motion stays slow and subtle throughout — no bounce, no constant idle animation.
 
 ## Development
 

@@ -25,7 +25,7 @@ export function FilmGridCard({ film, onClick }: FilmGridCardProps) {
       },
       {
         rootMargin: "300px 0px", // Prepare when it is 300px away from viewport
-      }
+      },
     );
 
     if (containerRef.current) {
@@ -96,13 +96,22 @@ export function FilmGridCard({ film, onClick }: FilmGridCardProps) {
         </h3>
         {film.location && (
           <div className="flex items-center justify-center mt-[8px] md:mt-3 text-[#d1cbbd]">
-             {/* Tiny Ornament */}
-             <svg width="40" height="10" viewBox="0 0 60 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 md:mr-3 w-[30px] h-[8px] md:w-[40px] md:h-[10px]">
-                <path d="M30 2 L33 7.5 L30 13 L27 7.5 Z" fill="currentColor" opacity="0.8"/>
-                <path d="M25 7.5 Q15 2 5 7.5 Q15 13 25 7.5" fill="currentColor" opacity="0.5"/>
-                <path d="M35 7.5 Q45 2 55 7.5 Q45 13 35 7.5" fill="currentColor" opacity="0.5"/>
-             </svg>
-             <span className="text-[9px] md:text-[11px] tracking-[1px] md:tracking-[2px] font-sans uppercase text-[#8b867c]">{film.location}</span>
+            {/* Tiny Ornament */}
+            <svg
+              width="40"
+              height="10"
+              viewBox="0 0 60 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="mr-2 md:mr-3 w-[30px] h-[8px] md:w-[40px] md:h-[10px]"
+            >
+              <path d="M30 2 L33 7.5 L30 13 L27 7.5 Z" fill="currentColor" opacity="0.8" />
+              <path d="M25 7.5 Q15 2 5 7.5 Q15 13 25 7.5" fill="currentColor" opacity="0.5" />
+              <path d="M35 7.5 Q45 2 55 7.5 Q45 13 35 7.5" fill="currentColor" opacity="0.5" />
+            </svg>
+            <span className="text-[9px] md:text-[11px] tracking-[1px] md:tracking-[2px] font-sans uppercase text-[#8b867c]">
+              {film.location}
+            </span>
           </div>
         )}
       </div>

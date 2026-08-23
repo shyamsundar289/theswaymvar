@@ -18,7 +18,7 @@ const formatTime = (time: number) => {
 export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -29,14 +29,17 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
   // Autoplay on mount
   useEffect(() => {
     if (videoRef.current && film.videoUrl) {
-      videoRef.current.play().then(() => setIsPlaying(true)).catch(console.error);
+      videoRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(console.error);
     }
     return () => {
       // Cleanup: pause video when unmounting
       if (videoRef.current) {
         videoRef.current.pause();
         // clear src to release resources
-        videoRef.current.removeAttribute('src');
+        videoRef.current.removeAttribute("src");
         videoRef.current.load();
       }
     };
@@ -55,7 +58,10 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
     e?.stopPropagation();
     if (videoRef.current) {
       if (videoRef.current.paused) {
-        videoRef.current.play().then(() => setIsPlaying(true)).catch(console.error);
+        videoRef.current
+          .play()
+          .then(() => setIsPlaying(true))
+          .catch(console.error);
       } else {
         videoRef.current.pause();
         setIsPlaying(false);
@@ -133,7 +139,10 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
           className="relative w-full max-w-[90vw] md:max-w-[80vw] aspect-video bg-black rounded-lg overflow-hidden shadow-2xl flex items-center justify-center"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          onClick={(e) => { e.stopPropagation(); togglePlay(); }} // Clicking inside toggles play
+          onClick={(e) => {
+            e.stopPropagation();
+            togglePlay();
+          }} // Clicking inside toggles play
         >
           {film.videoUrl ? (
             <video
@@ -147,17 +156,24 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
               playsInline
             />
           ) : (
-             <div className="flex flex-col items-center justify-center text-white/50 space-y-4">
-                <img src={film.posterImg} alt={film.couple} className="absolute inset-0 w-full h-full object-cover opacity-30" />
-                <p className="z-10 font-sans tracking-[0.2em] uppercase text-sm">Coming Soon</p>
-                <h3 className="z-10 font-display text-3xl md:text-5xl text-white">{film.couple}</h3>
-             </div>
+            <div className="flex flex-col items-center justify-center text-white/50 space-y-4">
+              <img
+                src={film.posterImg}
+                alt={film.couple}
+                className="absolute inset-0 w-full h-full object-cover opacity-30"
+              />
+              <p className="z-10 font-sans tracking-[0.2em] uppercase text-sm">Coming Soon</p>
+              <h3 className="z-10 font-display text-3xl md:text-5xl text-white">{film.couple}</h3>
+            </div>
           )}
 
           {/* Close Button */}
           <button
-            onClick={(e) => { e.stopPropagation(); onClose(); }}
-            className={`absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 rounded-full bg-black/40 hover:bg-black/80 border border-white/10 text-white flex items-center justify-center transition-all duration-300 z-10 ${showControls || !isPlaying ? 'opacity-100' : 'opacity-0'}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose();
+            }}
+            className={`absolute top-4 right-4 md:top-6 md:right-6 w-12 h-12 rounded-full bg-black/40 hover:bg-black/80 border border-white/10 text-white flex items-center justify-center transition-all duration-300 z-10 ${showControls || !isPlaying ? "opacity-100" : "opacity-0"}`}
             aria-label="Close video player"
           >
             <X className="w-6 h-6 stroke-[1.5]" />
@@ -166,7 +182,7 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
           {/* Bottom Control Bar */}
           {film.videoUrl && (
             <div
-              className={`absolute bottom-0 left-0 right-0 p-6 pt-12 bg-gradient-to-t from-black/90 to-transparent transition-opacity duration-500 ${(showControls || !isPlaying) ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+              className={`absolute bottom-0 left-0 right-0 p-6 pt-12 bg-gradient-to-t from-black/90 to-transparent transition-opacity duration-500 ${showControls || !isPlaying ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Timeline */}
@@ -185,10 +201,22 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
               {/* Controls */}
               <div className="flex items-center justify-between text-white">
                 <div className="flex items-center gap-6">
-                  <button onClick={togglePlay} className="hover:text-[#d1cbbd] transition-colors" aria-label={isPlaying ? "Pause" : "Play"}>
-                    {isPlaying ? <Pause className="w-6 h-6 fill-current" /> : <Play className="w-6 h-6 fill-current" />}
+                  <button
+                    onClick={togglePlay}
+                    className="hover:text-[#d1cbbd] transition-colors"
+                    aria-label={isPlaying ? "Pause" : "Play"}
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-6 h-6 fill-current" />
+                    ) : (
+                      <Play className="w-6 h-6 fill-current" />
+                    )}
                   </button>
-                  <button onClick={toggleMute} className="hover:text-[#d1cbbd] transition-colors" aria-label={isMuted ? "Unmute" : "Mute"}>
+                  <button
+                    onClick={toggleMute}
+                    className="hover:text-[#d1cbbd] transition-colors"
+                    aria-label={isMuted ? "Unmute" : "Mute"}
+                  >
                     {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
                   </button>
                   <span className="text-xs md:text-sm font-sans tracking-wider opacity-80 pt-0.5">
@@ -198,10 +226,16 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
 
                 <div className="flex items-center gap-6">
                   <div className="hidden md:flex flex-col items-end mr-4">
-                     <p className="font-display text-lg leading-tight">{film.couple}</p>
-                     <p className="text-[10px] tracking-[0.2em] uppercase opacity-70">{film.category}</p>
+                    <p className="font-display text-lg leading-tight">{film.couple}</p>
+                    <p className="text-[10px] tracking-[0.2em] uppercase opacity-70">
+                      {film.category}
+                    </p>
                   </div>
-                  <button onClick={toggleFullscreen} className="hover:text-[#d1cbbd] transition-colors" aria-label="Fullscreen">
+                  <button
+                    onClick={toggleFullscreen}
+                    className="hover:text-[#d1cbbd] transition-colors"
+                    aria-label="Fullscreen"
+                  >
                     <Maximize className="w-5 h-5" />
                   </button>
                 </div>

@@ -1,517 +1,544 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Vertical Timeline</title>
-<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg-color: #fcfbfa;
-    --text-charcoal: #2d2c2a;
-    --accent-color: #d1cbbd;
-    --text-muted: #8c8881;
-    --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
-    --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
-    --font-display: "Bodoni Moda", Georgia, serif;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Vertical Timeline</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-color: #fcfbfa;
+        --text-charcoal: #2d2c2a;
+        --accent-color: #d1cbbd;
+        --text-muted: #8c8881;
+        --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+        --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+        --font-display: "Bodoni Moda", Georgia, serif;
+      }
 
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-charcoal);
-    font-family: var(--font-sans);
-    overflow-x: hidden;
-  }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        color: var(--text-charcoal);
+        font-family: var(--font-sans);
+        overflow-x: hidden;
+      }
 
-  /* Reset box-sizing */
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
+      /* Reset box-sizing */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-  /* Typography */
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
-    line-height: 1.1;
-    text-transform: uppercase;
-    margin: 0;
-  }
+      /* Typography */
+      h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+        line-height: 1.1;
+        text-transform: uppercase;
+        margin: 0;
+      }
 
-  .accent-text {
-    color: var(--accent-color);
-  }
+      .accent-text {
+        color: var(--accent-color);
+      }
 
-  .label-text {
-    color: var(--accent-color);
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
+      .label-text {
+        color: var(--accent-color);
+        font-size: 0.875rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
 
-  /* Container */
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
 
-  @media (min-width: 1024px) {
-    .container {
-      flex-direction: row;
-    }
-  }
-
-  /* Left Sticky Section */
-  .hero-section {
-    padding: 4rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--bg-color);
-    z-index: 20;
-  }
-
-  @media (min-width: 1024px) {
-    .hero-section {
-      width: 40%;
-      height: 100vh;
-      position: sticky;
-      top: 0;
-      padding: 0 3rem;
-    }
-  }
-
-  /* Right Timeline Section */
-  .timeline-section {
-    position: relative;
-    padding: 4rem 1.5rem 8rem 1.5rem;
-    width: 100%;
-  }
-
-  @media (min-width: 1024px) {
-    .timeline-section {
-      width: 60%;
-      padding: 8rem 3rem 12rem 3rem;
-    }
-  }
-
-  /* Vertical Line */
-  .timeline-line-container {
-    position: absolute;
-    top: 4rem;
-    bottom: 8rem;
-    left: 1.5rem; /* Mobile alignment */
-    width: 2px;
-    transform: translateX(-50%);
-    z-index: 0;
-  }
-
-  @media (min-width: 768px) {
-    .timeline-line-container {
-      left: 50%;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .timeline-line-container {
-      top: 8rem;
-      bottom: 12rem;
-    }
-  }
-
-  .timeline-line-dashed {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-left: 2px dashed rgba(209, 203, 189, 0.4);
-  }
-
-  .timeline-line-solid {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--accent-color);
-    transform-origin: top;
-    transform: scaleY(0);
-    transition: transform 1.5s var(--ease-premium);
-  }
-
-  .timeline-line-solid.visible {
-    transform: scaleY(1);
-  }
-
-  /* Timeline Items Wrapper */
-  .timeline-items {
-    position: relative;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  /* Timeline Item */
-  .timeline-item {
-    position: relative;
-    display: flex;
-    width: 100%;
-    margin-bottom: 4rem;
-  }
-
-  @media (min-width: 768px) {
-    .timeline-item {
-      margin-top: -80px; /* Overlap effect */
-      margin-bottom: 0;
-    }
-    .timeline-item:first-child {
-      margin-top: 0;
-    }
-  }
-
-  /* Timeline Dot */
-  .timeline-dot {
-    position: absolute;
-    left: 0; /* Mobile alignment */
-    top: 6px;
-    width: 16px;
-    height: 16px;
-    background-color: var(--bg-color);
-    border: 3px solid var(--accent-color);
-    border-radius: 50%;
-    transform: translateX(-50%) scale(0.5);
-    opacity: 0;
-    z-index: 30;
-    will-change: transform, opacity;
-  }
-
-  @media (min-width: 768px) {
-    .timeline-dot {
-      left: 50%;
-      top: 8px;
-    }
-  }
-
-  /* Content Columns */
-  .col-left, .col-right {
-    width: 100%;
-    padding-left: 2rem;
-    display: flex;
-  }
-
-  @media (min-width: 768px) {
-    .col-left, .col-right {
-      width: 50%;
-      padding-left: 0;
-    }
-    .col-left {
-      padding-right: 3rem;
-      justify-content: flex-end;
-      text-align: right;
-    }
-    .col-right {
-      padding-left: 3rem;
-      justify-content: flex-start;
-      text-align: left;
-    }
-  }
-
-  /* Inner Content */
-  .content-inner {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    .col-left .content-inner {
-      align-items: flex-end;
-    }
-    .col-right .content-inner {
-      align-items: flex-start;
-    }
-  }
-
-  /* Year */
-  .timeline-year {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.75rem;
-    opacity: 0;
-    transform: translateY(20px);
-    will-change: transform, opacity;
-  }
-
-  @media (min-width: 768px) {
-    .timeline-year {
-      font-size: 1.5rem;
-    }
-  }
-
-  /* Image Box */
-  .image-box {
-    width: 100%;
-    max-width: 280px;
-    aspect-ratio: 1.4;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    background-color: #eee;
-    opacity: 0;
-    will-change: transform, opacity;
-  }
-
-  @media (min-width: 768px) {
-    .image-box {
-      max-width: 320px;
-      border-radius: 2rem;
-    }
-  }
-
-  .image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 700ms ease;
-  }
-
-  /* Hover Effects */
-  @media (hover: hover) {
-    .timeline-item:hover .timeline-dot {
-      background-color: var(--accent-color);
-    }
-    .timeline-item:hover .image-box img {
-      transform: scale(1.05);
-    }
-  }
-
-  /* Accessibility: Reduced Motion */
-  @media (prefers-reduced-motion: reduce) {
-    .timeline-line-solid {
-      transition: none;
-      transform: scaleY(1);
-    }
-    .timeline-dot,
-    .timeline-year,
-    .image-box {
-      transition: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-</style>
-</head>
-<body>
-
-  <section class="container">
-    
-    <!-- LEFT: Sticky Text Section -->
-    <div class="hero-section">
-      <h2 style="margin-bottom: 1.5rem;">
-        WHERE OUR FOREVER BEGAN
-      </h2>
-      <p style="font-size: 1.125rem; color: #a1a1aa; line-height: 1.6; max-width: 28rem;">
-        Every love story is made of little moments — the first memories, the laughter we shared, and the milestones that brought us closer. Through every chapter, our journey grew into something beautiful, leading us to the beginning of our forever.
-      </p>
-      <div style="font-family: 'Pinyon Script', cursive; font-size: 2.5rem; color: #d1cbbd; margin-top: 1.5rem; opacity: 0.9;">
-        Reyansh &amp; Aanya
-      </div>
-    </div>
-
-    <!-- RIGHT: Scrolling Timeline Section -->
-    <div class="timeline-section">
-      
-      <!-- Vertical Lines -->
-      <div class="timeline-line-container">
-        <div class="timeline-line-dashed"></div>
-        <!-- Progressively revealed via JS -->
-        <div class="timeline-line-solid" id="timeline-line"></div>
-      </div>
-
-      <!-- Timeline Items -->
-      <div class="timeline-items">
-        
-        <!-- ITEM 1: Right -->
-        <div class="timeline-item right-side">
-          <div class="col-left"></div>
-          <div class="timeline-dot"></div>
-          <div class="col-right">
-            <div class="content-inner">
-              <span class="timeline-year">2001</span>
-              <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Year 2001">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ITEM 2: Left -->
-        <div class="timeline-item left-side">
-          <div class="col-left">
-            <div class="content-inner">
-              <span class="timeline-year">2003</span>
-              <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800" alt="Year 2003">
-              </div>
-            </div>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="col-right"></div>
-        </div>
-
-        <!-- ITEM 3: Right -->
-        <div class="timeline-item right-side">
-          <div class="col-left"></div>
-          <div class="timeline-dot"></div>
-          <div class="col-right">
-            <div class="content-inner">
-              <span class="timeline-year">2005</span>
-              <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&q=80&w=800" alt="Year 2005">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ITEM 4: Left -->
-        <div class="timeline-item left-side">
-          <div class="col-left">
-            <div class="content-inner">
-              <span class="timeline-year">2007</span>
-              <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Year 2007">
-              </div>
-            </div>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="col-right"></div>
-        </div>
-
-        <!-- ITEM 5: Right -->
-        <div class="timeline-item right-side">
-          <div class="col-left"></div>
-          <div class="timeline-dot"></div>
-          <div class="col-right">
-            <div class="content-inner">
-              <span class="timeline-year">2009</span>
-              <div class="image-box">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800" alt="Year 2009">
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      
-      const items = Array.from(document.querySelectorAll(".timeline-item")).map(item => ({
-        el: item,
-        dot: item.querySelector(".timeline-dot"),
-        year: item.querySelector(".timeline-year"),
-        imageBox: item.querySelector(".image-box"),
-        isRightSide: item.classList.contains("right-side"),
-        locked: false
-      }));
-
-      // Initialize initial styles immediately
-      const updateItemStyle = (itemObj, progress) => {
-        // Easing: easeOutCubic
-        const easedProgress = 1 - Math.pow(1 - progress, 3);
-        
-        // 1. Calculate Image Transforms
-        const isDesktop = window.innerWidth >= 768;
-        let startX = 60; // Mobile default (from right)
-        if (isDesktop) {
-          startX = itemObj.isRightSide ? 100 : -100;
+      @media (min-width: 1024px) {
+        .container {
+          flex-direction: row;
         }
-        
-        const currentX = startX * (1 - easedProgress);
-        const currentScale = 0.96 + (0.04 * easedProgress);
-        
-        // 2. Apply Image Styles
-        itemObj.imageBox.style.transform = `translateX(${currentX}px) scale(${currentScale})`;
-        itemObj.imageBox.style.opacity = easedProgress;
+      }
 
-        // 3. Apply Dot Styles
-        const dotScale = 0.5 + (0.5 * easedProgress);
-        itemObj.dot.style.transform = `translateX(-50%) scale(${dotScale})`;
-        itemObj.dot.style.opacity = easedProgress;
+      /* Left Sticky Section */
+      .hero-section {
+        padding: 4rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--bg-color);
+        z-index: 20;
+      }
 
-        // 4. Apply Year Styles
-        const yearY = 20 * (1 - easedProgress);
-        itemObj.year.style.transform = `translateY(${yearY}px)`;
-        itemObj.year.style.opacity = easedProgress;
-      };
+      @media (min-width: 1024px) {
+        .hero-section {
+          width: 40%;
+          height: 100vh;
+          position: sticky;
+          top: 0;
+          padding: 0 3rem;
+        }
+      }
 
-      // Set initial zero state
-      items.forEach(item => updateItemStyle(item, 0));
+      /* Right Timeline Section */
+      .timeline-section {
+        position: relative;
+        padding: 4rem 1.5rem 8rem 1.5rem;
+        width: 100%;
+      }
 
-      let ticking = false;
+      @media (min-width: 1024px) {
+        .timeline-section {
+          width: 60%;
+          padding: 8rem 3rem 12rem 3rem;
+        }
+      }
 
-      const onScroll = () => {
-        const vh = window.innerHeight;
-        const triggerStart = vh * 0.85; // 85vh
-        const triggerEnd = vh * 0.55;   // 55vh
-        const scrollDistance = triggerStart - triggerEnd;
+      /* Vertical Line */
+      .timeline-line-container {
+        position: absolute;
+        top: 4rem;
+        bottom: 8rem;
+        left: 1.5rem; /* Mobile alignment */
+        width: 2px;
+        transform: translateX(-50%);
+        z-index: 0;
+      }
 
-        items.forEach(itemObj => {
-          if (itemObj.locked) return;
+      @media (min-width: 768px) {
+        .timeline-line-container {
+          left: 50%;
+        }
+      }
 
-          const rect = itemObj.el.getBoundingClientRect();
-          
-          // Calculate normalized progress [0, 1] based on element's top position
-          let progress = (triggerStart - rect.top) / scrollDistance;
-          
-          // Clamp progress
-          if (progress < 0) progress = 0;
-          if (progress > 1) progress = 1;
+      @media (min-width: 1024px) {
+        .timeline-line-container {
+          top: 8rem;
+          bottom: 12rem;
+        }
+      }
 
-          // Lock if fully revealed
-          if (progress === 1) {
-            itemObj.locked = true;
+      .timeline-line-dashed {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-left: 2px dashed rgba(209, 203, 189, 0.4);
+      }
+
+      .timeline-line-solid {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--accent-color);
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform 1.5s var(--ease-premium);
+      }
+
+      .timeline-line-solid.visible {
+        transform: scaleY(1);
+      }
+
+      /* Timeline Items Wrapper */
+      .timeline-items {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      /* Timeline Item */
+      .timeline-item {
+        position: relative;
+        display: flex;
+        width: 100%;
+        margin-bottom: 4rem;
+      }
+
+      @media (min-width: 768px) {
+        .timeline-item {
+          margin-top: -80px; /* Overlap effect */
+          margin-bottom: 0;
+        }
+        .timeline-item:first-child {
+          margin-top: 0;
+        }
+      }
+
+      /* Timeline Dot */
+      .timeline-dot {
+        position: absolute;
+        left: 0; /* Mobile alignment */
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        background-color: var(--bg-color);
+        border: 3px solid var(--accent-color);
+        border-radius: 50%;
+        transform: translateX(-50%) scale(0.5);
+        opacity: 0;
+        z-index: 30;
+        will-change: transform, opacity;
+      }
+
+      @media (min-width: 768px) {
+        .timeline-dot {
+          left: 50%;
+          top: 8px;
+        }
+      }
+
+      /* Content Columns */
+      .col-left,
+      .col-right {
+        width: 100%;
+        padding-left: 2rem;
+        display: flex;
+      }
+
+      @media (min-width: 768px) {
+        .col-left,
+        .col-right {
+          width: 50%;
+          padding-left: 0;
+        }
+        .col-left {
+          padding-right: 3rem;
+          justify-content: flex-end;
+          text-align: right;
+        }
+        .col-right {
+          padding-left: 3rem;
+          justify-content: flex-start;
+          text-align: left;
+        }
+      }
+
+      /* Inner Content */
+      .content-inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      @media (min-width: 768px) {
+        .col-left .content-inner {
+          align-items: flex-end;
+        }
+        .col-right .content-inner {
+          align-items: flex-start;
+        }
+      }
+
+      /* Year */
+      .timeline-year {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+        opacity: 0;
+        transform: translateY(20px);
+        will-change: transform, opacity;
+      }
+
+      @media (min-width: 768px) {
+        .timeline-year {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Image Box */
+      .image-box {
+        width: 100%;
+        max-width: 280px;
+        aspect-ratio: 1.4;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        background-color: #eee;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      @media (min-width: 768px) {
+        .image-box {
+          max-width: 320px;
+          border-radius: 2rem;
+        }
+      }
+
+      .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 700ms ease;
+      }
+
+      /* Hover Effects */
+      @media (hover: hover) {
+        .timeline-item:hover .timeline-dot {
+          background-color: var(--accent-color);
+        }
+        .timeline-item:hover .image-box img {
+          transform: scale(1.05);
+        }
+      }
+
+      /* Accessibility: Reduced Motion */
+      @media (prefers-reduced-motion: reduce) {
+        .timeline-line-solid {
+          transition: none;
+          transform: scaleY(1);
+        }
+        .timeline-dot,
+        .timeline-year,
+        .image-box {
+          transition: none !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <!-- LEFT: Sticky Text Section -->
+      <div class="hero-section">
+        <h2 style="margin-bottom: 1.5rem">WHERE OUR FOREVER BEGAN</h2>
+        <p style="font-size: 1.125rem; color: #a1a1aa; line-height: 1.6; max-width: 28rem">
+          Every love story is made of little moments — the first memories, the laughter we shared,
+          and the milestones that brought us closer. Through every chapter, our journey grew into
+          something beautiful, leading us to the beginning of our forever.
+        </p>
+        <div
+          style="
+            font-family: &quot;Pinyon Script&quot;, cursive;
+            font-size: 2.5rem;
+            color: #d1cbbd;
+            margin-top: 1.5rem;
+            opacity: 0.9;
+          "
+        >
+          Reyansh &amp; Aanya
+        </div>
+      </div>
+
+      <!-- RIGHT: Scrolling Timeline Section -->
+      <div class="timeline-section">
+        <!-- Vertical Lines -->
+        <div class="timeline-line-container">
+          <div class="timeline-line-dashed"></div>
+          <!-- Progressively revealed via JS -->
+          <div class="timeline-line-solid" id="timeline-line"></div>
+        </div>
+
+        <!-- Timeline Items -->
+        <div class="timeline-items">
+          <!-- ITEM 1: Right -->
+          <div class="timeline-item right-side">
+            <div class="col-left"></div>
+            <div class="timeline-dot"></div>
+            <div class="col-right">
+              <div class="content-inner">
+                <span class="timeline-year">2001</span>
+                <div class="image-box">
+                  <img
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800"
+                    alt="Year 2001"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 2: Left -->
+          <div class="timeline-item left-side">
+            <div class="col-left">
+              <div class="content-inner">
+                <span class="timeline-year">2003</span>
+                <div class="image-box">
+                  <img
+                    src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800"
+                    alt="Year 2003"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="timeline-dot"></div>
+            <div class="col-right"></div>
+          </div>
+
+          <!-- ITEM 3: Right -->
+          <div class="timeline-item right-side">
+            <div class="col-left"></div>
+            <div class="timeline-dot"></div>
+            <div class="col-right">
+              <div class="content-inner">
+                <span class="timeline-year">2005</span>
+                <div class="image-box">
+                  <img
+                    src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&q=80&w=800"
+                    alt="Year 2005"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 4: Left -->
+          <div class="timeline-item left-side">
+            <div class="col-left">
+              <div class="content-inner">
+                <span class="timeline-year">2007</span>
+                <div class="image-box">
+                  <img
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800"
+                    alt="Year 2007"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="timeline-dot"></div>
+            <div class="col-right"></div>
+          </div>
+
+          <!-- ITEM 5: Right -->
+          <div class="timeline-item right-side">
+            <div class="col-left"></div>
+            <div class="timeline-dot"></div>
+            <div class="col-right">
+              <div class="content-inner">
+                <span class="timeline-year">2009</span>
+                <div class="image-box">
+                  <img
+                    src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800"
+                    alt="Year 2009"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const items = Array.from(document.querySelectorAll(".timeline-item")).map((item) => ({
+          el: item,
+          dot: item.querySelector(".timeline-dot"),
+          year: item.querySelector(".timeline-year"),
+          imageBox: item.querySelector(".image-box"),
+          isRightSide: item.classList.contains("right-side"),
+          locked: false,
+        }));
+
+        // Initialize initial styles immediately
+        const updateItemStyle = (itemObj, progress) => {
+          // Easing: easeOutCubic
+          const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+          // 1. Calculate Image Transforms
+          const isDesktop = window.innerWidth >= 768;
+          let startX = 60; // Mobile default (from right)
+          if (isDesktop) {
+            startX = itemObj.isRightSide ? 100 : -100;
           }
 
-          updateItemStyle(itemObj, progress);
-        });
+          const currentX = startX * (1 - easedProgress);
+          const currentScale = 0.96 + 0.04 * easedProgress;
 
-        // Vertical Line progress (using IntersectionObserver alternative: scroll calculation)
-        const timelineLine = document.getElementById("timeline-line");
-        const timelineSection = document.querySelector(".timeline-section");
-        if (timelineLine && timelineSection) {
-          const sectionRect = timelineSection.getBoundingClientRect();
-          // Draw line as user scrolls down the section
-          if (sectionRect.top < vh) {
-            timelineLine.classList.add("visible");
+          // 2. Apply Image Styles
+          itemObj.imageBox.style.transform = `translateX(${currentX}px) scale(${currentScale})`;
+          itemObj.imageBox.style.opacity = easedProgress;
+
+          // 3. Apply Dot Styles
+          const dotScale = 0.5 + 0.5 * easedProgress;
+          itemObj.dot.style.transform = `translateX(-50%) scale(${dotScale})`;
+          itemObj.dot.style.opacity = easedProgress;
+
+          // 4. Apply Year Styles
+          const yearY = 20 * (1 - easedProgress);
+          itemObj.year.style.transform = `translateY(${yearY}px)`;
+          itemObj.year.style.opacity = easedProgress;
+        };
+
+        // Set initial zero state
+        items.forEach((item) => updateItemStyle(item, 0));
+
+        let ticking = false;
+
+        const onScroll = () => {
+          const vh = window.innerHeight;
+          const triggerStart = vh * 0.85; // 85vh
+          const triggerEnd = vh * 0.55; // 55vh
+          const scrollDistance = triggerStart - triggerEnd;
+
+          items.forEach((itemObj) => {
+            if (itemObj.locked) return;
+
+            const rect = itemObj.el.getBoundingClientRect();
+
+            // Calculate normalized progress [0, 1] based on element's top position
+            let progress = (triggerStart - rect.top) / scrollDistance;
+
+            // Clamp progress
+            if (progress < 0) progress = 0;
+            if (progress > 1) progress = 1;
+
+            // Lock if fully revealed
+            if (progress === 1) {
+              itemObj.locked = true;
+            }
+
+            updateItemStyle(itemObj, progress);
+          });
+
+          // Vertical Line progress (using IntersectionObserver alternative: scroll calculation)
+          const timelineLine = document.getElementById("timeline-line");
+          const timelineSection = document.querySelector(".timeline-section");
+          if (timelineLine && timelineSection) {
+            const sectionRect = timelineSection.getBoundingClientRect();
+            // Draw line as user scrolls down the section
+            if (sectionRect.top < vh) {
+              timelineLine.classList.add("visible");
+            }
           }
-        }
 
-        ticking = false;
-      };
+          ticking = false;
+        };
 
-      window.addEventListener("scroll", () => {
-        if (!ticking) {
-          window.requestAnimationFrame(onScroll);
-          ticking = true;
-        }
-      }, { passive: true });
-      
-      // Trigger once on load
-      onScroll();
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              window.requestAnimationFrame(onScroll);
+              ticking = true;
+            }
+          },
+          { passive: true },
+        );
 
-    });
-  </script>
-</body>
+        // Trigger once on load
+        onScroll();
+      });
+    </script>
+  </body>
 </html>

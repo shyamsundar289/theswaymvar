@@ -9,13 +9,13 @@ const imagesDir = path.resolve(__dirname, "../public/images");
 async function optimizeImages() {
   try {
     const files = fs.readdirSync(imagesDir);
-    
+
     for (const file of files) {
       if (file.endsWith(".jpg") || file.endsWith(".png") || file.endsWith(".jpeg")) {
         const inputPath = path.join(imagesDir, file);
         const parsed = path.parse(file);
         const outputPath = path.join(imagesDir, `${parsed.name}.webp`);
-        
+
         // Skip if webp already exists
         if (fs.existsSync(outputPath)) {
           console.log(`Skipping ${file}, WebP already exists.`);
@@ -23,7 +23,7 @@ async function optimizeImages() {
         }
 
         console.log(`Optimizing ${file} -> ${parsed.name}.webp`);
-        
+
         // Optimize to high-quality webp
         // We use width: 1920 to prevent insanely large dimensions from slowing down decoding,
         // while preserving top-tier visual quality

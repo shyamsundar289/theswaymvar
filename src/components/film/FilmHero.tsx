@@ -21,8 +21,10 @@ const mediaGrid = columnHeights.map((heights, colIndex) =>
   heights.map((height, rowIndex) => {
     const flatIndex = colIndex * 4 + rowIndex;
     return { id: flatIndex, film: getFilm(flatIndex), height };
-  })
+  }),
 );
+
+import { Header } from "../site/Header";
 
 export function FilmHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,6 +41,7 @@ export function FilmHero() {
 
   return (
     <section ref={containerRef} className="relative h-[120vh] w-full overflow-hidden bg-[#F6F4EE]">
+      <Header />
       {/* Tilted Video Grid */}
       <motion.div
         className="absolute flex gap-4 md:gap-6 w-[200vw] md:w-[130vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -58,9 +61,7 @@ export function FilmHero() {
                 key={item.id}
                 className={`relative w-full ${item.height} overflow-hidden rounded-xl md:rounded-3xl bg-[#E8E4D9] shadow-sm`}
               >
-                {item.film && (
-                  <HeroVideoTile video={item.film.video} poster={item.film.poster} />
-                )}
+                {item.film && <HeroVideoTile video={item.film.video} poster={item.film.poster} />}
               </div>
             ))}
           </motion.div>
@@ -85,7 +86,7 @@ export function FilmHero() {
         >
           Love, Set in Motion.
           <span className="text-[#15130F]/80 text-xl md:text-2xl lg:text-3xl block mt-5 md:mt-7 font-display italic font-normal tracking-normal max-w-2xl mx-auto">
-           Timeless wedding stories, beautifully captured in motion.
+            Timeless wedding stories, beautifully captured in motion.
           </span>
         </motion.h1>
       </div>

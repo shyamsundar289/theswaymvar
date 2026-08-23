@@ -1,9 +1,23 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { nav } from "@/data/site";
-import { Wordmark } from "./Wordmark";
 
 const swaymwarLogo = "/images/swamyvar_logo.svg";
+
+/**
+ * Desktop navigation typography token (source of truth):
+ *   font-family: font-sans (Instrument Sans)
+ *   font-size:   11px (lg: 12px)
+ *   font-weight: 500 (medium)
+ *   letter-spacing: 0.24em
+ *   text-transform: uppercase
+ *
+ * Mobile menu links reuse the SAME font-family, weight, letter-spacing and
+ * text-transform, adapted to a comfortable mobile reading size.
+ */
+
+/* Shared desktop nav typography class string */
+const NAV_FONT = "font-sans font-medium uppercase tracking-[0.24em]";
 
 export function Header() {
   const location = useLocation();
@@ -17,12 +31,23 @@ export function Header() {
   // Apply transparent hero overlay logic ONLY to pages with a dark full-bleed image at the top
   const isDarkText = pathname === "/about" || pathname === "/little-snap" || open;
   
-  // Changed from "fixed" to "absolute" based on user request:
-  // "header should go away with the hero section and not reappear on scroll up/down"
-  const positionClass = "absolute";
+  // The user explicitly requested Hero-bound sticky positioning.
+  const positionClass = "sticky";
   const bgClass = `bg-transparent border-transparent shadow-none ${
     isDarkText ? "text-foreground" : "text-background"
   }`;
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -54,9 +79,9 @@ export function Header() {
 
   return (
     <header
-      className={`${positionClass} top-0 left-0 z-50 w-full transition-all duration-[150ms] ease-out ${bgClass}`}
+      className={`${positionClass} top-0 left-0 z-50 w-full transition-all duration-[150ms] ease-out pointer-events-none h-0 overflow-visible ${bgClass}`}
     >
-      <div className="shell flex h-[95px] items-center justify-between gap-8">
+      <div className="shell flex h-[95px] items-center justify-between gap-8 pointer-events-auto">
         {/* Logo */}
         <Link
           to="/"
@@ -81,7 +106,7 @@ export function Header() {
 
         <button
           onClick={() => setOpen((value) => !value)}
-          className="font-body text-[11px] font-medium uppercase tracking-[0.24em] md:hidden"
+          className={`${NAV_FONT} text-[11px] md:hidden`}
           aria-expanded={open}
           aria-label="Toggle menu"
         >
@@ -89,16 +114,44 @@ export function Header() {
         </button>
       </div>
 
+      {/* ── Mobile Menu Overlay ── */}
       {open && (
-        <div className="shell animate-fade-in border-t border-border/20 bg-background pb-8 pt-6 md:hidden w-full max-w-[100vw] overflow-hidden">
-          <nav className="flex flex-col gap-5">
+        <div
+          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-background overflow-y-auto overflow-x-hidden pointer-events-auto"
+          style={{ top: 0 }}
+        >
+          {/* Top bar: logo + Close — mirrors desktop header height */}
+          <div className="shell flex h-[95px] items-center justify-between gap-8 shrink-0">
+            <Link
+              to="/"
+              onClick={(e) => { setOpen(false); handleLogoClick(e); }}
+              aria-label="theswaymvar home"
+              className="relative flex shrink-0 items-center justify-start h-full"
+            >
+              <img 
+                src={swaymwarLogo}
+                alt="The Swaymvar Logo"
+                className="h-[60px] w-auto transition-all duration-500 drop-shadow-sm object-contain origin-left"
+              />
+            </Link>
+            <button
+              onClick={() => setOpen(false)}
+              className={`${NAV_FONT} text-[11px] text-foreground`}
+              aria-label="Close menu"
+            >
+              Close
+            </button>
+          </div>
+
+          {/* Navigation items */}
+          <nav className="shell flex flex-col gap-[clamp(1.25rem,4svh,2rem)] pt-[clamp(1.5rem,5svh,3rem)] pb-8">
             {nav.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 preload="intent"
                 onClick={() => setOpen(false)}
-                className="font-display text-4xl font-normal leading-none transition-opacity duration-300 hover:opacity-60 text-foreground"
+                className={`${NAV_FONT} text-[clamp(11px,3vw,14px)] leading-normal transition-opacity duration-300 hover:opacity-60 text-foreground`}
               >
                 {item.label}
               </Link>
@@ -115,10 +168,10 @@ function NavLink({ label, to }: { label: string; to: string }) {
     <Link
       to={to}
       preload="intent"
-      className="font-body text-[11px] font-medium uppercase tracking-[0.24em] opacity-70 transition-opacity duration-300 hover:opacity-100 lg:text-[12px]"
+      className={`${NAV_FONT} text-[11px] opacity-70 transition-opacity duration-300 hover:opacity-100 lg:text-[12px]`}
       activeProps={{
         className:
-          "font-body text-[11px] font-medium uppercase tracking-[0.24em] opacity-100 lg:text-[12px]",
+          `${NAV_FONT} text-[11px] opacity-100 lg:text-[12px]`,
       }}
     >
       {label}

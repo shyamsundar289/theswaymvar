@@ -1,24 +1,44 @@
+import { assets } from "../../assets/asset-manifest";
 export function MarshallSpeaker({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative flex flex-col items-center select-none pointer-events-none pt-8 sm:pt-12 ${className}`}>
-      
+    <div
+      className={`relative flex flex-col items-center select-none pointer-events-none pt-8 sm:pt-12 ${className}`}
+    >
       {/* Container for the speaker to maintain relative positioning for sound waves */}
       <div className="relative w-[180px] sm:w-[220px]">
         {/* Sound Waves */}
         <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-12 h-12 z-20">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full stroke-foreground">
-            <path d="M20 80 Q 50 50 80 20" strokeWidth="2.5" strokeLinecap="round" className="opacity-0 animate-[pulse_2s_ease-in-out_infinite_0s]"/>
-            <path d="M35 90 Q 60 65 90 35" strokeWidth="2.5" strokeLinecap="round" className="opacity-0 animate-[pulse_2s_ease-in-out_infinite_0.4s]"/>
-            <path d="M50 100 Q 75 80 100 50" strokeWidth="2.5" strokeLinecap="round" className="opacity-0 animate-[pulse_2s_ease-in-out_infinite_0.8s]"/>
+          <svg
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full stroke-foreground"
+          >
+            <path
+              d="M20 80 Q 50 50 80 20"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              className="opacity-0 animate-[pulse_2s_ease-in-out_infinite_0s]"
+            />
+            <path
+              d="M35 90 Q 60 65 90 35"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              className="opacity-0 animate-[pulse_2s_ease-in-out_infinite_0.4s]"
+            />
+            <path
+              d="M50 100 Q 75 80 100 50"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              className="opacity-0 animate-[pulse_2s_ease-in-out_infinite_0.8s]"
+            />
           </svg>
         </div>
 
         {/* Main Speaker Body */}
         <div className="relative bg-[#fdfbf6] rounded-[8px] border-[2.5px] border-foreground p-[5px] shadow-sm aspect-[1.7/1] mt-[26px] z-10">
-          
           {/* Top Control Panel */}
           <div className="absolute bottom-[100%] mb-[-2.5px] left-[8%] right-[8%] h-[28px] sm:h-[32px] bg-[#fdfbf6] border-[2.5px] border-b-0 border-foreground rounded-t-[6px] flex items-end justify-around px-2 sm:px-4 pb-[3px] z-10">
-            
             {/* Handle */}
             <div className="absolute bottom-[100%] left-1/2 -translate-x-1/2 w-[55%] h-[12px] sm:h-[14px] border-[2.5px] border-b-0 border-foreground rounded-t-[6px] mb-[-2.5px] -z-10"></div>
 
@@ -29,7 +49,9 @@ export function MarshallSpeaker({ className = "" }: { className?: string }) {
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1.5px] h-[40%] bg-foreground origin-bottom rotate-[-40deg]"></div>
                 </div>
               </div>
-              <span className="text-[3.5px] sm:text-[4px] font-sans font-bold tracking-[0.1em] text-foreground mt-[3px] uppercase opacity-90">VOLUME</span>
+              <span className="text-[3.5px] sm:text-[4px] font-sans font-bold tracking-[0.1em] text-foreground mt-[3px] uppercase opacity-90">
+                VOLUME
+              </span>
             </div>
 
             {/* BASS */}
@@ -39,7 +61,9 @@ export function MarshallSpeaker({ className = "" }: { className?: string }) {
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1.5px] h-[40%] bg-foreground origin-bottom rotate-[15deg]"></div>
                 </div>
               </div>
-              <span className="text-[3.5px] sm:text-[4px] font-sans font-bold tracking-[0.1em] text-foreground mt-[3px] uppercase opacity-90">BASS</span>
+              <span className="text-[3.5px] sm:text-[4px] font-sans font-bold tracking-[0.1em] text-foreground mt-[3px] uppercase opacity-90">
+                BASS
+              </span>
             </div>
 
             {/* TREBLE */}
@@ -49,17 +73,20 @@ export function MarshallSpeaker({ className = "" }: { className?: string }) {
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1.5px] h-[40%] bg-foreground origin-bottom rotate-[60deg]"></div>
                 </div>
               </div>
-              <span className="text-[3.5px] sm:text-[4px] font-sans font-bold tracking-[0.1em] text-foreground mt-[3px] uppercase opacity-90">TREBLE</span>
+              <span className="text-[3.5px] sm:text-[4px] font-sans font-bold tracking-[0.1em] text-foreground mt-[3px] uppercase opacity-90">
+                TREBLE
+              </span>
             </div>
 
             {/* POWER SWITCH */}
             <div className="flex flex-col items-center">
               <div className="w-[7px] h-[10px] sm:w-[8px] sm:h-[12px] border-[1.5px] border-foreground rounded-[2px] bg-gradient-to-b from-[#e0e0e0] to-[#ffffff] relative flex flex-col justify-end items-center pb-[1px] shadow-[inset_0_1px_2px_rgba(0,0,0,0.1)]">
-                 <div className="w-[3px] h-[5px] sm:w-[4px] sm:h-[6px] bg-foreground rounded-[1px] shadow-[0_1px_1px_rgba(0,0,0,0.5)]"></div>
+                <div className="w-[3px] h-[5px] sm:w-[4px] sm:h-[6px] bg-foreground rounded-[1px] shadow-[0_1px_1px_rgba(0,0,0,0.5)]"></div>
               </div>
-              <span className="text-[3.5px] sm:text-[4px] font-sans font-bold tracking-[0.1em] text-foreground mt-[4px] uppercase opacity-90">POWER</span>
+              <span className="text-[3.5px] sm:text-[4px] font-sans font-bold tracking-[0.1em] text-foreground mt-[4px] uppercase opacity-90">
+                POWER
+              </span>
             </div>
-
           </div>
 
           {/* Inner Grill with horizontal lines */}
@@ -71,10 +98,10 @@ export function MarshallSpeaker({ className = "" }: { className?: string }) {
 
             {/* Logo */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none drop-shadow-md bg-white/20 backdrop-blur-[0.5px]">
-              <img 
-                src="/images/logo.png" 
-                alt="Swaymvar Logo" 
-                className="h-[40px] sm:h-[50px] w-auto mix-blend-multiply opacity-90 object-contain drop-shadow-sm" 
+              <img
+                src={assets.misc.speakerLogo}
+                alt="Swaymvar Logo"
+                className="h-[40px] sm:h-[50px] w-auto mix-blend-multiply opacity-90 object-contain drop-shadow-sm"
               />
             </div>
           </div>
@@ -89,14 +116,13 @@ export function MarshallSpeaker({ className = "" }: { className?: string }) {
 
       {/* THE SOUND OF FOREVER - Typography */}
       <div className="mt-12 flex flex-col items-center justify-center opacity-85 mix-blend-multiply pb-6">
-        <span 
+        <span
           className="font-display text-[11px] sm:text-[13px] tracking-[0.4em] sm:tracking-[0.5em] text-foreground uppercase font-normal relative"
-          style={{ textShadow: '0px 0.5px 0px rgba(255,255,255,0.8)' }}
+          style={{ textShadow: "0px 0.5px 0px rgba(255,255,255,0.8)" }}
         >
           The Sound Of Forever
         </span>
       </div>
-
     </div>
   );
 }

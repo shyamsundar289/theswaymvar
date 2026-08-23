@@ -1,0 +1,913 @@
+[
+  {
+    "oldPath": "public/audio/cinematic-wedding.mp3",
+    "newPath": "public/media/audio/music/cinematic-wedding.mp3",
+    "type": "MP3",
+    "size": 3704615,
+    "references": ["routes\\index.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/film-section/video01.mp4",
+    "newPath": "public/media/videos/films/film-01.mp4",
+    "type": "MP4",
+    "size": 2715260,
+    "references": ["data\\film-library.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/film-section/video03.mp4",
+    "newPath": "public/media/videos/films/film-03.mp4",
+    "type": "MP4",
+    "size": 8931216,
+    "references": ["data\\film-library.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/film-section/video05.mp4",
+    "newPath": "public/media/videos/films/film-05.mp4",
+    "type": "MP4",
+    "size": 9815625,
+    "references": ["data\\film-library.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/film-section/video06.mp4",
+    "newPath": "public/media/videos/films/film-06.mp4",
+    "type": "MP4",
+    "size": 8081162,
+    "references": ["data\\film-library.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/film-section/video07.mp4",
+    "newPath": "public/media/videos/films/film-07.mp4",
+    "type": "MP4",
+    "size": 7405639,
+    "references": ["data\\film-library.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/film-section/video08.mp4",
+    "newPath": "public/media/videos/films/film-08.mp4",
+    "type": "MP4",
+    "size": 17102767,
+    "references": ["data\\film-library.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/film-section/video09.mp4",
+    "newPath": "public/media/videos/films/film-09.mp4",
+    "type": "MP4",
+    "size": 6849694,
+    "references": ["data\\film-library.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/fonts/OrangeAvenueDEMO-Regular.otf",
+    "newPath": "public/media/fonts/orangeavenuedemo-regular.otf",
+    "type": "OTF",
+    "size": 42152,
+    "references": ["styles.css"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/4.png",
+    "newPath": "public/media/images/misc/4.png",
+    "type": "PNG",
+    "size": 20103266,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/4.webp",
+    "newPath": "public/media/images/misc/4.webp",
+    "type": "WEBP",
+    "size": 604014,
+    "references": ["components\\site\\Hero.tsx", "data\\film-library.ts", "data\\images.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/5.png",
+    "newPath": "public/media/images/misc/5.png",
+    "type": "PNG",
+    "size": 13899362,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/5.webp",
+    "newPath": "public/media/images/misc/5.webp",
+    "type": "WEBP",
+    "size": 341696,
+    "references": ["components\\site\\Hero.tsx", "data\\film-library.ts", "data\\images.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/6.png",
+    "newPath": "public/media/images/misc/6.png",
+    "type": "PNG",
+    "size": 20212756,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/6.webp",
+    "newPath": "public/media/images/misc/6.webp",
+    "type": "WEBP",
+    "size": 595258,
+    "references": ["components\\site\\Hero.tsx", "data\\film-library.ts", "data\\images.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/about/person.jpg",
+    "newPath": "public/media/images/about/person.jpg",
+    "type": "JPG",
+    "size": 1738699,
+    "references": ["routes\\about.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/about/Team_photo.jpg",
+    "newPath": "public/media/images/about/team-photo.jpg",
+    "type": "JPG",
+    "size": 3587189,
+    "references": ["routes\\about.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/DSCF0463 copy.webp",
+    "newPath": "public/media/images/misc/dscf0463-copy.webp",
+    "type": "WEBP",
+    "size": 370718,
+    "references": ["components\\site\\Hero.tsx", "data\\film-library.ts", "data\\images.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Favicon_icon.png",
+    "newPath": "public/media/images/misc/favicon-icon.png",
+    "type": "PNG",
+    "size": 34405,
+    "references": ["routes\\__root.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/home-hero-desktop-03.png",
+    "newPath": "public/media/images/home/hero/hero-03-desktop.png",
+    "type": "PNG",
+    "size": 4041209,
+    "references": ["components\\site\\AnimatedHero.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/home-hero-mobile-03.png",
+    "newPath": "public/media/images/home/hero/hero-03-mobile.png",
+    "type": "PNG",
+    "size": 1842326,
+    "references": ["components\\site\\AnimatedHero.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/1.png",
+    "newPath": "public/media/images/home/editorial/iconic-01-desktop.png",
+    "type": "PNG",
+    "size": 126105,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/10.png",
+    "newPath": "public/media/images/home/editorial/iconic-10-desktop.png",
+    "type": "PNG",
+    "size": 147647,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/11.png",
+    "newPath": "public/media/images/home/editorial/iconic-11-desktop.png",
+    "type": "PNG",
+    "size": 154661,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/12.png",
+    "newPath": "public/media/images/home/editorial/iconic-12-desktop.png",
+    "type": "PNG",
+    "size": 137353,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/13.png",
+    "newPath": "public/media/images/home/editorial/iconic-13-desktop.png",
+    "type": "PNG",
+    "size": 163484,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/14.png",
+    "newPath": "public/media/images/home/editorial/iconic-14-desktop.png",
+    "type": "PNG",
+    "size": 142571,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/2.png",
+    "newPath": "public/media/images/home/editorial/iconic-02-desktop.png",
+    "type": "PNG",
+    "size": 89556,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/3.png",
+    "newPath": "public/media/images/home/editorial/iconic-03-desktop.png",
+    "type": "PNG",
+    "size": 140678,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/4.png",
+    "newPath": "public/media/images/home/editorial/iconic-04-desktop.png",
+    "type": "PNG",
+    "size": 163595,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/5.png",
+    "newPath": "public/media/images/home/editorial/iconic-05-desktop.png",
+    "type": "PNG",
+    "size": 171094,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/6.png",
+    "newPath": "public/media/images/home/editorial/iconic-06-desktop.png",
+    "type": "PNG",
+    "size": 26813,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/7.png",
+    "newPath": "public/media/images/home/editorial/iconic-07-desktop.png",
+    "type": "PNG",
+    "size": 153601,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/8.png",
+    "newPath": "public/media/images/home/editorial/iconic-08-desktop.png",
+    "type": "PNG",
+    "size": 159958,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/9.png",
+    "newPath": "public/media/images/home/editorial/iconic-09-desktop.png",
+    "type": "PNG",
+    "size": 182999,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/1.png",
+    "newPath": "public/media/images/home/editorial/iconic-01-mobile.png",
+    "type": "PNG",
+    "size": 832456,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/10.png",
+    "newPath": "public/media/images/home/editorial/iconic-10-mobile.png",
+    "type": "PNG",
+    "size": 871767,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/11.png",
+    "newPath": "public/media/images/home/editorial/iconic-11-mobile.png",
+    "type": "PNG",
+    "size": 918898,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/12.png",
+    "newPath": "public/media/images/home/editorial/iconic-12-mobile.png",
+    "type": "PNG",
+    "size": 833956,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/13.png",
+    "newPath": "public/media/images/home/editorial/iconic-13-mobile.png",
+    "type": "PNG",
+    "size": 1092115,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/14.png",
+    "newPath": "public/media/images/home/editorial/iconic-14-mobile.png",
+    "type": "PNG",
+    "size": 899663,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/2.png",
+    "newPath": "public/media/images/home/editorial/iconic-02-mobile.png",
+    "type": "PNG",
+    "size": 654299,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/3.png",
+    "newPath": "public/media/images/home/editorial/iconic-03-mobile.png",
+    "type": "PNG",
+    "size": 854569,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/4.png",
+    "newPath": "public/media/images/home/editorial/iconic-04-mobile.png",
+    "type": "PNG",
+    "size": 978916,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/5.png",
+    "newPath": "public/media/images/home/editorial/iconic-05-mobile.png",
+    "type": "PNG",
+    "size": 1126582,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/6.png",
+    "newPath": "public/media/images/home/editorial/iconic-06-mobile.png",
+    "type": "PNG",
+    "size": 137272,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/7.png",
+    "newPath": "public/media/images/home/editorial/iconic-07-mobile.png",
+    "type": "PNG",
+    "size": 1025001,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/8.png",
+    "newPath": "public/media/images/home/editorial/iconic-08-mobile.png",
+    "type": "PNG",
+    "size": 947852,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Mobile/9.png",
+    "newPath": "public/media/images/home/editorial/iconic-09-mobile.png",
+    "type": "PNG",
+    "size": 1153971,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/parallax-bg.jpg",
+    "newPath": "public/media/images/misc/parallax-bg.jpg",
+    "type": "JPG",
+    "size": 230039,
+    "references": ["routes\\index.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Recent01.jpg",
+    "newPath": "public/media/images/recent-work/recent01.jpg",
+    "type": "JPG",
+    "size": 19623810,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Recent01.webp",
+    "newPath": "public/media/images/recent-work/recent01.webp",
+    "type": "WEBP",
+    "size": 587414,
+    "references": [
+      "components\\film\\FilmStickyIntro.tsx",
+      "components\\photography\\PhotographyGridSection.tsx",
+      "components\\site\\Hero.tsx",
+      "data\\film-library.ts",
+      "data\\images.ts",
+      "data\\site.ts",
+      "routes\\services.tsx"
+    ],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Recent02.png",
+    "newPath": "public/media/images/recent-work/recent02.png",
+    "type": "PNG",
+    "size": 10862314,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Recent02.webp",
+    "newPath": "public/media/images/recent-work/recent02.webp",
+    "type": "WEBP",
+    "size": 439522,
+    "references": [
+      "components\\photography\\PhotographyGridSection.tsx",
+      "components\\site\\Hero.tsx",
+      "data\\film-library.ts",
+      "data\\images.ts",
+      "data\\site.ts",
+      "routes\\services.tsx"
+    ],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Recent03.jpg",
+    "newPath": "public/media/images/recent-work/recent03.jpg",
+    "type": "JPG",
+    "size": 11421475,
+    "references": [],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/Recent03.webp",
+    "newPath": "public/media/images/recent-work/recent03.webp",
+    "type": "WEBP",
+    "size": 348724,
+    "references": [
+      "components\\photography\\PhotographyGridSection.tsx",
+      "components\\site\\Hero.tsx",
+      "data\\film-library.ts",
+      "data\\images.ts",
+      "data\\site.ts"
+    ],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/images/swamyvar_logo.svg",
+    "newPath": "public/media/svg/logo/swamyvar-logo.svg",
+    "type": "SVG",
+    "size": 53636,
+    "references": ["components\\site\\Header.tsx", "routes\\about.tsx", "routes\\index.tsx"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/videos/Herovideo.mp4",
+    "newPath": "public/media/videos/hero/herovideo.mp4",
+    "type": "MP4",
+    "size": 2675910,
+    "references": [
+      "components\\film\\FilmStickyIntro.tsx",
+      "data\\film-library.ts",
+      "routes\\videography.tsx"
+    ],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/videos/The_Swayamvar (2).mp4",
+    "newPath": "public/media/videos/showcase/the-swayamvar-2.mp4",
+    "type": "MP4",
+    "size": 2687387,
+    "references": ["data\\film-library.ts"],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/videos/wedding.mp4",
+    "newPath": "public/media/videos/background/wedding.mp4",
+    "type": "MP4",
+    "size": 6003192,
+    "references": [
+      "components\\film\\_reference\\CinematicArchive.mock.tsx",
+      "data\\film-library.ts",
+      "data\\films.ts",
+      "data\\site.ts",
+      "data\\weddingArchive.ts"
+    ],
+    "status": "MIGRATED"
+  },
+  {
+    "oldPath": "public/videos/celebration.mp4",
+    "newPath": "public/media/videos/background/celebration.mp4",
+    "type": "MP4",
+    "size": 0,
+    "references": ["components\\film\\_reference\\CinematicArchive.mock.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/videos/portraits.mp4",
+    "newPath": "public/media/videos/background/portraits.mp4",
+    "type": "MP4",
+    "size": 0,
+    "references": ["components\\film\\_reference\\CinematicArchive.mock.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/videos/prewedding.mp4",
+    "newPath": "public/media/videos/background/prewedding.mp4",
+    "type": "MP4",
+    "size": 0,
+    "references": ["components\\film\\_reference\\CinematicArchive.mock.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/videos/rituals.mp4",
+    "newPath": "public/media/videos/background/rituals.mp4",
+    "type": "MP4",
+    "size": 0,
+    "references": ["components\\film\\_reference\\CinematicArchive.mock.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/videos/videoseen.mp4",
+    "newPath": "public/media/videos/background/videoseen.mp4",
+    "type": "MP4",
+    "size": 0,
+    "references": ["components\\film\\_reference\\CinematicArchive.mock.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic${i + 1}.jpg",
+    "newPath": "MISSING (Dynamic path, manual fix required)",
+    "type": "UNKNOWN",
+    "size": 0,
+    "references": ["components\\site\\CrewSection.tsx"],
+    "status": "USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/Desktop/${num}.png",
+    "newPath": "MISSING (Dynamic path, manual fix required)",
+    "type": "UNKNOWN",
+    "size": 0,
+    "references": ["components\\site\\EditorialCollage.tsx"],
+    "status": "USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/${num}.png",
+    "newPath": "MISSING (Dynamic path, manual fix required)",
+    "type": "UNKNOWN",
+    "size": 0,
+    "references": ["components\\site\\EditorialCollage.tsx"],
+    "status": "USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/logo.png",
+    "newPath": "public/media/images/misc/logo.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["components\\site\\MarshallSpeaker.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/red-rotary-telephone.jpg",
+    "newPath": "public/media/images/misc/red-rotary-telephone.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["components\\site\\RedTelephoneSection.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/special-image-01.jpg",
+    "newPath": "public/media/images/crew/special-image-01.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["components\\site\\StoryTimeline.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/special-image-02.jpg",
+    "newPath": "public/media/images/crew/special-image-02.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["components\\site\\StoryTimeline.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/special-image-03.jpg",
+    "newPath": "public/media/images/crew/special-image-03.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["components\\site\\StoryTimeline.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/special-image-04.jpg",
+    "newPath": "public/media/images/crew/special-image-04.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["components\\site\\StoryTimeline.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/special-image-05.jpg",
+    "newPath": "public/media/images/crew/special-image-05.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["components\\site\\StoryTimeline.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/videos/ivory-series..mp4",
+    "newPath": "public/media/videos/background/ivory-series..mp4",
+    "type": "MP4",
+    "size": 0,
+    "references": ["data\\film-library.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic1.jpg",
+    "newPath": "public/media/images/crew/pic1.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic2.jpg",
+    "newPath": "public/media/images/crew/pic2.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic3.jpg",
+    "newPath": "public/media/images/crew/pic3.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic4.jpg",
+    "newPath": "public/media/images/crew/pic4.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic5.jpg",
+    "newPath": "public/media/images/crew/pic5.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic6.jpg",
+    "newPath": "public/media/images/crew/pic6.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic7.jpg",
+    "newPath": "public/media/images/crew/pic7.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic8.jpg",
+    "newPath": "public/media/images/crew/pic8.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic9.jpg",
+    "newPath": "public/media/images/crew/pic9.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic10.jpg",
+    "newPath": "public/media/images/crew/pic10.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic11.jpg",
+    "newPath": "public/media/images/crew/pic11.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic12.jpg",
+    "newPath": "public/media/images/crew/pic12.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic13.jpg",
+    "newPath": "public/media/images/crew/pic13.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic14.jpg",
+    "newPath": "public/media/images/crew/pic14.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic15.jpg",
+    "newPath": "public/media/images/crew/pic15.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic16.jpg",
+    "newPath": "public/media/images/crew/pic16.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic17.jpg",
+    "newPath": "public/media/images/crew/pic17.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic18.jpg",
+    "newPath": "public/media/images/crew/pic18.jpg",
+    "type": "JPG",
+    "size": 0,
+    "references": ["data\\photography-images.ts"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/pic${num}.jpg",
+    "newPath": "MISSING (Dynamic path, manual fix required)",
+    "type": "UNKNOWN",
+    "size": 0,
+    "references": ["routes\\crew.tsx"],
+    "status": "USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/crew/group.png",
+    "newPath": "public/media/images/crew/group.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\crew.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/1.png",
+    "newPath": "public/media/images/misc/1.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/2.png",
+    "newPath": "public/media/images/misc/2.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/3.png",
+    "newPath": "public/media/images/misc/3.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/4.png",
+    "newPath": "public/media/images/misc/4.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/5.png",
+    "newPath": "public/media/images/misc/5.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/6.png",
+    "newPath": "public/media/images/misc/6.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/7.png",
+    "newPath": "public/media/images/misc/7.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/8.png",
+    "newPath": "public/media/images/misc/8.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/9.png",
+    "newPath": "public/media/images/misc/9.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/10.png",
+    "newPath": "public/media/images/misc/10.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/11.png",
+    "newPath": "public/media/images/misc/11.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/12.png",
+    "newPath": "public/media/images/misc/12.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/13.png",
+    "newPath": "public/media/images/misc/13.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  },
+  {
+    "oldPath": "public/images/Home/iconic 14/14.png",
+    "newPath": "public/media/images/misc/14.png",
+    "type": "PNG",
+    "size": 0,
+    "references": ["routes\\little-snap.tsx"],
+    "status": "MISSING - USER ACTION REQUIRED"
+  }
+]

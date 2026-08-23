@@ -20,13 +20,12 @@ export function CinematicChapters() {
     <section className="shell py-24 md:py-32">
       <div className="mx-auto max-w-4xl">
         <Reveal>
-          <h2 className="label-xs text-bronze uppercase tracking-widest">
-            The Chapters
-          </h2>
+          <h2 className="label-xs text-bronze uppercase tracking-widest">The Chapters</h2>
           <p className="mt-8 font-display text-3xl md:text-5xl leading-tight text-charcoal font-light max-w-2xl">
             Every celebration has its own rhythm.
             <br />
-            We structure our approach to match the natural flow of your days, ensuring nothing is missed but everything is felt.
+            We structure our approach to match the natural flow of your days, ensuring nothing is
+            missed but everything is felt.
           </p>
         </Reveal>
 
@@ -34,9 +33,7 @@ export function CinematicChapters() {
           {chapters.map((chapter, i) => (
             <Reveal key={i} delay={i * 0.15}>
               <div className="grid md:grid-cols-[1fr_3fr] gap-4 md:gap-12 items-baseline border-t border-border/40 pt-8">
-                <span className="font-display italic text-2xl text-bronze/70">
-                  0{i + 1}
-                </span>
+                <span className="font-display italic text-2xl text-bronze/70">0{i + 1}</span>
                 <div>
                   <h3 className="font-display text-2xl md:text-3xl tracking-wide text-charcoal uppercase">
                     {chapter.title}

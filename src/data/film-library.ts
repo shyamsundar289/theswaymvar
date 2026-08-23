@@ -1,3 +1,4 @@
+import { assets } from "../assets/asset-manifest";
 export type FilmCategory = "WEDDING" | "PRE-WEDDING";
 
 export type LibraryFilm = {
@@ -11,43 +12,58 @@ export type LibraryFilm = {
 };
 
 const posters = [
-  "/images/Recent01.webp",
-  "/images/Recent02.webp",
-  "/images/Recent03.webp",
-  "/images/4.webp",
-  "/images/5.webp",
-  "/images/6.webp",
-  "/images/DSCF0463 copy.webp",
+  assets.recentWork.recent01,
+  assets.recentWork.recent02,
+  assets.recentWork.recent03,
+  assets.misc.image4,
+  assets.misc.image5,
+  assets.misc.image6,
+  assets.misc.dscf0463,
 ];
 
 const actualVideos = [
-  "/videos/wedding.mp4",
-  "/videos/celebration.mp4",
-  "/videos/prewedding.mp4",
-  "/videos/portraits.mp4",
-  "/videos/rituals.mp4",
-  "/videos/videoseen.mp4",
-  "/videos/Herovideo.mp4",
-  "/videos/The_Swayamvar (2).mp4",
-  "/videos/ivory-series..mp4",
-  "/film-section/video01.mp4",
-  "/film-section/video03.mp4",
-  "/film-section/video05.mp4",
-  "/film-section/video06.mp4",
-  "/film-section/video07.mp4",
-  "/film-section/video08.mp4",
-  "/film-section/video09.mp4",
+  assets.videos.background.wedding,
+  assets.videos.background.celebration,
+  assets.videos.background.prewedding,
+  assets.videos.background.portraits,
+  assets.videos.background.rituals,
+  assets.videos.background.videoseen,
+  assets.videos.hero,
+  assets.videos.showcase,
+  assets.videos.background.ivorySeries,
+  assets.videos.films.film01,
+  assets.videos.films.film03,
+  assets.videos.films.film05,
+  assets.videos.films.film06,
+  assets.videos.films.film07,
+  assets.videos.films.film08,
+  assets.videos.films.film09,
 ];
 
 const couples = [
-  "Meher & Arjun", "Tara & Rohan", "Alia & Kabir", "Simran & Veer",
-  "Ira & Vikram", "Bhawana & Abhishek", "Saira & Dev", "Ananya & Rohan",
-  "Naina & Siddharth", "Riya & Karan", "Priya & Aditya", "Divya & Rahul"
+  "Meher & Arjun",
+  "Tara & Rohan",
+  "Alia & Kabir",
+  "Simran & Veer",
+  "Ira & Vikram",
+  "Bhawana & Abhishek",
+  "Saira & Dev",
+  "Ananya & Rohan",
+  "Naina & Siddharth",
+  "Riya & Karan",
+  "Priya & Aditya",
+  "Divya & Rahul",
 ];
 
 const locations = [
-  "Udaipur, Rajasthan", "Lake Como, Italy", "Goa, India", "Alibaug, Maharashtra",
-  "Jaipur, Rajasthan", "Mumbai, Maharashtra", "Jodhpur, Rajasthan", "Kerala, India"
+  "Udaipur, Rajasthan",
+  "Lake Como, Italy",
+  "Goa, India",
+  "Alibaug, Maharashtra",
+  "Jaipur, Rajasthan",
+  "Mumbai, Maharashtra",
+  "Jodhpur, Rajasthan",
+  "Kerala, India",
 ];
 
 export const filmLibraryData: LibraryFilm[] = Array.from({ length: 45 }).map((_, i) => {

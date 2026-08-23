@@ -1,3 +1,4 @@
+import { assets } from "../../assets/asset-manifest";
 import React from "react";
 import { motion } from "motion/react";
 
@@ -13,7 +14,7 @@ export function EditorialCollage() {
       <div className="w-full grid grid-cols-3 md:grid-cols-5 gap-[2px] bg-white p-[2px]">
         {/* First 7 Images */}
         {topImages.map((num, idx) => (
-          <motion.div 
+          <motion.div
             key={`top-${num}`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -22,14 +23,19 @@ export function EditorialCollage() {
             className="aspect-square relative overflow-hidden bg-[#f0ede6]"
           >
             <picture>
-              <source media="(min-width: 768px)" srcSet={`/images/Home/iconic 14/Desktop/${num}.png`} />
-              <img src={`/images/Home/iconic 14/${num}.png`} alt="Editorial moment" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+              <source media="(min-width: 768px)" srcSet={assets.home.editorial[num - 1].desktop} />
+              <img
+                src={assets.home.editorial[num - 1].mobile}
+                alt="Editorial moment"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
             </picture>
           </motion.div>
         ))}
 
         {/* Center Iconic Text Block (8th Item) */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "50px" }}
@@ -49,7 +55,7 @@ export function EditorialCollage() {
 
         {/* Last 7 Images */}
         {bottomImages.map((num, idx) => (
-          <motion.div 
+          <motion.div
             key={`bot-${num}`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -58,8 +64,13 @@ export function EditorialCollage() {
             className="aspect-square relative overflow-hidden bg-[#f0ede6]"
           >
             <picture>
-              <source media="(min-width: 768px)" srcSet={`/images/Home/iconic 14/Desktop/${num}.png`} />
-              <img src={`/images/Home/iconic 14/${num}.png`} alt="Editorial moment" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+              <source media="(min-width: 768px)" srcSet={assets.home.editorial[num - 1].desktop} />
+              <img
+                src={assets.home.editorial[num - 1].mobile}
+                alt="Editorial moment"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
             </picture>
           </motion.div>
         ))}

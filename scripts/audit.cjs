@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const publicDir = path.join(__dirname, '../public');
+const publicDir = path.join(__dirname, "../public");
 
 function getAllFiles(dir, fileList = []) {
   if (!fs.existsSync(dir)) return fileList;
@@ -17,16 +17,36 @@ function getAllFiles(dir, fileList = []) {
   return fileList;
 }
 
-const mediaExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.svg', '.mp4', '.webm', '.mp3', '.wav', '.otf', '.ttf', '.woff', '.woff2'];
-const allPublicFiles = getAllFiles(publicDir).filter(f => mediaExtensions.includes(path.extname(f).toLowerCase()));
+const mediaExtensions = [
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".webp",
+  ".svg",
+  ".mp4",
+  ".webm",
+  ".mp3",
+  ".wav",
+  ".otf",
+  ".ttf",
+  ".woff",
+  ".woff2",
+];
+const allPublicFiles = getAllFiles(publicDir).filter((f) =>
+  mediaExtensions.includes(path.extname(f).toLowerCase()),
+);
 
-const report = allPublicFiles.map(f => {
+const report = allPublicFiles.map((f) => {
   const stat = fs.statSync(f);
   return {
-    path: path.relative(publicDir, f).replace(/\\/g, '/'),
+    path: path.relative(publicDir, f).replace(/\\/g, "/"),
     size: stat.size,
-    ext: path.extname(f).toLowerCase()
+    ext: path.extname(f).toLowerCase(),
   };
 });
 
-fs.writeFileSync(path.join(__dirname, '../audit-report.json'), JSON.stringify(report, null, 2), 'utf8');
+fs.writeFileSync(
+  path.join(__dirname, "../audit-report.json"),
+  JSON.stringify(report, null, 2),
+  "utf8",
+);

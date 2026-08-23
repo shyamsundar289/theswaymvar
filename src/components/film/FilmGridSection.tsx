@@ -29,12 +29,14 @@ export function FilmGridSection() {
         <Reveal className="flex flex-col items-center w-full">
           {/* Main Heading */}
           <h2 className="font-display text-[clamp(2.25rem,4vw,3.5rem)] font-normal leading-[1.05] tracking-tight text-[#2d2c2a] max-w-3xl mb-6">
-            Stories in motion, <span className="italic font-light text-[#8b867c]">captured beautifully.</span>
+            Stories in motion,{" "}
+            <span className="italic font-light text-[#8b867c]">captured beautifully.</span>
           </h2>
 
           {/* Supporting text */}
           <p className="text-[#5D5A55] text-[16px] md:text-[18px] font-normal tracking-[0.2px] max-w-2xl mx-auto mb-10 md:mb-14">
-            A curated collection of our most cherished wedding films. Every frame tells a story of love, family, and the quiet moments in between.
+            A curated collection of our most cherished wedding films. Every frame tells a story of
+            love, family, and the quiet moments in between.
           </p>
         </Reveal>
       </div>
@@ -52,8 +54,8 @@ export function FilmGridSection() {
                 key={filter.value}
                 onClick={() => setActiveFilter(filter.value)}
                 className={`relative py-3 text-[11px] md:text-[13px] tracking-[0.2em] uppercase font-sans transition-all duration-300 ${
-                  activeFilter === filter.value 
-                    ? "text-[#2d2c2a] font-medium" 
+                  activeFilter === filter.value
+                    ? "text-[#2d2c2a] font-medium"
                     : "text-[#8b867c] hover:text-[#2d2c2a]"
                 }`}
                 aria-label={`Show ${filter.label}`}
@@ -77,23 +79,20 @@ export function FilmGridSection() {
         </Reveal>
 
         {/* Video Grid */}
-        <motion.div layout className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-16">
+        <motion.div
+          layout
+          className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-16"
+        >
           <AnimatePresence mode="popLayout">
             {filteredFilms.map((film) => (
-              <FilmGridCard
-                key={film.id}
-                film={film}
-                onClick={setActiveFilm}
-              />
+              <FilmGridCard key={film.id} film={film} onClick={setActiveFilm} />
             ))}
           </AnimatePresence>
         </motion.div>
       </div>
 
       {/* Lightbox / Video Player */}
-      {activeFilm && (
-        <FilmLightbox film={activeFilm} onClose={() => setActiveFilm(null)} />
-      )}
+      {activeFilm && <FilmLightbox film={activeFilm} onClose={() => setActiveFilm(null)} />}
     </section>
   );
 }

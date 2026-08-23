@@ -1,3 +1,4 @@
+import { assets } from "../../../assets/asset-manifest";
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "motion/react";
 import { Play, X, ChevronRight, ChevronLeft, Volume2, VolumeX } from "lucide-react";
@@ -30,9 +31,10 @@ const mockFilms: Film[] = [
     category: "WEDDING",
     type: "Wedding Film",
     duration: "06:42",
-    poster: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=2000&auto=format&fit=crop",
-    preview: "/videos/wedding.mp4",
-    video: "/videos/wedding.mp4",
+    poster:
+      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=2000&auto=format&fit=crop",
+    preview: assets.videos.background.wedding,
+    video: assets.videos.background.wedding,
     featured: true,
   },
   {
@@ -44,9 +46,10 @@ const mockFilms: Film[] = [
     category: "WEDDING",
     type: "Destination Film",
     duration: "05:15",
-    poster: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2000&auto=format&fit=crop",
-    preview: "/videos/celebration.mp4",
-    video: "/videos/celebration.mp4",
+    poster:
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2000&auto=format&fit=crop",
+    preview: assets.videos.background.celebration,
+    video: assets.videos.background.celebration,
     featured: true,
   },
   {
@@ -58,9 +61,10 @@ const mockFilms: Film[] = [
     category: "DESTINATION",
     type: "Destination Film",
     duration: "08:10",
-    poster: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2000&auto=format&fit=crop",
-    preview: "/videos/portraits.mp4",
-    video: "/videos/portraits.mp4",
+    poster:
+      "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2000&auto=format&fit=crop",
+    preview: assets.videos.background.portraits,
+    video: assets.videos.background.portraits,
     featured: true,
   },
   {
@@ -72,9 +76,10 @@ const mockFilms: Film[] = [
     category: "PRE-WEDDING",
     type: "Pre-Wedding Film",
     duration: "03:45",
-    poster: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=2000&auto=format&fit=crop",
-    preview: "/videos/prewedding.mp4",
-    video: "/videos/prewedding.mp4",
+    poster:
+      "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=2000&auto=format&fit=crop",
+    preview: assets.videos.background.prewedding,
+    video: assets.videos.background.prewedding,
   },
   {
     id: "film-005",
@@ -85,16 +90,18 @@ const mockFilms: Film[] = [
     category: "DESTINATION",
     type: "Wedding Film",
     duration: "07:20",
-    poster: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2000&auto=format&fit=crop",
-    preview: "/videos/rituals.mp4",
-    video: "/videos/rituals.mp4",
+    poster:
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2000&auto=format&fit=crop",
+    preview: assets.videos.background.rituals,
+    video: assets.videos.background.rituals,
   },
 ];
 
 const showreelData = {
   title: "2026 Showreel",
-  poster: "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2000&auto=format&fit=crop",
-  video: "/videos/videoseen.mp4",
+  poster:
+    "https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2000&auto=format&fit=crop",
+  video: assets.videos.background.videoseen,
 };
 
 // ---------------------------------------------------------------------------
@@ -309,7 +316,11 @@ function FeaturedFilms({
                   animate={{ scale: hoveredIndex === idx ? 1.03 : 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                  <HoverVideoPreview src={film.preview} poster={film.poster} isActive={hoveredIndex === idx} />
+                  <HoverVideoPreview
+                    src={film.preview}
+                    poster={film.poster}
+                    isActive={hoveredIndex === idx}
+                  />
                 </motion.div>
 
                 {/* Overlay Gradient & Play Button */}
@@ -320,7 +331,9 @@ function FeaturedFilms({
 
               <div className="mt-5 flex items-start justify-between">
                 <div>
-                  <h3 className="font-display text-3xl md:text-4xl text-[#15130F]">{film.couple}</h3>
+                  <h3 className="font-display text-3xl md:text-4xl text-[#15130F]">
+                    {film.couple}
+                  </h3>
                   <p className="mt-2 label-xs text-[#15130F]/60">{film.location}</p>
                 </div>
                 <span className="label-xs text-[#15130F]/40 border border-border px-3 py-1 rounded-full flex items-center">
@@ -357,8 +370,12 @@ function CinematicShowreels({ onOpenFilm }: { onOpenFilm: () => void }) {
         onMouseLeave={() => setIsHovered(false)}
         onClick={onOpenFilm}
       >
-        <HoverVideoPreview src={showreelData.video} poster={showreelData.poster} isActive={isHovered} />
-        
+        <HoverVideoPreview
+          src={showreelData.video}
+          poster={showreelData.poster}
+          isActive={isHovered}
+        />
+
         {/* Soft Vignette Overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,#15130F_120%)] opacity-40 pointer-events-none" />
 
@@ -378,13 +395,20 @@ function CinematicShowreels({ onOpenFilm }: { onOpenFilm: () => void }) {
 // ---------------------------------------------------------------------------
 // 4. FILM STORIES & COLLECTIONS (Scroll Archive)
 // ---------------------------------------------------------------------------
-function ScrollArchive({ films, onOpenFilm }: { films: Film[]; onOpenFilm: (index: number) => void }) {
+function ScrollArchive({
+  films,
+  onOpenFilm,
+}: {
+  films: Film[];
+  onOpenFilm: (index: number) => void;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState("ALL");
 
   const categories = ["ALL", ...Array.from(new Set(films.map((f) => f.category)))];
-  const filteredFilms = activeCategory === "ALL" ? films : films.filter((f) => f.category === activeCategory);
+  const filteredFilms =
+    activeCategory === "ALL" ? films : films.filter((f) => f.category === activeCategory);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -436,10 +460,13 @@ function ScrollArchive({ films, onOpenFilm }: { films: Film[]; onOpenFilm: (inde
           More stories coming soon.
         </div>
       ) : (
-        <div ref={containerRef} style={{ height: `${filteredFilms.length * 100}vh` }} className="relative w-full">
+        <div
+          ref={containerRef}
+          style={{ height: `${filteredFilms.length * 100}vh` }}
+          className="relative w-full"
+        >
           {/* Sticky Viewport */}
           <div className="sticky top-[80px] flex h-[calc(100vh-80px)] w-full flex-col justify-between overflow-hidden shell py-8 md:py-12">
-            
             {/* TOP METADATA: Year & Location */}
             <div className="w-full flex justify-between items-start z-40 pointer-events-none">
               <div className="font-display text-5xl md:text-7xl text-[#15130F]">
@@ -467,8 +494,12 @@ function ScrollArchive({ films, onOpenFilm }: { films: Film[]; onOpenFilm: (inde
                     transition={{ duration: 0.5 }}
                     className="flex flex-col items-end gap-1"
                   >
-                    <span className="label-xs text-[#15130F]/80">{filteredFilms[activeIndex]?.location}</span>
-                    <span className="label-xs text-[#15130F]/50">{filteredFilms[activeIndex]?.type}</span>
+                    <span className="label-xs text-[#15130F]/80">
+                      {filteredFilms[activeIndex]?.location}
+                    </span>
+                    <span className="label-xs text-[#15130F]/50">
+                      {filteredFilms[activeIndex]?.type}
+                    </span>
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -486,14 +517,42 @@ function ScrollArchive({ films, onOpenFilm }: { films: Film[]; onOpenFilm: (inde
 
                   // Cinematic editorial movement logic based on scroll direction
                   let initial = { opacity: 0, scale: 0.85, y: "15vh", x: "15vw", rotateZ: 5 };
-                  let animate = { opacity: 1, scale: 1, y: "0vh", x: "0vw", rotateZ: 0, zIndex: 10 };
-                  let exit = { opacity: 0, scale: 0.95, y: "-15vh", x: "-15vw", rotateZ: -5, zIndex: 5 };
+                  let animate = {
+                    opacity: 1,
+                    scale: 1,
+                    y: "0vh",
+                    x: "0vw",
+                    rotateZ: 0,
+                    zIndex: 10,
+                  };
+                  let exit = {
+                    opacity: 0,
+                    scale: 0.95,
+                    y: "-15vh",
+                    x: "-15vw",
+                    rotateZ: -5,
+                    zIndex: 5,
+                  };
 
                   if (isPrev) {
-                    animate = { opacity: 0, scale: 1.05, y: "-20vh", x: "-20vw", rotateZ: -5, zIndex: 0 };
+                    animate = {
+                      opacity: 0,
+                      scale: 1.05,
+                      y: "-20vh",
+                      x: "-20vw",
+                      rotateZ: -5,
+                      zIndex: 0,
+                    };
                   }
                   if (isNext) {
-                    animate = { opacity: 0, scale: 0.85, y: "20vh", x: "20vw", rotateZ: 5, zIndex: 0 };
+                    animate = {
+                      opacity: 0,
+                      scale: 0.85,
+                      y: "20vh",
+                      x: "20vw",
+                      rotateZ: 5,
+                      zIndex: 0,
+                    };
                   }
 
                   return (
@@ -504,11 +563,17 @@ function ScrollArchive({ films, onOpenFilm }: { films: Film[]; onOpenFilm: (inde
                       exit={exit}
                       transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
                       className="group absolute w-[85vw] md:w-[60vw] max-w-[1100px] aspect-[4/5] md:aspect-[16/10] flex cursor-pointer items-center justify-center pointer-events-auto"
-                      onClick={() => isActive && onOpenFilm(films.findIndex((f) => f.id === film.id))}
+                      onClick={() =>
+                        isActive && onOpenFilm(films.findIndex((f) => f.id === film.id))
+                      }
                     >
                       <div className="relative h-full w-full overflow-hidden bg-[#15130F] shadow-[0_30px_60px_rgba(0,0,0,0.15)]">
-                        <HoverVideoPreview src={film.preview} poster={film.poster} isActive={isActive} />
-                        
+                        <HoverVideoPreview
+                          src={film.preview}
+                          poster={film.poster}
+                          isActive={isActive}
+                        />
+
                         {/* Dim inactive films slightly */}
                         <div className="absolute inset-0 bg-[#0F0D0A]/20 transition-colors duration-500 group-hover:bg-[#0F0D0A]/0" />
 
@@ -552,12 +617,12 @@ function ScrollArchive({ films, onOpenFilm }: { films: Film[]; onOpenFilm: (inde
                     exit={{ opacity: 0 }}
                     className="font-display text-2xl md:text-4xl text-[#15130F]/90"
                   >
-                    {String(activeIndex + 1).padStart(2, "0")} / {String(filteredFilms.length).padStart(2, "0")}
+                    {String(activeIndex + 1).padStart(2, "0")} /{" "}
+                    {String(filteredFilms.length).padStart(2, "0")}
                   </motion.div>
                 </AnimatePresence>
               </div>
             </div>
-
           </div>
         </div>
       )}
@@ -617,9 +682,7 @@ function DestinationFilms() {
 
             <div className="absolute bottom-8 left-8 right-8 flex items-end justify-between">
               <div>
-                <span className="mb-2 block label-xs text-[#F6F4EE]/70">
-                  {dest.region}
-                </span>
+                <span className="mb-2 block label-xs text-[#F6F4EE]/70">{dest.region}</span>
                 <h3 className="font-display text-3xl text-[#F6F4EE] transition-transform duration-500 group-hover:-translate-y-2 md:text-4xl">
                   {dest.name}
                 </h3>

@@ -45,7 +45,9 @@ export function DestinationFilm({ film, index }: DestinationFilmProps) {
       ref={containerRef}
       className={`group grid gap-10 md:grid-cols-12 md:items-center ${isEven ? "" : "md:flex-row-reverse"}`}
     >
-      <div className={`overflow-hidden md:col-span-7 bg-charcoal ${isEven ? "md:col-start-1" : "md:col-start-6"}`}>
+      <div
+        className={`overflow-hidden md:col-span-7 bg-charcoal ${isEven ? "md:col-start-1" : "md:col-start-6"}`}
+      >
         <div className="aspect-[4/5] md:aspect-[3/4] overflow-hidden w-full relative">
           <img
             ref={imageRef}
@@ -56,17 +58,17 @@ export function DestinationFilm({ film, index }: DestinationFilmProps) {
         </div>
       </div>
 
-      <div className={`md:col-span-4 ${isEven ? "md:col-start-9" : "md:col-start-1 md:row-start-1"}`}>
+      <div
+        className={`md:col-span-4 ${isEven ? "md:col-start-9" : "md:col-start-1 md:row-start-1"}`}
+      >
         <Reveal>
           <p className="label-xs text-bronze">{film.location}</p>
           <h3 className="font-display mt-4 text-4xl md:text-6xl transition-colors group-hover:text-bronze">
             {film.title}
           </h3>
-          
+
           {film.couple && (
-            <p className="mt-6 text-sm text-muted-foreground md:text-base">
-              {film.couple}
-            </p>
+            <p className="mt-6 text-sm text-muted-foreground md:text-base">{film.couple}</p>
           )}
 
           <div className="mt-10 flex items-center gap-3 label-xs story-link text-foreground transition-colors group-hover:text-bronze">

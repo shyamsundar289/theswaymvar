@@ -33,7 +33,7 @@ export function CinematicShowreel({ video, poster }: CinematicShowreelProps) {
         </h2>
       </div>
 
-      <div 
+      <div
         ref={containerRef}
         className="w-full aspect-[21/9] md:aspect-[2.35/1] overflow-hidden bg-black relative"
       >
@@ -42,7 +42,7 @@ export function CinematicShowreel({ video, poster }: CinematicShowreelProps) {
           alt="Cinematic Showreel"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
         />
-        
+
         {video && (
           <video
             ref={videoRef}

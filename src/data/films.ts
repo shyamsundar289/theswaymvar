@@ -1,3 +1,4 @@
+import { assets } from "../assets/asset-manifest";
 import { Film } from "@/types/film";
 import { images } from "./images";
 
@@ -10,9 +11,10 @@ export const films: Film[] = [
     location: "Udaipur",
     category: "Short film",
     duration: "04:32",
-    description: "Kept in real sound. The vows, the laughter, the pauses, the people you forgot were standing nearby.",
+    description:
+      "Kept in real sound. The vows, the laughter, the pauses, the people you forgot were standing nearby.",
     poster: images.films.highlightA,
-    video: "/videos/wedding.mp4",
+    video: assets.videos.background.wedding,
     featured: true,
     destination: true,
   },
@@ -24,9 +26,10 @@ export const films: Film[] = [
     location: "Alibaug",
     category: "Documentary",
     duration: "24:10",
-    description: "The longer memory. Speeches, songs, ceremonies and the quiet spaces between them.",
+    description:
+      "The longer memory. Speeches, songs, ceremonies and the quiet spaces between them.",
     poster: images.films.highlightB,
-    video: "/videos/celebration.mp4",
+    video: assets.videos.background.celebration,
     chapters: [
       {
         id: "c1",
@@ -34,7 +37,7 @@ export const films: Film[] = [
         timestamp: "00:00",
         description: "Getting ready chaos.",
         poster: images.films.reelA,
-        video: "/videos/rituals.mp4",
+        video: assets.videos.background.rituals,
       },
       {
         id: "c2",
@@ -42,9 +45,9 @@ export const films: Film[] = [
         timestamp: "12:05",
         description: "Live sound from the mandap.",
         poster: images.films.reelB,
-        video: "/videos/prewedding.mp4",
-      }
-    ]
+        video: assets.videos.background.prewedding,
+      },
+    ],
   },
   {
     id: "f3",
@@ -56,7 +59,7 @@ export const films: Film[] = [
     duration: "05:15",
     description: "A breathtaking destination wedding captured entirely on film.",
     poster: images.film.hero,
-    video: "/videos/portraits.mp4",
+    video: assets.videos.background.portraits,
     destination: true,
   },
   {
@@ -68,7 +71,7 @@ export const films: Film[] = [
     category: "Same-day edit",
     duration: "03:45",
     poster: images.story.two,
-    video: "/videos/videoseen.mp4",
+    video: assets.videos.background.videoseen,
     destination: true,
   },
   {
@@ -81,6 +84,6 @@ export const films: Film[] = [
     duration: "03:45",
     description: "A candid pre-wedding session capturing the energy of the city.",
     poster: images.films.reelA, // using available image
-    video: "/videos/prewedding.mp4",
-  }
+    video: assets.videos.background.prewedding,
+  },
 ];

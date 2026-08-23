@@ -1,16 +1,17 @@
+import { assets } from "../../assets/asset-manifest";
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { images } from "@/data/images";
 
 // 1. Semantic asset mapping (existing project photography)
 const heroImages = {
-  logoBg: "/images/DSCF0463 copy.webp",
-  topLeft: "/images/Recent01.webp",
-  center: "/images/4.webp",
-  topRight: "/images/Recent02.webp",
-  farRight: "/images/5.webp",
-  middleLeft: "/images/Recent03.webp",
-  middleRight: "/images/6.webp",
+  logoBg: assets.misc.dscf0463,
+  topLeft: assets.recentWork.recent01,
+  center: assets.misc.image4,
+  topRight: assets.recentWork.recent02,
+  farRight: assets.misc.image5,
+  middleLeft: assets.recentWork.recent03,
+  middleRight: assets.misc.image6,
   bottomLeft: images.hero.primary,
   bottomCenter: images.approach.inset,
   farLeft: images.approach.large,
@@ -19,8 +20,8 @@ const heroImages = {
 // Fallback images for peripheral slots off-screen so we don't noticeably repeat hero cards
 const fallbackImages = [
   images.break.cinematic,
-  "/images/Recent01.webp",
-  "/images/Recent02.webp",
+  assets.recentWork.recent01,
+  assets.recentWork.recent02,
 ];
 
 // Exact mapping to the 20-slot grid
@@ -29,9 +30,9 @@ const semanticMap: Record<number, string> = {
   4: heroImages.topLeft,
   5: heroImages.middleLeft,
   6: heroImages.bottomLeft,
-  9: heroImages.logoBg,       // [2][1] Center image behind logo
-  10: heroImages.center,      // [2][2] Below logo
-  11: heroImages.bottomCenter,// [2][3] Bottom center
+  9: heroImages.logoBg, // [2][1] Center image behind logo
+  10: heroImages.center, // [2][2] Below logo
+  11: heroImages.bottomCenter, // [2][3] Bottom center
   12: heroImages.topRight,
   13: heroImages.middleRight,
   17: heroImages.farRight,
@@ -57,7 +58,7 @@ const mediaGrid = columnHeightsPx.map((heights, colIndex) =>
     const flatIndex = colIndex * 4 + rowIndex;
     const isLogoBg = colIndex === 2 && rowIndex === 1;
     return { id: flatIndex, src: getImage(flatIndex), heightPx, isLogoBg };
-  })
+  }),
 );
 
 export function Hero() {
@@ -79,26 +80,26 @@ export function Hero() {
     const updateScale = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-      
+
       const DESIGN_WIDTH = 1440;
       const DESIGN_HEIGHT = 900;
-      
+
       // Calculate scale to cover the window height/width (intentional edge clipping)
       const scaleX = width / DESIGN_WIDTH;
       const scaleY = height / DESIGN_HEIGHT;
       let newScale = Math.max(scaleX, scaleY);
-      
+
       // CRITICAL TYPOGRAPHY SCALING:
       // We want large, elegant text that wraps naturally with breathing room.
       // On mobile (width < 768), our text block wraps at ~650px inside the canvas.
-      // By setting SAFE_TEXT_WIDTH to 750, we guarantee a 100px buffer (50px each side) 
+      // By setting SAFE_TEXT_WIDTH to 750, we guarantee a 100px buffer (50px each side)
       // in canvas units, resulting in ~26px of visual padding on a 390px phone screen.
       // This keeps the font huge (~50px) while maintaining comfortable editorial margins.
       const SAFE_TEXT_WIDTH = width < 768 ? 750 : 1100;
       if (SAFE_TEXT_WIDTH * newScale > width) {
         newScale = width / SAFE_TEXT_WIDTH;
       }
-      
+
       setScale(newScale);
     };
 
@@ -108,9 +109,9 @@ export function Hero() {
   }, []);
 
   return (
-    <section 
+    <section
       className="relative w-full overflow-hidden bg-[#F6F4EE]"
-      style={{ height: isMounted ? 900 * scale : '100vh' }}
+      style={{ height: isMounted ? 900 * scale : "100vh" }}
     >
       {/* Black gradient mask at the top of the hero to create a hiding effect under the sticky header */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/60 to-transparent z-30 pointer-events-none" />
@@ -135,9 +136,9 @@ export function Hero() {
             <motion.div
               key={colIndex}
               className="flex flex-col flex-1"
-              style={{ 
+              style={{
                 gap: "24px",
-                y: columnTransforms[colIndex] 
+                y: columnTransforms[colIndex],
               }}
             >
               {column.map((item) => (
@@ -184,9 +185,7 @@ export function Hero() {
             >
               Love, Set in Motion.
             </h1>
-            <p
-              className="text-[#15130F]/80 mt-[28px] font-display italic font-normal tracking-normal w-full max-w-[480px] md:max-w-[760px] px-[32px] md:px-[80px] text-2xl md:text-3xl"
-            >
+            <p className="text-[#15130F]/80 mt-[28px] font-display italic font-normal tracking-normal w-full max-w-[480px] md:max-w-[760px] px-[32px] md:px-[80px] text-2xl md:text-3xl">
               Timeless wedding stories, beautifully captured.
             </p>
           </motion.div>

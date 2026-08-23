@@ -8,7 +8,15 @@ import { Reveal } from "@/components/site/Reveal";
 import { FilmViewerModal } from "./FilmViewerModal";
 
 // Local component for the hover preview to keep logic clean
-const HoverVideoPreview = ({ src, poster, isActive }: { src: string; poster: string; isActive: boolean }) => {
+const HoverVideoPreview = ({
+  src,
+  poster,
+  isActive,
+}: {
+  src: string;
+  poster: string;
+  isActive: boolean;
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -52,11 +60,11 @@ export function FilmCollection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [viewerActiveIndex, setViewerActiveIndex] = useState<number | null>(null);
-  
+
   const filteredFilms = useMemo(() => {
-    const base = films.filter(f => !f.featured && !f.destination);
+    const base = films.filter((f) => !f.featured && !f.destination);
     if (activeCategory === "All") return base;
-    return base.filter(f => f.category === activeCategory);
+    return base.filter((f) => f.category === activeCategory);
   }, [activeCategory]);
 
   const { scrollYProgress } = useScroll({
@@ -103,10 +111,13 @@ export function FilmCollection() {
           No films found in this category.
         </div>
       ) : (
-        <div ref={containerRef} style={{ height: `${filteredFilms.length * 100}vh` }} className="relative w-full">
+        <div
+          ref={containerRef}
+          style={{ height: `${filteredFilms.length * 100}vh` }}
+          className="relative w-full"
+        >
           {/* Sticky Viewport */}
           <div className="sticky top-[80px] flex h-[calc(100vh-80px)] w-full flex-col justify-between overflow-hidden shell py-8 md:py-12">
-            
             {/* TOP METADATA */}
             <div className="w-full flex justify-between items-start z-40 pointer-events-none">
               <div className="text-right ml-auto">
@@ -119,8 +130,12 @@ export function FilmCollection() {
                     transition={{ duration: 0.5 }}
                     className="flex flex-col items-end gap-1"
                   >
-                    <span className="label-xs text-[#15130F]/80">{filteredFilms[activeIndex]?.location}</span>
-                    <span className="label-xs text-[#15130F]/50">{filteredFilms[activeIndex]?.category}</span>
+                    <span className="label-xs text-[#15130F]/80">
+                      {filteredFilms[activeIndex]?.location}
+                    </span>
+                    <span className="label-xs text-[#15130F]/50">
+                      {filteredFilms[activeIndex]?.category}
+                    </span>
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -138,18 +153,53 @@ export function FilmCollection() {
                   if (!isActive && !isPrev && !isNext && !isNextNext) return null;
 
                   let initial = { opacity: 0, scale: 0.85, y: "15vh", x: "15vw", rotateZ: 5 };
-                  let animate = { opacity: 1, scale: 1, y: "0vh", x: "0vw", rotateZ: 0, zIndex: 10 };
-                  let exit = { opacity: 0, scale: 0.95, y: "-15vh", x: "-15vw", rotateZ: -5, zIndex: 5 };
+                  let animate = {
+                    opacity: 1,
+                    scale: 1,
+                    y: "0vh",
+                    x: "0vw",
+                    rotateZ: 0,
+                    zIndex: 10,
+                  };
+                  let exit = {
+                    opacity: 0,
+                    scale: 0.95,
+                    y: "-15vh",
+                    x: "-15vw",
+                    rotateZ: -5,
+                    zIndex: 5,
+                  };
 
                   if (isPrev) {
-                    animate = { opacity: 0, scale: 1.05, y: "-20vh", x: "-20vw", rotateZ: -5, zIndex: 0 };
+                    animate = {
+                      opacity: 0,
+                      scale: 1.05,
+                      y: "-20vh",
+                      x: "-20vw",
+                      rotateZ: -5,
+                      zIndex: 0,
+                    };
                   }
                   if (isNext) {
-                    animate = { opacity: 0, scale: 0.85, y: "20vh", x: "20vw", rotateZ: 5, zIndex: 0 };
+                    animate = {
+                      opacity: 0,
+                      scale: 0.85,
+                      y: "20vh",
+                      x: "20vw",
+                      rotateZ: 5,
+                      zIndex: 0,
+                    };
                   }
                   if (isNextNext) {
                     // Preload state: Keep it offscreen and transparent
-                    animate = { opacity: 0, scale: 0.85, y: "20vh", x: "20vw", rotateZ: 5, zIndex: 0 };
+                    animate = {
+                      opacity: 0,
+                      scale: 0.85,
+                      y: "20vh",
+                      x: "20vw",
+                      rotateZ: 5,
+                      zIndex: 0,
+                    };
                   }
 
                   return (
@@ -163,8 +213,12 @@ export function FilmCollection() {
                       onClick={() => isActive && openFilm(idx)}
                     >
                       <div className="relative h-full w-full overflow-hidden bg-[#15130F] shadow-[0_30px_60px_rgba(0,0,0,0.15)]">
-                        <HoverVideoPreview src={film.video || ""} poster={film.poster} isActive={isActive} />
-                        
+                        <HoverVideoPreview
+                          src={film.video || ""}
+                          poster={film.poster}
+                          isActive={isActive}
+                        />
+
                         <div className="absolute inset-0 bg-[#0F0D0A]/20 transition-colors duration-500 group-hover:bg-[#0F0D0A]/0" />
 
                         {isActive && (
@@ -208,12 +262,12 @@ export function FilmCollection() {
                     exit={{ opacity: 0 }}
                     className="font-display text-2xl md:text-4xl text-[#15130F]/90"
                   >
-                    {String(activeIndex + 1).padStart(2, "0")} / {String(filteredFilms.length).padStart(2, "0")}
+                    {String(activeIndex + 1).padStart(2, "0")} /{" "}
+                    {String(filteredFilms.length).padStart(2, "0")}
                   </motion.div>
                 </AnimatePresence>
               </div>
             </div>
-
           </div>
         </div>
       )}

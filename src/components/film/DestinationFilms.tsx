@@ -3,7 +3,7 @@ import { DestinationFilm } from "./DestinationFilm";
 import { Reveal } from "@/components/site/Reveal";
 
 export function DestinationFilms() {
-  const destFilms = films.filter(f => f.destination);
+  const destFilms = films.filter((f) => f.destination);
 
   if (!destFilms.length) return null;
 
@@ -17,8 +17,8 @@ export function DestinationFilms() {
               Destination films.
             </h2>
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground md:text-base">
-              From the lakes of Italy to the palaces of Rajasthan, we travel 
-              anywhere a good story is happening.
+              From the lakes of Italy to the palaces of Rajasthan, we travel anywhere a good story
+              is happening.
             </p>
           </div>
         </Reveal>

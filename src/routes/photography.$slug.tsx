@@ -42,6 +42,8 @@ function StoryNotFound() {
   );
 }
 
+import { Header } from "@/components/site/Header";
+
 function StoryDetail() {
   const { story } = Route.useLoaderData() as { story: Story };
   const index = stories.findIndex((s) => s.slug === story.slug);
@@ -49,12 +51,15 @@ function StoryDetail() {
 
   return (
     <>
-      <section className="shell pt-[120px] pb-6 md:pt-[140px] md:pb-8">
-        <Reveal>
-          <h1 className="font-display text-3xl leading-[0.98] md:text-6xl text-right italic">
-            {story.couple}
-          </h1>
-        </Reveal>
+      <section className="shell relative">
+        <Header />
+        <div className="pt-[120px] pb-6 md:pt-[140px] md:pb-8 w-full">
+          <Reveal>
+            <h1 className="font-display text-3xl leading-[0.98] md:text-6xl text-right italic">
+              {story.couple}
+            </h1>
+          </Reveal>
+        </div>
       </section>
 
       <RevealImage
@@ -67,7 +72,10 @@ function StoryDetail() {
         <Reveal>
           <p className="font-display text-3xl leading-tight md:text-4xl">{story.intro}</p>
         </Reveal>
-        <Reveal delay={0.1} className="space-y-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+        <Reveal
+          delay={0.1}
+          className="space-y-6 text-sm leading-relaxed text-muted-foreground md:text-base"
+        >
           {story.narrative.map((p: string) => (
             <p key={p}>{p}</p>
           ))}
@@ -84,7 +92,11 @@ function StoryDetail() {
         <div className="shell section-y grid gap-8 md:grid-cols-2 md:items-center">
           <div>
             <p className="label-xs text-bronze">Next story</p>
-            <Link to="/photography/$slug" params={{ slug: next.slug }} className="font-display mt-4 block text-4xl md:text-6xl">
+            <Link
+              to="/photography/$slug"
+              params={{ slug: next.slug }}
+              className="font-display mt-4 block text-4xl md:text-6xl"
+            >
               {next.couple}
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">{next.location}</p>

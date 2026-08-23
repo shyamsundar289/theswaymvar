@@ -1,3 +1,4 @@
+import { assets } from "../../assets/asset-manifest";
 import React from "react";
 import { motion } from "motion/react";
 
@@ -5,14 +6,17 @@ import { motion } from "motion/react";
 // HERO STATIC IMAGE
 // =========================================================
 const heroSlide = {
-  desktopImage: "/images/Home/home-hero-desktop-03.png",
-  mobileImage: "/images/Home/home-hero-mobile-03.png",
+  desktopImage: assets.home.hero.desktop,
+  mobileImage: assets.home.hero.mobile,
   alt: "Quiet portrait of the bride and groom",
 };
+
+import { Header } from "./Header";
 
 export function AnimatedHero() {
   return (
     <section className="relative h-[100svh] w-full overflow-hidden bg-charcoal">
+      <Header />
       {/* 1. BACKGROUND STATIC IMAGE LAYER */}
       <div className="absolute inset-0 h-full w-full">
         <picture className="block h-full w-full">
@@ -29,9 +33,9 @@ export function AnimatedHero() {
       </div>
 
       {/* 2. CINEMATIC OVERLAY */}
-      <div 
-        className="absolute inset-0 z-10 bg-black/20 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" 
-        aria-hidden="true" 
+      <div
+        className="absolute inset-0 z-10 bg-black/20 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"
+        aria-hidden="true"
       />
 
       {/* 3. LUXURY EDITORIAL CONTENT (Left Aligned & Refined) */}

@@ -1,3 +1,4 @@
+import { assets } from "../../assets/asset-manifest";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -6,8 +7,13 @@ const transitionEase = [0.16, 1, 0.3, 1];
 const gridAssets = Array.from({ length: 18 }).map((_, i) => ({
   id: i,
   type: "image",
-  src: `/images/crew/pic${i + 1}.jpg`,
-  caption: i % 3 === 0 ? "As Featured In — VOGUE" : i % 2 === 0 ? "Between Takes" : "On Location — Paris, 2024"
+  src: assets.crew.getMemberPhoto(i + 1),
+  caption:
+    i % 3 === 0
+      ? "As Featured In — VOGUE"
+      : i % 2 === 0
+        ? "Between Takes"
+        : "On Location — Paris, 2024",
 }));
 
 // --- LIGHTBOX COMPONENT ---
@@ -15,22 +21,22 @@ const Lightbox = ({
   assets,
   activeIndex,
   onClose,
-  onNavigate
+  onNavigate,
 }: {
-  assets: typeof gridAssets,
-  activeIndex: number | null,
-  onClose: () => void,
-  onNavigate: (dir: number) => void
+  assets: typeof gridAssets;
+  activeIndex: number | null;
+  onClose: () => void;
+  onNavigate: (dir: number) => void;
 }) => {
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (activeIndex === null) return;
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowRight') onNavigate(1);
-      if (e.key === 'ArrowLeft') onNavigate(-1);
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") onNavigate(1);
+      if (e.key === "ArrowLeft") onNavigate(-1);
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeIndex, onClose, onNavigate]);
 
   if (activeIndex === null) return null;
@@ -49,21 +55,54 @@ const Lightbox = ({
           onClick={onClose}
           className="absolute top-6 right-6 text-white p-2 z-50 hover:opacity-70 transition-opacity"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
         </button>
 
         <button
-          onClick={(e) => { e.stopPropagation(); onNavigate(-1); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            onNavigate(-1);
+          }}
           className="absolute left-4 md:left-8 text-white p-4 z-50 hover:opacity-70 transition-opacity"
         >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M15 18l-6-6 6-6"/></svg>
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
         </button>
 
         <button
-          onClick={(e) => { e.stopPropagation(); onNavigate(1); }}
+          onClick={(e) => {
+            e.stopPropagation();
+            onNavigate(1);
+          }}
           className="absolute right-4 md:right-8 text-white p-4 z-50 hover:opacity-70 transition-opacity"
         >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M9 18l6-6-6-6"/></svg>
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1"
+          >
+            <path d="M9 18l6-6-6-6" />
+          </svg>
         </button>
 
         <motion.div
@@ -75,7 +114,13 @@ const Lightbox = ({
           onClick={(e) => e.stopPropagation()}
         >
           {item.type === "video" ? (
-            <video src={item.src} autoPlay controls playsInline className="max-w-full max-h-full object-contain" />
+            <video
+              src={item.src}
+              autoPlay
+              controls
+              playsInline
+              className="max-w-full max-h-full object-contain"
+            />
           ) : (
             <img src={item.src} alt="" className="max-w-full max-h-full object-contain" />
           )}
@@ -101,9 +146,12 @@ export function CrewSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: transitionEase }}
         >
-          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-[0.3em] mb-4 md:mb-6">The People Behind the Frame</p>
+          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-[0.3em] mb-4 md:mb-6">
+            The People Behind the Frame
+          </p>
           <p className="font-display text-2xl md:text-4xl text-foreground max-w-[600px] leading-relaxed mx-auto">
-            A collective of storytellers, shooters, and dreamers — spread across continents, united by one obsession: capturing love the way it actually feels.
+            A collective of storytellers, shooters, and dreamers — spread across continents, united
+            by one obsession: capturing love the way it actually feels.
           </p>
         </motion.div>
       </section>
@@ -111,8 +159,12 @@ export function CrewSection() {
       {/* BEHIND THE FRAME (EDITORIAL PHOTO GRID) */}
       <section className="pt-4 pb-12 md:pb-24 px-4 md:px-12 bg-background">
         <div className="max-w-[1600px] mx-auto text-center mb-10 md:mb-14">
-          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-[0.3em] mb-4">Behind The Frame</p>
-          <h2 className="font-display text-3xl md:text-5xl text-foreground tracking-tight">Candid Moments, Unposed</h2>
+          <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-[0.3em] mb-4">
+            Behind The Frame
+          </p>
+          <h2 className="font-display text-3xl md:text-5xl text-foreground tracking-tight">
+            Candid Moments, Unposed
+          </h2>
         </div>
         <div className="max-w-[1600px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4">
           {gridAssets.map((item, index) => (
@@ -146,7 +198,7 @@ export function CrewSection() {
         activeIndex={lightboxIndex}
         onClose={() => setLightboxIndex(null)}
         onNavigate={(dir) => {
-          setLightboxIndex(prev => {
+          setLightboxIndex((prev) => {
             if (prev === null) return null;
             const next = prev + dir;
             if (next < 0) return gridAssets.length - 1;

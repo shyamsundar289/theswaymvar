@@ -2,11 +2,9 @@
 @source "../src";
 @import "tw-animate-css";
 
-
-
 @font-face {
-  font-family: 'Orange Avenue';
-  src: url('/fonts/OrangeAvenueDEMO-Regular.otf') format('opentype');
+  font-family: "Orange Avenue";
+  src: url("/media/fonts/orange-avenue-regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -121,7 +119,7 @@
 @utility wordmark {
   font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: 0.15em; 
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
