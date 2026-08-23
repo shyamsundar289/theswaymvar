@@ -124,7 +124,7 @@ export const testimonials = [
   },
 ];
 
-import m1 from "@/assets/m1.jpg";
+import m1 from "@/assets/misc_general_01.webp";
 
 export const featuredFilms = [
   {

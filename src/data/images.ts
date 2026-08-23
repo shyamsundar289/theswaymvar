@@ -1,7 +1,7 @@
 import { assets } from "../assets/asset-manifest";
-import DSC09937copy from "@/assets/DSC09937copy.jpg";
-import m1 from "@/assets/m1.jpg";
-import m3 from "@/assets/m3.jpg";
+import DSC09937copy from "@/assets/misc_general_09937.webp";
+import m1 from "@/assets/misc_general_01.webp";
+import m3 from "@/assets/misc_general_03.webp";
 
 /**
  * Central image map — every image in the site resolves through here so client

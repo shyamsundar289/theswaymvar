@@ -2,7 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { nav } from "@/data/site";
 
-const swaymwarLogo = "/images/swamyvar_logo.svg";
+const swaymwarLogo = "/media/images/misc/general/misc_general_logo.svg";
 
 /**
  * Desktop navigation typography token (source of truth):

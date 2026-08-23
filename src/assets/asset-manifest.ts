@@ -4,30 +4,30 @@
 export const assets = {
   home: {
     hero: {
-      desktop: "/images/Home/Index%20Hero/home-hero-desktop-03.png",
-      mobile: "/images/Home/Index%20Hero/home-hero-mobile-03.png",
+      desktop: "/media/images/home/hero/home_hero_03_desktop.webp",
+      mobile: "/media/images/home/hero/home_hero_03_mobile.webp",
     },
     editorial: [
-      { id: 1, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-1.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-1.png" },
-      { id: 2, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-2.png" },
-      { id: 3, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-3.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-3.png" },
-      { id: 4, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-4.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-4.png" },
-      { id: 5, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-5.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-5.png" },
-      { id: 6, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-6.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-6.png" },
-      { id: 7, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-7.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-7.png" },
-      { id: 8, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-8.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-8.png" },
-      { id: 9, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-9.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-9.png" },
-      { id: 10, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-10.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-10.png" },
-      { id: 11, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-11.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-11.png" },
-      { id: 12, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-12.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-12.png" },
-      { id: 13, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-13.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-13.png" },
-      { id: 14, desktop: "/images/Home/iconic%2014/Desktop/Index_iconic-14.png", mobile: "/images/Home/iconic%2014/Mobile/Index_iconic-14.png" },
+      { id: 1, desktop: "/media/images/home/editorial/home_editorial_01_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_01_mobile.webp" },
+      { id: 2, desktop: "/media/images/home/editorial/home_editorial_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_02_mobile.webp" },
+      { id: 3, desktop: "/media/images/home/editorial/home_editorial_03_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_03_mobile.webp" },
+      { id: 4, desktop: "/media/images/home/editorial/home_editorial_04_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_04_mobile.webp" },
+      { id: 5, desktop: "/media/images/home/editorial/home_editorial_05_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_05_mobile.webp" },
+      { id: 6, desktop: "/media/images/home/editorial/home_editorial_06_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_06_mobile.webp" },
+      { id: 7, desktop: "/media/images/home/editorial/home_editorial_07_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_07_mobile.webp" },
+      { id: 8, desktop: "/media/images/home/editorial/home_editorial_08_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_08_mobile.webp" },
+      { id: 9, desktop: "/media/images/home/editorial/home_editorial_09_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_09_mobile.webp" },
+      { id: 10, desktop: "/media/images/home/editorial/home_editorial_10_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_10_mobile.webp" },
+      { id: 11, desktop: "/media/images/home/editorial/home_editorial_11_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_11_mobile.webp" },
+      { id: 12, desktop: "/media/images/home/editorial/home_editorial_12_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_12_mobile.webp" },
+      { id: 13, desktop: "/media/images/home/editorial/home_editorial_13_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_13_mobile.webp" },
+      { id: 14, desktop: "/media/images/home/editorial/home_editorial_14_desktop.webp", mobile: "/media/images/home/editorial/home_editorial_14_mobile.webp" },
     ],
   },
 
   about: {
-    teamPhoto: "/media/images/about/team-photo.jpg",
-    person: "/media/images/about/person.jpg",
+    teamPhoto: "/media/images/about/team/about_team_alt1.webp",
+    person: "/media/images/about/general/about_general_person_alt1.webp",
   },
 
   crew: {
@@ -37,21 +37,21 @@ export const assets = {
   },
 
   recentWork: {
-    recent01: "/media/images/recent-work/recent01.webp",
-    recent01Jpg: "/media/images/recent-work/recent01.jpg",
-    recent02: "/media/images/recent-work/recent02.webp",
-    recent02Png: "/media/images/recent-work/recent02.png",
-    recent03: "/media/images/recent-work/recent03.webp",
-    recent03Jpg: "/media/images/recent-work/recent03.jpg",
+    recent01: "/media/images/recent-work/general/recent-work_general_01_alt1.webp",
+    recent01Jpg: "/media/images/recent-work/general/recent-work_general_01.webp",
+    recent02: "/media/images/recent-work/general/recent-work_general_02_alt1.webp",
+    recent02Png: "/media/images/recent-work/general/recent-work_general_02.webp",
+    recent03: "/media/images/recent-work/general/recent-work_general_03_alt1.webp",
+    recent03Jpg: "/media/images/recent-work/general/recent-work_general_03.webp",
   },
 
   misc: {
-    favicon: "/media/images/misc/favicon-icon.png",
-    parallaxBg: "/media/images/misc/parallax-bg.jpg",
-    image4: "/media/images/misc/4.webp",
-    image5: "/media/images/misc/5.webp",
-    image6: "/media/images/misc/6.webp",
-    dscf0463: "/media/images/misc/dscf0463-copy.webp",
+    favicon: "/media/images/misc/general/misc_general_favicon_alt1.webp",
+    parallaxBg: "/media/images/misc/general/misc_general_parallax.webp",
+    image4: "/media/images/misc/general/misc_general_04_alt1.webp",
+    image5: "/media/images/misc/general/misc_general_05_alt1.webp",
+    image6: "/media/images/misc/general/misc_general_06_alt1.webp",
+    dscf0463: "/media/images/misc/general/misc_general_0463.webp",
     redTelephone: "/media/images/misc/red-rotary-telephone.jpg",
     speakerLogo: "/media/images/misc/logo.png",
   },
@@ -80,7 +80,7 @@ export const assets = {
   },
 
   svg: {
-    logo: "/media/svg/logo/swamyvar-logo.svg",
+    logo: "/media/images/misc/general/misc_general_logo_alt1.svg",
   },
 
   audio: {
