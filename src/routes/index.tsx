@@ -298,7 +298,7 @@ function Home() {
                         {/* Tonearm (Anchored to the vinyl) */}
                         <div className="absolute -left-[18%] md:-left-[30px] -top-[12%] md:top-[-20px] z-20 pointer-events-none w-[45%] md:w-[85px]">
                           <svg
-                            className={`w-full h-auto transition-transform duration-[1000ms] ease-in-out ${isPlaying ? "rotate-[-5deg]" : "rotate-[28deg]"}`}
+                            className={`w-full h-auto transition-transform duration-[1000ms] ease-in-out ${isPlaying ? "rotate-[-5deg]" : "rotate-[12deg]"}`}
                             style={{ transformOrigin: "26.66% 15%" }}
                             viewBox="0 0 90 160"
                             fill="none"

@@ -118,7 +118,7 @@ export function Header() {
       {/* ── Mobile Menu Overlay (Rendered in Portal to escape transform wrappers) ── */}
       {open && typeof document !== "undefined" && createPortal(
         <div
-          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-[#FAF8F4]/80 backdrop-blur-md overflow-y-auto overflow-x-hidden pointer-events-auto"
+          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-[#FAF8F4]/40 backdrop-blur-sm overflow-y-auto overflow-x-hidden pointer-events-auto"
           style={{ top: 0 }}
         >
           {/* Top bar: logo + Close — mirrors desktop header height */}
@@ -137,7 +137,7 @@ export function Header() {
             </Link>
             <button
               onClick={() => setOpen(false)}
-              className={`${NAV_FONT} text-[11px] text-foreground`}
+              className={`${NAV_FONT} text-[14px] text-foreground`}
               aria-label="Close menu"
             >
               Close
@@ -152,7 +152,7 @@ export function Header() {
                 to={item.to}
                 preload="intent"
                 onClick={() => setOpen(false)}
-                className={`${NAV_FONT} text-[clamp(11px,3vw,14px)] leading-normal transition-opacity duration-300 hover:opacity-60 text-foreground`}
+                className={`${NAV_FONT} text-[clamp(14px,4.5vw,17px)] leading-normal transition-opacity duration-300 hover:opacity-60 text-foreground`}
               >
                 {item.label}
               </Link>
