@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
+import { WHATSAPP_NUMBER } from "@/data/site";
 
 export function FloatingWhatsApp() {
-  const phoneNumber = "919876543210"; // Replace with actual number if provided
   const message = "Hello, I would like to inquire about your wedding photography services.";
   
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
   return (
     <motion.a

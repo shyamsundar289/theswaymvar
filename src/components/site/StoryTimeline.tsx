@@ -163,45 +163,60 @@ function StoryTextContent() {
   return (
     <div className="relative z-10 flex flex-col items-center md:items-start w-full text-center md:text-left pt-0 mt-0">
       {/* Animated Film Roll (Custom SVG) */}
-      <div className="w-full flex justify-center md:justify-start mb-6 md:mb-8">
-        <div className="flex justify-start items-center w-[130px] md:w-[180px] h-[55px] md:h-[75px]">
-          {/* Inner container: Khulna-Band Hona (Width masking) */}
-          <motion.div
-             className="relative h-full overflow-hidden origin-left"
-             animate={{ width: ["28%", "100%"] }}
-             transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-          >
-            <svg viewBox="0 0 170 80" className="absolute left-0 top-0 h-full w-[130px] md:w-[180px]" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Film Strip Background */}
-              <rect x="35" y="22" width="135" height="36" fill="#1c1c1c" />
-              
-              {/* Rolling Sprockets (Revolving Effect) */}
-              <motion.g
-                animate={{ x: [0, 14] }}
-                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-              >
-                {/* Top Sprockets (we draw extra ones so they don't clip when moving right) */}
-                {[...Array(12)].map((_, i) => (
-                  <rect key={`top-${i}`} x={31 + i * 14} y="25" width="5" height="5" rx="1" fill="#FAF8F4" />
-                ))}
-                {/* Bottom Sprockets */}
-                {[...Array(12)].map((_, i) => (
-                  <rect key={`bot-${i}`} x={31 + i * 14} y="50" width="5" height="5" rx="1" fill="#FAF8F4" />
-                ))}
-              </motion.g>
+      <div className="w-full flex justify-center md:justify-start md:-mt-2 mb-4 md:mb-8 px-0">
+        <div className="flex justify-start items-center w-[140px] md:w-[220px] h-[60px] md:h-[95px]">
+          <svg viewBox="0 0 160 80" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              {/* Leader Shape (Tongue) at the end of the film */}
+              <clipPath id="film-shape">
+                <path d="M 0 22 H 150 V 40 H 137 Q 130 40 130 58 H 0 Z" />
+              </clipPath>
+              {/* Mask to ensure film hides behind the canister slit */}
+              <clipPath id="canister-mask">
+                <rect x="28" y="0" width="140" height="80" />
+              </clipPath>
+            </defs>
 
-              {/* Canister (drawn over the film strip so film appears from inside) */}
-              <g>
-                <rect x="15" y="5" width="30" height="70" rx="3" fill="#111" />
-                <rect x="17" y="15" width="26" height="50" fill="#e8e4dc" />
-                <rect x="13" y="5" width="34" height="6" rx="2" fill="#1a1a1a" />
-                <rect x="13" y="69" width="34" height="6" rx="2" fill="#1a1a1a" />
-                <rect x="22" y="0" width="16" height="6" fill="#222" />
-                <rect x="22" y="74" width="16" height="6" fill="#222" />
-                <text x="30" y="40" fill="#2d2c2a" fontSize="11" fontWeight="bold" fontFamily="sans-serif" transform="rotate(-90 30 40)" textAnchor="middle" letterSpacing="1">400 TX</text>
-              </g>
-            </svg>
-          </motion.div>
+            {/* Sliding Film Strip */}
+            <g clipPath="url(#canister-mask)">
+              {/* Slides from inside the canister (-120px) to fully out (0px) */}
+              <motion.g
+                animate={{ x: [-120, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+              >
+                {/* The film body clipped to the leader shape */}
+                <g clipPath="url(#film-shape)">
+                  <rect x="0" y="22" width="160" height="36" fill="#1c1c1c" />
+                  
+                  {/* Rolling Sprockets (Moves continuously for the 'roll' effect) */}
+                  <motion.g
+                    animate={{ x: [0, 14] }}
+                    transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                  >
+                    {[...Array(15)].map((_, i) => (
+                      <rect key={`top-${i}`} x={i * 14} y="25" width="5" height="5" rx="1" fill="#FAF8F4" />
+                    ))}
+                    {[...Array(15)].map((_, i) => (
+                      <rect key={`bot-${i}`} x={i * 14} y="50" width="5" height="5" rx="1" fill="#FAF8F4" />
+                    ))}
+                  </motion.g>
+                </g>
+              </motion.g>
+            </g>
+
+            {/* Canister (Static X, drawn on top at exactly x=0 for flush alignment) */}
+            <g>
+              <rect x="0" y="5" width="30" height="70" rx="3" fill="#111" />
+              <rect x="2" y="15" width="26" height="50" fill="#e8e4dc" />
+              <rect x="-2" y="5" width="34" height="6" rx="2" fill="#1a1a1a" />
+              <rect x="-2" y="69" width="34" height="6" rx="2" fill="#1a1a1a" />
+              <rect x="7" y="0" width="16" height="6" fill="#222" />
+              <rect x="7" y="74" width="16" height="6" fill="#222" />
+              <text x="15" y="40" fill="#2d2c2a" fontSize="11" fontWeight="bold" fontFamily="sans-serif" transform="rotate(-90 15 40)" textAnchor="middle" letterSpacing="1">400 TX</text>
+            </g>
+            {/* Slit Depth (Static so film always comes from the exact same slot) */}
+            <rect x="28" y="18" width="2" height="44" fill="#000" />
+          </svg>
         </div>
       </div>
 

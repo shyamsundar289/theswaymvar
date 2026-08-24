@@ -298,7 +298,8 @@ function Home() {
                         {/* Tonearm (Anchored to the vinyl) */}
                         <div className="absolute -left-[18%] md:-left-[30px] -top-[12%] md:top-[-20px] z-20 pointer-events-none w-[45%] md:w-[85px]">
                           <svg
-                            className={`w-full h-auto transition-transform duration-[1000ms] origin-[24px_24px] md:origin-[24px_24px] ease-in-out ${isPlaying ? "rotate-[-5deg]" : "rotate-[28deg]"}`}
+                            className={`w-full h-auto transition-transform duration-[1000ms] ease-in-out ${isPlaying ? "rotate-[-5deg]" : "rotate-[28deg]"}`}
+                            style={{ transformOrigin: "26.66% 15%" }}
                             viewBox="0 0 90 160"
                             fill="none"
                           >
@@ -503,6 +504,48 @@ function Home() {
 
           {/* INSTAGRAM GALLERY */}
           <InstagramGallery />
+
+          {/* CLOSING CTA - WHATSAPP SECTION */}
+          <section className="w-full bg-background border-t-[1px] border-[#d1cbbd]/30 py-[clamp(3rem,6vw,5rem)] px-[clamp(1rem,4vw,3rem)] flex justify-center">
+            <Reveal className="w-full max-w-[900px]">
+              <div className="relative w-full flex flex-col items-center text-center">
+
+                {/* Elegant Ornament */}
+                <div className="mb-[clamp(1rem,3vw,2rem)] text-[#c4a97d]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1L13.5 10.5L23 12L13.5 13.5L12 23L10.5 13.5L1 12L10.5 10.5L12 1Z" fill="currentColor" opacity="0.8" />
+                  </svg>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <span className="font-sans text-[clamp(11px,1.2vw,13px)] tracking-[0.3em] uppercase text-[#8b867c] mb-[clamp(0.25rem,1vw,0.75rem)]">
+                    Tell us the dates.
+                  </span>
+                  <h2 className="font-display italic font-light text-[clamp(28px,5vw,48px)] text-[#2d2c2a] leading-[1.15] max-w-[600px]">
+                    We'll tell you what's possible.
+                  </h2>
+                </div>
+
+                <div className="flex items-center justify-center w-full max-w-[180px] mt-[clamp(1.25rem,3vw,2rem)] mb-[clamp(1.5rem,4vw,2.5rem)] text-[#d1cbbd]/50">
+                  <span className="h-[1px] w-full bg-current"></span>
+                  <div className="w-[4px] h-[4px] rotate-45 bg-[#c4a97d] mx-4 shrink-0"></div>
+                  <span className="h-[1px] w-full bg-current"></span>
+                </div>
+
+                {/* Dark Rectangle WhatsApp Button */}
+                <a
+                  href={waLink()}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative inline-flex items-center justify-center bg-[#1c1c1c] px-[clamp(2rem,4vw,3.5rem)] py-[clamp(1rem,2vw,1.25rem)] transition-all duration-500 hover:bg-[#333] w-max rounded-sm shadow-md"
+                >
+                  <span className="font-sans text-[clamp(10px,1.1vw,12px)] uppercase tracking-[0.25em] text-white transition-colors duration-500">
+                    Enquire on WhatsApp
+                  </span>
+                </a>
+              </div>
+            </Reveal>
+          </section>
 
         </div>
       </div>

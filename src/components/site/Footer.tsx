@@ -86,10 +86,10 @@ export function Footer() {
                     Phone
                   </p>
                   <a
-                    href="tel:+918949422388"
+                    href="tel:+918049422388"
                     className="transition-colors hover:text-[#c4a97d] whitespace-nowrap block"
                   >
-                    +91 89494 22388
+                    +91 80494 22388
                   </a>
                 </div>
                 <div>

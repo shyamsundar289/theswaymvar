@@ -41,9 +41,9 @@ export function InstagramGallery() {
         {/* 50px bottom spacing as specified */}
         <div className="h-[50px] md:h-[55px] w-full shrink-0" />
 
-        {/* Responsive CSS Grid (Max width 1175px) */}
-        <Reveal delay={0.1} className="w-full px-[3px] md:px-8 flex justify-center">
-          <div className="w-full max-w-[1175px]">
+        {/* Responsive CSS Grid (Max width exactly 1106px to yield 366.65px per image on desktop) */}
+        <Reveal delay={0.1} className="w-full px-[3px] lg:px-0 flex justify-center">
+          <div className="w-full max-w-[1106px]">
             <div className="grid grid-cols-3 gap-[3px] w-full">
               {gridImages.map((img, idx) => (
                 <div key={idx} className="aspect-square relative w-full bg-muted">

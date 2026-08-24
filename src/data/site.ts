@@ -2,7 +2,7 @@ import { assets } from "../assets/asset-manifest";
 import { galleryImages } from "./photography-images";
 import type { CoupleMedia } from "@/components/site/CouplePhotoGrid";
 
-export const WHATSAPP_NUMBER = "918949422388";
+export const WHATSAPP_NUMBER = "918049422388";
 
 export const waLink = (
   message = "Hello theswaymvar — we'd love to know about your availability.",

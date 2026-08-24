@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { nav } from "@/data/site";
 
 const swaymwarLogo = "/media/images/misc/general/misc_general_logo.svg";
@@ -114,10 +115,10 @@ export function Header() {
         </button>
       </div>
 
-      {/* ── Mobile Menu Overlay ── */}
-      {open && (
+      {/* ── Mobile Menu Overlay (Rendered in Portal to escape transform wrappers) ── */}
+      {open && typeof document !== "undefined" && createPortal(
         <div
-          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-background overflow-y-auto overflow-x-hidden pointer-events-auto"
+          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-[#FAF8F4]/80 backdrop-blur-md overflow-y-auto overflow-x-hidden pointer-events-auto"
           style={{ top: 0 }}
         >
           {/* Top bar: logo + Close — mirrors desktop header height */}
@@ -144,7 +145,7 @@ export function Header() {
           </div>
 
           {/* Navigation items */}
-          <nav className="shell flex flex-col gap-[clamp(1.25rem,4svh,2rem)] pt-[clamp(1.5rem,5svh,3rem)] pb-8">
+          <nav className="shell flex flex-col items-end text-right gap-[clamp(1.25rem,4svh,2rem)] pt-[clamp(1.5rem,5svh,3rem)] pb-8">
             {nav.map((item) => (
               <Link
                 key={item.to}
@@ -157,7 +158,8 @@ export function Header() {
               </Link>
             ))}
           </nav>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );

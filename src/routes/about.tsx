@@ -452,10 +452,10 @@ function AboutPage() {
                   Phone
                 </h4>
                 <a
-                  href="tel:+918949422388"
+                  href="tel:+918049422388"
                   className="font-sans text-[clamp(0.75rem,3.5vw,0.75rem)] text-[#5D5A55] hover:text-[#c4a97d] transition-colors"
                 >
-                  +91 89494 22388
+                  +91 80494 22388
                 </a>
               </div>
 
@@ -478,12 +478,12 @@ function AboutPage() {
                   WhatsApp
                 </h4>
                 <a
-                  href="https://wa.me/918949422388"
+                  href="https://wa.me/918049422388"
                   target="_blank"
                   rel="noopener"
                   className="font-sans text-[clamp(0.75rem,3.5vw,0.75rem)] text-[#5D5A55] hover:text-[#c4a97d] transition-colors"
                 >
-                  +91 89494 22388
+                  +91 80494 22388
                 </a>
               </div>
 
