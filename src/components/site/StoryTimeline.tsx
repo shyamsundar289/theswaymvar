@@ -82,7 +82,6 @@ function TimelineItem({
   const yearY = useTransform(easedProgress, [0, 1], [20, 0]);
   const yearOpacity = useTransform(easedProgress, [0, 1], [0, 1]);
 
-  const alignClass = isRightSide ? "text-left items-start" : "text-right items-end";
   const sideClass = isRightSide
     ? "pl-[calc(50%+1rem)] sm:pl-[calc(50%+1.5rem)] md:pl-[calc(50%+2rem)] justify-start"
     : "pr-[calc(50%+1rem)] sm:pr-[calc(50%+1.5rem)] md:pr-[calc(50%+2rem)] justify-end";
@@ -97,14 +96,31 @@ function TimelineItem({
       : "";
 
   const contentBlock = (
-    <div className={`flex flex-col w-full ${alignClass}`}>
-      <motion.span
+    <div className="flex flex-col items-center w-[var(--img-w)] md:w-[var(--img-w-md)]">
+      <motion.div
         initial={{ y: isFirst ? 0 : 20, opacity: isFirst ? 1 : 0 }}
         style={{ y: yearY, opacity: yearOpacity }}
-        className="text-[clamp(24px,3vw,32px)] font-script font-light text-[#2d2c2a] opacity-95 mb-[4px] md:mb-[8px] tracking-wide leading-none block"
+        className="inline-flex flex-col items-center mb-[6px] md:mb-[10px]"
       >
-        {item.year}
-      </motion.span>
+        <span className="text-[clamp(18px,2.2vw,26px)] font-script font-light text-[#2d2c2a] opacity-95 tracking-wide leading-none">
+          {item.year}
+        </span>
+        {/* Dynamic Width Ultra-thin Ornamental Divider */}
+        <div className="flex items-center justify-center w-full mt-[3px] opacity-90 text-[#bfae91]">
+           {/* Left dots */}
+           <div className="w-[2px] h-[2px] rounded-full bg-current opacity-60"></div>
+           <div className="w-[1.5px] h-[1.5px] rounded-full bg-current opacity-40 ml-[2px]"></div>
+           {/* Left line */}
+           <div className="flex-grow h-[0.5px] bg-current opacity-60 ml-[2px]"></div>
+           {/* Center diamond */}
+           <div className="w-[3px] h-[3px] rotate-45 bg-current mx-[4px] opacity-90"></div>
+           {/* Right line */}
+           <div className="flex-grow h-[0.5px] bg-current opacity-60 mr-[2px]"></div>
+           {/* Right dots */}
+           <div className="w-[1.5px] h-[1.5px] rounded-full bg-current opacity-40 mr-[2px]"></div>
+           <div className="w-[2px] h-[2px] rounded-full bg-current opacity-60"></div>
+        </div>
+      </motion.div>
       {/* Strict fixed-size container mapping exactly to the CSS variables.
           edgeNudgeClass applies the exact 2px offset for first/last items only. */}
       <div
@@ -146,6 +162,49 @@ function TimelineItem({
 function StoryTextContent() {
   return (
     <div className="relative z-10 flex flex-col items-center md:items-start w-full text-center md:text-left pt-0 mt-0">
+      {/* Animated Film Roll (Custom SVG) */}
+      <div className="w-full flex justify-center md:justify-start mb-6 md:mb-8">
+        <div className="flex justify-start items-center w-[130px] md:w-[180px] h-[55px] md:h-[75px]">
+          {/* Inner container: Khulna-Band Hona (Width masking) */}
+          <motion.div
+             className="relative h-full overflow-hidden origin-left"
+             animate={{ width: ["28%", "100%"] }}
+             transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+          >
+            <svg viewBox="0 0 170 80" className="absolute left-0 top-0 h-full w-[130px] md:w-[180px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Film Strip Background */}
+              <rect x="35" y="22" width="135" height="36" fill="#1c1c1c" />
+              
+              {/* Rolling Sprockets (Revolving Effect) */}
+              <motion.g
+                animate={{ x: [0, 14] }}
+                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+              >
+                {/* Top Sprockets (we draw extra ones so they don't clip when moving right) */}
+                {[...Array(12)].map((_, i) => (
+                  <rect key={`top-${i}`} x={31 + i * 14} y="25" width="5" height="5" rx="1" fill="#FAF8F4" />
+                ))}
+                {/* Bottom Sprockets */}
+                {[...Array(12)].map((_, i) => (
+                  <rect key={`bot-${i}`} x={31 + i * 14} y="50" width="5" height="5" rx="1" fill="#FAF8F4" />
+                ))}
+              </motion.g>
+
+              {/* Canister (drawn over the film strip so film appears from inside) */}
+              <g>
+                <rect x="15" y="5" width="30" height="70" rx="3" fill="#111" />
+                <rect x="17" y="15" width="26" height="50" fill="#e8e4dc" />
+                <rect x="13" y="5" width="34" height="6" rx="2" fill="#1a1a1a" />
+                <rect x="13" y="69" width="34" height="6" rx="2" fill="#1a1a1a" />
+                <rect x="22" y="0" width="16" height="6" fill="#222" />
+                <rect x="22" y="74" width="16" height="6" fill="#222" />
+                <text x="30" y="40" fill="#2d2c2a" fontSize="11" fontWeight="bold" fontFamily="sans-serif" transform="rotate(-90 30 40)" textAnchor="middle" letterSpacing="1">400 TX</text>
+              </g>
+            </svg>
+          </motion.div>
+        </div>
+      </div>
+
       <h3 className="flex flex-col items-center md:items-start text-foreground mb-4 md:mb-[clamp(1rem,3svh,2rem)] w-full">
         <span className="text-[36px] sm:text-[42px] md:text-[clamp(42px,6svh,64px)] leading-[1.1] text-[#2d2c2a] opacity-95 font-script font-light">
           The Story We Frame

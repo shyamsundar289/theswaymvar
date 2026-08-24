@@ -48,6 +48,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const musicSectionRef = useRef<HTMLElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
 
   const formatTime = (time: number) => {
@@ -75,9 +76,29 @@ function Home() {
     }
   };
 
-  // Pause audio when unmounting
+  // Pause audio when unmounting or scrolling out of view
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            // When section is out of view, pause music automatically
+            if (audioRef.current && !audioRef.current.paused) {
+              audioRef.current.pause();
+              setIsPlaying(false);
+            }
+          }
+        });
+      },
+      { threshold: 0.0 }
+    );
+
+    if (musicSectionRef.current) {
+      observer.observe(musicSectionRef.current);
+    }
+
     return () => {
+      observer.disconnect();
       audioRef.current?.pause();
     };
   }, []);
@@ -138,7 +159,7 @@ function Home() {
           <DiagonalBreak image={assets.misc.parallaxBg} />
 
           {/* FEATURED WORK */}
-          <section className="w-full max-w-[1440px] mx-auto bg-[#f7f4ee] py-[40px] md:py-[55px] pb-[60px] md:pb-[70px] px-[5vw] lg:px-[7vw]">
+          <section ref={musicSectionRef} className="w-full max-w-[1440px] mx-auto bg-[#f7f4ee] py-[40px] md:py-[55px] pb-[60px] md:pb-[70px] px-[5vw] lg:px-[7vw]">
             <div className="max-w-[1290px] mx-auto text-center">
               <Reveal>
                 {/* TOP SMALL LABELS */}
@@ -269,55 +290,58 @@ function Home() {
                     }}
                   >
                     {/* Turntable */}
-                    <div className="relative w-full flex items-start justify-center mt-[15px] md:mt-[45px]">
-                      {/* Tonearm (Starts upper-left, curves downward) */}
-                      <div className="absolute left-[5%] md:left-[8%] top-[-10%] z-20 pointer-events-none w-[28%] md:w-[75px]">
-                        <svg
-                          className={`w-full h-auto transition-transform duration-700 origin-[24px_24px] md:origin-[24px_24px] ${isPlaying ? "rotate-[0deg]" : "rotate-[15deg]"}`}
-                          viewBox="0 0 90 160"
-                          fill="none"
-                        >
-                          {/* Pivot at top left */}
-                          <circle
-                            cx="24"
-                            cy="24"
-                            r="14"
-                            stroke="#b0aba1"
-                            strokeWidth="1.5"
-                            fill="none"
-                          />
-                          <circle cx="24" cy="24" r="4" fill="#b0aba1" />
-                          {/* Arm dropping down and curving right */}
-                          <path
-                            d="M24 38 L24 115 Q24 135 45 135 L65 135"
-                            stroke="#b0aba1"
-                            strokeWidth="1.5"
-                            fill="none"
-                          />
-                          {/* Headshell */}
-                          <rect
-                            x="65"
-                            y="130"
-                            width="8"
-                            height="18"
-                            rx="2"
-                            stroke="#b0aba1"
-                            strokeWidth="1.5"
-                            fill="none"
-                          />
-                          <line
-                            x1="69"
-                            y1="132"
-                            x2="69"
-                            y2="146"
-                            stroke="#b0aba1"
-                            strokeWidth="1"
-                          />
-                        </svg>
-                      </div>
-
-                      {/* Vinyl Record */}
+                    <div className="relative w-full flex items-start justify-center mt-[20px] md:mt-[50px]">
+                      
+                      {/* Vinyl Record & Tonearm Wrapper */}
                       <div className="relative w-[55%] md:w-[190px] aspect-square flex items-center justify-center">
+                        
+                        {/* Tonearm (Anchored to the vinyl) */}
+                        <div className="absolute -left-[18%] md:-left-[30px] -top-[12%] md:top-[-20px] z-20 pointer-events-none w-[45%] md:w-[85px]">
+                          <svg
+                            className={`w-full h-auto transition-transform duration-[1000ms] origin-[24px_24px] md:origin-[24px_24px] ease-in-out ${isPlaying ? "rotate-[-5deg]" : "rotate-[28deg]"}`}
+                            viewBox="0 0 90 160"
+                            fill="none"
+                          >
+                            {/* Pivot at top left */}
+                            <circle
+                              cx="24"
+                              cy="24"
+                              r="14"
+                              stroke="#b0aba1"
+                              strokeWidth="1.5"
+                              fill="none"
+                            />
+                            <circle cx="24" cy="24" r="4" fill="#b0aba1" />
+                            {/* Arm dropping down and curving right */}
+                            <path
+                              d="M24 38 L24 115 Q24 135 45 135 L65 135"
+                              stroke="#b0aba1"
+                              strokeWidth="1.5"
+                              fill="none"
+                            />
+                            {/* Headshell */}
+                            <rect
+                              x="65"
+                              y="130"
+                              width="8"
+                              height="18"
+                              rx="2"
+                              stroke="#b0aba1"
+                              strokeWidth="1.5"
+                              fill="none"
+                            />
+                            <line
+                              x1="69"
+                              y1="132"
+                              x2="69"
+                              y2="146"
+                              stroke="#b0aba1"
+                              strokeWidth="1"
+                            />
+                          </svg>
+                        </div>
+
+                        {/* Vinyl Disc */}
                         <div
                           className="w-full h-full rounded-full bg-[#1c1c1c] flex items-center justify-center relative overflow-hidden animate-spin"
                           style={{
@@ -480,55 +504,6 @@ function Home() {
           {/* INSTAGRAM GALLERY */}
           <InstagramGallery />
 
-          {/* CLOSING CTA - EDITORIAL REDESIGN */}
-          <section className="w-full bg-background py-[clamp(4rem,8vw,10rem)] px-[clamp(1rem,4vw,3rem)] flex justify-center">
-            <Reveal className="w-full max-w-[900px]">
-              <div className="relative w-full border-[1px] border-[#d1cbbd]/30 bg-[#faf8f5] p-[clamp(3rem,8vw,6rem)] flex flex-col items-center text-center">
-                
-                {/* Corner Accents (Subtle Editorial Detail) */}
-                <div className="absolute top-0 left-0 w-[clamp(10px,2vw,16px)] h-[clamp(10px,2vw,16px)] border-t-[1px] border-l-[1px] border-[#8b867c] -translate-x-[1px] -translate-y-[1px]"></div>
-                <div className="absolute top-0 right-0 w-[clamp(10px,2vw,16px)] h-[clamp(10px,2vw,16px)] border-t-[1px] border-r-[1px] border-[#8b867c] translate-x-[1px] -translate-y-[1px]"></div>
-                <div className="absolute bottom-0 left-0 w-[clamp(10px,2vw,16px)] h-[clamp(10px,2vw,16px)] border-b-[1px] border-l-[1px] border-[#8b867c] -translate-x-[1px] translate-y-[1px]"></div>
-                <div className="absolute bottom-0 right-0 w-[clamp(10px,2vw,16px)] h-[clamp(10px,2vw,16px)] border-b-[1px] border-r-[1px] border-[#8b867c] translate-x-[1px] translate-y-[1px]"></div>
-
-                {/* Elegant Ornament Above Heading */}
-                <div className="mb-[clamp(1.5rem,4vw,2.5rem)] text-[#c4a97d]">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 1L13.5 10.5L23 12L13.5 13.5L12 23L10.5 13.5L1 12L10.5 10.5L12 1Z" fill="currentColor" opacity="0.8" />
-                  </svg>
-                </div>
-
-                {/* Refined Typography */}
-                <div className="flex flex-col items-center">
-                  <span className="font-sans text-[clamp(11px,1.2vw,13px)] tracking-[0.3em] uppercase text-[#8b867c] mb-[clamp(0.5rem,1.5vw,1rem)]">
-                    Tell us the dates.
-                  </span>
-                  <h2 className="font-display italic font-light text-[clamp(28px,5vw,48px)] text-[#2d2c2a] leading-[1.15] max-w-[600px]">
-                    We'll tell you what's possible.
-                  </h2>
-                </div>
-
-                {/* Subtle Horizontal Divider */}
-                <div className="flex items-center justify-center w-full max-w-[180px] mt-[clamp(2rem,5vw,3rem)] mb-[clamp(2.5rem,6vw,3.5rem)] text-[#d1cbbd]/50">
-                  <span className="h-[1px] w-full bg-current"></span>
-                  <div className="w-[4px] h-[4px] rotate-45 bg-[#c4a97d] mx-4 shrink-0"></div>
-                  <span className="h-[1px] w-full bg-current"></span>
-                </div>
-
-                {/* Editorial WhatsApp Button */}
-                <a
-                  href={waLink()}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group relative inline-flex items-center justify-center border border-[#c4a97d]/60 bg-transparent px-[clamp(2rem,4vw,3.5rem)] py-[clamp(1rem,2vw,1.25rem)] transition-all duration-500 hover:border-[#42221b] hover:bg-[#42221b] w-max"
-                >
-                  <span className="font-sans text-[clamp(10px,1.1vw,12px)] uppercase tracking-[0.25em] text-[#2d2c2a] group-hover:text-[#fcfcfc] transition-colors duration-500">
-                    Enquire on WhatsApp
-                  </span>
-                </a>
-              </div>
-            </Reveal>
-          </section>
         </div>
       </div>
     </>

@@ -54,6 +54,7 @@ export const assets = {
     dscf0463: "/media/images/misc/general/misc_general_0463.webp",
     redTelephone: "/media/images/misc/red-rotary-telephone.jpg",
     speakerLogo: "/media/images/misc/logo.png",
+    filmRoll: "/media/images/misc/film-roll.png",
   },
 
   videos: {
