@@ -107,52 +107,57 @@ export function Header() {
 
         <button
           onClick={() => setOpen((value) => !value)}
-          className={`${NAV_FONT} text-[11px] md:hidden`}
+          className="md:hidden p-2 -mr-2 text-foreground"
           aria-expanded={open}
           aria-label="Toggle menu"
         >
-          {open ? "Close" : "Menu"}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square">
+            <path d="M4 12h16M4 6h16M4 18h16" />
+          </svg>
         </button>
       </div>
 
       {/* ── Mobile Menu Overlay (Rendered in Portal to escape transform wrappers) ── */}
       {open && typeof document !== "undefined" && createPortal(
         <div
-          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-[#FAF8F4]/40 backdrop-blur-sm overflow-y-auto overflow-x-hidden pointer-events-auto"
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-black/70 backdrop-blur-sm overflow-y-auto overflow-x-hidden pointer-events-auto"
           style={{ top: 0 }}
         >
           {/* Top bar: logo + Close — mirrors desktop header height */}
           <div className="shell flex h-[95px] items-center justify-between gap-8 shrink-0">
             <Link
               to="/"
-              onClick={(e) => { setOpen(false); handleLogoClick(e); }}
+              onClick={(e) => { e.stopPropagation(); setOpen(false); handleLogoClick(e); }}
               aria-label="theswaymvar home"
               className="relative flex shrink-0 items-center justify-start h-full"
             >
               <img 
                 src={swaymwarLogo}
                 alt="The Swaymvar Logo"
-                className="h-[60px] w-auto transition-all duration-500 drop-shadow-sm object-contain origin-left"
+                className="h-[60px] w-auto transition-all duration-500 drop-shadow-sm object-contain origin-left brightness-0 invert"
               />
             </Link>
             <button
-              onClick={() => setOpen(false)}
-              className={`${NAV_FONT} text-[14px] text-foreground`}
+              onClick={(e) => { e.stopPropagation(); setOpen(false); }}
+              className="p-2 -mr-2 text-white"
               aria-label="Close menu"
             >
-              Close
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
             </button>
           </div>
 
           {/* Navigation items */}
-          <nav className="shell flex flex-col items-end text-right gap-[clamp(1.25rem,4svh,2rem)] pt-[clamp(1.5rem,5svh,3rem)] pb-8">
+          <nav className="shell flex flex-col items-end text-right gap-[clamp(1.25rem,4svh,2rem)] pt-2 pb-8">
             {nav.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 preload="intent"
-                onClick={() => setOpen(false)}
-                className={`${NAV_FONT} text-[clamp(14px,4.5vw,17px)] leading-normal transition-opacity duration-300 hover:opacity-60 text-foreground`}
+                onClick={(e) => { e.stopPropagation(); setOpen(false); }}
+                className={`${NAV_FONT} text-[clamp(14px,4.5vw,17px)] leading-normal transition-opacity duration-300 hover:opacity-60 text-white`}
               >
                 {item.label}
               </Link>

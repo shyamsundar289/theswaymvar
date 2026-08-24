@@ -27,18 +27,20 @@ export function Footer() {
                 Our Promise
               </h3>
               <h2 className="font-display text-[clamp(11px,1.9vw,2rem)] leading-[1.2] font-normal mb-[clamp(1rem,3vw,2.5rem)] pr-[2px] md:pr-2">
-                We take a limited number of weddings each year.
+                We take a limited<br />
+                number of weddings<br />
+                each year.
               </h2>
               <a
                 href={waLink()}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-[clamp(6px,1.5vw,20px)] py-[clamp(6px,1.5vw,16px)] transition-all duration-500 hover:border-[#666] w-full"
+                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-3 py-2 md:px-5 md:py-3 transition-all duration-500 hover:border-[#666] w-max gap-3 md:gap-5"
               >
-                <span className="font-sans text-[clamp(6.5px,1vw,10px)] uppercase tracking-[0.15em] text-[#e0dcd0] whitespace-nowrap overflow-hidden text-ellipsis">
+                <span className="font-sans text-[clamp(7.5px,1vw,10px)] uppercase tracking-[0.15em] text-[#e0dcd0] whitespace-nowrap overflow-hidden text-ellipsis">
                   Let's Create Your Story
                 </span>
-                <span className="text-[#c4a97d] transition-transform duration-500 group-hover:translate-x-1 md:group-hover:translate-x-2 ml-1 md:ml-4 text-[clamp(9px,1.5vw,16px)] shrink-0">
+                <span className="text-[#c4a97d] transition-transform duration-500 group-hover:translate-x-1 md:group-hover:translate-x-2 text-[clamp(10px,1.5vw,16px)] shrink-0">
                   →
                 </span>
               </a>
