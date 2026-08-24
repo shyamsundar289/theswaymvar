@@ -74,11 +74,11 @@ export function Footer() {
                     Address
                   </p>
                   <p className="leading-[1.4] md:leading-[1.6] whitespace-nowrap">
-                    The Swayamvar Studio
+                    Shop - 101, Shanti Nath Empire
                     <br />
-                    Bikaner, Rajasthan
+                    GS Road, Bikaner (Raj.)
                     <br />
-                    India
+                    334001
                   </p>
                 </div>
                 <div>
@@ -97,11 +97,11 @@ export function Footer() {
                     Email
                   </p>
                   <a
-                    href="mailto:hello@theswayamvar.com"
+                    href="mailto:theswaymvar@gmail.com"
                     className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] block"
                     style={{ overflowWrap: "anywhere" }}
                   >
-                    hello@theswayamvar.com
+                    theswaymvar@gmail.com
                   </a>
                 </div>
                 <div>

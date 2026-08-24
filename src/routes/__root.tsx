@@ -116,6 +116,8 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
@@ -127,6 +129,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <FloatingWhatsApp />
     </QueryClientProvider>
   );
 }

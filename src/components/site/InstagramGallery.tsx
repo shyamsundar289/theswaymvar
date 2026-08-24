@@ -25,14 +25,14 @@ export function InstagramGallery() {
       <div className="w-full flex flex-col items-center">
         {/* Heading Section */}
         <Reveal className="flex flex-col items-center">
-          <h2 className="block text-center font-display font-semibold uppercase text-[#d1cbbd] text-[32px] md:text-[40px] tracking-[1px]">
-            INSTAGRAM
+          <h2 className="block text-center font-display font-semibold text-[#5D5A55] text-[32px] md:text-[40px] tracking-[1px]">
+            Instagram
           </h2>
           <a
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 text-center text-[12px] md:text-[14px] tracking-[2px] text-[#8b867c] hover:text-[#d1cbbd] transition-colors duration-300"
+            className="mt-2 text-center text-[15px] md:text-[18px] tracking-[2px] text-[#8b867c] hover:text-[#d1cbbd] transition-colors duration-300"
           >
             @theswaymvar
           </a>
@@ -42,9 +42,9 @@ export function InstagramGallery() {
         <div className="h-[50px] md:h-[55px] w-full shrink-0" />
 
         {/* Responsive CSS Grid (Max width 1175px) */}
-        <Reveal delay={0.1} className="w-full px-4 md:px-8 flex justify-center">
+        <Reveal delay={0.1} className="w-full px-[3px] md:px-8 flex justify-center">
           <div className="w-full max-w-[1175px]">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-[3px] w-full">
+            <div className="grid grid-cols-3 gap-[3px] w-full">
               {gridImages.map((img, idx) => (
                 <div key={idx} className="aspect-square relative w-full bg-muted">
                   <img

@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
 
 import { images } from "@/data/images";
-import { stories } from "@/data/site";
+import { stories, waLink } from "@/data/site";
 
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { AnimatedHero } from "@/components/site/AnimatedHero";
@@ -18,7 +18,7 @@ import { VideoShowcaseSection } from "@/components/site/VideoShowcaseSection";
 import { StoryTimeline } from "@/components/site/StoryTimeline";
 
 import { InstagramGallery } from "@/components/site/InstagramGallery";
-const swaymwarLogo = assets.svg.logo;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -126,18 +126,7 @@ function Home() {
             </Reveal>
           </section>
 
-          {/* SWAYMVAR LOGO */}
-          <section className="w-full flex justify-center section-y bg-background overflow-hidden relative">
-            <Reveal>
-              <div className="w-full max-w-[800px] mx-auto flex justify-center relative px-4">
-                <img
-                  src={swaymwarLogo}
-                  alt="The Swayamvar Logo"
-                  className="w-full h-auto max-w-[200px] md:max-w-[300px] object-contain drop-shadow-sm"
-                />
-              </div>
-            </Reveal>
-          </section>
+
 
           {/* EDITORIAL COLLAGE */}
           <EditorialCollage />
@@ -480,14 +469,52 @@ function Home() {
           {/* INSTAGRAM GALLERY */}
           <InstagramGallery />
 
-          {/* CLOSING CTA */}
-          <section className="shell py-20 md:py-32 text-center">
-            <Reveal>
-              <h2 className="font-display font-light mx-auto max-w-3xl text-4xl leading-[1.05] md:text-7xl">
-                Tell us the dates. We'll tell you what's possible.
-              </h2>
-              <div className="mt-10">
-                <WhatsAppButton>Enquire on WhatsApp</WhatsAppButton>
+          {/* CLOSING CTA - EDITORIAL REDESIGN */}
+          <section className="w-full bg-background py-[clamp(4rem,8vw,10rem)] px-[clamp(1rem,4vw,3rem)] flex justify-center">
+            <Reveal className="w-full max-w-[900px]">
+              <div className="relative w-full border-[1px] border-[#d1cbbd]/30 bg-[#faf8f5] p-[clamp(3rem,8vw,6rem)] flex flex-col items-center text-center">
+                
+                {/* Corner Accents (Subtle Editorial Detail) */}
+                <div className="absolute top-0 left-0 w-[clamp(10px,2vw,16px)] h-[clamp(10px,2vw,16px)] border-t-[1px] border-l-[1px] border-[#8b867c] -translate-x-[1px] -translate-y-[1px]"></div>
+                <div className="absolute top-0 right-0 w-[clamp(10px,2vw,16px)] h-[clamp(10px,2vw,16px)] border-t-[1px] border-r-[1px] border-[#8b867c] translate-x-[1px] -translate-y-[1px]"></div>
+                <div className="absolute bottom-0 left-0 w-[clamp(10px,2vw,16px)] h-[clamp(10px,2vw,16px)] border-b-[1px] border-l-[1px] border-[#8b867c] -translate-x-[1px] translate-y-[1px]"></div>
+                <div className="absolute bottom-0 right-0 w-[clamp(10px,2vw,16px)] h-[clamp(10px,2vw,16px)] border-b-[1px] border-r-[1px] border-[#8b867c] translate-x-[1px] translate-y-[1px]"></div>
+
+                {/* Elegant Ornament Above Heading */}
+                <div className="mb-[clamp(1.5rem,4vw,2.5rem)] text-[#c4a97d]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1L13.5 10.5L23 12L13.5 13.5L12 23L10.5 13.5L1 12L10.5 10.5L12 1Z" fill="currentColor" opacity="0.8" />
+                  </svg>
+                </div>
+
+                {/* Refined Typography */}
+                <div className="flex flex-col items-center">
+                  <span className="font-sans text-[clamp(11px,1.2vw,13px)] tracking-[0.3em] uppercase text-[#8b867c] mb-[clamp(0.5rem,1.5vw,1rem)]">
+                    Tell us the dates.
+                  </span>
+                  <h2 className="font-display italic font-light text-[clamp(28px,5vw,48px)] text-[#2d2c2a] leading-[1.15] max-w-[600px]">
+                    We'll tell you what's possible.
+                  </h2>
+                </div>
+
+                {/* Subtle Horizontal Divider */}
+                <div className="flex items-center justify-center w-full max-w-[180px] mt-[clamp(2rem,5vw,3rem)] mb-[clamp(2.5rem,6vw,3.5rem)] text-[#d1cbbd]/50">
+                  <span className="h-[1px] w-full bg-current"></span>
+                  <div className="w-[4px] h-[4px] rotate-45 bg-[#c4a97d] mx-4 shrink-0"></div>
+                  <span className="h-[1px] w-full bg-current"></span>
+                </div>
+
+                {/* Editorial WhatsApp Button */}
+                <a
+                  href={waLink()}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative inline-flex items-center justify-center border border-[#c4a97d]/60 bg-transparent px-[clamp(2rem,4vw,3.5rem)] py-[clamp(1rem,2vw,1.25rem)] transition-all duration-500 hover:border-[#42221b] hover:bg-[#42221b] w-max"
+                >
+                  <span className="font-sans text-[clamp(10px,1.1vw,12px)] uppercase tracking-[0.25em] text-[#2d2c2a] group-hover:text-[#fcfcfc] transition-colors duration-500">
+                    Enquire on WhatsApp
+                  </span>
+                </a>
               </div>
             </Reveal>
           </section>

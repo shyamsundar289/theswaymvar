@@ -426,10 +426,10 @@ function AboutPage() {
                   Email
                 </h4>
                 <a
-                  href="mailto:hello@theswayamvar.com"
+                  href="mailto:theswaymvar@gmail.com"
                   className="font-sans text-[clamp(0.75rem,3.5vw,0.75rem)] text-[#5D5A55] hover:text-[#c4a97d] transition-colors"
                 >
-                  hello@theswayamvar.com
+                  theswaymvar@gmail.com
                 </a>
               </div>
 
@@ -507,9 +507,9 @@ function AboutPage() {
                   Studio
                 </h4>
                 <div className="font-sans text-[clamp(0.75rem,3.5vw,0.75rem)] text-[#5D5A55] leading-[1.6]">
-                  <p>The Swayamvar Studio</p>
-                  <p>Bikaner, Rajasthan</p>
-                  <p>India</p>
+                  <p>Shop - 101, Shanti Nath Empire</p>
+                  <p>GS Road, Bikaner (Raj.)</p>
+                  <p>334001</p>
                 </div>
               </div>
             </div>
