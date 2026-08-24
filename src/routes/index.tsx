@@ -142,16 +142,16 @@ function Home() {
             <div className="max-w-[1290px] mx-auto text-center">
               <Reveal>
                 {/* TOP SMALL LABELS */}
-                <div className="flex items-center justify-center gap-4 text-[13px] tracking-[2.5px] text-[#8b867c] uppercase">
+                <div className="flex flex-row items-center justify-center gap-1.5 md:gap-4 text-[9px] sm:text-[11px] md:text-[13px] tracking-[1.5px] md:tracking-[2.5px] text-[#8b867c] uppercase flex-nowrap whitespace-nowrap">
                   <span>Capturing Moments</span>
                   {/* Floral ornament */}
                   <svg
-                    width="100"
-                    height="30"
+                    width="60"
+                    height="20"
                     viewBox="0 0 100 30"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="mx-2 text-[#d0c5a8]"
+                    className="mx-1 md:mx-2 text-[#d0c5a8] w-[40px] md:w-[100px] h-auto"
                   >
                     <path
                       d="M50 5C50 5 48 12 40 15C48 18 50 25 50 25C50 25 52 18 60 15C52 12 50 5 50 5Z"
@@ -165,13 +165,13 @@ function Home() {
                 </div>
 
                 {/* MAIN HEADING */}
-                <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-normal leading-[1.05] tracking-tight text-[#2d2c2a] text-center mt-[35px] max-w-[900px] mx-auto">
+                <h2 className="font-display text-[clamp(1.5rem,3vw,2.75rem)] font-normal leading-[1.05] tracking-tight text-[#2d2c2a] text-center mt-[25px] md:mt-[35px] max-w-[900px] mx-auto whitespace-nowrap">
                   Your Story, <span className="italic font-light text-[#8b867c]">Our Lens</span>
                 </h2>
 
                 {/* ORNAMENT UNDER HEADING */}
-                <div className="flex items-center justify-center mt-[25px] text-[#c1b599]">
-                  <span className="w-[60px] md:w-[70px] h-[1px] bg-[#d1cbbd]"></span>
+                <div className="flex items-center justify-center mt-[15px] md:mt-[25px] text-[#c1b599]">
+                  <span className="w-[40px] md:w-[70px] h-[1px] bg-[#d1cbbd]"></span>
                   <svg
                     width="16"
                     height="16"
@@ -185,11 +185,11 @@ function Home() {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="w-[60px] md:w-[70px] h-[1px] bg-[#d1cbbd]"></span>
+                  <span className="w-[40px] md:w-[70px] h-[1px] bg-[#d1cbbd]"></span>
                 </div>
 
                 {/* DESCRIPTION */}
-                <p className="text-[#5D5A55] text-[17px] md:text-[19px] font-normal tracking-[0.2px] text-center max-w-[800px] mx-auto mt-[18px]">
+                <p className="text-[#5D5A55] text-[15px] md:text-[19px] font-normal tracking-[0.2px] text-center max-w-[800px] mx-auto mt-[18px]">
                   Every love story is unique. We're here to capture yours in the most timeless way.
                 </p>
               </Reveal>
@@ -197,7 +197,7 @@ function Home() {
 
             {/* MAIN 3-COLUMN LAYOUT */}
             <div className="mx-auto mt-[38px] w-full max-w-[1280px]">
-              <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr_1fr] gap-[28px] items-start w-full">
+              <div className="grid grid-cols-3 lg:grid-cols-[1fr_1.05fr_1fr] gap-[10px] sm:gap-[15px] md:gap-[28px] items-start w-full">
                 {/* LEFT COUPLE IMAGE */}
                 <Reveal delay={0.08} className="w-full">
                   <Link
@@ -206,7 +206,7 @@ function Home() {
                     className="hover-lift block group w-full"
                   >
                     <div
-                      className="overflow-hidden rounded-[20px] bg-muted w-full h-[455px]"
+                      className="overflow-hidden rounded-[8px] md:rounded-[20px] bg-muted w-full aspect-[3/4] md:aspect-auto md:h-[455px]"
                       style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
                     >
                       <img
@@ -219,16 +219,16 @@ function Home() {
                     </div>
 
                     {/* TEXT & ORNAMENT */}
-                    <div className="mt-[28px] text-center w-full">
-                      <div className="flex items-center justify-center gap-[10px] text-[12px] tracking-[2px] uppercase text-[#8b867c] font-sans">
+                    <div className="mt-[12px] md:mt-[28px] text-center w-full px-1">
+                      <div className="flex items-center justify-center gap-[4px] md:gap-[10px] text-[5px] sm:text-[7px] md:text-[12px] tracking-[1px] md:tracking-[2px] uppercase text-[#8b867c] font-sans">
                         <span className="font-light">→</span>
-                        <span>A Story of Us</span>
+                        <span className="whitespace-nowrap overflow-hidden text-ellipsis">A Story of Us</span>
                         <span className="font-light">←</span>
                       </div>
-                      <h3 className="font-display text-[20px] md:text-[22px] font-normal text-[#2d2c2a] mt-[12px]">
+                      <h3 className="font-display text-[10px] sm:text-[12px] md:text-[22px] font-normal text-[#2d2c2a] mt-[4px] md:mt-[12px] whitespace-nowrap overflow-hidden text-ellipsis">
                         {stories[0].couple}
                       </h3>
-                      <div className="flex justify-center mt-[20px] text-[#d1cbbd]">
+                      <div className="flex justify-center mt-[8px] md:mt-[20px] text-[#d1cbbd]">
                         {/* Tiny Ornament */}
                         <svg
                           width="60"
@@ -236,6 +236,7 @@ function Home() {
                           viewBox="0 0 60 15"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
+                          className="w-[20px] md:w-[60px] h-auto"
                         >
                           <path
                             d="M30 2 L33 7.5 L30 13 L27 7.5 Z"
@@ -259,20 +260,20 @@ function Home() {
                 </Reveal>
 
                 {/* CENTER INTERACTIVE MUSIC CARD */}
-                <Reveal delay={0.16} className="w-full z-10 mt-[8px]">
+                <Reveal delay={0.16} className="w-full z-10 mt-[4px] md:mt-[8px]">
                   <div
-                    className="relative w-full min-h-[500px] md:h-[500px] bg-[#fcfbfa] rounded-[28px] flex flex-col items-center justify-between select-none"
+                    className="relative w-full aspect-[3/4] md:aspect-auto md:min-h-[500px] md:h-[500px] bg-[#fcfbfa] rounded-[10px] md:rounded-[28px] flex flex-col items-center justify-between select-none"
                     style={{
                       border: "1px solid rgba(0,0,0,0.06)",
                       boxShadow: "0 20px 35px rgba(0,0,0,0.10)",
                     }}
                   >
                     {/* Turntable */}
-                    <div className="relative w-full flex items-start justify-center mt-[45px]">
+                    <div className="relative w-full flex items-start justify-center mt-[15px] md:mt-[45px]">
                       {/* Tonearm (Starts upper-left, curves downward) */}
-                      <div className="absolute left-[5%] md:left-[8%] top-[-10%] z-20 pointer-events-none">
+                      <div className="absolute left-[5%] md:left-[8%] top-[-10%] z-20 pointer-events-none w-[28%] md:w-[75px]">
                         <svg
-                          className={`w-[85px] h-[150px] transition-transform duration-700 origin-[24px_24px] ${isPlaying ? "rotate-[0deg]" : "rotate-[15deg]"}`}
+                          className={`w-full h-auto transition-transform duration-700 origin-[24px_24px] md:origin-[24px_24px] ${isPlaying ? "rotate-[0deg]" : "rotate-[15deg]"}`}
                           viewBox="0 0 90 160"
                           fill="none"
                         >
@@ -316,16 +317,16 @@ function Home() {
                       </div>
 
                       {/* Vinyl Record */}
-                      <div className="relative w-[220px] h-[220px] flex items-center justify-center">
+                      <div className="relative w-[55%] md:w-[190px] aspect-square flex items-center justify-center">
                         <div
-                          className={`w-full h-full rounded-full bg-[#1c1c1c] flex items-center justify-center relative overflow-hidden transition-transform ${isPlaying ? "animate-spin" : ""}`}
+                          className="w-full h-full rounded-full bg-[#1c1c1c] flex items-center justify-center relative overflow-hidden animate-spin"
                           style={{
                             animationDuration: "3s",
                             animationTimingFunction: "linear",
+                            animationPlayState: isPlaying ? "running" : "paused",
                             background:
                               "radial-gradient(circle, #242424 0%, #1a1a1a 40%, #0a0a0a 100%)",
-                            boxShadow:
-                              "inset 0 0 20px rgba(255,255,255,0.03), 0 10px 20px rgba(0,0,0,0.4)",
+                            boxShadow: "inset 0 0 20px rgba(255,255,255,0.03)",
                           }}
                         >
                           {/* Grooves */}
@@ -334,36 +335,44 @@ function Home() {
                           <div className="absolute inset-[35%] rounded-full border border-white/5 pointer-events-none"></div>
                           <div className="absolute inset-[45%] rounded-full border border-white/5 pointer-events-none"></div>
 
+                          {/* Spinning Light Reflection */}
+                          <div 
+                            className="absolute inset-0 rounded-full pointer-events-none opacity-40 mix-blend-screen"
+                            style={{
+                              background: "conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.15) 30deg, transparent 60deg, transparent 180deg, rgba(255,255,255,0.15) 210deg, transparent 240deg)"
+                            }}
+                          ></div>
+
                           {/* Record Label - Bright Cyan */}
-                          <div className="w-[56px] h-[56px] rounded-full bg-[#29b6f6] flex items-center justify-center relative shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]">
+                          <div className="w-[30%] h-[30%] max-w-[64px] max-h-[64px] rounded-full bg-[#29b6f6] flex items-center justify-center relative shadow-[inset_0_2px_6px_rgba(0,0,0,0.3)]">
                             {/* Spindle */}
-                            <div className="absolute w-[10px] h-[10px] rounded-full bg-[#fcfbfa] shadow-[inset_0_1px_3px_rgba(0,0,0,0.4)]"></div>
+                            <div className="absolute w-[3px] h-[3px] md:w-[10px] md:h-[10px] rounded-full bg-[#fcfbfa] shadow-[inset_0_1px_3px_rgba(0,0,0,0.4)]"></div>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Music Metadata */}
-                    <div className="text-center w-full mt-auto mb-[20px]">
-                      <p className="text-[12px] text-[#788591] font-sans tracking-[2px] mb-[6px]">
+                    <div className="text-center w-full mt-auto mb-[8px] md:mb-[20px] px-1">
+                      <p className="text-[5px] sm:text-[7px] md:text-[12px] text-[#788591] font-sans tracking-[1px] md:tracking-[2px] mb-[2px] md:mb-[6px]">
                         {formatTime(currentTime)}
                       </p>
-                      <h4 className="font-display italic text-[#3e3a35] text-[20px] leading-tight">
+                      <h4 className="font-display italic text-[#3e3a35] text-[9px] sm:text-[12px] md:text-[20px] leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
                         Cinematic Anthem
                       </h4>
-                      <p className="text-[14px] text-[#8c8881] mt-[4px]">Timeless Celebrations</p>
+                      <p className="text-[6px] sm:text-[8px] md:text-[14px] text-[#8c8881] mt-[2px] md:mt-[4px] whitespace-nowrap overflow-hidden text-ellipsis">Timeless Celebrations</p>
                     </div>
 
                     {/* Music Controls */}
-                    <div className="flex items-center justify-center gap-[14px] w-full pb-[30px]">
+                    <div className="flex items-center justify-center gap-[4px] md:gap-[14px] w-full pb-[10px] md:pb-[30px]">
                       {/* Previous */}
                       <button
                         onClick={togglePlay}
-                        className="w-[42px] h-[42px] rounded-full bg-white flex items-center justify-center text-[#2d2c2a] hover:scale-105 active:scale-95 transition"
+                        className="w-[18px] h-[18px] md:w-[42px] md:h-[42px] rounded-full bg-white flex items-center justify-center text-[#2d2c2a] hover:scale-105 active:scale-95 transition"
                         style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.08)" }}
                         aria-label="Previous track"
                       >
-                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                        <svg className="w-[8px] h-[8px] md:w-3.5 md:h-3.5 fill-current" viewBox="0 0 24 24">
                           <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
                         </svg>
                       </button>
@@ -371,16 +380,16 @@ function Home() {
                       {/* Play/Pause */}
                       <button
                         onClick={togglePlay}
-                        className="w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center text-[#2d2c2a] hover:scale-105 active:scale-95 transition"
+                        className="w-[22px] h-[22px] md:w-[50px] md:h-[50px] rounded-full bg-white flex items-center justify-center text-[#2d2c2a] hover:scale-105 active:scale-95 transition"
                         style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.08)" }}
                         aria-label={isPlaying ? "Pause" : "Play"}
                       >
                         {isPlaying ? (
-                          <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <svg className="w-[10px] h-[10px] md:w-4 md:h-4 fill-current" viewBox="0 0 24 24">
                             <path d="M8 19h3V5H8v14zm5-14v14h3V5h-3z" />
                           </svg>
                         ) : (
-                          <svg className="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+                          <svg className="w-[12px] h-[12px] md:w-5 md:h-5 fill-current ml-[1px] md:ml-0.5" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z" />
                           </svg>
                         )}
@@ -389,11 +398,11 @@ function Home() {
                       {/* Next */}
                       <button
                         onClick={togglePlay}
-                        className="w-[42px] h-[42px] rounded-full bg-white flex items-center justify-center text-[#2d2c2a] hover:scale-105 active:scale-95 transition"
+                        className="w-[18px] h-[18px] md:w-[42px] md:h-[42px] rounded-full bg-white flex items-center justify-center text-[#2d2c2a] hover:scale-105 active:scale-95 transition"
                         style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.08)" }}
                         aria-label="Next track"
                       >
-                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                        <svg className="w-[8px] h-[8px] md:w-3.5 md:h-3.5 fill-current" viewBox="0 0 24 24">
                           <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
                         </svg>
                       </button>
@@ -409,7 +418,7 @@ function Home() {
                     className="hover-lift block group w-full"
                   >
                     <div
-                      className="overflow-hidden rounded-[20px] bg-muted w-full h-[455px]"
+                      className="overflow-hidden rounded-[8px] md:rounded-[20px] bg-muted w-full aspect-[3/4] md:aspect-auto md:h-[455px]"
                       style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
                     >
                       <img
@@ -422,16 +431,16 @@ function Home() {
                     </div>
 
                     {/* TEXT & ORNAMENT */}
-                    <div className="mt-[28px] text-center w-full">
-                      <div className="flex items-center justify-center gap-[10px] text-[12px] tracking-[2px] uppercase text-[#8b867c] font-sans">
+                    <div className="mt-[12px] md:mt-[28px] text-center w-full px-1">
+                      <div className="flex items-center justify-center gap-[4px] md:gap-[10px] text-[5px] sm:text-[7px] md:text-[12px] tracking-[1px] md:tracking-[2px] uppercase text-[#8b867c] font-sans">
                         <span className="font-light">→</span>
-                        <span>Forever Begins Here</span>
+                        <span className="whitespace-nowrap overflow-hidden text-ellipsis">Forever Begins</span>
                         <span className="font-light">←</span>
                       </div>
-                      <h3 className="font-display text-[20px] md:text-[22px] font-normal text-[#2d2c2a] mt-[12px]">
+                      <h3 className="font-display text-[10px] sm:text-[12px] md:text-[22px] font-normal text-[#2d2c2a] mt-[4px] md:mt-[12px] whitespace-nowrap overflow-hidden text-ellipsis">
                         {stories[2].couple}
                       </h3>
-                      <div className="flex justify-center mt-[20px] text-[#d1cbbd]">
+                      <div className="flex justify-center mt-[8px] md:mt-[20px] text-[#d1cbbd]">
                         {/* Tiny Ornament */}
                         <svg
                           width="60"
@@ -439,6 +448,7 @@ function Home() {
                           viewBox="0 0 60 15"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
+                          className="w-[20px] md:w-[60px] h-auto"
                         >
                           <path
                             d="M30 2 L33 7.5 L30 13 L27 7.5 Z"
@@ -463,6 +473,7 @@ function Home() {
               </div>
             </div>
           </section>
+
           {/* STORY TIMELINE */}
           <StoryTimeline />
 
