@@ -13,13 +13,7 @@ export function Footer() {
             Promise (1.25fr), Explore (0.75fr), Studio (1.25fr), Find Us (1fr)
           */}
           <div
-            className="grid mb-[clamp(2rem,5vw,4rem)] w-full"
-            style={{
-              gridTemplateColumns:
-                "minmax(0, 1.35fr) minmax(0, 0.75fr) minmax(0, 1.2fr) minmax(0, 1.1fr)",
-              columnGap: "clamp(8px, 2vw, 40px)",
-              rowGap: "clamp(2rem, 5vw, 4rem)",
-            }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.75fr)_minmax(0,1.2fr)_minmax(0,1.1fr)] mb-[clamp(2rem,5vw,4rem)] w-full gap-y-[clamp(2rem,5vw,4rem)] gap-x-[clamp(8px,2vw,40px)]"
           >
             {/* COLUMN 1 — OUR PROMISE */}
             <div className="flex flex-col w-full min-w-0">
@@ -35,7 +29,7 @@ export function Footer() {
                 href={waLink()}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-3 py-2 md:px-5 md:py-3 transition-all duration-500 hover:border-[#666] w-max gap-3 md:gap-5"
+                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-[clamp(12px,1.5vw,20px)] py-[clamp(6px,1vw,12px)] transition-all duration-500 hover:border-[#666] w-max gap-[clamp(8px,1.5vw,20px)]"
               >
                 <span className="font-sans text-[clamp(7.5px,1vw,10px)] uppercase tracking-[0.15em] text-[#e0dcd0] whitespace-nowrap overflow-hidden text-ellipsis">
                   Let's Create Your Story

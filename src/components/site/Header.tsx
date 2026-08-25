@@ -121,7 +121,7 @@ export function Header() {
       {open && typeof document !== "undefined" && createPortal(
         <div
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-white overflow-y-auto overflow-x-hidden pointer-events-auto"
+          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-white/50 backdrop-blur-md overflow-y-auto overflow-x-hidden pointer-events-auto"
           style={{ top: 0 }}
         >
           {/* Top bar: logo + Close — mirrors desktop header height */}
