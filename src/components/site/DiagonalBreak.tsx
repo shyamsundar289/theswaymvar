@@ -1,7 +1,7 @@
 export function DiagonalBreak({ image }: { image: string }) {
   return (
     <section
-      className="relative isolate overflow-hidden bg-fixed bg-cover bg-center h-[50vh] md:h-[70vh] flex items-center justify-center"
+      className="relative isolate overflow-hidden bg-scroll [@media(hover:hover)]:bg-fixed bg-cover bg-center h-[50vh] md:h-[70vh] flex items-center justify-center"
       style={{ backgroundImage: `url(${image})` }}
     >
       {/* Lighter overlay to let the beautiful image shine through */}
