@@ -13,7 +13,7 @@ export function Footer() {
             Promise (1.25fr), Explore (0.75fr), Studio (1.25fr), Find Us (1fr)
           */}
           <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,0.75fr)_minmax(0,1.2fr)_minmax(0,1.1fr)] mb-[clamp(2rem,5vw,4rem)] w-full gap-y-[clamp(2rem,5vw,4rem)] gap-x-[clamp(8px,2vw,40px)]"
+            className="grid grid-cols-[minmax(0,1.35fr)_minmax(0,0.75fr)_minmax(0,1.2fr)_minmax(0,1.1fr)] mb-[clamp(2rem,5vw,4rem)] w-full gap-y-[clamp(2rem,5vw,4rem)] gap-x-[clamp(8px,2vw,40px)]"
           >
             {/* COLUMN 1 — OUR PROMISE */}
             <div className="flex flex-col w-full min-w-0">
@@ -29,7 +29,7 @@ export function Footer() {
                 href={waLink()}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-[clamp(12px,1.5vw,20px)] py-[clamp(6px,1vw,12px)] transition-all duration-500 hover:border-[#666] w-max gap-[clamp(8px,1.5vw,20px)]"
+                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-[clamp(12px,1.5vw,20px)] py-[clamp(6px,1vw,12px)] transition-all duration-500 hover:border-[#666] w-max max-w-full gap-[clamp(8px,1.5vw,20px)]"
               >
                 <span className="font-sans text-[clamp(7.5px,1vw,10px)] uppercase tracking-[0.15em] text-[#e0dcd0] whitespace-nowrap overflow-hidden text-ellipsis">
                   Let's Create Your Story
@@ -50,7 +50,7 @@ export function Footer() {
                   <li key={item.to}>
                     <Link
                       to={item.to}
-                      className="font-sans text-[clamp(7px,1.2vw,14px)] uppercase tracking-[0.1em] text-[#e0dcd0] transition-colors hover:text-[#c4a97d] whitespace-nowrap block"
+                      className="font-sans text-[clamp(7px,1.2vw,14px)] uppercase tracking-[0.1em] text-[#e0dcd0] transition-colors hover:text-[#c4a97d] block break-words"
                     >
                       {item.label}
                     </Link>
@@ -66,10 +66,10 @@ export function Footer() {
               </h3>
               <div className="flex flex-col gap-[clamp(0.5rem,1.5vw,1.5rem)] font-sans text-[clamp(7px,1.2vw,14px)] uppercase tracking-[0.1em] text-[#e0dcd0]">
                 <div>
-                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">
+                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] break-words">
                     Address
                   </p>
-                  <p className="leading-[1.4] md:leading-[1.6] whitespace-nowrap">
+                  <p className="leading-[1.4] md:leading-[1.6] break-words">
                     Shop - 101, Shanti Nath Empire
                     <br />
                     GS Road, Bikaner (Raj.)
@@ -78,37 +78,36 @@ export function Footer() {
                   </p>
                 </div>
                 <div>
-                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">
+                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] break-words">
                     Phone
                   </p>
                   <a
                     href="tel:+918049422388"
-                    className="transition-colors hover:text-[#c4a97d] whitespace-nowrap block"
+                    className="transition-colors hover:text-[#c4a97d] block break-words"
                   >
                     +91 80494 22388
                   </a>
                 </div>
                 <div>
-                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">
+                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] break-words">
                     Email
                   </p>
                   <a
                     href="mailto:theswaymvar@gmail.com"
-                    className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] block"
-                    style={{ overflowWrap: "anywhere" }}
+                    className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] block break-all"
                   >
                     theswaymvar@gmail.com
                   </a>
                 </div>
                 <div>
-                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] whitespace-nowrap">
+                  <p className="mb-[clamp(2px,0.5vw,4px)] text-[#8b867c] text-[clamp(6px,0.8vw,10px)] tracking-[0.2em] break-words">
                     Instagram
                   </p>
                   <a
                     href="https://www.instagram.com/theswaymvar"
                     target="_blank"
                     rel="noreferrer"
-                    className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] whitespace-nowrap block"
+                    className="transition-colors hover:text-[#c4a97d] lowercase normal-case tracking-normal text-[clamp(7.5px,1.3vw,15px)] block break-all"
                   >
                     @theswaymvar
                   </a>
