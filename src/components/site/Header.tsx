@@ -107,7 +107,7 @@ export function Header() {
 
         <button
           onClick={() => setOpen((value) => !value)}
-          className="md:hidden p-2 -mr-2 text-foreground"
+          className="md:hidden p-2 -mr-2 text-white"
           aria-expanded={open}
           aria-label="Toggle menu"
         >
@@ -121,7 +121,7 @@ export function Header() {
       {open && typeof document !== "undefined" && createPortal(
         <div
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-black/70 backdrop-blur-sm overflow-y-auto overflow-x-hidden pointer-events-auto"
+          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-white overflow-y-auto overflow-x-hidden pointer-events-auto"
           style={{ top: 0 }}
         >
           {/* Top bar: logo + Close — mirrors desktop header height */}
@@ -135,12 +135,12 @@ export function Header() {
               <img 
                 src={swaymwarLogo}
                 alt="The Swaymvar Logo"
-                className="h-[60px] w-auto transition-all duration-500 drop-shadow-sm object-contain origin-left brightness-0 invert"
+                className="h-[60px] w-auto transition-all duration-500 drop-shadow-sm object-contain origin-left"
               />
             </Link>
             <button
               onClick={(e) => { e.stopPropagation(); setOpen(false); }}
-              className="p-2 -mr-2 text-white"
+              className="p-2 -mr-2 text-black"
               aria-label="Close menu"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square">
@@ -157,7 +157,7 @@ export function Header() {
                 to={item.to}
                 preload="intent"
                 onClick={(e) => { e.stopPropagation(); setOpen(false); }}
-                className={`${NAV_FONT} text-[clamp(14px,4.5vw,17px)] leading-normal transition-opacity duration-300 hover:opacity-60 text-white`}
+                className={`${NAV_FONT} text-[clamp(14px,4.5vw,17px)] leading-normal transition-opacity duration-300 hover:opacity-60 text-black`}
               >
                 {item.label}
               </Link>
