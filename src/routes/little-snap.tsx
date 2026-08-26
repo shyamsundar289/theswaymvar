@@ -224,15 +224,15 @@ function LittleSnapPage() {
   return (
     <div className="w-full bg-white selection:bg-[#4a1c14] selection:text-[#F7F3EB] relative">
       {/* ================= STICKY HERO SECTION ================= */}
-      <div className="sticky top-0 w-full h-[60vh] md:h-[500px] lg:h-[580px] bg-white z-0">
+      <div className="sticky top-0 left-0 w-full h-[60vh] md:h-[500px] lg:h-[580px] overflow-hidden z-0 bg-[#ece9e4]">
         <Header />
-        <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-          <img
-            src={littleSnapHeroImg}
-            alt="Little Snap Hero"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
+        <img
+          src={littleSnapHeroImg}
+          alt="Little Snap Hero"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+        />
+        {/* Subtle overlay to ensure header visibility on mobile */}
+        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
       </div>
 
       {/* ================= CONTENT THAT SCROLLS OVER HERO ================= */}
