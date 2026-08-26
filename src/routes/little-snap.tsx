@@ -227,7 +227,7 @@ function LittleSnapPage() {
         <div className="absolute inset-0 overflow-hidden flex items-center justify-center font-sans pt-[60px] md:pt-[100px] z-0">
           {/* Large Left Balloon (Lower) - Increased Animation */}
           <motion.div
-            className="absolute left-[8%] md:left-[15%] top-[60%] md:top-[65%] -translate-y-1/2 w-[22vw] md:w-[13vw] max-w-[180px] min-w-[80px] z-10"
+            className="absolute left-[4%] md:left-[15%] top-[78%] md:top-[65%] -translate-y-1/2 w-[18vw] md:w-[13vw] max-w-[180px] min-w-[70px] z-10"
             animate={{
               y: [0, -25, 0],
               x: [0, 8, -5, 0],
@@ -240,7 +240,7 @@ function LittleSnapPage() {
 
           {/* Small Right Balloon (Higher) - Increased Animation */}
           <motion.div
-            className="absolute right-[8%] md:right-[18%] top-[40%] md:top-[35%] -translate-y-1/2 w-[16vw] md:w-[9vw] max-w-[120px] min-w-[60px] z-10"
+            className="absolute right-[4%] md:right-[18%] top-[35%] -translate-y-1/2 w-[14vw] md:w-[9vw] max-w-[120px] min-w-[50px] z-10"
             animate={{
               y: [0, -20, 0],
               x: [0, -6, 4, 0],
@@ -256,11 +256,10 @@ function LittleSnapPage() {
             <img
               src="/images/little-snap-logo.png"
               alt="Little Snap Photography"
-              className="w-[85vw] max-w-[350px] md:max-w-[500px] lg:max-w-[600px] object-contain z-10"
+              draggable="false"
+              className="w-[75vw] max-w-[320px] md:max-w-[500px] lg:max-w-[600px] object-contain z-10 select-none pointer-events-none"
             />
-            <span className="font-script text-[#42221b] text-4xl md:text-6xl lg:text-[5rem] -mt-4 md:-mt-8 block -rotate-2 opacity-90">
-              Gallery
-            </span>
+
           </div>
         </div>
       </div>

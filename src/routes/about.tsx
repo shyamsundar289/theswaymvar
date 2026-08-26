@@ -7,7 +7,7 @@ import { images } from "@/data/images";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { getSeoMetadata } from "@/config/seo";
+import { getSeoMetadata, SITE_URL } from "@/config/seo";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -39,7 +39,6 @@ function AboutPage() {
     },
     { id: "t3", name: "Arjun Nair", role: "Cinematographer", img: assets.crew.getMemberPhoto(4) },
     { id: "t4", name: "Karan Malhotra", role: "Editor", img: assets.crew.getMemberPhoto(7) },
-    { id: "t5", name: "Sneha Iyer", role: "Creative Director", img: assets.crew.getMemberPhoto(3) },
   ];
 
   return (
@@ -90,7 +89,7 @@ function AboutPage() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] gap-[clamp(2.5rem,4vw,2.5rem)] items-start">
+            <div className="grid grid-cols-[1fr_1px_1fr] gap-2 sm:gap-6 md:gap-[clamp(2.5rem,4vw,2.5rem)] items-start">
               {/* Wedding Films */}
               <div className="flex flex-col items-center text-center">
                 <svg
@@ -167,7 +166,7 @@ function AboutPage() {
               </div>
 
               {/* Vertical divider */}
-              <div className="hidden md:block w-[1px] h-full bg-[#e4e0d7] self-stretch" />
+              <div className="block w-[1px] h-full bg-[#e4e0d7] self-stretch mx-auto" />
 
               {/* Wedding Photography */}
               <div className="flex flex-col items-center text-center">
@@ -329,7 +328,7 @@ function AboutPage() {
           </Reveal>
 
           <Reveal delay={0.15} className="w-full">
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-[clamp(1rem,4vw,2rem)]">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-[clamp(1rem,4vw,2rem)] max-w-5xl mx-auto">
               {teamMembers.map((member) => (
                 <div
                   key={member.id}

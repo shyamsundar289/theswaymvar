@@ -4,7 +4,7 @@ import { SharedHero } from "@/components/site/SharedHero";
 import { Video } from "lucide-react";
 import { images } from "@/data/images";
 
-import { getSeoMetadata } from "@/config/seo";
+import { getSeoMetadata, SITE_URL } from "@/config/seo";
 
 export const Route = createFileRoute("/videography")({
   head: () => ({

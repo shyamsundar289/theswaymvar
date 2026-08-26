@@ -29,8 +29,8 @@ export function Header() {
   
   const [open, setOpen] = useState(false);
   
-  // Apply transparent hero overlay logic ONLY to pages with a dark full-bleed image at the top
-  const isDarkText = pathname === "/about" || pathname === "/little-snap" || open;
+  // Apply dark text on all pages that don't have a dark hero image (i.e. white background pages)
+  const isDarkText = !isHeroRoute || open;
   
   // The user explicitly requested Hero-bound sticky positioning.
   const positionClass = "sticky";
@@ -107,7 +107,7 @@ export function Header() {
 
         <button
           onClick={() => setOpen((value) => !value)}
-          className="md:hidden p-2 -mr-2 text-white mix-blend-difference"
+          className="md:hidden p-2 -mr-2 transition-colors duration-300"
           aria-expanded={open}
           aria-label="Toggle menu"
         >

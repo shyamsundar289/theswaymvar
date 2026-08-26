@@ -2,7 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { Reveal } from "@/components/site/Reveal";
 import { images } from "@/data/images";
 
-import { getSeoMetadata } from "@/config/seo";
+import { getSeoMetadata, SITE_URL } from "@/config/seo";
 
 export const Route = createFileRoute('/services')({
   head: () => ({

@@ -20,7 +20,7 @@ import { StoryTimeline } from "@/components/site/StoryTimeline";
 import { InstagramGallery } from "@/components/site/InstagramGallery";
 
 
-import { getSeoMetadata, BUSINESS_INFO } from "@/config/seo";
+import { getSeoMetadata, BUSINESS_INFO, SITE_URL } from "@/config/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({

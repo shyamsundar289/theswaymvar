@@ -6,7 +6,7 @@ import { WhatsAppButton } from "@/components/site/CTA";
 import { PhotographyHero } from "@/components/site/PhotographyHero";
 import { PhotographyGridSection } from "@/components/photography/PhotographyGridSection";
 
-import { getSeoMetadata } from "@/config/seo";
+import { getSeoMetadata, SITE_URL } from "@/config/seo";
 
 export const Route = createFileRoute("/photography/")({
   head: () => ({

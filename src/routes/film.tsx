@@ -11,7 +11,7 @@ function FilmPage() {
   );
 }
 
-import { getSeoMetadata } from "@/config/seo";
+import { getSeoMetadata, SITE_URL } from "@/config/seo";
 
 export const Route = createFileRoute("/film")({
   head: () => ({

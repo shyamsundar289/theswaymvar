@@ -1,4 +1,4 @@
-export const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://www.theswaymvar.com';
+export const SITE_URL = import.meta.env['VITE_SITE_URL'] || 'https://www.theswaymvar.com';
 
 export const BUSINESS_INFO = {
   name: 'The Swaymvar',
