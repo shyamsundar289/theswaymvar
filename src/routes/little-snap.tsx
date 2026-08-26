@@ -225,42 +225,12 @@ function LittleSnapPage() {
       {/* ================= STICKY HERO SECTION ================= */}
       <div className="sticky top-0 w-full h-[60vh] md:h-[500px] lg:h-[580px] bg-white z-0">
         <Header />
-        <div className="absolute inset-0 overflow-hidden flex items-center justify-center font-sans pt-[60px] md:pt-[100px] z-0">
-          {/* Large Left Balloon (Lower) - Increased Animation */}
-          <motion.div
-            className="absolute left-[4%] md:left-[15%] top-[78%] md:top-[65%] -translate-y-1/2 w-[18vw] md:w-[13vw] max-w-[180px] min-w-[70px] z-10"
-            animate={{
-              y: [0, -25, 0],
-              x: [0, 8, -5, 0],
-              rotate: [0, -2, 2, 0],
-            }}
-            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <BalloonSVG />
-          </motion.div>
-
-          {/* Small Right Balloon (Higher) - Increased Animation */}
-          <motion.div
-            className="absolute right-[4%] md:right-[18%] top-[35%] -translate-y-1/2 w-[14vw] md:w-[9vw] max-w-[120px] min-w-[50px] z-10"
-            animate={{
-              y: [0, -20, 0],
-              x: [0, -6, 4, 0],
-              rotate: [0, 2, -1, 0],
-            }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          >
-            <BalloonSVG />
-          </motion.div>
-
-          {/* CENTER TYPOGRAPHY / LOGO */}
-          <div className="relative z-20 flex flex-col items-center justify-center -mt-8 md:-mt-4 pointer-events-none">
-            <img
-              src="/images/little-snap-logo.svg"
-              alt="Little Snap Photography"
-              draggable="false"
-              className="w-[75vw] max-w-[320px] md:max-w-[500px] lg:max-w-[600px] object-contain z-10 select-none pointer-events-none"
-            />
-          </div>
+        <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+          <img
+            src="/images/Home/little_snap/Little_snap_hero.png"
+            alt="Little Snap Hero"
+            className="w-full h-full object-cover object-center"
+          />
         </div>
       </div>
 
