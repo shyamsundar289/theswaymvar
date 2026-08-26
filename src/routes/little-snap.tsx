@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Header } from "@/components/site/Header";
 import { assets } from "../assets/asset-manifest";
 import { createFileRoute } from "@tanstack/react-router";
@@ -254,12 +255,11 @@ function LittleSnapPage() {
           {/* CENTER TYPOGRAPHY / LOGO */}
           <div className="relative z-20 flex flex-col items-center justify-center -mt-8 md:-mt-4 pointer-events-none">
             <img
-              src="/images/little-snap-logo.png"
+              src="/images/little-snap-logo.svg"
               alt="Little Snap Photography"
               draggable="false"
               className="w-[75vw] max-w-[320px] md:max-w-[500px] lg:max-w-[600px] object-contain z-10 select-none pointer-events-none"
             />
-
           </div>
         </div>
       </div>

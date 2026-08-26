@@ -93,4 +93,4 @@ export const assets = {
   fonts: {
     orangeAvenue: "/media/fonts/orangeavenuedemo-regular.otf",
   },
-};
+} as const;

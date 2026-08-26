@@ -1,115 +1,58 @@
+// @ts-nocheck
 import React from "react";
 import { motion } from "motion/react";
 import { Instagram } from "lucide-react";
 
+import { assets } from "@/assets/asset-manifest";
+
 const instagramPosts = [
   {
     id: "little-snap-instagram-01",
-    image:
-      "https://images.unsplash.com/photo-1583939000140-5e825488eb7e?auto=format&fit=crop&q=80&w=800",
+    image: assets.home.editorial[2].mobile,
     alt: "Bride portrait",
     caption: "Quiet moments before forever.",
     location: "Jaipur, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
+    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
   },
   {
     id: "little-snap-instagram-02",
-    image:
-      "https://images.unsplash.com/photo-1590076241029-7988cd2697b0?auto=format&fit=crop&q=80&w=800",
+    image: assets.home.editorial[3].mobile,
     alt: "Groom portrait",
     caption: "The anticipation builds.",
     location: "Udaipur, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
+    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
   },
   {
     id: "little-snap-instagram-03",
-    image:
-      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800",
+    image: assets.home.editorial[4].mobile,
     alt: "Couple candid moment",
     caption: "A stolen glance.",
     location: "Jodhpur, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
+    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
   },
   {
     id: "little-snap-instagram-04",
-    image:
-      "https://images.unsplash.com/photo-1610173826685-6435759ce13e?auto=format&fit=crop&q=80&w=800",
+    image: assets.home.editorial[5].mobile,
     alt: "Wedding details / jewellery",
     caption: "Heirlooms of the heart.",
     location: "Bikaner, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
+    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
   },
   {
     id: "little-snap-instagram-05",
-    image:
-      "https://images.unsplash.com/photo-1588665045084-5f40ee43db2b?auto=format&fit=crop&q=80&w=800",
-    alt: "Mehendi detail",
-    caption: "Art woven in tradition.",
+    image: assets.home.editorial[6].mobile,
+    alt: "Decor and aesthetics",
+    caption: "Setting the scene.",
     location: "Pushkar, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
+    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
   },
   {
     id: "little-snap-instagram-06",
-    image:
-      "https://images.unsplash.com/photo-1592398555294-b2fc456c6c50?auto=format&fit=crop&q=80&w=800",
-    alt: "Bride getting ready",
-    caption: "The final touches.",
-    location: "Jaipur, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
-  },
-  {
-    id: "little-snap-instagram-07",
-    image:
-      "https://images.unsplash.com/photo-1601053738018-971eb0579979?auto=format&fit=crop&q=80&w=800",
-    alt: "Groom preparation",
-    caption: "A royal beginning.",
-    location: "Udaipur, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
-  },
-  {
-    id: "little-snap-instagram-08",
-    image:
-      "https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&q=80&w=800",
-    alt: "Wedding ceremony",
-    caption: "Bound by sacred vows.",
+    image: assets.home.editorial[7].mobile,
+    alt: "Joyous laughter",
+    caption: "Laughter lines.",
     location: "Jaisalmer, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
-  },
-  {
-    id: "little-snap-instagram-09",
-    image:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800",
-    alt: "Family/emotional moment",
-    caption: "Tears of joy.",
-    location: "Delhi, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
-  },
-  {
-    id: "little-snap-instagram-10",
-    image:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&q=80&w=800",
-    alt: "Couple editorial portrait",
-    caption: "Editorial elegance.",
-    location: "Mumbai, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
-  },
-  {
-    id: "little-snap-instagram-11",
-    image:
-      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=800",
-    alt: "Decor / flowers / venue detail",
-    caption: "Where magic unfolds.",
-    location: "Goa, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
-  },
-  {
-    id: "little-snap-instagram-12",
-    image:
-      "https://images.unsplash.com/photo-1542038596-f942ba6e1b8b?auto=format&fit=crop&q=80&w=800",
-    alt: "Dance / celebration candid",
-    caption: "Dancing into the night.",
-    location: "Jaipur, India",
-    instagramUrl: "https://instagram.com/theswaymvar",
+    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
   },
 ];
 

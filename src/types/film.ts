@@ -1,4 +1,4 @@
-export const FILM_CATEGORIES = ["All", "Short film", "Documentary", "Same-day edit"] as const;
+export const FILM_CATEGORIES = ["All", "Short film", "Documentary", "Same-day edit", "Pre-Wedding Film"] as const;
 
 export type FilmCategory = (typeof FILM_CATEGORIES)[number];
 

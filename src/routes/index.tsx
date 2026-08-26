@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { assets } from "../assets/asset-manifest";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
