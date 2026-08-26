@@ -5,6 +5,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import React from "react";
 import { motion } from "motion/react";
 import { LittleSnapInstagramSection } from "../components/site/LittleSnapInstagramSection";
+import littleSnapHeroImg from "@/assets/little_snap_hero.png";
 
 import { getSeoMetadata, SITE_URL } from "@/config/seo";
 export const Route = createFileRoute("/little-snap")({
@@ -227,7 +228,7 @@ function LittleSnapPage() {
         <Header />
         <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
           <img
-            src="/images/Home/Little_snap/little_snap_hero.png"
+            src={littleSnapHeroImg}
             alt="Little Snap Hero"
             className="w-full h-full object-cover object-center"
           />
