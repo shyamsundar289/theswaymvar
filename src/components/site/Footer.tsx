@@ -150,9 +150,13 @@ export function Footer() {
           </div>
 
           {/* BOTTOM ROW */}
-          <div className="w-full border-t border-[#2a2a2a] pt-[clamp(0.75rem,2vw,1.5rem)] flex items-center justify-center">
+          <div className="w-full border-t border-[#2a2a2a] pt-[clamp(0.75rem,2vw,1.5rem)] flex flex-col items-center justify-center gap-4">
             <div className="font-sans text-[clamp(7.5px,1vw,10px)] uppercase tracking-[0.2em] text-[#8b867c] text-center px-2 md:px-4 whitespace-nowrap">
-              © 2026 THE SWAYAMVAR. ALL RIGHTS RESERVED.
+              © {new Date().getFullYear()} THE SWAYMVAR. ALL RIGHTS RESERVED.
+            </div>
+            
+            <div className="max-w-4xl font-sans text-[clamp(8px,1vw,12px)] leading-relaxed text-[#666666] text-center px-4 md:px-8">
+              The Swaymvar is a wedding photography and cinematic wedding films studio based in Bikaner, Rajasthan, India, documenting weddings through photography, videography and visual storytelling across Rajasthan and destination wedding locations.
             </div>
           </div>
         </Reveal>

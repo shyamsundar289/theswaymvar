@@ -5,7 +5,16 @@ import React from "react";
 import { motion } from "motion/react";
 import { LittleSnapInstagramSection } from "../components/site/LittleSnapInstagramSection";
 
+import { getSeoMetadata, SITE_URL } from "@/config/seo";
 export const Route = createFileRoute("/little-snap")({
+  head: () => ({
+    meta: getSeoMetadata(
+      "Little Snap | Candid Wedding Photography in Bikaner | The Swaymvar",
+      "Little Snap by The Swaymvar offers candid wedding photography and short-form visual stories. Based in Bikaner, Rajasthan.",
+      "/little-snap"
+    ),
+    links: [{ rel: "canonical", href: `${SITE_URL}/little-snap` }],
+  }),
   component: LittleSnapPage,
 });
 
@@ -55,6 +64,8 @@ const BalloonSVG = ({ className }: { className?: string }) => (
         <rect x="0" y="120" width="200" height="35" fill="#d69b36" />
         {/* Orange Stripe 2 */}
         <rect x="0" y="155" width="200" height="35" fill="#c4642b" />
+
+
 
         {/* Vertical Gores (3D curves) */}
         <line x1="100" y1="10" x2="100" y2="240" stroke="rgba(0,0,0,0.15)" strokeWidth="0.75" />
@@ -240,14 +251,14 @@ function LittleSnapPage() {
             <BalloonSVG />
           </motion.div>
 
-          {/* CENTER TYPOGRAPHY */}
+          {/* CENTER TYPOGRAPHY / LOGO */}
           <div className="relative z-20 flex flex-col items-center justify-center -mt-8 md:-mt-4 pointer-events-none">
-            <h1 className="font-display text-[#42221b] text-[13vw] md:text-[5.5rem] lg:text-[7rem] leading-[0.95] text-center tracking-tight z-10 antialiased">
-              Little
-              <br />
-              <span className="relative left-[0.1em]">Snap</span>
-            </h1>
-            <span className="font-script text-[#42221b] text-5xl md:text-7xl lg:text-[5.5rem] mt-2 md:mt-4 block -rotate-2 opacity-90 drop-shadow-sm">
+            <img
+              src="/images/little-snap-logo.png"
+              alt="Little Snap Photography"
+              className="w-[85vw] max-w-[350px] md:max-w-[500px] lg:max-w-[600px] object-contain z-10"
+            />
+            <span className="font-script text-[#42221b] text-4xl md:text-6xl lg:text-[5rem] -mt-4 md:-mt-8 block -rotate-2 opacity-90">
               Gallery
             </span>
           </div>

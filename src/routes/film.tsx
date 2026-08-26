@@ -11,6 +11,16 @@ function FilmPage() {
   );
 }
 
+import { getSeoMetadata } from "@/config/seo";
+
 export const Route = createFileRoute("/film")({
+  head: () => ({
+    meta: getSeoMetadata(
+      "Cinematic Wedding Films in Bikaner, Rajasthan | The Swaymvar",
+      "Explore cinematic wedding films and wedding videography by The Swaymvar. Based in Bikaner, capturing real moments across Rajasthan and destination weddings.",
+      "/film"
+    ),
+    links: [{ rel: "canonical", href: `${SITE_URL}/film` }],
+  }),
   component: FilmPage,
 });

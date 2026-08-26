@@ -14,6 +14,8 @@ import appCss from "../styles.css?url";
 import filmTokensCss from "../styles/film-tokens.css?url";
 import { Footer } from "@/components/site/Footer";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
+import { getSeoMetadata, BUSINESS_INFO, SITE_URL } from "@/config/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 function NotFoundComponent() {
   return (
@@ -63,20 +65,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { title: "theswaymvar — Cinematic Wedding Photography & Films" },
-      {
-        name: "description",
-        content:
-          "theswaymvar is a wedding photography and film studio making quiet, cinematic records of celebrations across India and worldwide.",
-      },
-      { name: "author", content: "theswaymvar" },
-      { property: "og:title", content: "theswaymvar — Cinematic Wedding Photography & Films" },
-      {
-        property: "og:description",
-        content: "Quiet, cinematic wedding photography and films. India and worldwide.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "author", content: "The Swaymvar" },
+      ...getSeoMetadata(
+        "The Swaymvar — Wedding Photography & Films in Bikaner",
+        BUSINESS_INFO.description,
+        "/"
+      ),
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -121,8 +115,37 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": BUSINESS_INFO.name,
+    "url": SITE_URL
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "LocalBusiness"],
+    "name": BUSINESS_INFO.name,
+    "url": SITE_URL,
+    "logo": `${SITE_URL}${assets.misc.favicon}`,
+    "image": `${SITE_URL}${assets.misc.favicon}`,
+    "description": BUSINESS_INFO.description,
+    "founder": {
+      "@type": "Person",
+      "name": BUSINESS_INFO.founder
+    },
+    "telephone": BUSINESS_INFO.telephone,
+    "email": BUSINESS_INFO.email,
+    "sameAs": BUSINESS_INFO.social,
+    "areaServed": BUSINESS_INFO.areaServed,
+    "knowsAbout": BUSINESS_INFO.knowsAbout,
+    "address": BUSINESS_INFO.address
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={organizationSchema} />
       <SmoothScroll />
       <main>
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

@@ -5,6 +5,8 @@ import { films } from "@/data/films";
 import { FilmPlayer } from "@/components/film/FilmPlayer";
 import { FilmStories } from "@/components/film/FilmStories";
 import { Reveal } from "@/components/site/Reveal";
+import { getSeoMetadata, BUSINESS_INFO, SITE_URL } from "@/config/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const Route = createFileRoute("/films/$slug")({
   loader: ({ params: { slug } }) => {
@@ -13,13 +15,11 @@ export const Route = createFileRoute("/films/$slug")({
     return { film };
   },
   head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData.film.title} | theswaymvar films` },
-      {
-        name: "description",
-        content: loaderData.film.description || "A wedding film by theswaymvar.",
-      },
-    ],
+    meta: getSeoMetadata(
+      `${loaderData.film.title} | Cinematic Wedding Films | The Swaymvar`,
+      loaderData.film.description || `Cinematic wedding film of ${loaderData.film.couple} by The Swaymvar in ${loaderData.film.location}.`,
+      `/films/${loaderData.film.slug}`
+    ),
   }),
   component: FilmDetail,
 });
@@ -28,8 +28,26 @@ import { Header } from "@/components/site/Header";
 function FilmDetail() {
   const { film } = Route.useLoaderData();
 
+  const videoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": `${film.title} - ${film.couple}`,
+    "description": film.description || `Cinematic wedding film of ${film.couple} at ${film.location}`,
+    "thumbnailUrl": `${SITE_URL}${film.poster}`,
+    "contentUrl": `${SITE_URL}${film.video}`,
+    "publisher": {
+      "@type": "Organization",
+      "name": BUSINESS_INFO.name,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/favicon.ico`
+      }
+    }
+  };
+
   return (
     <div className="bg-background pt-[var(--header-height)] min-h-[calc(100svh-var(--header-height))]">
+      <JsonLd data={videoSchema} />
       <div className="relative w-full">
         <Header />
         <div className="shell py-8 md:py-12">

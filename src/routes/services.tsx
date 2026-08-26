@@ -2,15 +2,16 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { Reveal } from "@/components/site/Reveal";
 import { images } from "@/data/images";
 
+import { getSeoMetadata } from "@/config/seo";
+
 export const Route = createFileRoute('/services')({
   head: () => ({
-    meta: [
-      { title: "Your Memories — theswayamvar" },
-      {
-        name: "description",
-        content: "A curated collection of our most cherished photographs.",
-      },
-    ],
+    meta: getSeoMetadata(
+      "Wedding Photography & Videography Services | The Swaymvar",
+      "Explore the candid wedding photography, cinematic wedding films, and videography services offered by The Swaymvar in Bikaner, Rajasthan.",
+      "/services"
+    ),
+    links: [{ rel: "canonical", href: `${SITE_URL}/services` }],
   }),
   component: YourMemoriesPage,
 });

@@ -7,15 +7,16 @@ import { images } from "@/data/images";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+import { getSeoMetadata } from "@/config/seo";
+
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [
-      { title: "About — theswayamvar" },
-      {
-        name: "description",
-        content: "Cinematic Wedding Films & Photography. Quiet records of celebrations.",
-      },
-    ],
+    meta: getSeoMetadata(
+      "About The Swaymvar — Wedding Photographer in Bikaner",
+      "Learn about The Swaymvar, a wedding photography and cinematic wedding films studio based in Bikaner, Rajasthan, India.",
+      "/about"
+    ),
+    links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
   }),
   component: AboutPage,
 });

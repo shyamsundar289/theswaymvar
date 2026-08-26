@@ -4,15 +4,16 @@ import { SharedHero } from "@/components/site/SharedHero";
 import { Video } from "lucide-react";
 import { images } from "@/data/images";
 
+import { getSeoMetadata } from "@/config/seo";
+
 export const Route = createFileRoute("/videography")({
   head: () => ({
-    meta: [
-      { title: "Videography — theswaymvar" },
-      {
-        name: "description",
-        content: "Cinematic films. Real moments.",
-      },
-    ],
+    meta: getSeoMetadata(
+      "Cinematic Wedding Films & Videography in Bikaner | The Swaymvar",
+      "The Swaymvar creates cinematic wedding films and videography in Bikaner, Rajasthan. Quiet, real records of your celebrations and destination weddings.",
+      "/videography"
+    ),
+    links: [{ rel: "canonical", href: `${SITE_URL}/videography` }],
   }),
   component: VideographyPage,
 });

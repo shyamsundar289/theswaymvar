@@ -3,7 +3,17 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import { getSeoMetadata } from "@/config/seo";
+
 export const Route = createFileRoute("/crew")({
+  head: () => ({
+    meta: getSeoMetadata(
+      "The Crew | The Swaymvar - Wedding Photographers in Bikaner",
+      "Meet the talented crew of wedding photographers, videographers, and storytellers at The Swaymvar in Bikaner, Rajasthan.",
+      "/crew"
+    ),
+    links: [{ rel: "canonical", href: `${SITE_URL}/crew` }],
+  }),
   component: CrewPage,
 });
 

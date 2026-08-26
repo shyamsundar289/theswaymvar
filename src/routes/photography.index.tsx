@@ -6,24 +6,16 @@ import { WhatsAppButton } from "@/components/site/CTA";
 import { PhotographyHero } from "@/components/site/PhotographyHero";
 import { PhotographyGridSection } from "@/components/photography/PhotographyGridSection";
 
+import { getSeoMetadata } from "@/config/seo";
+
 export const Route = createFileRoute("/photography/")({
   head: () => ({
-    meta: [
-      { title: "Photography — Wedding Stories | theswaymvar" },
-      {
-        name: "description",
-        content:
-          "Selected wedding stories photographed and filmed by theswaymvar — Udaipur, Alibaug, Jaipur, Coonoor, Lake Como and Goa.",
-      },
-      {
-        property: "og:title",
-        content: "Photography — Wedding Stories | theswaymvar",
-      },
-      {
-        property: "og:description",
-        content: "Selected wedding stories, told whole.",
-      },
-    ],
+    meta: getSeoMetadata(
+      "Wedding Photography in Bikaner, Rajasthan | The Swaymvar",
+      "Selected wedding stories and candid wedding photography across Rajasthan and destination locations by The Swaymvar.",
+      "/photography"
+    ),
+    links: [{ rel: "canonical", href: `${SITE_URL}/photography` }],
   }),
   component: PhotographyPage,
 });

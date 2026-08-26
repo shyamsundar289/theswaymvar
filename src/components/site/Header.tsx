@@ -107,7 +107,7 @@ export function Header() {
 
         <button
           onClick={() => setOpen((value) => !value)}
-          className="md:hidden p-2 -mr-2 text-white"
+          className="md:hidden p-2 -mr-2 text-white mix-blend-difference"
           aria-expanded={open}
           aria-label="Toggle menu"
         >
@@ -121,7 +121,7 @@ export function Header() {
       {open && typeof document !== "undefined" && createPortal(
         <div
           onClick={() => setOpen(false)}
-          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-white/50 backdrop-blur-md overflow-y-auto overflow-x-hidden pointer-events-auto"
+          className="fixed inset-0 z-[100] md:hidden flex flex-col bg-white/20 backdrop-blur-sm overflow-y-auto overflow-x-hidden pointer-events-auto"
           style={{ top: 0 }}
         >
           {/* Top bar: logo + Close — mirrors desktop header height */}

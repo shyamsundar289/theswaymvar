@@ -20,24 +20,16 @@ import { StoryTimeline } from "@/components/site/StoryTimeline";
 import { InstagramGallery } from "@/components/site/InstagramGallery";
 
 
+import { getSeoMetadata, BUSINESS_INFO } from "@/config/seo";
+
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      { title: "theswaymvar — Cinematic Wedding Photography & Films" },
-      {
-        name: "description",
-        content:
-          "A wedding photography and film studio making quiet, cinematic records of celebrations across India and worldwide. By enquiry only.",
-      },
-      {
-        property: "og:title",
-        content: "theswaymvar — Cinematic Wedding Photography & Films",
-      },
-      {
-        property: "og:description",
-        content: "Quiet, cinematic wedding photography and films. India and worldwide.",
-      },
-    ],
+    meta: getSeoMetadata(
+      "The Swaymvar — Wedding Photography & Films in Bikaner",
+      BUSINESS_INFO.description,
+      "/"
+    ),
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Home,
 });

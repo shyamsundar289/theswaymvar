@@ -3,6 +3,7 @@ import { stories, type Story } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { CouplePhotoGrid } from "@/components/site/CouplePhotoGrid";
 import { WhatsAppButton } from "@/components/site/CTA";
+import { getSeoMetadata, SITE_URL } from "@/config/seo";
 
 export const Route = createFileRoute("/photography/$slug")({
   loader: ({ params }) => {
@@ -17,14 +18,10 @@ export const Route = createFileRoute("/photography/$slug")({
       };
     }
     const { story } = loaderData;
-    const title = `${story.couple}, ${story.location} — theswaymvar`;
+    const title = `${story.couple} | Wedding Photography in ${story.location} | The Swaymvar`;
     return {
-      meta: [
-        { title },
-        { name: "description", content: story.intro },
-        { property: "og:title", content: title },
-        { property: "og:description", content: story.intro },
-      ],
+      meta: getSeoMetadata(title, story.intro || `Wedding photography of ${story.couple} in ${story.location} by The Swaymvar.`, `/photography/${story.slug}`),
+      links: [{ rel: "canonical", href: `${SITE_URL}/photography/${story.slug}` }],
     };
   },
   notFoundComponent: StoryNotFound,
