@@ -227,7 +227,7 @@ function LittleSnapPage() {
         <Header />
         <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
           <img
-            src="/media/images/home/little_snap_hero.png"
+            src="/images/Home/Little_snap/little_snap_hero.png"
             alt="Little Snap Hero"
             className="w-full h-full object-cover object-center"
           />
