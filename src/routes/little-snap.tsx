@@ -226,11 +226,14 @@ function LittleSnapPage() {
       {/* ================= STICKY HERO SECTION ================= */}
       <div className="sticky top-0 left-0 w-full h-[60vh] md:h-[500px] lg:h-[580px] overflow-hidden z-0 bg-[#ece9e4]">
         <Header />
-        <img
-          src={littleSnapHeroImg}
-          alt="Little Snap Hero"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-        />
+        <picture>
+          <source media="(min-width: 768px)" srcSet={littleSnapHeroImg} />
+          <img
+            src="/images/littlesnap/little_snap_mobile.png"
+            alt="Little Snap Hero"
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+          />
+        </picture>
         {/* Subtle overlay to ensure header visibility on mobile */}
         <div className="absolute inset-0 bg-black/10 pointer-events-none" />
       </div>
