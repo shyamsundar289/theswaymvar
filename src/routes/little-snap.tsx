@@ -6,6 +6,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { LittleSnapInstagramSection } from "../components/site/LittleSnapInstagramSection";
 import littleSnapHeroImg from "@/assets/little_snap_hero.png";
+import littleSnapMobileImg from "@/assets/little_snap_mobile.png";
 
 import { getSeoMetadata, SITE_URL } from "@/config/seo";
 export const Route = createFileRoute("/little-snap")({
@@ -229,7 +230,7 @@ function LittleSnapPage() {
         <picture>
           <source media="(min-width: 768px)" srcSet={littleSnapHeroImg} />
           <img
-            src="/images/littlesnap/little_snap_mobile.png"
+            src={littleSnapMobileImg}
             alt="Little Snap Hero"
             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
           />
