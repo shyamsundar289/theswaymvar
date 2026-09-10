@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { featuredFilms } from "@/data/site";
 import { CinematicVideoCard } from "./CinematicVideoCard";
 import { Reveal } from "./Reveal";
@@ -6,6 +6,20 @@ import { Reveal } from "./Reveal";
 export function VideoShowcaseSection() {
   // Keeps track of which video is currently active (playing)
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+
+  // Handle clicks outside the videos to stop them and return to cover
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      // Ignore if clicking inside a video card
+      if ((e.target as Element).closest('.video-card-container')) {
+        return;
+      }
+      setActiveVideoId(null);
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   // Take only the first 4 if the array is longer
   const displayFilms = featuredFilms.slice(0, 4);

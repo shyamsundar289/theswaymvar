@@ -37,11 +37,41 @@ export function CinematicVideoCard({ film, isActive, onActivate }: CinematicVide
 
   // Sync isPlaying state with the actual video state and isActive prop
   useEffect(() => {
-    if (!isActive && videoRef.current && isPlaying) {
+    if (!isActive && videoRef.current && hasStarted) {
       videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      videoRef.current.load(); // Reloads video to show poster again
       setIsPlaying(false);
+      setHasStarted(false);
+      setShowControls(false);
     }
-  }, [isActive, isPlaying]);
+  }, [isActive, hasStarted]);
+
+  // Auto-stop video when scrolled out of view
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && isPlaying) {
+            if (videoRef.current) {
+              videoRef.current.pause();
+              videoRef.current.currentTime = 0;
+              videoRef.current.load(); // Reloads video to show poster again
+            }
+            setIsPlaying(false);
+            setHasStarted(false);
+            setShowControls(false);
+          }
+        });
+      },
+      { threshold: 0 } // Triggers as soon as it's completely out of view
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [isPlaying]);
 
   const togglePlay = (e?: ReactMouseEvent) => {
     e?.stopPropagation();
@@ -132,7 +162,7 @@ export function CinematicVideoCard({ film, isActive, onActivate }: CinematicVide
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-video rounded-[12px] overflow-hidden bg-black"
+      className="video-card-container relative w-full aspect-video rounded-[12px] overflow-hidden bg-black"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={togglePlay}
@@ -236,7 +266,7 @@ export function CinematicVideoCard({ film, isActive, onActivate }: CinematicVide
               className="text-[12px] font-sans font-medium hover:opacity-70 transition-opacity"
               aria-label="Playback Speed"
             >
-              {playbackRate}×
+              Speed: {playbackRate}×
             </button>
 
             {showSpeedMenu && (

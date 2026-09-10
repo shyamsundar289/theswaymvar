@@ -2,7 +2,8 @@
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.jpeg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
-
 # Instagram grid images should be stored as normal Git files
 public/grid-desktop/*.png -filter -diff -merge
 public/grid-mobile/*.png -filter -diff -merge
+public/video&cover/*.mp4 filter=lfs diff=lfs merge=lfs -text
+public/video&cover/*.png filter=lfs diff=lfs merge=lfs -text

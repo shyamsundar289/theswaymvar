@@ -11,70 +11,68 @@ export type LibraryFilm = {
   year?: string;
 };
 
-const posters = [
-  assets.recentWork.recent01,
-  assets.recentWork.recent02,
-  assets.recentWork.recent03,
-  assets.misc.image4,
-  assets.misc.image5,
-  assets.misc.image6,
-  assets.misc.dscf0463,
-];
-
-const actualVideos = [
-  assets.videos.background.wedding,
-  assets.videos.background.celebration,
-  assets.videos.background.prewedding,
-  assets.videos.background.portraits,
-  assets.videos.background.rituals,
-  assets.videos.background.videoseen,
-  assets.videos.hero,
-  assets.videos.showcase,
-  assets.videos.background.ivorySeries,
-  assets.videos.films.film01,
-  assets.videos.films.film03,
-  assets.videos.films.film05,
-  assets.videos.films.film06,
-  assets.videos.films.film07,
-  assets.videos.films.film08,
-  assets.videos.films.film09,
-];
-
-const couples = [
-  "Meher & Arjun",
-  "Tara & Rohan",
-  "Alia & Kabir",
-  "Simran & Veer",
-  "Ira & Vikram",
-  "Bhawana & Abhishek",
-  "Saira & Dev",
-  "Ananya & Rohan",
-  "Naina & Siddharth",
-  "Riya & Karan",
-  "Priya & Aditya",
-  "Divya & Rahul",
-];
-
-const locations = [
-  "Udaipur, Rajasthan",
-  "Lake Como, Italy",
-  "Goa, India",
-  "Alibaug, Maharashtra",
-  "Jaipur, Rajasthan",
-  "Mumbai, Maharashtra",
-  "Jodhpur, Rajasthan",
-  "Kerala, India",
-];
-
-export const filmLibraryData: LibraryFilm[] = Array.from({ length: 45 }).map((_, i) => {
-  const isPreWedding = i % 3 === 0;
-  return {
-    id: `film-${i + 1}`,
-    couple: couples[i % couples.length],
-    category: isPreWedding ? "PRE-WEDDING" : "WEDDING",
-    posterImg: posters[i % posters.length],
-    videoUrl: i < actualVideos.length ? actualVideos[i] : null,
-    location: locations[i % locations.length],
+export const filmLibraryData: LibraryFilm[] = [
+  {
+    id: "film-1",
+    couple: "Chanchal & Harshit",
+    category: "WEDDING",
+    posterImg: "/video&cover/videocover1.png",
+    videoUrl: "/video&cover/11.mp4",
+    location: "",
     year: "2024",
-  };
-});
+  },
+  {
+    id: "film-2",
+    couple: "Nitin & Rajshree",
+    category: "WEDDING",
+    posterImg: "/video&cover/videocover2.png",
+    videoUrl: "/video&cover/12.mp4",
+    location: "",
+    year: "2024",
+  },
+  {
+    id: "film-3",
+    couple: "Bhawana & Abhishek",
+    category: "WEDDING",
+    posterImg: "/video&cover/videocover3.png",
+    videoUrl: "/video&cover/13.mp4",
+    location: "",
+    year: "2024",
+  },
+  {
+    id: "film-4",
+    couple: "Hemlata & Giriraj",
+    category: "WEDDING",
+    posterImg: "/video&cover/videocover4.png",
+    videoUrl: "/video&cover/14.mp4",
+    location: "",
+    year: "2024",
+  },
+  {
+    id: "film-5",
+    couple: "Khusboo",
+    category: "WEDDING",
+    posterImg: "/video&cover/videocover5.png",
+    videoUrl: "/video&cover/15.mp4",
+    location: "",
+    year: "2024",
+  },
+  {
+    id: "film-6",
+    couple: "Khusboo",
+    category: "WEDDING",
+    posterImg: "/video&cover/videocover6.png",
+    videoUrl: "/video&cover/16.mp4",
+    location: "",
+    year: "2024",
+  },
+  {
+    id: "film-7",
+    couple: "",
+    category: "WEDDING",
+    posterImg: "/video&cover/videocover7.png",
+    videoUrl: "/video&cover/17.mp4",
+    location: "",
+    year: "2024",
+  },
+];
