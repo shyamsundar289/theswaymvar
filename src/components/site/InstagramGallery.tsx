@@ -55,12 +55,13 @@ export function InstagramGallery() {
                     className="aspect-square relative w-full bg-muted block group overflow-hidden"
                   >
                     <picture>
-                      <source media="(max-width: 767px)" srcSet={`/grid-mobile/${num}.png`} />
+                      <source media="(max-width: 767px)" srcSet={`/grid-mobile/${num}.webp`} />
                       <img
-                        src={`/grid-desktop/${num}.png`}
+                        src={`/grid-desktop/${num}.webp`}
                         alt={`Instagram post ${num}`}
                         className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
-                        loading="lazy"
+                        loading={idx < 3 ? "eager" : "lazy"}
+                        decoding="async"
                       />
                     </picture>
                     {/* DESKTOP HOVER OVERLAY */}
