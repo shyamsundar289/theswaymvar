@@ -133,7 +133,7 @@ export const featuredFilms = [
     location: "",
     category: "Wedding Film",
     videoUrl: "/video-cover/11.mp4",
-    posterImg: "/video-cover/videocover1.png",
+    posterImg: "/video-cover/videocover1.webp",
   },
   {
     id: "2",
@@ -141,7 +141,7 @@ export const featuredFilms = [
     location: "",
     category: "Cinematic Highlights",
     videoUrl: "/video-cover/12.mp4",
-    posterImg: "/video-cover/videocover2.png",
+    posterImg: "/video-cover/videocover2.webp",
   },
   {
     id: "3",
@@ -149,7 +149,7 @@ export const featuredFilms = [
     location: "",
     category: "Destination Film",
     videoUrl: "/video-cover/13.mp4",
-    posterImg: "/video-cover/videocover3.png",
+    posterImg: "/video-cover/videocover3.webp",
   },
   {
     id: "4",
@@ -157,7 +157,7 @@ export const featuredFilms = [
     location: "",
     category: "The Celebration",
     videoUrl: "/video-cover/14.mp4",
-    posterImg: "/video-cover/videocover4.png",
+    posterImg: "/video-cover/videocover4.webp",
   },
   {
     id: "5",
@@ -165,7 +165,7 @@ export const featuredFilms = [
     location: "",
     category: "Wedding Film",
     videoUrl: "/video-cover/15.mp4",
-    posterImg: "/video-cover/videocover5.png",
+    posterImg: "/video-cover/videocover5.webp",
   },
   {
     id: "6",
@@ -173,7 +173,7 @@ export const featuredFilms = [
     location: "",
     category: "Wedding Film",
     videoUrl: "/video-cover/16.mp4",
-    posterImg: "/video-cover/videocover6.png",
+    posterImg: "/video-cover/videocover6.webp",
   },
   {
     id: "7",
@@ -181,6 +181,6 @@ export const featuredFilms = [
     location: "",
     category: "Wedding Film",
     videoUrl: "/video-cover/17.mp4",
-    posterImg: "/video-cover/videocover7.png",
+    posterImg: "/video-cover/videocover7.webp",
   },
 ];
