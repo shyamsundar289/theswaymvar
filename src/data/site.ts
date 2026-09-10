@@ -132,7 +132,7 @@ export const featuredFilms = [
     couple: "Chanchal & Harshit",
     location: "",
     category: "Wedding Film",
-    videoUrl: "/video-cover/11.mp4",
+    videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/11.mp4",
     posterImg: "/video-cover/videocover1.webp",
   },
   {
@@ -140,7 +140,7 @@ export const featuredFilms = [
     couple: "Nitin & Rajshree",
     location: "",
     category: "Cinematic Highlights",
-    videoUrl: "/video-cover/12.mp4",
+    videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/12.mp4",
     posterImg: "/video-cover/videocover2.webp",
   },
   {
@@ -148,7 +148,7 @@ export const featuredFilms = [
     couple: "Bhawana & Abhishek",
     location: "",
     category: "Destination Film",
-    videoUrl: "/video-cover/13.mp4",
+    videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/13.mp4",
     posterImg: "/video-cover/videocover3.webp",
   },
   {
@@ -156,7 +156,7 @@ export const featuredFilms = [
     couple: "Hemlata & Giriraj",
     location: "",
     category: "The Celebration",
-    videoUrl: "/video-cover/14.mp4",
+    videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/14.mp4",
     posterImg: "/video-cover/videocover4.webp",
   },
   {
@@ -164,7 +164,7 @@ export const featuredFilms = [
     couple: "Khusboo",
     location: "",
     category: "Wedding Film",
-    videoUrl: "/video-cover/15.mp4",
+    videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/15.mp4",
     posterImg: "/video-cover/videocover5.webp",
   },
   {
@@ -172,7 +172,7 @@ export const featuredFilms = [
     couple: "Khusboo",
     location: "",
     category: "Wedding Film",
-    videoUrl: "/video-cover/16.mp4",
+    videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/16.mp4",
     posterImg: "/video-cover/videocover6.webp",
   },
   {
@@ -180,7 +180,7 @@ export const featuredFilms = [
     couple: "",
     location: "",
     category: "Wedding Film",
-    videoUrl: "/video-cover/17.mp4",
+    videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/17.mp4",
     posterImg: "/video-cover/videocover7.webp",
   },
 ];
