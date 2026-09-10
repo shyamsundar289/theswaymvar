@@ -32,3 +32,4 @@ dist-ssr
 *.sw?
 
 public/images/Home/.tmp.driveupload/
+.vercel

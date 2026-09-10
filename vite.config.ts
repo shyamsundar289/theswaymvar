@@ -4,7 +4,22 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import path from "node:path";
+import fs from "node:fs";
 import { autoWebpPlugin } from "./vite-plugin-auto-webp.ts";
+
+// Auto-rename folders to bypass ad-blockers during dev/build
+const publicDir = path.resolve(import.meta.dirname, 'public');
+const instaDesktopPath = path.join(publicDir, 'instadesktop');
+const instaMobilePath = path.join(publicDir, 'instamobile');
+
+if (fs.existsSync(instaDesktopPath)) {
+  fs.renameSync(instaDesktopPath, path.join(publicDir, 'grid-desktop'));
+  console.log("Renamed public/instadesktop to public/grid-desktop to bypass ad-blockers");
+}
+if (fs.existsSync(instaMobilePath)) {
+  fs.renameSync(instaMobilePath, path.join(publicDir, 'grid-mobile'));
+  console.log("Renamed public/instamobile to public/grid-mobile to bypass ad-blockers");
+}
 
 export default defineConfig({
   plugins: [
