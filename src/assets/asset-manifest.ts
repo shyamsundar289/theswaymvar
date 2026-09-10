@@ -62,12 +62,13 @@ export const assets = {
     showcase: "/media/videos/showcase/the-swayamvar-2.mp4",
     background: {
       wedding: "/media/videos/background/wedding.mp4",
-      celebration: "/media/videos/background/celebration.mp4",
-      portraits: "/media/videos/background/portraits.mp4",
-      prewedding: "/media/videos/background/prewedding.mp4",
-      rituals: "/media/videos/background/rituals.mp4",
-      videoseen: "/media/videos/background/videoseen.mp4",
-      ivorySeries: "/media/videos/background/ivory-series.mp4",
+      // The following videos are missing from the repository, falling back to wedding.mp4 to prevent 404s
+      celebration: "/media/videos/background/wedding.mp4",
+      portraits: "/media/videos/background/wedding.mp4",
+      prewedding: "/media/videos/background/wedding.mp4",
+      rituals: "/media/videos/background/wedding.mp4",
+      videoseen: "/media/videos/background/wedding.mp4",
+      ivorySeries: "/media/videos/background/wedding.mp4",
     },
     films: {
       film01: "/media/videos/films/film-01.mp4",
