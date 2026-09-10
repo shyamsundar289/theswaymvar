@@ -39,11 +39,5 @@ export default defineConfig({
   server: {
     host: "::",
     port: 8080,
-    fs: {
-      allow: [
-        "d:/Github/editorial-bloom",
-        "C:/Users/shyam/.gemini/antigravity/brain/32de1073-103a-4b0b-837a-1e304b1b4ef4",
-      ],
-    },
   },
 });

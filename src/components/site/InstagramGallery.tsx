@@ -1,25 +1,24 @@
 import { Reveal } from "@/components/site/Reveal";
-import { images } from "@/data/images";
+import { Instagram } from "lucide-react";
 
 const INSTAGRAM_URL = "https://www.instagram.com/theswaymvar/";
 
-export function InstagramGallery() {
-  // Exactly 12 curated luxury wedding images
-  const gridImages = [
-    { src: images.moments[3], alt: "Intimate bride and groom portrait" },
-    { src: images.story.opener, alt: "Wedding venue and architecture" },
-    { src: images.moments[7], alt: "Black and white bridal portrait" },
-    { src: images.moments[0], alt: "Candid couple lifestyle image" },
-    { src: images.moments[5], alt: "Wedding landscape ceremony" },
-    { src: images.story.three, alt: "Editorial bridal portrait" },
-    { src: images.photo.featuredHero, alt: "Architectural wedding image" },
-    { src: images.moments[2], alt: "Intimate black and white couple image" },
-    { src: images.photo.featuredRight, alt: "Ornate wedding venue" },
-    { src: images.break.cinematic, alt: "Cinematic portrait" },
-    { src: images.films.reelB, alt: "Wedding procession" },
-    { src: images.premium.cover, alt: "Destination bridal portrait" },
-  ];
+const instagramLinks = [
+  "https://www.instagram.com/p/CwEf4_eoNi3/",
+  "https://www.instagram.com/p/CpQglsYBGwB/",
+  "https://www.instagram.com/p/CxuPZ3RLkSa/",
+  "https://www.instagram.com/p/Cve9oFdpxuQ/",
+  "https://www.instagram.com/p/CMY1y4sln-s/",
+  "https://www.instagram.com/p/CMCZUSiFHyb/",
+  "https://www.instagram.com/p/DV-z5nCCRPj/",
+  "https://www.instagram.com/p/DRW1ZfNErhK/",
+  "https://www.instagram.com/p/CoGQObhBlCB/",
+  "https://www.instagram.com/p/Cri6yk5pjj5/",
+  "https://www.instagram.com/p/C1tuDhpMtMf/",
+  "https://www.instagram.com/p/Cv2Bjk5MDtq/",
+];
 
+export function InstagramGallery() {
   return (
     <section className="w-full bg-background pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
       <div className="w-full flex flex-col items-center">
@@ -45,16 +44,34 @@ export function InstagramGallery() {
         <Reveal delay={0.1} className="w-full px-[3px] lg:px-0 flex justify-center">
           <div className="w-full max-w-[1106px]">
             <div className="grid grid-cols-3 gap-[3px] w-full">
-              {gridImages.map((img, idx) => (
-                <div key={idx} className="aspect-square relative w-full bg-muted">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="absolute inset-0 w-full h-full object-cover object-center"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
+              {instagramLinks.map((link, idx) => {
+                const num = idx + 1;
+                return (
+                  <a
+                    key={num}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="aspect-square relative w-full bg-muted block group overflow-hidden"
+                  >
+                    <picture>
+                      <source media="(min-width: 768px)" srcSet={`/instadesktop/${num}.png`} />
+                      <img
+                        src={`/instamobile/${num}.png`}
+                        alt={`Instagram post ${num}`}
+                        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </picture>
+                    {/* DESKTOP HOVER OVERLAY */}
+                    <div className="absolute inset-0 bg-[#2d2c2a]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex flex-col justify-between p-6 z-10 pointer-events-none">
+                      <div className="w-full flex justify-end">
+                        <Instagram className="w-6 h-6 text-white drop-shadow-md" />
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </Reveal>
