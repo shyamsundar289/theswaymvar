@@ -55,9 +55,9 @@ export function InstagramGallery() {
                     className="aspect-square relative w-full bg-muted block group overflow-hidden"
                   >
                     <picture>
-                      <source media="(min-width: 768px)" srcSet={`${import.meta.env.BASE_URL}grid-desktop/${num}.png`} />
+                      <source media="(min-width: 768px)" srcSet={`/grid-desktop/${num}.png`} />
                       <img
-                        src={`${import.meta.env.BASE_URL}grid-mobile/${num}.png`}
+                        src={`/grid-mobile/${num}.png`}
                         alt={`Instagram post ${num}`}
                         className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
                         loading="lazy"
