@@ -84,9 +84,17 @@ export function FilmGridSection() {
           className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-8 md:gap-x-10 md:gap-y-16"
         >
           <AnimatePresence mode="popLayout">
-            {filteredFilms.map((film) => (
-              <FilmGridCard key={film.id} film={film} onClick={setActiveFilm} />
-            ))}
+            {filteredFilms.map((film, index) => {
+              const isLast = index === filteredFilms.length - 1;
+              const isOnlyInLastRowLg = filteredFilms.length % 3 === 1;
+              
+              // If it's the only one in the last row for 3-column (lg), put it in the middle
+              const extraClasses = isLast && isOnlyInLastRowLg ? "lg:col-start-2" : "";
+
+              return (
+                <FilmGridCard key={film.id} film={film} onClick={setActiveFilm} className={extraClasses} />
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
