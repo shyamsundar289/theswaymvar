@@ -3,6 +3,9 @@ import { assets } from "../assets/asset-manifest";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
 
+import { OptimizedImage } from "@/components/site/OptimizedImage";
+import { getPhotoSrc, getPhotoSrcSet, getPhotoSizes, isPhotographyImage } from "@/lib/photography-image-utils";
+import { Play } from "lucide-react";
 import { images } from "@/data/images";
 import { stories, waLink } from "@/data/site";
 
@@ -223,13 +226,16 @@ function Home() {
                       className="overflow-hidden rounded-[8px] md:rounded-[20px] bg-muted w-full aspect-[3/4] md:aspect-auto md:h-[455px]"
                       style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
                     >
-                      <img
-                        src={stories[0].cover}
-                        alt={stories[0].couple}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                      />
+                      <div className="w-full h-full" style={stories[0].coverScale ? { transform: `scale(${stories[0].coverScale})` } : {}}>
+                        <OptimizedImage
+                          src={isPhotographyImage(stories[0].cover) ? getPhotoSrc(stories[0].cover) : stories[0].cover}
+                          srcSet={isPhotographyImage(stories[0].cover) ? getPhotoSrcSet(stories[0].cover) : undefined}
+                          sizes={isPhotographyImage(stories[0].cover) ? getPhotoSizes("grid-card") : undefined}
+                          alt={stories[0].couple}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
                     </div>
 
                     {/* TEXT & ORNAMENT */}
@@ -432,20 +438,23 @@ function Home() {
                 <Reveal delay={0.24} className="w-full">
                   <Link
                     to="/photography/$slug"
-                    params={{ slug: stories[2].slug }}
+                    params={{ slug: stories[3].slug }}
                     className="hover-lift block group w-full"
                   >
                     <div
                       className="overflow-hidden rounded-[8px] md:rounded-[20px] bg-muted w-full aspect-[3/4] md:aspect-auto md:h-[455px]"
                       style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
                     >
-                      <img
-                        src={stories[2].cover}
-                        alt={stories[2].couple}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                      />
+                      <div className="w-full h-full" style={stories[3].coverScale ? { transform: `scale(${stories[3].coverScale})` } : {}}>
+                        <OptimizedImage
+                          src={isPhotographyImage(stories[3].cover) ? getPhotoSrc(stories[3].cover) : stories[3].cover}
+                          srcSet={isPhotographyImage(stories[3].cover) ? getPhotoSrcSet(stories[3].cover) : undefined}
+                          sizes={isPhotographyImage(stories[3].cover) ? getPhotoSizes("grid-card") : undefined}
+                          alt={stories[3].couple}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        />
+                      </div>
                     </div>
 
                     {/* TEXT & ORNAMENT */}
@@ -456,7 +465,7 @@ function Home() {
                         <span className="font-light">←</span>
                       </div>
                       <h3 className="font-display text-[10px] sm:text-[12px] md:text-[22px] font-normal text-[#2d2c2a] mt-[4px] md:mt-[12px] whitespace-nowrap overflow-hidden text-ellipsis">
-                        {stories[2].couple}
+                        {stories[3].couple}
                       </h3>
                       <div className="flex justify-center mt-[8px] md:mt-[20px] text-[#d1cbbd]">
                         {/* Tiny Ornament */}

@@ -1,13 +1,14 @@
 import { assets } from "../../assets/asset-manifest";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "motion/react";
+import { getPhotoSrc, getPhotoSrcSet, getPhotoSizes } from "@/lib/photography-image-utils";
 
 // Single 4-item story used on BOTH desktop and mobile (2001 dropped per request).
 const timelineData = [
-  { year: "Prewedding", image: assets.recentWork.recent01.replace('.webp', '_timeline.webp') },
-  { year: "Haldi", image: assets.recentWork.recent02.replace('.webp', '_timeline.webp') },
-  { year: "Sangeet", image: assets.recentWork.recent03.replace('.webp', '_timeline.webp') },
-  { year: "Varmala", image: assets.misc.image6.replace('.webp', '_timeline.webp') },
+  { year: "Prewedding", image: "/Bhawna & Abhishek/02/AK206767 - Copy copy.jpg" },
+  { year: "Haldi", image: "/Bhawna & Abhishek/01/AK206443 copy.jpg" },
+  { year: "Sangeet", image: "/Bhawna & Abhishek/01/AK205960 copy.jpg" },
+  { year: "Varmala", image: "/Bhawna & Abhishek/04/AK209328 copy.jpg" },
 ];
 
 // ==========================================
@@ -120,13 +121,11 @@ function TimelineItem({
   index,
   total,
   scrollYProgress,
-  imagesReady,
 }: {
   item: { year: string; image: string };
   index: number;
   total: number;
   scrollYProgress: MotionValue<number>;
-  imagesReady: boolean;
 }) {
   const sides = ["right", "left", "right", "left", "right"];
   const isRightSide = sides[index % sides.length] === "right";
@@ -138,9 +137,7 @@ function TimelineItem({
   const localProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
   const easedProgress = useTransform(localProgress, (p) => {
     if (isFirst) return 1;
-    // Quintic-out: snappy arrival, image settles quickly instead of
-    // trailing the scroll for a long visible stretch.
-    return 1 - Math.pow(1 - p, 5);
+    return 1 - Math.pow(1 - p, 2);
   });
 
   // REVERSE-SCROLL FIX:
@@ -154,7 +151,10 @@ function TimelineItem({
   // state. Removing the visibility hack makes the slide-in/out perfectly
   // symmetric in both scroll directions -- same curve, same speed, forward
   // and backward, with no disappearing frame.
-  const imgY = useTransform(easedProgress, (p) => (imagesReady ? `${(1 - p) * 102}%` : "0%"));
+  const imgY = useTransform(easedProgress, (p) => {
+    if (isFirst) return "0%";
+    return `${(1 - p) * 102}%`;
+  });
 
   const dotScale = useTransform(easedProgress, [0, 1], [0.5, 1]);
   const dotOpacity = useTransform(easedProgress, [0, 1], [0, 1]);
@@ -212,9 +212,10 @@ function TimelineItem({
         }}
       >
         <motion.img
-          initial={{ y: isFirst ? "0%" : "102%" }}
           style={{ y: imgY, willChange: "transform" }}
-          src={item.image}
+          src={getPhotoSrc(item.image)}
+          srcSet={getPhotoSrcSet(item.image)}
+          sizes={getPhotoSizes("grid-card")}
           alt={`Year ${item.year}`}
           loading="eager"
           decoding="sync"
@@ -321,7 +322,7 @@ function StoryTextContent() {
       </div>
 
       <p className="text-[13px] sm:text-sm md:text-[clamp(14px,1.8svh,16px)] text-[#5c5b59] max-w-sm mx-auto md:mx-0 leading-[1.9] font-light tracking-wide w-full">
-        From anticipation to celebration, every moment has its own rhythm. We capture the quiet glances, the vibrant rituals, the wild celebrations, and the emotions in between — turning every chapter of your wedding into a story worth reliving.
+        From anticipation to celebration, every moment has its own rhythm. We capture the quiet glances, the vibrant rituals, the wild celebrations, and the emotions in between ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â turning every chapter of your wedding into a story worth reliving.
       </p>
     </div>
   );
@@ -342,7 +343,7 @@ export function StoryTimeline() {
   // active range. This removes the decode/paint delay that was making
   // scroll-triggered images feel like they "take time to reach position"
   // even though their transform value was already correct.
-  const imageUrls = timelineData.map((t) => t.image);
+  const imageUrls = timelineData.map((t) => getPhotoSrc(t.image));
   const imagesReady = usePreloadImages(imageUrls);
 
   const lineProgress = useTransform(scrollYProgress, (raw) => {
@@ -417,7 +418,6 @@ export function StoryTimeline() {
                       index={index}
                       total={total}
                       scrollYProgress={scrollYProgress}
-                      imagesReady={imagesReady}
                     />
                   ))}
                 </div>

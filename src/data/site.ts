@@ -5,7 +5,7 @@ import type { CoupleMedia } from "@/components/site/CouplePhotoGrid";
 export const WHATSAPP_NUMBER = "918049422388";
 
 export const waLink = (
-  message = "Hello theswaymvar — we'd love to know about your availability.",
+  message = "Hello theswaymvar ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â we'd love to know about your availability.",
 ) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
 export const nav = [
@@ -41,60 +41,65 @@ export type Story = {
   intro: string;
   narrative: string[];
   cover: string;
+  coverScale?: number;
   gallery: readonly CoupleMedia[];
 };
 
+import { varshaShivamImages, poojaSuryaprakashImages, khushbooJayImages, bhawnaAbhishekImages } from "./photography-projects";
+
 export const stories: Story[] = [
   {
-    slug: "meher-and-arjun",
-    couple: "Meher & Arjun",
-    location: "Udaipur, Rajasthan",
-    date: "November 2025",
-    intro: "Three days of lake light, family songs and a courtyard that never quite went quiet.",
+    slug: "varsha-and-shivam",
+    couple: "Varsha & Shivam",
+    location: "Destination",
+    date: "2024",
+    intro: "A celebration filled with quiet elegance and timeless moments.",
     narrative: [
-      "They asked for one thing only: that nobody be asked to pose. So we spent the first morning listening — to grandmothers arguing about marigolds, to cousins rehearsing a song nobody would finish, to the water knocking against the ghat steps below the haveli.",
-      "By the time the pheras began, the light had gone the colour of weak tea. Meher laughed through the last round. Arjun did not stop looking at her, and we did not stop looking at them.",
+      "Every frame tells a story of love, capturing the subtle emotions and unspoken words between the couple and their loved ones.",
+      "The photography reflects the beauty of their bond, frozen in elegant compositions that they will cherish forever."
     ],
-    cover: assets.recentWork.recent01,
-    gallery: [
-      { ...galleryImages[0], type: "image" },
-      { ...galleryImages[1], type: "image" },
-      {
-        id: "video-1",
-        src: assets.videos.background.wedding,
-        type: "video",
-        orientation: "landscape",
-        poster: assets.recentWork.recent01,
-      },
-      { ...galleryImages[3], type: "image" },
-      { ...galleryImages[4], type: "image" },
-    ] as CoupleMedia[],
+    cover: "/Varsha & Shivam/01/DSCF3453 copy.jpg",
+    gallery: varshaShivamImages,
   },
   {
-    slug: "ira-and-vikram",
-    couple: "Ira & Vikram",
-    location: "Alibaug, Maharashtra",
-    date: "February 2025",
-    intro: "A barefoot wedding at the edge of the water, built entirely around low tide.",
+    slug: "pooja-and-suryaprakash",
+    couple: "Pooja & Suryaprakash",
+    location: "Destination",
+    date: "2024",
+    intro: "A vibrant gathering where tradition meets contemporary grace.",
     narrative: [
-      "The ceremony time was decided by the sea. We shot the morning in near silence — a house full of half-packed suitcases, a father ironing his own kurta, the smell of salt through every open window.",
-      "When they walked out at dusk the whole thing lasted eleven minutes. It is still the longest eleven minutes we have ever filmed.",
+      "Surrounded by their closest friends and family, their wedding was a testament to joy, laughter, and deep connection.",
+      "We documented their day as it naturally unfolded, preserving the genuine smiles and the vibrant atmosphere of the celebration."
     ],
-    cover: "/special-image-05.png",
-    gallery: galleryImages.slice(6, 12),
+    cover: "/Pooja & Suryaprakash/02/DSC00075.jpg",
+    gallery: poojaSuryaprakashImages,
   },
   {
-    slug: "bhawana-and-abhishek",
-    couple: "Bhawana & Abhishek",
-    location: "Jaipur, Rajasthan",
-    date: "December 2024",
-    intro: "Old city colour, a brass band that refused to stop, and one very composed bride.",
+    slug: "khushboo-and-jay",
+    couple: "Khushboo & Jay",
+    location: "Destination",
+    date: "2024",
+    intro: "An intimate and heartwarming union marked by beautiful details.",
     narrative: [
-      "Bhawana's baraat took forty minutes to cover two hundred metres. She watched the whole thing from a first-floor jharokha with her sisters, eating something she was not supposed to be eating.",
-      "We photographed the day in colour because the day insisted on it — every wall, every safa, every plate of it.",
+      "The delicate lighting and thoughtful details provided the perfect backdrop for their beautiful day.",
+      "From the quiet morning preparations to the lively evening festivities, we captured the essence of their unique story."
     ],
-    cover: assets.recentWork.recent03,
-    gallery: galleryImages.slice(12, 18),
+    cover: "/Khushboo & Jay/03/SK_04669.jpg",
+    coverScale: 1.2,
+    gallery: khushbooJayImages,
+  },
+  {
+    slug: "bhawna-and-abhishek",
+    couple: "Bhawna & Abhishek",
+    location: "Destination",
+    date: "2024",
+    intro: "A grand celebration showcasing love, color, and joyous moments.",
+    narrative: [
+      "Their wedding was an exquisite visual feast, filled with rich colors, grand gestures, and profound emotional moments.",
+      "We crafted a visual narrative that immortalizes the scale and the intimate poetry of their special day."
+    ],
+    cover: "/Bhawna & Abhishek/04/AK209382 copy.jpg",
+    gallery: bhawnaAbhishekImages,
   },
 ];
 export const testimonials = [
@@ -161,7 +166,7 @@ export const featuredFilms = [
   },
   {
     id: "5",
-    couple: "Khusboo",
+    couple: "Khushboo & Jay",
     location: "",
     category: "Wedding Film",
     videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/15.mp4",
@@ -169,7 +174,7 @@ export const featuredFilms = [
   },
   {
     id: "6",
-    couple: "Khusboo",
+    couple: "Khushboo & Jay",
     location: "",
     category: "Wedding Film",
     videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/16.mp4",

@@ -1,23 +1,15 @@
-import { assets } from "../../assets/asset-manifest";
 import { Reveal } from "@/components/site/Reveal";
-import { images } from "@/data/images";
+import { OptimizedImage } from "@/components/site/OptimizedImage";
+import { stories } from "@/data/site";
+import { Link } from "@tanstack/react-router";
+import {
+  getPhotoSrcSet,
+  getPhotoSrc,
+  getPhotoSizes,
+  isPhotographyImage,
+} from "@/lib/photography-image-utils";
 
 export function PhotographyGridSection() {
-  const photoGrid = [
-    { src: images.moments[0], couple: "Meher & Arjun" },
-    { src: images.moments[1], couple: "Ira & Vikram" },
-    { src: images.moments[2], couple: "Naina & Rohan" },
-    { src: images.moments[3], couple: "Saira & Dev" },
-    { src: images.moments[4], couple: "Tara & Kabir" },
-    { src: images.moments[5], couple: "Anya & Jai" },
-    { src: images.moments[6], couple: "Zara & Ahaan" },
-    { src: images.moments[7], couple: "Rhea & Sameer" },
-    { src: assets.recentWork.recent01, couple: "Ananya & Kunal" },
-    { src: assets.recentWork.recent02, couple: "Riya & Aryan" },
-    { src: assets.recentWork.recent03, couple: "Myra & Ishaan" },
-    { src: images.premium.cover, couple: "Kiara & Advik" },
-  ];
-
   return (
     <section className="bg-background pt-10 md:pt-16 pb-24 relative z-10 w-full">
       {/* Editorial Header Section */}
@@ -46,58 +38,65 @@ export function PhotographyGridSection() {
 
         {/* Photo Grid */}
         <Reveal delay={0.2} className="w-full">
-          <div className="grid grid-cols-3 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-12 md:gap-y-16">
-            {photoGrid.map((item, idx) => (
-              <div key={idx} className="w-full flex flex-col group">
-                {/* PICTURE FRAME (Matched to Home Page) */}
-                <div
-                  className="overflow-hidden rounded-[20px] bg-muted w-full aspect-[4/5]"
-                  style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
-                >
-                  <img
-                    src={item.src}
-                    alt={item.couple}
-                    loading="lazy"
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-12 md:gap-y-16">
+            {stories.map((story, idx) => {
+              const hasOptimized = isPhotographyImage(story.cover);
+              return (
+                <Link to="/photography/$slug" params={{ slug: story.slug }} key={idx} className="w-full flex flex-col group cursor-pointer block">
+                  {/* PICTURE FRAME (Matched to Home Page) */}
+                  <div
+                    className="overflow-hidden rounded-[20px] bg-muted w-full aspect-[4/5]"
+                    style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
+                  >
+                    <div className="w-full h-full" style={story.coverScale ? { transform: `scale(${story.coverScale})` } : {}}>
+                      <OptimizedImage
+                        src={hasOptimized ? getPhotoSrc(story.cover) : story.cover}
+                        srcSet={hasOptimized ? getPhotoSrcSet(story.cover) : undefined}
+                        sizes={hasOptimized ? getPhotoSizes("grid-card") : undefined}
+                        alt={story.couple}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
 
-                {/* TEXT & ORNAMENT (Matched to Home Page) */}
-                <div className="mt-[16px] md:mt-[28px] text-center w-full flex flex-col justify-start flex-grow">
-                  <div className="flex items-center justify-center gap-[6px] md:gap-[10px] text-[9px] md:text-[12px] tracking-[1.5px] md:tracking-[2px] uppercase text-[#8b867c] font-sans">
-                    <span className="font-light">→</span>
-                    <span>A Story of Us</span>
-                    <span className="font-light">←</span>
+                  {/* TEXT & ORNAMENT (Matched to Home Page) */}
+                  <div className="mt-[16px] md:mt-[28px] text-center w-full flex flex-col justify-start flex-grow">
+                    <div className="flex items-center justify-center gap-[6px] md:gap-[10px] text-[9px] md:text-[12px] tracking-[1.5px] md:tracking-[2px] uppercase text-[#8b867c] font-sans">
+                      <span className="font-light">→</span>
+                      <span>A Story of Us</span>
+                      <span className="font-light">←</span>
+                    </div>
+                    <h3 className="font-display text-[15px] md:text-[22px] font-normal text-[#2d2c2a] mt-[8px] md:mt-[12px] px-2 leading-tight min-h-[36px] flex items-center justify-center">
+                      {story.couple}
+                    </h3>
+                    <div className="flex justify-center mt-[8px] md:mt-[20px] text-[#d1cbbd]">
+                      {/* Tiny Ornament */}
+                      <svg
+                        width="40"
+                        height="10"
+                        viewBox="0 0 60 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="md:w-[50px] md:h-[12px]"
+                      >
+                        <path d="M30 2 L33 7.5 L30 13 L27 7.5 Z" fill="currentColor" opacity="0.8" />
+                        <path
+                          d="M25 7.5 Q15 2 5 7.5 Q15 13 25 7.5"
+                          fill="currentColor"
+                          opacity="0.5"
+                        />
+                        <path
+                          d="M35 7.5 Q45 2 55 7.5 Q45 13 35 7.5"
+                          fill="currentColor"
+                          opacity="0.5"
+                        />
+                      </svg>
+                    </div>
                   </div>
-                  <h3 className="font-display text-[15px] md:text-[22px] font-normal text-[#2d2c2a] mt-[8px] md:mt-[12px] px-2 leading-tight min-h-[36px] flex items-center justify-center">
-                    {item.couple}
-                  </h3>
-                  <div className="flex justify-center mt-[8px] md:mt-[20px] text-[#d1cbbd]">
-                    {/* Tiny Ornament */}
-                    <svg
-                      width="40"
-                      height="10"
-                      viewBox="0 0 60 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="md:w-[50px] md:h-[12px]"
-                    >
-                      <path d="M30 2 L33 7.5 L30 13 L27 7.5 Z" fill="currentColor" opacity="0.8" />
-                      <path
-                        d="M25 7.5 Q15 2 5 7.5 Q15 13 25 7.5"
-                        fill="currentColor"
-                        opacity="0.5"
-                      />
-                      <path
-                        d="M35 7.5 Q45 2 55 7.5 Q45 13 35 7.5"
-                        fill="currentColor"
-                        opacity="0.5"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </Reveal>
       </div>

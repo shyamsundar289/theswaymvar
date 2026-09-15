@@ -30,11 +30,13 @@ export function RevealImage({
   alt,
   className,
   imgClassName,
+  baseScale = 1,
 }: {
   src: string;
   alt: string;
   className?: string;
   imgClassName?: string;
+  baseScale?: number;
 }) {
   return (
     <motion.div
@@ -48,9 +50,10 @@ export function RevealImage({
         src={src}
         alt={alt}
         loading="lazy"
+        decoding="async"
         className={`h-full w-full object-cover ${imgClassName ?? ""}`}
-        initial={{ scale: 1.06 }}
-        whileInView={{ scale: 1 }}
+        initial={{ scale: baseScale + 0.06 }}
+        whileInView={{ scale: baseScale }}
         viewport={{ once: true, margin: "-8% 0px" }}
         transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
       />

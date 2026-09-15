@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "validate:assets": "node scripts/validate-assets.cjs"
+    "validate:assets": "node scripts/validate-assets.cjs",
+    "optimize:images": "node scripts/optimize-photography-images.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -32,4 +32,5 @@ dist-ssr
 *.sw?
 
 public/images/Home/.tmp.driveupload/
+public/photography-optimized/
 .vercel

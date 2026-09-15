@@ -5,6 +5,7 @@ import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { CouplePhotoGrid } from "@/components/site/CouplePhotoGrid";
 import { WhatsAppButton } from "@/components/site/CTA";
 import { getSeoMetadata, SITE_URL } from "@/config/seo";
+import { getPhotoSrc, isPhotographyImage } from "@/lib/photography-image-utils";
 
 export const Route = createFileRoute("/photography/$slug")({
   loader: ({ params }) => {
@@ -61,9 +62,10 @@ function StoryDetail() {
       </section>
 
       <RevealImage
-        src={story.cover}
+        src={isPhotographyImage(story.cover) ? getPhotoSrc(story.cover) : story.cover}
         alt={`${story.couple} in ${story.location}`}
         className="aspect-[16/10] w-full md:aspect-[16/7] border-[8px] border-t-0 border-white"
+        baseScale={story.coverScale}
       />
 
       <section className="shell section-y grid gap-10 md:grid-cols-[1fr_1.1fr] md:gap-24">

@@ -1,19 +1,15 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
-import { images } from "@/data/images";
+import { heroImages } from "@/data/photography-projects";
+import { OptimizedImage } from "@/components/site/OptimizedImage";
+import {
+  getPhotoSrcSet,
+  getPhotoSrc,
+  getPhotoSizes,
+} from "@/lib/photography-image-utils";
 
-const allImages = [
-  ...images.moments,
-  images.work["meher-and-arjun"].cover,
-  images.work["ira-and-vikram"].cover,
-  images.work["naina-and-rohan"].cover,
-  images.work["saira-and-dev"].cover,
-  images.work["tara-and-kabir"].cover,
-  images.work["anya-and-jai"].cover,
-  images.premium.cover,
-  images.break.cinematic,
-];
+const allImages = heroImages;
 const safeGetImage = (index: number) => allImages[index % allImages.length];
 
 const mediaGrid = Array.from({ length: 5 }).map((_, colIndex) =>
@@ -52,24 +48,32 @@ export function PhotographyHero() {
           <motion.div
             key={colIndex}
             className="flex flex-col gap-4 md:gap-6 flex-1 items-center"
-            style={{ y: columnTransforms[colIndex] }}
+            style={{ y: columnTransforms[colIndex], willChange: "transform" }}
           >
-            {column.map((item) => (
-              <motion.div
-                key={item.id}
-                whileHover={{ scale: 1.05, y: -10 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative w-full aspect-[4/5] overflow-hidden rounded-xl md:rounded-2xl bg-[#E8E4D9] shadow-[0_10px_30px_rgba(0,0,0,0.08)] shrink-0 group cursor-pointer"
-              >
-                <img
-                  src={item.src}
-                  alt="Photography story"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110"
-                />
-                {/* Subtle darkening on hover to emphasize the lift */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
-              </motion.div>
-            ))}
+            {column.map((item, rowIndex) => {
+              // First image in each column is most likely visible — mark critical
+              const isCritical = rowIndex === 0;
+              return (
+                <motion.div
+                  key={item.id}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="relative w-full aspect-[4/5] overflow-hidden rounded-xl md:rounded-2xl bg-[#E8E4D9] shadow-[0_10px_30px_rgba(0,0,0,0.08)] shrink-0 group cursor-pointer"
+                >
+                  <OptimizedImage
+                    src={getPhotoSrc(item.src!)}
+                    srcSet={getPhotoSrcSet(item.src!)}
+                    sizes={getPhotoSizes("hero-tile")}
+                    alt="Photography story"
+                    critical={isCritical}
+                    fetchPriority={isCritical ? "high" : undefined}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110"
+                  />
+                  {/* Subtle darkening on hover to emphasize the lift */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                </motion.div>
+              );
+            })}
           </motion.div>
         ))}
       </motion.div>
