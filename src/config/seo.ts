@@ -7,8 +7,8 @@ export const BUSINESS_INFO = {
     "The Swaymvar is a wedding photography and cinematic wedding films studio based in Bikaner, Rajasthan, India, documenting weddings through photography, videography and visual storytelling across Rajasthan and destination wedding locations.",
   slogan: "Wedding Photography & Cinematic Wedding Films",
   email: "theswaymvar@gmail.com",
-  telephone: "+918049422388",
-  founder: "Riya Maru",
+  telephone: "+918949422388",
+  founder: "Ravi Maru",
   areaServed: ["Bikaner", "Rajasthan", "India", "Destination Wedding Locations"],
   knowsAbout: [
     "Wedding Photography",

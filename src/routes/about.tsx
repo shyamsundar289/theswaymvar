@@ -27,7 +27,7 @@ function AboutPage() {
   const teamMembers = [
     {
       id: "t1",
-      name: "Riya Maru",
+      name: "Ravi Maru",
       role: "Founder & Filmmaker",
       img: assets.crew.getMemberPhoto(1),
     },
@@ -260,7 +260,7 @@ function AboutPage() {
           {/* Image */}
           <RevealImage
             src={assets.about.person}
-            alt="Riya Maru — Founder"
+            alt="Ravi Maru — Founder"
             className="w-full max-w-[400px] mx-auto lg:max-w-none aspect-[4/5] overflow-hidden bg-muted"
           />
 
@@ -270,7 +270,7 @@ function AboutPage() {
               The person behind this
             </p>
             <h2 className="font-display text-[clamp(1.8rem,7vw,3.5rem)] text-[#2d2c2a] leading-[1.1] mb-[clamp(0.5rem,2vw,1rem)]">
-              Riya Maru
+              Ravi Maru
             </h2>
             <div className="flex items-center gap-0 mb-[clamp(1.25rem,4vw,2rem)]">
               <div className="w-[40px] md:w-[70px] h-[1px] bg-[#c4a97d]" />
@@ -452,10 +452,10 @@ function AboutPage() {
                   Phone
                 </h4>
                 <a
-                  href="tel:+918049422388"
+                  href="tel:+918949422388"
                   className="font-sans text-[clamp(0.75rem,3.5vw,0.75rem)] text-[#5D5A55] hover:text-[#c4a97d] transition-colors"
                 >
-                  +91 80494 22388
+                  +91 89494 22388
                 </a>
               </div>
 
@@ -478,12 +478,12 @@ function AboutPage() {
                   WhatsApp
                 </h4>
                 <a
-                  href="https://wa.me/918049422388"
+                  href="https://wa.me/918949422388"
                   target="_blank"
                   rel="noopener"
                   className="font-sans text-[clamp(0.75rem,3.5vw,0.75rem)] text-[#5D5A55] hover:text-[#c4a97d] transition-colors"
                 >
-                  +91 80494 22388
+                  +91 89494 22388
                 </a>
               </div>
 
