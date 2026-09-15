@@ -516,7 +516,7 @@ function ScrollArchive({
                   if (!isActive && !isPrev && !isNext) return null;
 
                   // Cinematic editorial movement logic based on scroll direction
-                  let initial = { opacity: 0, scale: 0.85, y: "15vh", x: "15vw", rotateZ: 5 };
+                  const initial = { opacity: 0, scale: 0.85, y: "15vh", x: "15vw", rotateZ: 5 };
                   let animate = {
                     opacity: 1,
                     scale: 1,
@@ -525,7 +525,7 @@ function ScrollArchive({
                     rotateZ: 0,
                     zIndex: 10,
                   };
-                  let exit = {
+                  const exit = {
                     opacity: 0,
                     scale: 0.95,
                     y: "-15vh",

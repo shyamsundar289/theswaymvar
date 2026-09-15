@@ -14,7 +14,7 @@ export const Route = createFileRoute("/about")({
     meta: getSeoMetadata(
       "About The Swaymvar — Wedding Photographer in Bikaner",
       "Learn about The Swaymvar, a wedding photography and cinematic wedding films studio based in Bikaner, Rajasthan, India.",
-      "/about"
+      "/about",
     ),
     links: [{ rel: "canonical", href: `${SITE_URL}/about` }],
   }),
@@ -48,31 +48,31 @@ function AboutPage() {
         <Header />
         <div className="pt-[clamp(5rem,10vw,8rem)] pb-[clamp(1rem,2vw,2rem)] px-[5vw] w-full">
           <div className="max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center justify-center gap-[clamp(1.5rem,6vw,5rem)]">
-          {/* Logo Content */}
-          <Reveal className="w-[100px] sm:w-[150px] md:w-[22%] max-w-[200px] shrink-0 flex items-center justify-center">
-            <img
-              src={assets.svg.logo}
-              alt="theswayamvar logo"
-              className="w-full h-auto object-contain"
-            />
-          </Reveal>
+            {/* Logo Content */}
+            <Reveal className="w-[100px] sm:w-[150px] md:w-[22%] max-w-[200px] shrink-0 flex items-center justify-center">
+              <img
+                src={assets.svg.logo}
+                alt="theswayamvar logo"
+                className="w-full h-auto object-contain"
+              />
+            </Reveal>
 
-          {/* Text Content */}
-          <Reveal className="flex flex-col items-center text-center md:w-[65%] max-w-3xl">
-            <h1 className="font-display text-[clamp(2.5rem,8vw,5.5rem)] text-[#2d2c2a] leading-[1] tracking-tight mb-3 md:mb-4">
-              theswayamvar
-            </h1>
-            <Ornament className="mb-4" />
-            <p className="font-sans text-[9px] md:text-[11px] uppercase tracking-[0.25em] text-[#2d2c2a] mb-5 md:mb-6 opacity-80">
-              Cinematic Wedding Films & Photography
-            </p>
-            <p className="font-sans text-[clamp(0.8rem,4vw,1.0625rem)] text-[#5D5A55] leading-[1.8] max-w-[580px] mx-auto mb-0">
-              We are a wedding photography and film studio making quiet, cinematic records of
-              celebrations across India and worldwide. We focus on narrative, light, and the honest
-              moments you were too busy to notice.
-            </p>
-          </Reveal>
-        </div>
+            {/* Text Content */}
+            <Reveal className="flex flex-col items-center text-center md:w-[65%] max-w-3xl">
+              <h1 className="font-display text-[clamp(2.5rem,8vw,5.5rem)] text-[#2d2c2a] leading-[1] tracking-tight mb-3 md:mb-4">
+                theswayamvar
+              </h1>
+              <Ornament className="mb-4" />
+              <p className="font-sans text-[9px] md:text-[11px] uppercase tracking-[0.25em] text-[#2d2c2a] mb-5 md:mb-6 opacity-80">
+                Cinematic Wedding Films & Photography
+              </p>
+              <p className="font-sans text-[clamp(0.8rem,4vw,1.0625rem)] text-[#5D5A55] leading-[1.8] max-w-[580px] mx-auto mb-0">
+                We are a wedding photography and film studio making quiet, cinematic records of
+                celebrations across India and worldwide. We focus on narrative, light, and the
+                honest moments you were too busy to notice.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -541,4 +541,3 @@ function AboutPage() {
     </div>
   );
 }
-

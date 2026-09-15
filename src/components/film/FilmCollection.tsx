@@ -152,7 +152,7 @@ export function FilmCollection() {
 
                   if (!isActive && !isPrev && !isNext && !isNextNext) return null;
 
-                  let initial = { opacity: 0, scale: 0.85, y: "15vh", x: "15vw", rotateZ: 5 };
+                  const initial = { opacity: 0, scale: 0.85, y: "15vh", x: "15vw", rotateZ: 5 };
                   let animate = {
                     opacity: 1,
                     scale: 1,
@@ -161,7 +161,7 @@ export function FilmCollection() {
                     rotateZ: 0,
                     zIndex: 10,
                   };
-                  let exit = {
+                  const exit = {
                     opacity: 0,
                     scale: 0.95,
                     y: "-15vh",

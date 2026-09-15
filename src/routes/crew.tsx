@@ -11,7 +11,7 @@ export const Route = createFileRoute("/crew")({
     meta: getSeoMetadata(
       "The Crew | The Swaymvar - Wedding Photographers in Bikaner",
       "Meet the talented crew of wedding photographers, videographers, and storytellers at The Swaymvar in Bikaner, Rajasthan.",
-      "/crew"
+      "/crew",
     ),
     links: [{ rel: "canonical", href: `${SITE_URL}/crew` }],
   }),
@@ -32,7 +32,8 @@ interface CrewMember {
   role: string;
   description: string;
   image: string;
-  layout: "editorial-split" | "cinema-center" | "offset-minimal" | "landscape-overlap" | "vertical-hero";
+  layout:
+    "editorial-split" | "cinema-center" | "offset-minimal" | "landscape-overlap" | "vertical-hero";
 }
 
 // --- NAV DATA (single source of truth for both the real nav and the decorative arc text) ---

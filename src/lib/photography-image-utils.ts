@@ -8,7 +8,7 @@
  *   /photography-optimized/<couple-dir>/<subdir>/<filename>-<width>w.webp
  *
  * Original images remain at their current paths and are used as the
- * fallback `src` ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â but in practice the browser will prefer the srcset
+ * fallback `src` — but in practice the browser will prefer the srcset
  * WebP variants.
  */
 
@@ -42,9 +42,7 @@ function getOptimizedPath(originalSrc: string, width: number): string {
  *    /photography-optimized/Varsha & Shivam/01/DSCF2797-1600w.webp 1600w"
  */
 export function getPhotoSrcSet(originalSrc: string): string {
-  return WIDTHS.map(
-    (w) => `${getOptimizedPath(originalSrc, w)} ${w}w`
-  ).join(", ");
+  return WIDTHS.map((w) => `${getOptimizedPath(originalSrc, w)} ${w}w`).join(", ");
 }
 
 /**
@@ -61,9 +59,7 @@ export function getPhotoSrc(originalSrc: string): string {
  * - "grid-card": story cover cards (2-col on mobile, 4-col on desktop)
  * - "gallery": full-width masonry gallery images
  */
-export function getPhotoSizes(
-  role: "hero-tile" | "grid-card" | "gallery"
-): string {
+export function getPhotoSizes(role: "hero-tile" | "grid-card" | "gallery"): string {
   switch (role) {
     case "hero-tile":
       // Hero tiles are ~20% of 160vw (mobile) or 110vw (desktop), so effectively ~32vw mobile, ~22vw desktop

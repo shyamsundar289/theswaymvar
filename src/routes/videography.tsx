@@ -11,7 +11,7 @@ export const Route = createFileRoute("/videography")({
     meta: getSeoMetadata(
       "Cinematic Wedding Films & Videography in Bikaner | The Swaymvar",
       "The Swaymvar creates cinematic wedding films and videography in Bikaner, Rajasthan. Quiet, real records of your celebrations and destination weddings.",
-      "/videography"
+      "/videography",
     ),
     links: [{ rel: "canonical", href: `${SITE_URL}/videography` }],
   }),

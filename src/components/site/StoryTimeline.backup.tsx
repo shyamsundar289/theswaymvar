@@ -68,7 +68,9 @@ function getSegmentWindow(index: number, total: number) {
   const prevItemPosition = isFirst ? 0 : ((index - 1) / totalGaps) * 100;
 
   const end = isFirst ? TIMELINE_START : TIMELINE_START + (itemPosition / 100) * ACTIVE_MAX_SCROLL;
-  const start = isFirst ? TIMELINE_START : TIMELINE_START + (prevItemPosition / 100) * ACTIVE_MAX_SCROLL;
+  const start = isFirst
+    ? TIMELINE_START
+    : TIMELINE_START + (prevItemPosition / 100) * ACTIVE_MAX_SCROLL;
 
   return { start, end };
 }
@@ -187,18 +189,18 @@ function TimelineItem({
         </span>
         {/* Dynamic Width Ultra-thin Ornamental Divider */}
         <div className="flex items-center justify-center w-full mt-[3px] opacity-90 text-[#bfae91]">
-           {/* Left dots */}
-           <div className="w-[2px] h-[2px] rounded-full bg-current opacity-60"></div>
-           <div className="w-[1.5px] h-[1.5px] rounded-full bg-current opacity-40 ml-[2px]"></div>
-           {/* Left line */}
-           <div className="flex-grow h-[0.5px] bg-current opacity-60 ml-[2px]"></div>
-           {/* Center diamond */}
-           <div className="w-[3px] h-[3px] rotate-45 bg-current mx-[4px] opacity-90"></div>
-           {/* Right line */}
-           <div className="flex-grow h-[0.5px] bg-current opacity-60 mr-[2px]"></div>
-           {/* Right dots */}
-           <div className="w-[1.5px] h-[1.5px] rounded-full bg-current opacity-40 mr-[2px]"></div>
-           <div className="w-[2px] h-[2px] rounded-full bg-current opacity-60"></div>
+          {/* Left dots */}
+          <div className="w-[2px] h-[2px] rounded-full bg-current opacity-60"></div>
+          <div className="w-[1.5px] h-[1.5px] rounded-full bg-current opacity-40 ml-[2px]"></div>
+          {/* Left line */}
+          <div className="flex-grow h-[0.5px] bg-current opacity-60 ml-[2px]"></div>
+          {/* Center diamond */}
+          <div className="w-[3px] h-[3px] rotate-45 bg-current mx-[4px] opacity-90"></div>
+          {/* Right line */}
+          <div className="flex-grow h-[0.5px] bg-current opacity-60 mr-[2px]"></div>
+          {/* Right dots */}
+          <div className="w-[1.5px] h-[1.5px] rounded-full bg-current opacity-40 mr-[2px]"></div>
+          <div className="w-[2px] h-[2px] rounded-full bg-current opacity-60"></div>
         </div>
       </motion.div>
       {/* Strict fixed-size container mapping exactly to the CSS variables.
@@ -256,7 +258,12 @@ function StoryTextContent() {
       {/* Animated Film Roll (Custom SVG) */}
       <div className="w-full flex justify-center md:justify-start md:-mt-2 mb-4 md:mb-8 px-0">
         <div className="flex justify-start items-center w-[140px] md:w-[220px] h-[60px] md:h-[95px]">
-          <svg viewBox="0 0 160 80" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            viewBox="0 0 160 80"
+            className="w-full h-full"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <defs>
               {/* Leader Shape (Tongue) at the end of the film */}
               <clipPath id="film-shape">
@@ -273,7 +280,12 @@ function StoryTextContent() {
               {/* Slides from inside the canister (-120px) to fully out (0px) */}
               <motion.g
                 animate={{ x: [-120, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }}
               >
                 {/* The film body clipped to the leader shape */}
                 <g clipPath="url(#film-shape)">
@@ -285,10 +297,26 @@ function StoryTextContent() {
                     transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                   >
                     {[...Array(15)].map((_, i) => (
-                      <rect key={`top-${i}`} x={i * 14} y="25" width="5" height="5" rx="1" fill="#FAF8F4" />
+                      <rect
+                        key={`top-${i}`}
+                        x={i * 14}
+                        y="25"
+                        width="5"
+                        height="5"
+                        rx="1"
+                        fill="#FAF8F4"
+                      />
                     ))}
                     {[...Array(15)].map((_, i) => (
-                      <rect key={`bot-${i}`} x={i * 14} y="50" width="5" height="5" rx="1" fill="#FAF8F4" />
+                      <rect
+                        key={`bot-${i}`}
+                        x={i * 14}
+                        y="50"
+                        width="5"
+                        height="5"
+                        rx="1"
+                        fill="#FAF8F4"
+                      />
                     ))}
                   </motion.g>
                 </g>
@@ -303,7 +331,19 @@ function StoryTextContent() {
               <rect x="-2" y="69" width="34" height="6" rx="2" fill="#1a1a1a" />
               <rect x="7" y="0" width="16" height="6" fill="#222" />
               <rect x="7" y="74" width="16" height="6" fill="#222" />
-              <text x="15" y="40" fill="#2d2c2a" fontSize="11" fontWeight="bold" fontFamily="sans-serif" transform="rotate(-90 15 40)" textAnchor="middle" letterSpacing="1">400 TX</text>
+              <text
+                x="15"
+                y="40"
+                fill="#2d2c2a"
+                fontSize="11"
+                fontWeight="bold"
+                fontFamily="sans-serif"
+                transform="rotate(-90 15 40)"
+                textAnchor="middle"
+                letterSpacing="1"
+              >
+                400 TX
+              </text>
             </g>
             {/* Slit Depth (Static so film always comes from the exact same slot) */}
             <rect x="28" y="18" width="2" height="44" fill="#000" />
@@ -318,13 +358,20 @@ function StoryTextContent() {
       </h3>
 
       <div className="mb-4 md:mb-[clamp(1rem,3svh,2rem)] flex justify-center md:justify-start w-full">
-        <svg width="12" height="12" viewBox="0 0 24 24" className="text-[#D0A17C] fill-current opacity-60">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          className="text-[#D0A17C] fill-current opacity-60"
+        >
           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
         </svg>
       </div>
 
       <p className="text-[13px] sm:text-sm md:text-[clamp(14px,1.8svh,16px)] text-[#5c5b59] max-w-sm mx-auto md:mx-0 leading-[1.9] font-light tracking-wide w-full">
-        From anticipation to celebration, every moment has its own rhythm. We capture the quiet glances, the vibrant rituals, the wild celebrations, and the emotions in between ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â turning every chapter of your wedding into a story worth reliving.
+        From anticipation to celebration, every moment has its own rhythm. We capture the quiet
+        glances, the vibrant rituals, the wild celebrations, and the emotions in between — turning
+        every chapter of your wedding into a story worth reliving.
       </p>
     </div>
   );

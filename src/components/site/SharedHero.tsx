@@ -47,85 +47,85 @@ export function SharedHero({
         <div
           className={`relative flex items-center justify-between overflow-hidden w-full mx-auto rounded-[4px] ${fullWidthMedia ? "aspect-[4/3] sm:aspect-[16/9] md:aspect-[2.5/1] xl:aspect-[3/1]" : "min-h-[400px]"}`}
         >
-        {fullWidthMedia && (
-          <div className="absolute inset-0 z-0">
-            {videoSrc ? (
-              <video
-                src={videoSrc}
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            ) : imageSrc ? (
-              <img src={imageSrc} className="w-full h-full object-cover" alt={`${title} Hero`} />
-            ) : null}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30 pointer-events-none" />
-          </div>
-        )}
-        {/* Left Content */}
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 md:px-12 h-full w-full -translate-y-2 md:-translate-y-4">
-          <div className={`${mutedCol} opacity-80`}>{icon}</div>
-
-          <p
-            className={`font-sans text-[11px] tracking-[0.25em] uppercase ${mutedCol} mt-4 opacity-90`}
-          >
-            {eyebrow}
-          </p>
-
-          <h1 className={titleClass} style={titleStyle}>
-            {title}
-          </h1>
-
-          <div
-            className={`font-sans text-[13px] md:text-[15px] ${mutedCol} max-w-md mx-auto leading-[1.6] opacity-90`}
-          >
-            {description}
-          </div>
-
-          {ctaText && ctaLink && (
-            <Link
-              to={ctaLink as any}
-              className={`mt-6 flex items-center gap-3 font-sans text-[11px] tracking-[0.2em] uppercase ${textCol} hover:opacity-70 transition-opacity`}
-            >
-              {ctaText}
-              <div
-                className={`w-5 h-5 rounded-full border ${borderCol} flex items-center justify-center`}
-              >
-                <Play className="w-2.5 h-2.5 ml-0.5" />
-              </div>
-            </Link>
-          )}
-        </div>
-
-        {/* Right Media */}
-        {!fullWidthMedia && (
-          <div className="hidden md:block w-[50%] h-full relative z-10">
-            <div
-              className="absolute inset-0 overflow-hidden"
-              style={{ borderTopLeftRadius: "160px", borderBottomLeftRadius: "160px" }}
-            >
+          {fullWidthMedia && (
+            <div className="absolute inset-0 z-0">
               {videoSrc ? (
                 <video
                   src={videoSrc}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover"
                   autoPlay
                   muted
                   loop
                   playsInline
                 />
               ) : imageSrc ? (
-                <img
-                  src={imageSrc}
-                  className="w-full h-full object-cover object-center"
-                  alt={`${title} Hero`}
-                />
+                <img src={imageSrc} className="w-full h-full object-cover" alt={`${title} Hero`} />
               ) : null}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/30 pointer-events-none" />
             </div>
+          )}
+          {/* Left Content */}
+          <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 md:px-12 h-full w-full -translate-y-2 md:-translate-y-4">
+            <div className={`${mutedCol} opacity-80`}>{icon}</div>
+
+            <p
+              className={`font-sans text-[11px] tracking-[0.25em] uppercase ${mutedCol} mt-4 opacity-90`}
+            >
+              {eyebrow}
+            </p>
+
+            <h1 className={titleClass} style={titleStyle}>
+              {title}
+            </h1>
+
+            <div
+              className={`font-sans text-[13px] md:text-[15px] ${mutedCol} max-w-md mx-auto leading-[1.6] opacity-90`}
+            >
+              {description}
+            </div>
+
+            {ctaText && ctaLink && (
+              <Link
+                to={ctaLink as any}
+                className={`mt-6 flex items-center gap-3 font-sans text-[11px] tracking-[0.2em] uppercase ${textCol} hover:opacity-70 transition-opacity`}
+              >
+                {ctaText}
+                <div
+                  className={`w-5 h-5 rounded-full border ${borderCol} flex items-center justify-center`}
+                >
+                  <Play className="w-2.5 h-2.5 ml-0.5" />
+                </div>
+              </Link>
+            )}
           </div>
-        )}
-      </div>
+
+          {/* Right Media */}
+          {!fullWidthMedia && (
+            <div className="hidden md:block w-[50%] h-full relative z-10">
+              <div
+                className="absolute inset-0 overflow-hidden"
+                style={{ borderTopLeftRadius: "160px", borderBottomLeftRadius: "160px" }}
+              >
+                {videoSrc ? (
+                  <video
+                    src={videoSrc}
+                    className="w-full h-full object-cover object-center"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : imageSrc ? (
+                  <img
+                    src={imageSrc}
+                    className="w-full h-full object-cover object-center"
+                    alt={`${title} Hero`}
+                  />
+                ) : null}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

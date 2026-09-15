@@ -22,7 +22,12 @@ export const Route = createFileRoute("/photography/$slug")({
     const { story } = loaderData;
     const title = `${story.couple} | Wedding Photography in ${story.location} | The Swaymvar`;
     return {
-      meta: getSeoMetadata(title, story.intro || `Wedding photography of ${story.couple} in ${story.location} by The Swaymvar.`, `/photography/${story.slug}`),
+      meta: getSeoMetadata(
+        title,
+        story.intro ||
+          `Wedding photography of ${story.couple} in ${story.location} by The Swaymvar.`,
+        `/photography/${story.slug}`,
+      ),
       links: [{ rel: "canonical", href: `${SITE_URL}/photography/${story.slug}` }],
     };
   },

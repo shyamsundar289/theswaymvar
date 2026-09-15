@@ -14,7 +14,7 @@ export const Route = createFileRoute("/little-snap")({
     meta: getSeoMetadata(
       "Little Snap | Candid Wedding Photography in Bikaner | The Swaymvar",
       "Little Snap by The Swaymvar offers candid wedding photography and short-form visual stories. Based in Bikaner, Rajasthan.",
-      "/little-snap"
+      "/little-snap",
     ),
     links: [{ rel: "canonical", href: `${SITE_URL}/little-snap` }],
   }),
@@ -67,8 +67,6 @@ const BalloonSVG = ({ className }: { className?: string }) => (
         <rect x="0" y="120" width="200" height="35" fill="#d69b36" />
         {/* Orange Stripe 2 */}
         <rect x="0" y="155" width="200" height="35" fill="#c4642b" />
-
-
 
         {/* Vertical Gores (3D curves) */}
         <line x1="100" y1="10" x2="100" y2="240" stroke="rgba(0,0,0,0.15)" strokeWidth="0.75" />
@@ -289,4 +287,3 @@ function LittleSnapPage() {
     </div>
   );
 }
-

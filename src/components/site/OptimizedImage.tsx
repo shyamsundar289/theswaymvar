@@ -39,7 +39,7 @@ function getSharedObserver(): IntersectionObserver {
       // Load images 800px before they enter viewport
       rootMargin: "0px 0px 800px 0px",
       threshold: 0,
-    }
+    },
   );
 
   return sharedObserver;
@@ -147,13 +147,7 @@ export const OptimizedImage = memo(function OptimizedImage({
       className={`${className} transition-opacity duration-500 ease-out ${
         isLoaded || !shouldRender ? "" : "opacity-0"
       }`}
-      style={
-        !isLoaded && shouldRender
-          ? { opacity: 0 }
-          : isLoaded
-            ? { opacity: 1 }
-            : undefined
-      }
+      style={!isLoaded && shouldRender ? { opacity: 0 } : isLoaded ? { opacity: 1 } : undefined}
     />
   );
 });

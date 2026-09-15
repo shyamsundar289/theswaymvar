@@ -50,7 +50,7 @@ export function CinematicVideoCard({ film, isActive, onActivate }: CinematicVide
   // Auto-stop video when scrolled out of view
   useEffect(() => {
     if (!containerRef.current) return;
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -66,7 +66,7 @@ export function CinematicVideoCard({ film, isActive, onActivate }: CinematicVide
           }
         });
       },
-      { threshold: 0 } // Triggers as soon as it's completely out of view
+      { threshold: 0 }, // Triggers as soon as it's completely out of view
     );
 
     observer.observe(containerRef.current);

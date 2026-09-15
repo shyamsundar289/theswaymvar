@@ -1,7 +1,10 @@
 import type { CoupleMedia } from "@/components/site/CouplePhotoGrid";
 
 // Helper to create media object
-const createMedia = (src: string, orientation: "portrait" | "landscape" | "square" = "portrait"): CoupleMedia => ({
+const createMedia = (
+  src: string,
+  orientation: "portrait" | "landscape" | "square" = "portrait",
+): CoupleMedia => ({
   id: src,
   src,
   type: "image",
@@ -70,7 +73,7 @@ export const heroImages = [
   "/Varsha & Shivam/01/DSCF2800 copy.jpg",
   "/Varsha & Shivam/02/DSCF4424 copy.jpg",
   "/Varsha & Shivam/01/DSCF3478 copy.jpg",
-  
+
   // Pooja & Suryaprakash
   "/Pooja & Suryaprakash/01/DSC09187 copy.jpg",
   "/Pooja & Suryaprakash/02/DSC00161 copy.jpg",

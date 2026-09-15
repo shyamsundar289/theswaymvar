@@ -3,11 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 import { heroImages } from "@/data/photography-projects";
 import { OptimizedImage } from "@/components/site/OptimizedImage";
-import {
-  getPhotoSrcSet,
-  getPhotoSrc,
-  getPhotoSizes,
-} from "@/lib/photography-image-utils";
+import { getPhotoSrcSet, getPhotoSrc, getPhotoSizes } from "@/lib/photography-image-utils";
 
 const allImages = heroImages;
 const safeGetImage = (index: number) => allImages[index % allImages.length];

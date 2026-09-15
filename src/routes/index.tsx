@@ -4,7 +4,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
 
 import { OptimizedImage } from "@/components/site/OptimizedImage";
-import { getPhotoSrc, getPhotoSrcSet, getPhotoSizes, isPhotographyImage } from "@/lib/photography-image-utils";
+import {
+  getPhotoSrc,
+  getPhotoSrcSet,
+  getPhotoSizes,
+  isPhotographyImage,
+} from "@/lib/photography-image-utils";
 import { Play } from "lucide-react";
 import { images } from "@/data/images";
 import { stories, waLink } from "@/data/site";
@@ -23,7 +28,6 @@ import { StoryTimeline } from "@/components/site/StoryTimeline";
 
 import { InstagramGallery } from "@/components/site/InstagramGallery";
 
-
 import { getSeoMetadata, BUSINESS_INFO, SITE_URL } from "@/config/seo";
 
 export const Route = createFileRoute("/")({
@@ -31,7 +35,7 @@ export const Route = createFileRoute("/")({
     meta: getSeoMetadata(
       "The Swaymvar — Wedding Photography & Films in Bikaner",
       BUSINESS_INFO.description,
-      "/"
+      "/",
     ),
     links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
@@ -86,7 +90,7 @@ function Home() {
           }
         });
       },
-      { threshold: 0.0 }
+      { threshold: 0.0 },
     );
 
     if (musicSectionRef.current) {
@@ -143,8 +147,6 @@ function Home() {
             </Reveal>
           </section>
 
-
-
           {/* EDITORIAL COLLAGE */}
           <EditorialCollage />
 
@@ -155,7 +157,10 @@ function Home() {
           <DiagonalBreak image={assets.misc.parallaxBg} />
 
           {/* FEATURED WORK */}
-          <section ref={musicSectionRef} className="w-full max-w-[1440px] mx-auto bg-[#f7f4ee] py-[40px] md:py-[55px] pb-[60px] md:pb-[70px] px-[5vw] lg:px-[7vw]">
+          <section
+            ref={musicSectionRef}
+            className="w-full max-w-[1440px] mx-auto bg-[#f7f4ee] py-[40px] md:py-[55px] pb-[60px] md:pb-[70px] px-[5vw] lg:px-[7vw]"
+          >
             <div className="max-w-[1290px] mx-auto text-center">
               <Reveal>
                 {/* TOP SMALL LABELS */}
@@ -226,11 +231,30 @@ function Home() {
                       className="overflow-hidden rounded-[8px] md:rounded-[20px] bg-muted w-full aspect-[3/4] md:aspect-auto md:h-[455px]"
                       style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
                     >
-                      <div className="w-full h-full" style={stories[0].coverScale ? { transform: `scale(${stories[0].coverScale})` } : {}}>
+                      <div
+                        className="w-full h-full"
+                        style={
+                          stories[0].coverScale
+                            ? { transform: `scale(${stories[0].coverScale})` }
+                            : {}
+                        }
+                      >
                         <OptimizedImage
-                          src={isPhotographyImage(stories[0].cover) ? getPhotoSrc(stories[0].cover) : stories[0].cover}
-                          srcSet={isPhotographyImage(stories[0].cover) ? getPhotoSrcSet(stories[0].cover) : undefined}
-                          sizes={isPhotographyImage(stories[0].cover) ? getPhotoSizes("grid-card") : undefined}
+                          src={
+                            isPhotographyImage(stories[0].cover)
+                              ? getPhotoSrc(stories[0].cover)
+                              : stories[0].cover
+                          }
+                          srcSet={
+                            isPhotographyImage(stories[0].cover)
+                              ? getPhotoSrcSet(stories[0].cover)
+                              : undefined
+                          }
+                          sizes={
+                            isPhotographyImage(stories[0].cover)
+                              ? getPhotoSizes("grid-card")
+                              : undefined
+                          }
                           alt={stories[0].couple}
                           loading="lazy"
                           className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
@@ -242,7 +266,9 @@ function Home() {
                     <div className="mt-[12px] md:mt-[28px] text-center w-full px-1">
                       <div className="flex items-center justify-center gap-[4px] md:gap-[10px] text-[5px] sm:text-[7px] md:text-[12px] tracking-[1px] md:tracking-[2px] uppercase text-[#8b867c] font-sans">
                         <span className="font-light">→</span>
-                        <span className="whitespace-nowrap overflow-hidden text-ellipsis">A Story of Us</span>
+                        <span className="whitespace-nowrap overflow-hidden text-ellipsis">
+                          A Story of Us
+                        </span>
                         <span className="font-light">←</span>
                       </div>
                       <h3 className="font-display text-[10px] sm:text-[12px] md:text-[22px] font-normal text-[#2d2c2a] mt-[4px] md:mt-[12px] whitespace-nowrap overflow-hidden text-ellipsis">
@@ -290,10 +316,8 @@ function Home() {
                   >
                     {/* Turntable */}
                     <div className="relative w-full flex items-start justify-center mt-[20px] md:mt-[50px]">
-                      
                       {/* Vinyl Record & Tonearm Wrapper */}
                       <div className="relative w-[55%] md:w-[190px] aspect-square flex items-center justify-center">
-                        
                         {/* Tonearm (Anchored to the vinyl) */}
                         <div className="absolute -left-[18%] md:-left-[30px] -top-[12%] md:top-[-20px] z-20 pointer-events-none w-[45%] md:w-[85px]">
                           <svg
@@ -360,10 +384,11 @@ function Home() {
                           <div className="absolute inset-[45%] rounded-full border border-white/5 pointer-events-none"></div>
 
                           {/* Spinning Light Reflection */}
-                          <div 
+                          <div
                             className="absolute inset-0 rounded-full pointer-events-none opacity-40 mix-blend-screen"
                             style={{
-                              background: "conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.15) 30deg, transparent 60deg, transparent 180deg, rgba(255,255,255,0.15) 210deg, transparent 240deg)"
+                              background:
+                                "conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.15) 30deg, transparent 60deg, transparent 180deg, rgba(255,255,255,0.15) 210deg, transparent 240deg)",
                             }}
                           ></div>
 
@@ -384,7 +409,9 @@ function Home() {
                       <h4 className="font-display italic text-[#3e3a35] text-[9px] sm:text-[12px] md:text-[20px] leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
                         Cinematic Anthem
                       </h4>
-                      <p className="text-[6px] sm:text-[8px] md:text-[14px] text-[#8c8881] mt-[2px] md:mt-[4px] whitespace-nowrap overflow-hidden text-ellipsis">Timeless Celebrations</p>
+                      <p className="text-[6px] sm:text-[8px] md:text-[14px] text-[#8c8881] mt-[2px] md:mt-[4px] whitespace-nowrap overflow-hidden text-ellipsis">
+                        Timeless Celebrations
+                      </p>
                     </div>
 
                     {/* Music Controls */}
@@ -396,7 +423,10 @@ function Home() {
                         style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.08)" }}
                         aria-label="Previous track"
                       >
-                        <svg className="w-[8px] h-[8px] md:w-3.5 md:h-3.5 fill-current" viewBox="0 0 24 24">
+                        <svg
+                          className="w-[8px] h-[8px] md:w-3.5 md:h-3.5 fill-current"
+                          viewBox="0 0 24 24"
+                        >
                           <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
                         </svg>
                       </button>
@@ -409,11 +439,17 @@ function Home() {
                         aria-label={isPlaying ? "Pause" : "Play"}
                       >
                         {isPlaying ? (
-                          <svg className="w-[10px] h-[10px] md:w-4 md:h-4 fill-current" viewBox="0 0 24 24">
+                          <svg
+                            className="w-[10px] h-[10px] md:w-4 md:h-4 fill-current"
+                            viewBox="0 0 24 24"
+                          >
                             <path d="M8 19h3V5H8v14zm5-14v14h3V5h-3z" />
                           </svg>
                         ) : (
-                          <svg className="w-[12px] h-[12px] md:w-5 md:h-5 fill-current ml-[1px] md:ml-0.5" viewBox="0 0 24 24">
+                          <svg
+                            className="w-[12px] h-[12px] md:w-5 md:h-5 fill-current ml-[1px] md:ml-0.5"
+                            viewBox="0 0 24 24"
+                          >
                             <path d="M8 5v14l11-7z" />
                           </svg>
                         )}
@@ -426,7 +462,10 @@ function Home() {
                         style={{ boxShadow: "0 4px 10px rgba(0,0,0,0.08)" }}
                         aria-label="Next track"
                       >
-                        <svg className="w-[8px] h-[8px] md:w-3.5 md:h-3.5 fill-current" viewBox="0 0 24 24">
+                        <svg
+                          className="w-[8px] h-[8px] md:w-3.5 md:h-3.5 fill-current"
+                          viewBox="0 0 24 24"
+                        >
                           <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
                         </svg>
                       </button>
@@ -445,11 +484,30 @@ function Home() {
                       className="overflow-hidden rounded-[8px] md:rounded-[20px] bg-muted w-full aspect-[3/4] md:aspect-auto md:h-[455px]"
                       style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
                     >
-                      <div className="w-full h-full" style={stories[3].coverScale ? { transform: `scale(${stories[3].coverScale})` } : {}}>
+                      <div
+                        className="w-full h-full"
+                        style={
+                          stories[3].coverScale
+                            ? { transform: `scale(${stories[3].coverScale})` }
+                            : {}
+                        }
+                      >
                         <OptimizedImage
-                          src={isPhotographyImage(stories[3].cover) ? getPhotoSrc(stories[3].cover) : stories[3].cover}
-                          srcSet={isPhotographyImage(stories[3].cover) ? getPhotoSrcSet(stories[3].cover) : undefined}
-                          sizes={isPhotographyImage(stories[3].cover) ? getPhotoSizes("grid-card") : undefined}
+                          src={
+                            isPhotographyImage(stories[3].cover)
+                              ? getPhotoSrc(stories[3].cover)
+                              : stories[3].cover
+                          }
+                          srcSet={
+                            isPhotographyImage(stories[3].cover)
+                              ? getPhotoSrcSet(stories[3].cover)
+                              : undefined
+                          }
+                          sizes={
+                            isPhotographyImage(stories[3].cover)
+                              ? getPhotoSizes("grid-card")
+                              : undefined
+                          }
                           alt={stories[3].couple}
                           loading="lazy"
                           className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
@@ -461,7 +519,9 @@ function Home() {
                     <div className="mt-[12px] md:mt-[28px] text-center w-full px-1">
                       <div className="flex items-center justify-center gap-[4px] md:gap-[10px] text-[5px] sm:text-[7px] md:text-[12px] tracking-[1px] md:tracking-[2px] uppercase text-[#8b867c] font-sans">
                         <span className="font-light">→</span>
-                        <span className="whitespace-nowrap overflow-hidden text-ellipsis">Forever Begins</span>
+                        <span className="whitespace-nowrap overflow-hidden text-ellipsis">
+                          Forever Begins
+                        </span>
                         <span className="font-light">←</span>
                       </div>
                       <h3 className="font-display text-[10px] sm:text-[12px] md:text-[22px] font-normal text-[#2d2c2a] mt-[4px] md:mt-[12px] whitespace-nowrap overflow-hidden text-ellipsis">
@@ -511,11 +571,20 @@ function Home() {
           <section className="w-full bg-background border-t-[1px] border-[#d1cbbd]/30 py-[clamp(3rem,6vw,5rem)] px-[clamp(1rem,4vw,3rem)] flex justify-center">
             <Reveal className="w-full max-w-[900px]">
               <div className="relative w-full flex flex-col items-center text-center">
-
                 {/* Elegant Ornament */}
                 <div className="mb-[clamp(1rem,3vw,2rem)] text-[#c4a97d]">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 1L13.5 10.5L23 12L13.5 13.5L12 23L10.5 13.5L1 12L10.5 10.5L12 1Z" fill="currentColor" opacity="0.8" />
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 1L13.5 10.5L23 12L13.5 13.5L12 23L10.5 13.5L1 12L10.5 10.5L12 1Z"
+                      fill="currentColor"
+                      opacity="0.8"
+                    />
                   </svg>
                 </div>
 
@@ -548,7 +617,6 @@ function Home() {
               </div>
             </Reveal>
           </section>
-
         </div>
       </div>
     </>

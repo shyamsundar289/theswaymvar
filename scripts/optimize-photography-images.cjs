@@ -92,11 +92,13 @@ async function main() {
       ...images.map((img) => ({
         absolutePath: img,
         relativePath: path.relative(PUBLIC_DIR, img),
-      }))
+      })),
     );
   }
 
-  console.log(`  Found ${allImages.length} source images across ${SOURCE_DIRS.length} directories.\n`);
+  console.log(
+    `  Found ${allImages.length} source images across ${SOURCE_DIRS.length} directories.\n`,
+  );
 
   let generated = 0;
   let skipped = 0;
@@ -108,9 +110,7 @@ async function main() {
     const relDir = path.dirname(relativePath);
     const baseName = stripExtension(path.basename(relativePath));
 
-    process.stdout.write(
-      `  [${i + 1}/${allImages.length}] ${relativePath} ... `
-    );
+    process.stdout.write(`  [${i + 1}/${allImages.length}] ${relativePath} ... `);
 
     for (const width of WIDTHS) {
       const outDir = path.join(OUTPUT_DIR, relDir);
@@ -150,9 +150,7 @@ async function main() {
   if (errors > 0) {
     console.log(`  ✗ Errors:               ${errors}`);
   }
-  console.log(
-    `  ✓ Total optimized size: ${(totalOutputBytes / 1024 / 1024).toFixed(1)} MB`
-  );
+  console.log(`  ✓ Total optimized size: ${(totalOutputBytes / 1024 / 1024).toFixed(1)} MB`);
   console.log(`  ✓ Output directory:     ${OUTPUT_DIR}`);
   console.log("  ════════════════════════════════════════════════════");
   console.log();

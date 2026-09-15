@@ -69,7 +69,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       ...getSeoMetadata(
         "The Swaymvar — Wedding Photography & Films in Bikaner",
         BUSINESS_INFO.description,
-        "/"
+        "/",
       ),
     ],
     links: [
@@ -118,28 +118,28 @@ function RootComponent() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": BUSINESS_INFO.name,
-    "url": SITE_URL
+    name: BUSINESS_INFO.name,
+    url: SITE_URL,
   };
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": ["Organization", "LocalBusiness"],
-    "name": BUSINESS_INFO.name,
-    "url": SITE_URL,
-    "logo": `${SITE_URL}${assets.misc.favicon}`,
-    "image": `${SITE_URL}${assets.misc.favicon}`,
-    "description": BUSINESS_INFO.description,
-    "founder": {
+    name: BUSINESS_INFO.name,
+    url: SITE_URL,
+    logo: `${SITE_URL}${assets.misc.favicon}`,
+    image: `${SITE_URL}${assets.misc.favicon}`,
+    description: BUSINESS_INFO.description,
+    founder: {
       "@type": "Person",
-      "name": BUSINESS_INFO.founder
+      name: BUSINESS_INFO.founder,
     },
-    "telephone": BUSINESS_INFO.telephone,
-    "email": BUSINESS_INFO.email,
-    "sameAs": BUSINESS_INFO.social,
-    "areaServed": BUSINESS_INFO.areaServed,
-    "knowsAbout": BUSINESS_INFO.knowsAbout,
-    "address": BUSINESS_INFO.address
+    telephone: BUSINESS_INFO.telephone,
+    email: BUSINESS_INFO.email,
+    sameAs: BUSINESS_INFO.social,
+    areaServed: BUSINESS_INFO.areaServed,
+    knowsAbout: BUSINESS_INFO.knowsAbout,
+    address: BUSINESS_INFO.address,
   };
 
   return (

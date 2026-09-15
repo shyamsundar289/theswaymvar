@@ -5,7 +5,7 @@ import type { CoupleMedia } from "@/components/site/CouplePhotoGrid";
 export const WHATSAPP_NUMBER = "918049422388";
 
 export const waLink = (
-  message = "Hello theswaymvar ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â we'd love to know about your availability.",
+  message = "Hello theswaymvar — we'd love to know about your availability.",
 ) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
 export const nav = [
@@ -45,7 +45,12 @@ export type Story = {
   gallery: readonly CoupleMedia[];
 };
 
-import { varshaShivamImages, poojaSuryaprakashImages, khushbooJayImages, bhawnaAbhishekImages } from "./photography-projects";
+import {
+  varshaShivamImages,
+  poojaSuryaprakashImages,
+  khushbooJayImages,
+  bhawnaAbhishekImages,
+} from "./photography-projects";
 
 export const stories: Story[] = [
   {
@@ -56,7 +61,7 @@ export const stories: Story[] = [
     intro: "A celebration filled with quiet elegance and timeless moments.",
     narrative: [
       "Every frame tells a story of love, capturing the subtle emotions and unspoken words between the couple and their loved ones.",
-      "The photography reflects the beauty of their bond, frozen in elegant compositions that they will cherish forever."
+      "The photography reflects the beauty of their bond, frozen in elegant compositions that they will cherish forever.",
     ],
     cover: "/Varsha & Shivam/01/DSCF3453 copy.jpg",
     gallery: varshaShivamImages,
@@ -69,7 +74,7 @@ export const stories: Story[] = [
     intro: "A vibrant gathering where tradition meets contemporary grace.",
     narrative: [
       "Surrounded by their closest friends and family, their wedding was a testament to joy, laughter, and deep connection.",
-      "We documented their day as it naturally unfolded, preserving the genuine smiles and the vibrant atmosphere of the celebration."
+      "We documented their day as it naturally unfolded, preserving the genuine smiles and the vibrant atmosphere of the celebration.",
     ],
     cover: "/Pooja & Suryaprakash/02/DSC00075.jpg",
     gallery: poojaSuryaprakashImages,
@@ -82,7 +87,7 @@ export const stories: Story[] = [
     intro: "An intimate and heartwarming union marked by beautiful details.",
     narrative: [
       "The delicate lighting and thoughtful details provided the perfect backdrop for their beautiful day.",
-      "From the quiet morning preparations to the lively evening festivities, we captured the essence of their unique story."
+      "From the quiet morning preparations to the lively evening festivities, we captured the essence of their unique story.",
     ],
     cover: "/Khushboo & Jay/03/SK_04669.jpg",
     coverScale: 1.2,
@@ -96,7 +101,7 @@ export const stories: Story[] = [
     intro: "A grand celebration showcasing love, color, and joyous moments.",
     narrative: [
       "Their wedding was an exquisite visual feast, filled with rich colors, grand gestures, and profound emotional moments.",
-      "We crafted a visual narrative that immortalizes the scale and the intimate poetry of their special day."
+      "We crafted a visual narrative that immortalizes the scale and the intimate poetry of their special day.",
     ],
     cover: "/Bhawna & Abhishek/04/AK209382 copy.jpg",
     gallery: bhawnaAbhishekImages,

@@ -12,17 +12,17 @@ export function Footer() {
             Approximates the desktop widths: 
             Promise (1.25fr), Explore (0.75fr), Studio (1.25fr), Find Us (1fr)
           */}
-          <div
-            className="grid grid-cols-[minmax(0,1.35fr)_minmax(0,0.75fr)_minmax(0,1.2fr)_minmax(0,1.1fr)] mb-[clamp(2rem,5vw,4rem)] w-full gap-y-[clamp(2rem,5vw,4rem)] gap-x-[clamp(8px,2vw,40px)]"
-          >
+          <div className="grid grid-cols-[minmax(0,1.35fr)_minmax(0,0.75fr)_minmax(0,1.2fr)_minmax(0,1.1fr)] mb-[clamp(2rem,5vw,4rem)] w-full gap-y-[clamp(2rem,5vw,4rem)] gap-x-[clamp(8px,2vw,40px)]">
             {/* COLUMN 1 — OUR PROMISE */}
             <div className="flex flex-col w-full min-w-0">
               <h3 className="font-sans text-[clamp(7px,1vw,11px)] uppercase tracking-[0.2em] text-[#c4a97d] mb-[clamp(0.75rem,1.5vw,2rem)] whitespace-nowrap">
                 Our Promise
               </h3>
               <h2 className="font-display text-[clamp(11px,1.9vw,2rem)] leading-[1.2] font-normal mb-[clamp(1rem,3vw,2.5rem)] pr-[2px] md:pr-2">
-                We take a limited<br />
-                number of weddings<br />
+                We take a limited
+                <br />
+                number of weddings
+                <br />
                 each year.
               </h2>
               <a
@@ -154,9 +154,11 @@ export function Footer() {
             <div className="font-sans text-[clamp(7.5px,1vw,10px)] uppercase tracking-[0.2em] text-[#8b867c] text-center px-2 md:px-4 whitespace-nowrap">
               © {new Date().getFullYear()} THE SWAYMVAR. ALL RIGHTS RESERVED.
             </div>
-            
+
             <div className="max-w-4xl font-sans text-[clamp(8px,1vw,12px)] leading-relaxed text-[#666666] text-center px-4 md:px-8">
-              The Swaymvar is a wedding photography and cinematic wedding films studio based in Bikaner, Rajasthan, India, documenting weddings through photography, videography and visual storytelling across Rajasthan and destination wedding locations.
+              The Swaymvar is a wedding photography and cinematic wedding films studio based in
+              Bikaner, Rajasthan, India, documenting weddings through photography, videography and
+              visual storytelling across Rajasthan and destination wedding locations.
             </div>
           </div>
         </Reveal>

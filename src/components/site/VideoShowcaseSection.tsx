@@ -11,7 +11,7 @@ export function VideoShowcaseSection() {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       // Ignore if clicking inside a video card
-      if ((e.target as Element).closest('.video-card-container')) {
+      if ((e.target as Element).closest(".video-card-container")) {
         return;
       }
       setActiveVideoId(null);

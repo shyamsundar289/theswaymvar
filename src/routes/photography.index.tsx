@@ -13,7 +13,7 @@ export const Route = createFileRoute("/photography/")({
     meta: getSeoMetadata(
       "Wedding Photography in Bikaner, Rajasthan | The Swaymvar",
       "Selected wedding stories and candid wedding photography across Rajasthan and destination locations by The Swaymvar.",
-      "/photography"
+      "/photography",
     ),
     links: [{ rel: "canonical", href: `${SITE_URL}/photography` }],
   }),

@@ -42,13 +42,21 @@ export function PhotographyGridSection() {
             {stories.map((story, idx) => {
               const hasOptimized = isPhotographyImage(story.cover);
               return (
-                <Link to="/photography/$slug" params={{ slug: story.slug }} key={idx} className="w-full flex flex-col group cursor-pointer block">
+                <Link
+                  to="/photography/$slug"
+                  params={{ slug: story.slug }}
+                  key={idx}
+                  className="w-full flex flex-col group cursor-pointer block"
+                >
                   {/* PICTURE FRAME (Matched to Home Page) */}
                   <div
                     className="overflow-hidden rounded-[20px] bg-muted w-full aspect-[4/5]"
                     style={{ boxShadow: "0 15px 30px rgba(0,0,0,0.08)" }}
                   >
-                    <div className="w-full h-full" style={story.coverScale ? { transform: `scale(${story.coverScale})` } : {}}>
+                    <div
+                      className="w-full h-full"
+                      style={story.coverScale ? { transform: `scale(${story.coverScale})` } : {}}
+                    >
                       <OptimizedImage
                         src={hasOptimized ? getPhotoSrc(story.cover) : story.cover}
                         srcSet={hasOptimized ? getPhotoSrcSet(story.cover) : undefined}
@@ -80,7 +88,11 @@ export function PhotographyGridSection() {
                         xmlns="http://www.w3.org/2000/svg"
                         className="md:w-[50px] md:h-[12px]"
                       >
-                        <path d="M30 2 L33 7.5 L30 13 L27 7.5 Z" fill="currentColor" opacity="0.8" />
+                        <path
+                          d="M30 2 L33 7.5 L30 13 L27 7.5 Z"
+                          fill="currentColor"
+                          opacity="0.8"
+                        />
                         <path
                           d="M25 7.5 Q15 2 5 7.5 Q15 13 25 7.5"
                           fill="currentColor"
