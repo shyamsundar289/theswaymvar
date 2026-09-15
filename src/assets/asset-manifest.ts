@@ -83,7 +83,7 @@ export const assets = {
 
   about: {
     teamPhoto: "/media/images/about/team/about_team_alt1.webp",
-    person: "/media/images/about/general/founder_Ravi_Maru.JPG",
+    person: "/media/images/about/general/founder_Ravi_Maru.webp",
   },
 
   crew: {

@@ -134,7 +134,7 @@ export function Footer() {
                 ></iframe>
               </div>
               <a
-                href="https://maps.google.com"
+                href="https://maps.app.goo.gl/Wsez33FNpjEDsZi18"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-[clamp(4px,1.5vw,20px)] py-[clamp(6px,1.5vw,16px)] transition-all duration-500 hover:border-[#666] w-full"

@@ -8,51 +8,51 @@ import { assets } from "@/assets/asset-manifest";
 const instagramPosts = [
   {
     id: "little-snap-instagram-01",
-    image: assets.home.editorial[2].mobile,
-    alt: "Bride portrait",
-    caption: "Quiet moments before forever.",
-    location: "Jaipur, India",
-    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
+    image: "/little snap/6_grid/1.webp",
+    alt: "Instagram Post 1",
+    caption: "",
+    location: "",
+    instagramUrl: "https://www.instagram.com/p/DZKJEpagVXS/",
   },
   {
     id: "little-snap-instagram-02",
-    image: assets.home.editorial[3].mobile,
-    alt: "Groom portrait",
-    caption: "The anticipation builds.",
-    location: "Udaipur, India",
-    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
+    image: "/little snap/6_grid/2.webp",
+    alt: "Instagram Post 2",
+    caption: "",
+    location: "",
+    instagramUrl: "https://www.instagram.com/p/DVF0qZdAefx/",
   },
   {
     id: "little-snap-instagram-03",
-    image: assets.home.editorial[4].mobile,
-    alt: "Couple candid moment",
-    caption: "A stolen glance.",
-    location: "Jodhpur, India",
-    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
+    image: "/little snap/6_grid/3.webp",
+    alt: "Instagram Post 3",
+    caption: "",
+    location: "",
+    instagramUrl: "https://www.instagram.com/p/DJ1DG1UB33l/",
   },
   {
     id: "little-snap-instagram-04",
-    image: assets.home.editorial[5].mobile,
-    alt: "Wedding details / jewellery",
-    caption: "Heirlooms of the heart.",
-    location: "Bikaner, India",
-    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
+    image: "/little snap/6_grid/4.webp",
+    alt: "Instagram Post 4",
+    caption: "",
+    location: "",
+    instagramUrl: "https://www.instagram.com/p/DDwGbByhEZq/",
   },
   {
     id: "little-snap-instagram-05",
-    image: assets.home.editorial[6].mobile,
-    alt: "Decor and aesthetics",
-    caption: "Setting the scene.",
-    location: "Pushkar, India",
-    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
+    image: "/little snap/6_grid/5.webp",
+    alt: "Instagram Post 5",
+    caption: "",
+    location: "",
+    instagramUrl: "https://www.instagram.com/p/C-7fOTMSEFG/",
   },
   {
     id: "little-snap-instagram-06",
-    image: assets.home.editorial[7].mobile,
-    alt: "Joyous laughter",
-    caption: "Laughter lines.",
-    location: "Jaisalmer, India",
-    instagramUrl: "https://instagram.com/little_snap__/?hl=en",
+    image: "/little snap/6_grid/6.webp",
+    alt: "Instagram Post 6",
+    caption: "",
+    location: "",
+    instagramUrl: "https://www.instagram.com/p/DOSxXrxARMR/",
   },
 ];
 
@@ -108,7 +108,7 @@ export function LittleSnapInstagramSection() {
             {instagramPosts.slice(0, 6).map((item) => (
               <motion.a
                 key={item.id}
-                href="https://www.instagram.com/little_snap__/?hl=en"
+                href={item.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="relative aspect-square w-full bg-[#f0ede6] overflow-hidden group block"

@@ -8,8 +8,8 @@ import { getPhotoSrcSet, getPhotoSrc, getPhotoSizes } from "@/lib/photography-im
 const allImages = heroImages;
 const safeGetImage = (index: number) => allImages[index % allImages.length];
 
-const mediaGrid = Array.from({ length: 5 }).map((_, colIndex) =>
-  Array.from({ length: 6 }).map((_, rowIndex) => {
+const mediaGrid = Array.from({ length: 10 }).map((_, colIndex) =>
+  Array.from({ length: 10 }).map((_, rowIndex) => {
     const flatIndex = colIndex * 6 + rowIndex;
     return { id: flatIndex, src: safeGetImage(flatIndex) };
   }),
@@ -26,24 +26,29 @@ export function PhotographyHero() {
   const y3 = useTransform(scrollY, [0, 1000], [0, -150]);
   const y4 = useTransform(scrollY, [0, 1000], [0, -350]);
   const y5 = useTransform(scrollY, [0, 1000], [0, -250]);
+  const y6 = useTransform(scrollY, [0, 1000], [0, -400]);
+  const y7 = useTransform(scrollY, [0, 1000], [0, -180]);
+  const y8 = useTransform(scrollY, [0, 1000], [0, -320]);
+  const y9 = useTransform(scrollY, [0, 1000], [0, -210]);
+  const y10 = useTransform(scrollY, [0, 1000], [0, -480]);
 
-  const columnTransforms = [y1, y2, y3, y4, y5];
+  const columnTransforms = [y1, y2, y3, y4, y5, y6, y7, y8, y9, y10];
 
   return (
     <section ref={containerRef} className="relative h-full w-full bg-transparent overflow-hidden">
       <Header />
       {/* Tilted Image Grid */}
       <motion.div
-        className="absolute flex gap-4 md:gap-6 w-[160vw] md:w-[110vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute flex gap-3 md:gap-4 w-[240vw] md:w-[150vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
           rotate: "-12deg",
-          scale: 1.1,
+          scale: 1.0,
         }}
       >
         {mediaGrid.map((column, colIndex) => (
           <motion.div
             key={colIndex}
-            className="flex flex-col gap-4 md:gap-6 flex-1 items-center"
+            className="flex flex-col gap-3 md:gap-4 flex-1 items-center"
             style={{ y: columnTransforms[colIndex], willChange: "transform" }}
           >
             {column.map((item, rowIndex) => {

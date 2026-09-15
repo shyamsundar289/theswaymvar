@@ -133,89 +133,33 @@ const BalloonSVG = ({ className }: { className?: string }) => (
 
 const FLEX_COLUMNS = [
   [
-    // Col 1
-    {
-      src: assets.home.editorial[0].mobile,
-      desktopSrc: assets.home.editorial[0].desktop,
-      aspect: "aspect-[4/5]",
-    },
-    {
-      src: assets.home.editorial[1].mobile,
-      desktopSrc: assets.home.editorial[1].desktop,
-      aspect: "aspect-[1/1]",
-    },
-    {
-      src: assets.home.editorial[2].mobile,
-      desktopSrc: assets.home.editorial[2].desktop,
-      aspect: "aspect-[5/4]",
-    },
+    // Col 1 (Total Height: 3.05)
+    { src: "/little snap/14_grid/2.webp", desktopSrc: "/little snap/14_grid/2.webp", aspect: "aspect-[4/5]" },
+    { src: "/little snap/14_grid/3.webp", desktopSrc: "/little snap/14_grid/3.webp", aspect: "aspect-[1/1]" },
+    { src: "/little snap/14_grid/1.webp", desktopSrc: "/little snap/14_grid/1.webp", aspect: "aspect-[5/4]" },
   ],
   [
-    // Col 2
-    {
-      src: assets.home.editorial[3].mobile,
-      desktopSrc: assets.home.editorial[3].desktop,
-      aspect: "aspect-[4/5]",
-    },
-    {
-      src: assets.home.editorial[4].mobile,
-      desktopSrc: assets.home.editorial[4].desktop,
-      aspect: "aspect-[5/4]",
-    },
-    {
-      src: assets.home.editorial[5].mobile,
-      desktopSrc: assets.home.editorial[5].desktop,
-      aspect: "aspect-[4/5]",
-    },
+    // Col 2 (Total Height: 3.05)
+    { src: "/little snap/14_grid/5.webp", desktopSrc: "/little snap/14_grid/5.webp", aspect: "aspect-[4/5]" },
+    { src: "/little snap/14_grid/4.webp", desktopSrc: "/little snap/14_grid/4.webp", aspect: "aspect-[1/1]" },
+    { src: "/little snap/14_grid/6.webp", desktopSrc: "/little snap/14_grid/6.webp", aspect: "aspect-[5/4]" },
   ],
   [
-    // Col 3
-    {
-      src: assets.home.editorial[6].mobile,
-      desktopSrc: assets.home.editorial[6].desktop,
-      aspect: "aspect-[1/1]",
-    },
-    {
-      src: assets.home.editorial[7].mobile,
-      desktopSrc: assets.home.editorial[7].desktop,
-      aspect: "aspect-[1/1]",
-    },
-    {
-      src: assets.home.editorial[8].mobile,
-      desktopSrc: assets.home.editorial[8].desktop,
-      aspect: "aspect-[5/4]",
-    },
+    // Col 3 (Total Height: 3.05)
+    { src: "/little snap/14_grid/7.webp", desktopSrc: "/little snap/14_grid/7.webp", aspect: "aspect-[4/5]" },
+    { src: "/little snap/14_grid/8.webp", desktopSrc: "/little snap/14_grid/8.webp", aspect: "aspect-[1/1]" },
+    { src: "/little snap/14_grid/13.webp", desktopSrc: "/little snap/14_grid/13.webp", aspect: "aspect-[5/4]" },
   ],
   [
-    // Col 4
-    {
-      src: assets.home.editorial[9].mobile,
-      desktopSrc: assets.home.editorial[9].desktop,
-      aspect: "aspect-[4/5]",
-    },
-    {
-      src: assets.home.editorial[10].mobile,
-      desktopSrc: assets.home.editorial[10].desktop,
-      aspect: "aspect-[4/5]",
-    },
-    {
-      src: assets.home.editorial[11].mobile,
-      desktopSrc: assets.home.editorial[11].desktop,
-      aspect: "aspect-[1/1]",
-    },
+    // Col 4 (Total Height: 3.05)
+    { src: "/little snap/14_grid/9.webp", desktopSrc: "/little snap/14_grid/9.webp", aspect: "aspect-[4/5]" },
+    { src: "/little snap/14_grid/10.webp", desktopSrc: "/little snap/14_grid/10.webp", aspect: "aspect-[1/1]" },
+    { src: "/little snap/14_grid/14.webp", desktopSrc: "/little snap/14_grid/14.webp", aspect: "aspect-[5/4]" },
   ],
   [
-    // Col 5
-    {
-      src: assets.home.editorial[12].mobile,
-      desktopSrc: assets.home.editorial[12].desktop,
-      aspect: "aspect-[4/5]",
-    },
-    {
-      src: assets.home.editorial[13].mobile,
-      desktopSrc: assets.home.editorial[13].desktop,
-      aspect: "aspect-[5/4]",
-    },
+    // Col 5 (Total Height: 3.00)
+    { src: "/little snap/14_grid/11.webp", desktopSrc: "/little snap/14_grid/11.webp", aspect: "aspect-[2/3]" },
+    { src: "/little snap/14_grid/12.webp", desktopSrc: "/little snap/14_grid/12.webp", aspect: "aspect-[2/3]" },
   ],
 ];
 

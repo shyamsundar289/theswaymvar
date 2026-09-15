@@ -89,7 +89,7 @@ export const stories: Story[] = [
       "The delicate lighting and thoughtful details provided the perfect backdrop for their beautiful day.",
       "From the quiet morning preparations to the lively evening festivities, we captured the essence of their unique story.",
     ],
-    cover: "/Khushboo & Jay/03/SK_04669.jpg",
+    cover: "/Khushboo & Jay/03/cover.image.png",
     coverScale: 1.2,
     gallery: khushbooJayImages,
   },
@@ -147,7 +147,7 @@ export const featuredFilms = [
   },
   {
     id: "2",
-    couple: "Nitin & Rajshree",
+    couple: "Rajshree & Nitin",
     location: "",
     category: "Cinematic Highlights",
     videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/12.mp4",
@@ -187,7 +187,7 @@ export const featuredFilms = [
   },
   {
     id: "7",
-    couple: "",
+    couple: "Tamana & Sandeep",
     location: "",
     category: "Wedding Film",
     videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/17.mp4",

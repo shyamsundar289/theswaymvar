@@ -23,7 +23,7 @@ export const filmLibraryData: LibraryFilm[] = [
   },
   {
     id: "film-2",
-    couple: "Nitin & Rajshree",
+    couple: "Rajshree & Nitin",
     category: "WEDDING",
     posterImg: "/video-cover/videocover2.webp",
     videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/12.mp4",
@@ -50,7 +50,7 @@ export const filmLibraryData: LibraryFilm[] = [
   },
   {
     id: "film-5",
-    couple: "Khusboo",
+    couple: "Khushboo & Jay",
     category: "WEDDING",
     posterImg: "/video-cover/videocover5.webp",
     videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/15.mp4",
@@ -59,7 +59,7 @@ export const filmLibraryData: LibraryFilm[] = [
   },
   {
     id: "film-6",
-    couple: "Khusboo",
+    couple: "Khushboo & Jay",
     category: "WEDDING",
     posterImg: "/video-cover/videocover6.webp",
     videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/16.mp4",
@@ -68,7 +68,7 @@ export const filmLibraryData: LibraryFilm[] = [
   },
   {
     id: "film-7",
-    couple: "",
+    couple: "Tamana & Sandeep",
     category: "WEDDING",
     posterImg: "/video-cover/videocover7.webp",
     videoUrl: "https://github.com/shyamsundar289/theswaymvar/releases/download/media-v1/17.mp4",
