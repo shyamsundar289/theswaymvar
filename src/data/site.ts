@@ -67,19 +67,6 @@ export const stories: Story[] = [
     gallery: varshaShivamImages,
   },
   {
-    slug: "pooja-and-suryaprakash",
-    couple: "Pooja & Suryaprakash",
-    location: "Destination",
-    date: "2024",
-    intro: "A vibrant gathering where tradition meets contemporary grace.",
-    narrative: [
-      "Surrounded by their closest friends and family, their wedding was a testament to joy, laughter, and deep connection.",
-      "We documented their day as it naturally unfolded, preserving the genuine smiles and the vibrant atmosphere of the celebration.",
-    ],
-    cover: "/Pooja & Suryaprakash/02/DSC00075.jpg",
-    gallery: poojaSuryaprakashImages,
-  },
-  {
     slug: "khushboo-and-jay",
     couple: "Khushboo & Jay",
     location: "Destination",
@@ -92,6 +79,19 @@ export const stories: Story[] = [
     cover: "/Khushboo & Jay/03/cover.image.png",
     coverScale: 1.2,
     gallery: khushbooJayImages,
+  },
+  {
+    slug: "pooja-and-suryaprakash",
+    couple: "Pooja & Suryaprakash",
+    location: "Destination",
+    date: "2024",
+    intro: "A vibrant gathering where tradition meets contemporary grace.",
+    narrative: [
+      "Surrounded by their closest friends and family, their wedding was a testament to joy, laughter, and deep connection.",
+      "We documented their day as it naturally unfolded, preserving the genuine smiles and the vibrant atmosphere of the celebration.",
+    ],
+    cover: "/Pooja & Suryaprakash/02/DSC00075.jpg",
+    gallery: poojaSuryaprakashImages,
   },
   {
     slug: "bhawna-and-abhishek",

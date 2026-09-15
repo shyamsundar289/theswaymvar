@@ -8,9 +8,9 @@ import { getPhotoSrcSet, getPhotoSrc, getPhotoSizes } from "@/lib/photography-im
 const allImages = heroImages;
 const safeGetImage = (index: number) => allImages[index % allImages.length];
 
-const mediaGrid = Array.from({ length: 10 }).map((_, colIndex) =>
-  Array.from({ length: 10 }).map((_, rowIndex) => {
-    const flatIndex = colIndex * 6 + rowIndex;
+const mediaGrid = Array.from({ length: 8 }).map((_, colIndex) =>
+  Array.from({ length: 4 }).map((_, rowIndex) => {
+    const flatIndex = colIndex * 4 + rowIndex;
     return { id: flatIndex, src: safeGetImage(flatIndex) };
   }),
 );
@@ -32,14 +32,14 @@ export function PhotographyHero() {
   const y9 = useTransform(scrollY, [0, 1000], [0, -210]);
   const y10 = useTransform(scrollY, [0, 1000], [0, -480]);
 
-  const columnTransforms = [y1, y2, y3, y4, y5, y6, y7, y8, y9, y10];
+  const columnTransforms = [y1, y2, y3, y4, y5, y6, y7, y8];
 
   return (
     <section ref={containerRef} className="relative h-full w-full bg-transparent overflow-hidden">
       <Header />
       {/* Tilted Image Grid */}
       <motion.div
-        className="absolute flex gap-3 md:gap-4 w-[240vw] md:w-[150vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="absolute flex gap-3 md:gap-4 w-[200vw] md:w-[130vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{
           rotate: "-12deg",
           scale: 1.0,
@@ -57,7 +57,7 @@ export function PhotographyHero() {
               return (
                 <motion.div
                   key={item.id}
-                  whileHover={{ scale: 1.05, y: -10 }}
+                  
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="relative w-full aspect-[4/5] overflow-hidden rounded-xl md:rounded-2xl bg-[#E8E4D9] shadow-[0_10px_30px_rgba(0,0,0,0.08)] shrink-0 group cursor-pointer"
                 >
@@ -68,7 +68,7 @@ export function PhotographyHero() {
                     alt="Photography story"
                     critical={isCritical}
                     fetchPriority={isCritical ? "high" : undefined}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] ease-out "
                   />
                   {/* Subtle darkening on hover to emphasize the lift */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
