@@ -68,8 +68,7 @@ export function EditorialCollage() {
               <img
                 src={assets.home.editorial[num - 1].mobile}
                 alt="Editorial moment"
-                loading={idx === 5 ? "eager" : "lazy"}
-                fetchPriority={idx === 5 ? "high" : undefined}
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </picture>
