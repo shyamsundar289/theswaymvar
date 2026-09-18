@@ -37,6 +37,8 @@ export function HeroVideoTile({ video, poster }: HeroVideoTileProps) {
         <img
           src={poster}
           alt=""
+          loading="eager"
+          fetchPriority="high"
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
             isLoaded && !reducedMotion ? "opacity-0" : "opacity-100"
           }`}

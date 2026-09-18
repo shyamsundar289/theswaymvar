@@ -6,8 +6,8 @@ export function EditorialCollage() {
   // We need 14 images total to surround 1 center text block (15 items total)
   // In a 5-col grid, the center is the 8th item.
   // In a 3-col grid, the center is also the 8th item!
-  const topImages = [1, 2, 3, 4, 5, 6, 7];
-  const bottomImages = [8, 9, 10, 11, 12, 13, 14];
+  const topImages = [13, 10, 2, 9, 5, 6, 1];
+  const bottomImages = [4, 14, 8, 7, 12, 11, 3];
 
   return (
     <section className="w-full bg-white overflow-hidden relative border-y border-white/20">
@@ -68,7 +68,8 @@ export function EditorialCollage() {
               <img
                 src={assets.home.editorial[num - 1].mobile}
                 alt="Editorial moment"
-                loading="lazy"
+                loading={idx === 5 ? "eager" : "lazy"}
+                fetchPriority={idx === 5 ? "high" : undefined}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </picture>

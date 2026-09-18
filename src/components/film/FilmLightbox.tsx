@@ -26,19 +26,26 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
   const [showControls, setShowControls] = useState(true);
   const controlsTimeoutRef = useRef<number | null>(null);
 
-  // Autoplay on mount
+  // Autoplay on mount safely
   useEffect(() => {
+    let isMounted = true;
     if (videoRef.current && film.videoUrl) {
-      videoRef.current
-        .play()
-        .then(() => setIsPlaying(true))
-        .catch(console.error);
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            if (isMounted) setIsPlaying(true);
+          })
+          .catch((err) => {
+            console.log("Autoplay prevented:", err);
+            if (isMounted) setIsPlaying(false);
+          });
+      }
     }
     return () => {
-      // Cleanup: pause video when unmounting
+      isMounted = false;
       if (videoRef.current) {
         videoRef.current.pause();
-        // clear src to release resources
         videoRef.current.removeAttribute("src");
         videoRef.current.load();
       }
@@ -58,10 +65,15 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
     e?.stopPropagation();
     if (videoRef.current) {
       if (videoRef.current.paused) {
-        videoRef.current
-          .play()
-          .then(() => setIsPlaying(true))
-          .catch(console.error);
+        const playPromise = videoRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => setIsPlaying(true))
+            .catch((err) => {
+              console.error("Play error:", err);
+              setIsPlaying(false);
+            });
+        }
       } else {
         videoRef.current.pause();
         setIsPlaying(false);
@@ -136,7 +148,7 @@ export function FilmLightbox({ film, onClose }: FilmLightboxProps) {
       >
         <div
           ref={containerRef}
-          className="relative w-full max-w-[90vw] md:max-w-[80vw] aspect-video bg-black rounded-lg overflow-hidden shadow-2xl flex items-center justify-center"
+          className="relative w-full max-w-[90vw] md:max-w-[80vw] aspect-video bg-black rounded-lg overflow-hidden shadow-2xl flex items-center justify-center cursor-pointer"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onClick={(e) => {

@@ -68,16 +68,7 @@ export function FilmGridCard({ film, onClick, className = "" }: FilmGridCardProp
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
 
-        {/* Lazy Preloaded Video for Metadata - Visually Hidden but in DOM to warm up the cache */}
-        {isNearViewport && film.videoUrl && (
-          <video
-            src={film.videoUrl}
-            preload="metadata"
-            className="absolute w-0 h-0 opacity-0 pointer-events-none"
-            muted
-            playsInline
-          />
-        )}
+
 
         {/* Play Icon (Always visible, simple, cinematic) */}
         <div className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/30 flex items-center justify-center pointer-events-none">
@@ -92,7 +83,7 @@ export function FilmGridCard({ film, onClick, className = "" }: FilmGridCardProp
           <span>{film.category}</span>
           <span className="font-light">←</span>
         </div>
-        <h3 className="font-display text-[15px] md:text-[26px] font-normal text-[#2d2c2a] mt-[8px] md:mt-3 leading-tight min-h-[36px] md:min-h-[44px] flex items-center justify-center">
+        <h3 className="font-display text-[13px] sm:text-[15px] md:text-[26px] font-normal text-[#2d2c2a] mt-[8px] md:mt-3 leading-tight min-h-[36px] md:min-h-[44px] flex items-center justify-center text-center px-1 break-words">
           {film.couple}
         </h3>
         {film.location && (

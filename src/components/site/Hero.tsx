@@ -150,6 +150,8 @@ export function Hero() {
                   <img
                     src={item.src}
                     alt="Editorial wedding photography"
+                    loading="eager"
+                    fetchPriority="high"
                     className="w-full h-full object-cover block"
                     style={
                       item.isLogoBg
