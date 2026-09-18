@@ -60,8 +60,8 @@ export const assets = {
       },
       {
         id: 11,
-        desktop: "/media/images/home/editorial/home_editorial_11_desktop.webp",
-        mobile: "/media/images/home/editorial/home_editorial_11_mobile.webp",
+        desktop: "/media/images/home/editorial/home_editorial_11_desktop.png",
+        mobile: "/media/images/home/editorial/home_editorial_11_desktop.png",
       },
       {
         id: 12,
