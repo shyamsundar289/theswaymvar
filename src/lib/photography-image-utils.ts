@@ -25,17 +25,11 @@ function getOptimizedPath(originalSrc: string, width: number): string {
   if (lastDot === -1) return originalSrc;
 
   const withoutExt = cleaned.slice(0, lastDot);
-  // Build the path by encoding each segment individually with encodeURIComponent.
-  // This ensures special characters like spaces AND '&' in folder names
-  // (e.g. "Bhawna & Abhishek") are properly percent-encoded (%20, %26).
-  // Using encodeURI was NOT sufficient — it skips '&', which deployment servers
-  // interpret as a query-string separator, causing 404s for these images.
+  // Ensure the generated path is properly URL-encoded so spaces don't break the srcset parser.
+  // We use encodeURI instead of encodeURIComponent so that '&' is NOT encoded to '%26'.
+  // Vite/Nitro static servers often fail to match '%26' to '&' on the file system, causing 404s.
   const rawPath = `/photography-optimized/${withoutExt}-${width}w.webp`;
-  const encodedPath = rawPath
-    .split("/")
-    .map((segment) => encodeURIComponent(segment))
-    .join("/");
-  return encodedPath;
+  return encodeURI(rawPath);
 }
 
 export function getPhotoSrcSet(originalSrc: string): string | undefined {

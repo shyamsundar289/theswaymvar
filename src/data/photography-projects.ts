@@ -54,18 +54,54 @@ export const khushbooJayImages = [
 ];
 
 export const bhawnaAbhishekImages = [
+  // Folder 01
+  createMedia("/Bhawna & Abhishek/01/AK205710 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/01/AK205721 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/01/AK205960 copy.jpg", "landscape"),
+  createMedia("/Bhawna & Abhishek/01/AK206165 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/01/AK206169 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/01/AK206304 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/01/AK206443 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/01/AK206495 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/01/AK206540 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/01/AK206544 copy.jpg", "portrait"),
+  // Folder 02
+  createMedia("/Bhawna & Abhishek/02/AK206736 - Copy copy.jpg", "landscape"),
   createMedia("/Bhawna & Abhishek/02/AK206738 - Copy copy.jpg", "landscape"),
+  createMedia("/Bhawna & Abhishek/02/AK206741 - Copy copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/02/AK206767 - Copy copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/02/AK206809 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/02/AK206857 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/02/AK207280.jpg", "landscape"),
+  createMedia("/Bhawna & Abhishek/02/AK207859 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/02/AK207897 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/02/AK208110 copy.jpg", "landscape"),
+  createMedia("/Bhawna & Abhishek/02/AK208138 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/02/AK208157 copy.jpg", "landscape"),
+  createMedia("/Bhawna & Abhishek/02/AK208196 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/02/AK208242 copy.jpg", "portrait"),
+  // Folder 03
+  createMedia("/Bhawna & Abhishek/03/AK208386 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/03/AK208403 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/03/AK208420 copy.jpg", "landscape"),
+  createMedia("/Bhawna & Abhishek/03/AK208431 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/03/AK208467 copy.jpg", "landscape"),
+  createMedia("/Bhawna & Abhishek/03/AK208547 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/03/AK208582 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/03/AK208623 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/03/AK208631 copy 01.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/03/AK208633 copy.jpg", "portrait"),
+  // Folder 04
+  createMedia("/Bhawna & Abhishek/04/AK208345.JPG", "landscape"),
+  createMedia("/Bhawna & Abhishek/04/AK208386 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/04/AK209223 copy.jpg", "portrait"),
   createMedia("/Bhawna & Abhishek/04/AK209315 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/04/AK209328 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/04/AK209344 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/04/AK209382 copy.jpg", "landscape"),
   createMedia("/Bhawna & Abhishek/04/AK209402 copy.jpg", "landscape"),
+  createMedia("/Bhawna & Abhishek/04/AK209499 copy.jpg", "portrait"),
+  createMedia("/Bhawna & Abhishek/04/DSCF1388 copy.jpg", "portrait"),
 ];
 
 export const heroImages = [

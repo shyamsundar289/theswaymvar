@@ -2,10 +2,11 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { stories, type Story } from "@/data/site";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
-import { CouplePhotoGrid } from "@/components/site/CouplePhotoGrid";
 import { WhatsAppButton } from "@/components/site/CTA";
 import { getSeoMetadata, SITE_URL } from "@/config/seo";
 import { getPhotoSrc, isPhotographyImage } from "@/lib/photography-image-utils";
+import { EditorialGallery } from "@/components/site/EditorialGallery";
+
 
 export const Route = createFileRoute("/photography/$slug")({
   loader: ({ params }) => {
@@ -88,10 +89,11 @@ function StoryDetail() {
       </section>
 
       {story.gallery && story.gallery.length > 0 && (
-        <section className="shell pb-20 md:pb-28">
-          <CouplePhotoGrid media={story.gallery} />
+        <section className="pt-16 md:pt-24 lg:pt-32 pb-0">
+          <EditorialGallery media={story.gallery} />
         </section>
       )}
+
 
       <section className="border-t border-border/60">
         <div className="shell section-y grid gap-8 md:grid-cols-2 md:items-center">

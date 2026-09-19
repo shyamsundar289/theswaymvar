@@ -1,12 +1,5 @@
-import { execSync } from "child_process";
-try {
-  console.log("Restoring src/data and src/assets from git...");
-  execSync("git checkout HEAD -- src/data src/assets");
-  console.log("Restore complete.");
-} catch (e) {
-  console.error("Git restore failed:", e.message);
-}
 import { defineConfig } from "vite";
+
 import react from "@vitejs/plugin-react";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
