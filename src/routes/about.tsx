@@ -317,8 +317,8 @@ function AboutPage() {
       */}
 
       {/* ══════════════════════════════════════════════════════
-          SECTION 5 — MEET THE TEAM
-          ══════════════════════════════════════════════════════ */}
+          SECTION 5 — MEET THE TEAM (Commented out as requested)
+          ══════════════════════════════════════════════════════ 
       <section className="w-full py-[clamp(2.5rem,8vw,5rem)] px-[5vw] border-t border-[#e8e4dc]">
         <div className="max-w-[1440px] mx-auto">
           <Reveal className="flex flex-col items-center text-center mb-[clamp(2rem,6vw,3.5rem)]">
@@ -359,6 +359,7 @@ function AboutPage() {
           </Reveal>
         </div>
       </section>
+      */}
 
       {/* ══════════════════════════════════════════════════════
           SECTION 7 — LET'S CONNECT
