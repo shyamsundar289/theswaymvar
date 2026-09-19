@@ -56,6 +56,7 @@ export const CouplePhotoGrid = memo(function CouplePhotoGrid({ media }: Editoria
               delay: Math.min(i * 0.04, 0.4),
             }}
             className="relative mb-4 md:mb-6 lg:mb-8 break-inside-avoid overflow-hidden"
+            style={{ aspectRatio: ASPECT_RATIOS[item.orientation] }}
           >
             {item.type === "video" ? (
               <video

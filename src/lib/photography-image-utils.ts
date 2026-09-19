@@ -32,17 +32,11 @@ function getOptimizedPath(originalSrc: string, width: number): string {
   return encodeURI(rawPath);
 }
 
-/**
- * Builds a srcSet string from an original photography image path.
- *
- * Example output:
- *   "/photography-optimized/Varsha & Shivam/01/DSCF2797-400w.webp 400w,
- *    /photography-optimized/Varsha & Shivam/01/DSCF2797-800w.webp 800w,
- *    /photography-optimized/Varsha & Shivam/01/DSCF2797-1200w.webp 1200w,
- *    /photography-optimized/Varsha & Shivam/01/DSCF2797-1600w.webp 1600w"
- */
-export function getPhotoSrcSet(originalSrc: string): string {
-  return WIDTHS.map((w) => `${getOptimizedPath(originalSrc, w)} ${w}w`).join(", ");
+export function getPhotoSrcSet(originalSrc: string): string | undefined {
+  // Bypassing srcset temporarily as complex URLs with spaces and ampersands
+  // in srcset can break parsing in some environments.
+  // The default src (1200w WebP) will be used as a reliable fallback.
+  return undefined;
 }
 
 /**

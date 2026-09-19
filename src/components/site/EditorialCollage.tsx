@@ -1,13 +1,13 @@
-import { assets } from "../../assets/asset-manifest";
 import React from "react";
 import { motion } from "motion/react";
+import { OptimizedImage } from "@/components/site/OptimizedImage";
 
 export function EditorialCollage() {
   // We need 14 images total to surround 1 center text block (15 items total)
   // In a 5-col grid, the center is the 8th item.
   // In a 3-col grid, the center is also the 8th item!
-  const topImages = [13, 10, 2, 9, 5, 6, 1];
-  const bottomImages = [4, 14, 8, 7, 12, 11, 3];
+  const topImages = [1, 2, 3, 4, 5, 6, 7];
+  const bottomImages = [8, 9, 10, 11, 12, 13, 14];
 
   return (
     <section className="w-full bg-white overflow-hidden relative border-y border-white/20">
@@ -20,17 +20,14 @@ export function EditorialCollage() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "50px" }}
             transition={{ duration: 0.6, delay: idx * 0.05 }}
-            className="aspect-square relative overflow-hidden bg-[#f0ede6]"
+            className="aspect-square relative overflow-hidden bg-[#f0ede6] flex items-center justify-center group"
           >
-            <picture>
-              <source media="(min-width: 768px)" srcSet={assets.home.editorial[num - 1].desktop} />
-              <img
-                src={assets.home.editorial[num - 1].mobile}
-                alt="Editorial moment"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </picture>
+            <OptimizedImage 
+              src={`/media/images/home/editorial/${num}.png`} 
+              alt={`Editorial ${num}`}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              loading="lazy"
+            />
           </motion.div>
         ))}
 
@@ -61,17 +58,14 @@ export function EditorialCollage() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "50px" }}
             transition={{ duration: 0.6, delay: (idx + 7) * 0.05 }}
-            className="aspect-square relative overflow-hidden bg-[#f0ede6]"
+            className="aspect-square relative overflow-hidden bg-[#f0ede6] flex items-center justify-center group"
           >
-            <picture>
-              <source media="(min-width: 768px)" srcSet={assets.home.editorial[num - 1].desktop} />
-              <img
-                src={assets.home.editorial[num - 1].mobile}
-                alt="Editorial moment"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </picture>
+            <OptimizedImage 
+              src={`/media/images/home/editorial/${num}.png`} 
+              alt={`Editorial ${num}`}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+              loading="lazy"
+            />
           </motion.div>
         ))}
       </div>
