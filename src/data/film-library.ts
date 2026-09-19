@@ -22,7 +22,7 @@ export const filmLibraryData: LibraryFilm[] = [
   {
     id: "film-2",
     couple: "Khushboo & Chhatrapal",
-    category: "WEDDING",
+    category: "PRE-WEDDING",
     posterImg: "/media/images/film-covers/2.png",
     videoUrl: "/media/videos/films/2.mp4",
   },
@@ -50,7 +50,7 @@ export const filmLibraryData: LibraryFilm[] = [
   {
     id: "film-6",
     couple: "Koushalya & Vikash",
-    category: "WEDDING",
+    category: "PRE-WEDDING",
     posterImg: "/media/images/film-covers/6.png",
     videoUrl: "/media/videos/films/6.mp4",
   },
@@ -64,7 +64,7 @@ export const filmLibraryData: LibraryFilm[] = [
   {
     id: "film-8",
     couple: "Khushboo & Chhatrapal",
-    category: "WEDDING",
+    category: "PRE-WEDDING",
     posterImg: "/media/images/film-covers/8.png",
     videoUrl: "/media/videos/films/8.mp4",
   },
@@ -85,15 +85,16 @@ export const filmLibraryData: LibraryFilm[] = [
   {
     id: "film-11",
     couple: "Koushalya & Vikash",
-    category: "WEDDING",
+    category: "PRE-WEDDING",
     posterImg: "/media/images/film-covers/11.png",
     videoUrl: "/media/videos/films/11.mp4",
   },
   {
     id: "film-12",
     couple: "Khushbu & Jay",
-    category: "WEDDING",
+    category: "PRE-WEDDING",
     posterImg: "/media/images/film-covers/12.png",
     videoUrl: "/media/videos/films/12.mp4",
   }
 ];
+

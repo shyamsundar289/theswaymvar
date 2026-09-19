@@ -149,7 +149,7 @@ export const featuredFilms = [
     id: "2",
     couple: "Khushboo & Chhatrapal",
     location: "Rajasthan",
-    category: "Cinematic Highlights",
+    category: "Pre-Wedding Film",
     videoUrl: "/media/videos/films/2.mp4",
     posterImg: "/media/images/film-covers/2.png",
   },
