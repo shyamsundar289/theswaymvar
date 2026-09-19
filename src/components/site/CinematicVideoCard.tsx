@@ -205,7 +205,6 @@ export function CinematicVideoCard({ film, isActive, onActivate }: CinematicVide
           <h3 className="font-display text-2xl md:text-3xl font-light tracking-tight">
             {film.couple}
           </h3>
-          <p className="text-xs font-sans tracking-wide mt-1 opacity-90">{film.location}</p>
         </div>
       </div>
 

@@ -91,7 +91,7 @@ function YourMemoriesPage() {
                       className="text-[10px] tracking-[2px] uppercase text-[#8b867c] font-sans hover:text-[#2d2c2a] transition-colors inline-block"
                     >
                       <span className="border-b border-[#e4e0d7] hover:border-[#2d2c2a] pb-[2px] transition-all duration-300">
-                        View Journal
+                        View Memories
                       </span>
                     </Link>
                   </div>
