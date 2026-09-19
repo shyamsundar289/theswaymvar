@@ -4,6 +4,7 @@ export const FILM_CATEGORIES = [
   "Documentary",
   "Same-day edit",
   "Pre-Wedding Film",
+  "Wedding Film",
 ] as const;
 
 export type FilmCategory = (typeof FILM_CATEGORIES)[number];

@@ -173,7 +173,6 @@ export function CinematicVideoCard({ film, isActive, onActivate }: CinematicVide
       <video
         ref={videoRef}
         src={film.videoUrl}
-        poster={film.posterImg}
         className="w-full h-full object-cover"
         preload="metadata"
         onTimeUpdate={handleTimeUpdate}
@@ -181,6 +180,18 @@ export function CinematicVideoCard({ film, isActive, onActivate }: CinematicVide
         onEnded={() => setIsPlaying(false)}
         playsInline
       />
+
+      {/* Poster Image Overlay */}
+      <div 
+        className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${hasStarted ? "opacity-0" : "opacity-100"}`}
+      >
+        <img
+          src={film.posterImg}
+          alt={film.couple}
+          loading="lazy"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       {/* Overlay Content (Hidden when actively playing to preserve unobstructed view) */}
       <div
