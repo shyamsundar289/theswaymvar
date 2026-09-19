@@ -4,8 +4,8 @@ import { films } from "@/data/films";
 import { Header } from "@/components/site/Header";
 
 export function FilmStickyIntro() {
-  const featuredVideo = films[0]?.video || assets.videos.hero;
-  const featuredPoster = films[0]?.poster || assets.recentWork.recent01;
+  const featuredVideo = assets.videos.background.wedding;
+  const featuredPoster = assets.recentWork.recent01;
 
   return (
     <div className="sticky top-0 left-0 w-full h-[50vh] md:h-[500px] lg:h-[580px] overflow-hidden z-0">

@@ -29,7 +29,7 @@ function AboutPage() {
       id: "t1",
       name: "Ravi Maru",
       role: "Founder & Filmmaker",
-      img: assets.crew.getMemberPhoto(1),
+      img: assets.about.person,
     },
     {
       id: "t2",
@@ -300,8 +300,8 @@ function AboutPage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════
-          SECTION 4 — GROUP PHOTO
-          ══════════════════════════════════════════════════════ */}
+          SECTION 4 — GROUP PHOTO (Commented out as requested)
+          ══════════════════════════════════════════════════════ 
       <section className="w-full py-[clamp(2.5rem,8vw,5rem)] px-[5vw] border-t border-[#e8e4dc]">
         <div className="max-w-[1440px] mx-auto">
           <Reveal className="w-full aspect-[4/3] sm:aspect-video md:aspect-[21/9] bg-muted relative overflow-hidden rounded-[2px]">
@@ -314,6 +314,7 @@ function AboutPage() {
           </Reveal>
         </div>
       </section>
+      */}
 
       {/* ══════════════════════════════════════════════════════
           SECTION 5 — MEET THE TEAM

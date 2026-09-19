@@ -137,7 +137,7 @@ export const EditorialGallery = memo(function EditorialGallery({
             >
               <GalleryImage
                 item={row.item}
-                className="h-[50vh] sm:h-[70vh] md:h-[90vh]"
+                className="aspect-[3/2]"
                 sizes="(max-width: 1200px) 100vw, 1200px"
               />
             </motion.div>
@@ -157,12 +157,12 @@ export const EditorialGallery = memo(function EditorialGallery({
             >
               <GalleryImage
                 item={row.left}
-                className="h-[50vh] sm:h-[70vh] md:h-[90vh]"
+                className="aspect-[3/4]"
                 sizes="50vw"
               />
               <GalleryImage
                 item={row.right}
-                className="h-[50vh] sm:h-[70vh] md:h-[90vh]"
+                className="aspect-[3/4]"
                 sizes="50vw"
               />
             </motion.div>

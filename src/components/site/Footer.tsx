@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { nav, waLink } from "@/data/site";
 import { Reveal } from "@/components/site/Reveal";
+import { Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
@@ -25,19 +26,40 @@ export function Footer() {
                 <br />
                 each year.
               </h2>
-              <a
-                href={waLink()}
-                target="_blank"
-                rel="noreferrer"
-                className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-[clamp(12px,1.5vw,20px)] py-[clamp(6px,1vw,12px)] transition-all duration-500 hover:border-[#666] w-max max-w-full gap-[clamp(8px,1.5vw,20px)]"
-              >
-                <span className="font-sans text-[clamp(7.5px,1vw,10px)] uppercase tracking-[0.15em] text-[#e0dcd0] whitespace-nowrap overflow-hidden text-ellipsis">
-                  Create
-                </span>
-                <span className="text-[#c4a97d] transition-transform duration-500 group-hover:translate-x-1 md:group-hover:translate-x-2 text-[clamp(10px,1.5vw,16px)] shrink-0">
-                  →
-                </span>
-              </a>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href={waLink()}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative inline-flex items-center justify-between border border-[#333] bg-transparent px-[clamp(12px,1.5vw,20px)] py-[clamp(6px,1vw,12px)] transition-all duration-500 hover:border-[#666] w-max max-w-full gap-[clamp(8px,1.5vw,20px)]"
+                >
+                  <span className="font-sans text-[clamp(7.5px,1vw,10px)] uppercase tracking-[0.15em] text-[#e0dcd0] whitespace-nowrap overflow-hidden text-ellipsis">
+                    Create
+                  </span>
+                  <span className="text-[#c4a97d] transition-transform duration-500 group-hover:translate-x-1 md:group-hover:translate-x-2 text-[clamp(10px,1.5vw,16px)] shrink-0">
+                    →
+                  </span>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/theswaymvar"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#8b867c] hover:text-[#c4a97d] transition-colors flex items-center justify-center w-[clamp(36px,3vw,44px)] h-[clamp(36px,3vw,44px)] rounded-full border border-[#333] hover:border-[#c4a97d] shrink-0"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={18} />
+                </a>
+                <a
+                  href="https://www.youtube.com/@the.swaymvar"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#8b867c] hover:text-[#c4a97d] transition-colors flex items-center justify-center w-[clamp(36px,3vw,44px)] h-[clamp(36px,3vw,44px)] rounded-full border border-[#333] hover:border-[#c4a97d] shrink-0"
+                  aria-label="YouTube"
+                >
+                  <Youtube size={18} />
+                </a>
+              </div>
             </div>
 
             {/* COLUMN 2 — EXPLORE */}
