@@ -142,7 +142,7 @@ export const featuredFilms = [
     couple: "Chanchal & Harshit",
     location: "Rajasthan",
     category: "Wedding Film",
-    videoUrl: "/media/videos/films/1.mp4",
+    videoUrl: "/videos/1.mp4",
     posterImg: "/media/images/film-covers/1.png",
   },
   {
@@ -150,7 +150,7 @@ export const featuredFilms = [
     couple: "Khushboo & Chhatrapal",
     location: "Rajasthan",
     category: "Pre-Wedding Film",
-    videoUrl: "/media/videos/films/2.mp4",
+    videoUrl: "/videos/2.mp4",
     posterImg: "/media/images/film-covers/2.png",
   },
   {
@@ -158,7 +158,7 @@ export const featuredFilms = [
     couple: "Bhawana & Abhishek",
     location: "Rajasthan",
     category: "Destination Film",
-    videoUrl: "/media/videos/films/3.mp4",
+    videoUrl: "/videos/3.mp4",
     posterImg: "/media/images/film-covers/3.png",
   },
   {
@@ -166,7 +166,7 @@ export const featuredFilms = [
     couple: "Rajishree & Nitin",
     location: "Rajasthan",
     category: "The Celebration",
-    videoUrl: "/media/videos/films/4.mp4",
+    videoUrl: "/videos/4.mp4",
     posterImg: "/media/images/film-covers/4.png",
   },
 ];

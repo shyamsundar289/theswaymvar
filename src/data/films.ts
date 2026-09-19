@@ -13,7 +13,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "The beautiful wedding of Chanchal and Harshit.",
     poster: "/media/images/film-covers/1.png",
-    video: "/media/videos/films/1.mp4",
+    video: "/videos/1.mp4",
     featured: true,
   },
   {
@@ -26,7 +26,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "The beautiful wedding of Khushboo and Chhatrapal.",
     poster: "/media/images/film-covers/2.png",
-    video: "/media/videos/films/2.mp4",
+    video: "/videos/2.mp4",
     featured: true,
   },
   {
@@ -39,7 +39,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "The beautiful wedding of Bhawana and Abhishek.",
     poster: "/media/images/film-covers/3.png",
-    video: "/media/videos/films/3.mp4",
+    video: "/videos/3.mp4",
   },
   {
     id: "f4",
@@ -51,7 +51,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "The beautiful wedding of Rajishree and Nitin.",
     poster: "/media/images/film-covers/4.png",
-    video: "/media/videos/films/4.mp4",
+    video: "/videos/4.mp4",
   },
   {
     id: "f5",
@@ -63,7 +63,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "The beautiful wedding of Khushbu and Jay.",
     poster: "/media/images/film-covers/5.png",
-    video: "/media/videos/films/5.mp4",
+    video: "/videos/5.mp4",
   },
   {
     id: "f6",
@@ -75,7 +75,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "The beautiful wedding of Koushalya and Vikash.",
     poster: "/media/images/film-covers/6.png",
-    video: "/media/videos/films/6.mp4",
+    video: "/videos/6.mp4",
   },
   {
     id: "f7",
@@ -87,7 +87,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "The beautiful wedding of Tamana and Sandeep.",
     poster: "/media/images/film-covers/7.png",
-    video: "/media/videos/films/7.mp4",
+    video: "/videos/7.mp4",
   },
   {
     id: "f8",
@@ -99,7 +99,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "Another beautiful moment of Khushboo and Chhatrapal.",
     poster: "/media/images/film-covers/8.png",
-    video: "/media/videos/films/8.mp4",
+    video: "/videos/8.mp4",
   },
   {
     id: "f9",
@@ -111,7 +111,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "The beautiful wedding of Hemlata and Giriraj.",
     poster: "/media/images/film-covers/9.png",
-    video: "/media/videos/films/9.mp4",
+    video: "/videos/9.mp4",
   },
   {
     id: "f10",
@@ -123,7 +123,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "Another beautiful moment of Khushbu and Jay.",
     poster: "/media/images/film-covers/10.png",
-    video: "/media/videos/films/10.mp4",
+    video: "/videos/10.mp4",
   },
   {
     id: "f11",
@@ -135,7 +135,7 @@ export const films: Film[] = [
     duration: "05:00",
     description: "Another beautiful moment of Koushalya and Vikash.",
     poster: "/media/images/film-covers/11.png",
-    video: "/media/videos/films/11.mp4",
+    video: "/videos/11.mp4",
   },
   {
     id: "f12",
@@ -147,6 +147,6 @@ export const films: Film[] = [
     duration: "05:00",
     description: "A wonderful celebration for Khushbu and Jay.",
     poster: "/media/images/film-covers/12.png",
-    video: "/media/videos/films/12.mp4",
+    video: "/videos/12.mp4",
   },
 ];
