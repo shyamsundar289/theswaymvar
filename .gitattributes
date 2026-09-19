@@ -13,3 +13,4 @@ public/video&cover/*.png filter=lfs diff=lfs merge=lfs -text
 public/media/images/film-covers/*.png -filter -diff -merge
 public/media/videos/films/*.mp4 -filter -diff -merge
 public/videos/*.mp4 -filter -diff -merge
+public/media/images/hero/*.png -filter -diff -merge
