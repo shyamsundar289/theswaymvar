@@ -20,11 +20,11 @@ import { Header } from "@/components/site/Header";
 
 function YourMemoriesPage() {
   const typographicCards = [
-    { couple: "Chanchal & Harshit" },
-    { couple: "Khushboo & Chhatrapal" },
-    { couple: "Bhawana & Abhishek" },
-    { couple: "Rajishree & Nitin" },
-    { couple: "Khushbu & Jay" },
+    { couple: "Dimple & Siddharth", link: "https://kwikpic-in.app.link/e/qeoCCRZOy6b?uCode=G2C92K" },
+    { couple: "Varun & Akanksha", link: "https://kwikpic-in.app.link/e/xDOWq91Oy6b?uCode=1260AE" },
+    { couple: "The Swaymvar 1", link: "https://kwikpic-in.app.link/e/0kQ5D94Oy6b?uCode=AVCNNS" },
+    { couple: "The Swaymvar 2", link: "https://kwikpic-in.app.link/e/asPjQ36Oy6b?uCode=X9M75P" },
+    { couple: "The Swaymvar 3", link: "https://kwikpic-in.app.link/e/bG4tO38Oy6b?uCode=LKJLSS" },
   ];
 
   return (
@@ -33,7 +33,7 @@ function YourMemoriesPage() {
       <div className="sticky top-0 left-0 w-full h-[50vh] md:h-[500px] lg:h-[580px] overflow-hidden z-0">
         <Header />
         <img
-          src={images.hero.primary}
+          src="/media/images/hero/YourMemoriesHero.png"
           alt="Your Memories Hero"
           className="absolute inset-0 w-full h-full object-cover object-center opacity-85"
         />
@@ -76,9 +76,15 @@ function YourMemoriesPage() {
                     </p>
                     
                     <h3 className="font-display text-[20px] md:text-[24px] font-normal text-[#2d2c2a] leading-[1.2] transition-transform duration-700 group-hover:scale-105">
-                      {item.couple.split(' & ')[0]} <br />
-                      <span className="text-[#c4a97d] italic font-light font-serif my-2 block">&</span>
-                      {item.couple.split(' & ')[1] || item.couple}
+                      {item.couple.includes(' & ') ? (
+                        <>
+                          {item.couple.split(' & ')[0]} <br />
+                          <span className="text-[#c4a97d] italic font-light font-serif my-2 block">&</span>
+                          {item.couple.split(' & ')[1]}
+                        </>
+                      ) : (
+                        item.couple
+                      )}
                     </h3>
 
                     <div className="absolute inset-0 border-[1px] border-transparent transition-colors duration-700 m-2 group-hover:border-[#e8e4dc]/50 pointer-events-none rounded-[20px]"></div>
@@ -86,14 +92,16 @@ function YourMemoriesPage() {
 
                   {/* TEXT & REDIRECT ('view more') */}
                   <div className="mt-5 text-center w-full">
-                    <Link
-                      to="/photography"
-                      className="text-[10px] tracking-[2px] uppercase text-[#8b867c] font-sans hover:text-[#2d2c2a] transition-colors inline-block"
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] tracking-[2px] uppercase text-[#8b867c] font-sans hover:text-[#2d2c2a] transition-colors inline-block cursor-pointer"
                     >
                       <span className="border-b border-[#e4e0d7] hover:border-[#2d2c2a] pb-[2px] transition-all duration-300">
                         View Memories
                       </span>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               ))}
